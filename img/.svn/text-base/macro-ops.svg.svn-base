@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="791"
+   height="315.31"
+   id="svg2985"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="新規ドキュメント 2">
+  <defs
+     id="defs2987">
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend"
+       style="overflow:visible">
+      <path
+         id="path3851"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.77472527"
+     inkscape:cx="339.25529"
+     inkscape:cy="62.406317"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="px"
+     showgrid="true"
+     inkscape:snap-bbox="true"
+     inkscape:object-nodes="true"
+     fit-margin-top="30"
+     fit-margin-left="30"
+     fit-margin-right="30"
+     fit-margin-bottom="30"
+     inkscape:window-width="1024"
+     inkscape:window-height="694"
+     inkscape:window-x="416"
+     inkscape:window-y="900"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3051"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true"
+       originx="100.5px"
+       originy="-69.5px" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata2990">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     transform="translate(100.5,-95.19)">
+    <rect
+       style="color:#000000;fill:#0197fd;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect2993"
+       width="180"
+       height="45"
+       x="-14.777252"
+       y="272.03207"
+       rx="4"
+       ry="4"
+       transform="matrix(0.96592583,-0.25881905,0.25881905,0.96592583,0,0)" />
+    <rect
+       style="color:#000000;fill:#f44800;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect2993-7"
+       width="180"
+       height="45"
+       x="414.33273"
+       y="116.74063"
+       rx="4"
+       ry="4"
+       transform="matrix(0.96592583,0.25881905,-0.25881905,0.96592583,0,0)" />
+    <g
+       id="g4296"
+       transform="matrix(1.3315581,0,0,1,-46.184345,50.000004)">
+      <rect
+         ry="4.0025253"
+         rx="3.7246997"
+         y="269.96841"
+         x="87.732635"
+         height="55.034721"
+         width="344.53473"
+         id="rect3049"
+         style="color:#000000;fill:#cccccf;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.96527863;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+      <rect
+         ry="4.0025253"
+         rx="3.7246997"
+         y="274.97159"
+         x="92.388512"
+         height="45.028408"
+         width="167.61148"
+         id="rect2993-2"
+         style="color:#000000;fill:#0197fd;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.96527863;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+      <rect
+         ry="4.0025253"
+         rx="3.7246997"
+         y="274.97159"
+         x="260"
+         height="45.028408"
+         width="167.61148"
+         id="rect2993-7-0"
+         style="color:#000000;fill:#f44800;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.96527863;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m -70,160 730,0"
+       id="path3074"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4288"
+       style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:'M+ 1p';-inkscape-font-specification:'M+ 1p Medium'"
+       transform="translate(11.828125,17.166035)"><flowRegion
+         id="flowRegion4290"><rect
+           id="rect4292"
+           width="223.30496"
+           height="59.375889"
+           x="186.51773"
+           y="105.67376"
+           style="fill:#000000;stroke:none" /></flowRegion><flowPara
+         id="flowPara4294">探索深さ</flowPara></flowRoot>    <g
+       id="g4390"
+       transform="translate(-40,10)">
+      <path
+         d="m 80,320 c 0,27.61424 -22.385763,50 -50,50 -27.6142375,0 -50,-22.38576 -50,-50 0,-27.61424 22.3857625,-50 50,-50 27.614237,0 50,22.38576 50,50 z"
+         sodipodi:ry="50"
+         sodipodi:rx="50"
+         sodipodi:cy="320"
+         sodipodi:cx="30"
+         id="path4301"
+         style="color:#000000;fill:#cccccf;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc" />
+      <flowRoot
+         transform="translate(-11.625,1.6347854)"
+         style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:'M+ 1p';-inkscape-font-specification:'M+ 1p Medium'"
+         id="flowRoot4339"
+         xml:space="preserve"><flowRegion
+           id="flowRegion4341"><rect
+             style="fill:#000000;stroke:none"
+             y="301.22696"
+             x="3.8723404"
+             height="41.304966"
+             width="75.510635"
+             id="rect4343" /></flowRegion><flowPara
+           id="flowPara4345">A</flowPara></flowRoot>    </g>
+    <g
+       id="g4397"
+       transform="translate(10,30)">
+      <path
+         d="m 80,320 c 0,27.61424 -22.385763,50 -50,50 -27.6142375,0 -50,-22.38576 -50,-50 0,-27.61424 22.3857625,-50 50,-50 27.614237,0 50,22.38576 50,50 z"
+         sodipodi:ry="50"
+         sodipodi:rx="50"
+         sodipodi:cy="320"
+         sodipodi:cx="30"
+         id="path4301-1"
+         style="color:#000000;fill:#cccccf;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc"
+         transform="translate(260,-120)" />
+      <flowRoot
+         transform="translate(-1.390625,10.072285)"
+         style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:'M+ 1p';-inkscape-font-specification:'M+ 1p Medium'"
+         id="flowRoot4374"
+         xml:space="preserve"><flowRegion
+           id="flowRegion4376"><rect
+             y="172.79433"
+             x="255.57446"
+             height="67.120567"
+             width="71.638298"
+             id="rect4378" /></flowRegion><flowPara
+           id="flowPara4380">B</flowPara></flowRoot>    </g>
+    <g
+       id="g4404"
+       transform="translate(50,20)">
+      <path
+         d="m 80,320 c 0,27.61424 -22.385763,50 -50,50 -27.6142375,0 -50,-22.38576 -50,-50 0,-27.61424 22.3857625,-50 50,-50 27.614237,0 50,22.38576 50,50 z"
+         sodipodi:ry="50"
+         sodipodi:rx="50"
+         sodipodi:cy="320"
+         sodipodi:cx="30"
+         id="path4301-2"
+         style="color:#000000;fill:#cccccf;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         sodipodi:type="arc"
+         transform="translate(530,-10)" />
+      <flowRoot
+         transform="translate(-3.421875,2.6035354)"
+         style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:'M+ 1p';-inkscape-font-specification:'M+ 1p Medium'"
+         id="flowRoot4382"
+         xml:space="preserve"><flowRegion
+           id="flowRegion4384"><rect
+             y="290.25531"
+             x="536.96454"
+             height="48.404255"
+             width="52.921986"
+             id="rect4386" /></flowRegion><flowPara
+           id="flowPara4388">C</flowPara></flowRoot>    </g>
+  </g>
+</svg>

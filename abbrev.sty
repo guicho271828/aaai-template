@@ -1,0 +1,106 @@
+
+\newcommand{\brackets}[1]{\left<#1\right>}
+\newcommand{\braces}[1]{\left\{#1\right\}}
+\newcommand{\parens}[1]{\left(#1\right)}
+\newcommand{\bars}[1]{\left|#1\right|}
+
+\newcommand{\apply}[2]{#1\big|_{#2}}
+
+\renewcommand{\ss}{SS\xspace}
+\newcommand{\sss}{SS's\xspace}
+\newcommand{\ssset}{{\cal S}}
+
+\newcommand{\pstep}{$procs{b,S}$\xspace}
+\newcommand{\psteps}{$proc{b}$\xspace}
+
+\newcommand{\uline}[1]{\underline{#1}}
+
+
+\newcommand{\msss}{\mbox{{$\mbox{MS}^{3}$}}\xspace}
+
+\newcommand{\rel}[1]{\in \params{#1}}
+
+\newcommand{\sota}{State-of-the-Art\xspace}
+\newcommand{\domind}{domain-independent\xspace}
+
+% template
+
+\newcommand{\domain}{{\cal D}}
+\newcommand{\actions}{{\cal A}}
+\newcommand{\objects}{{\cal O}}
+\newcommand{\predicates}{{\cal P}}
+\newcommand{\problem}{\Pi}
+\newcommand{\adde}[1]{e^+\parens{#1}}
+\newcommand{\dele}[1]{e^-\parens{#1}}
+\newcommand{\eff}[1]{e^{\pm}\parens{#1}}
+
+\newcommand{\movement}{\bar{M}}
+\newcommand{\movements}{\bar{M}^*}
+
+\newcommand{\plan}{P}
+\newcommand{\nplan}[1]{P_{#1}}
+\newcommand{\totalplan}{P_t}
+\newcommand{\unitplan}{P_u}
+\newcommand{\loopplan}{P_l}
+
+\newcommand{\action}{a}
+
+\newcommand{\lambdafn}[2]{%
+\lambda(#1)\left(#2\right)%
+}
+
+\newcommand{\eqtype}{=_\tau}
+\newcommand{\subtype}{\leq_\tau}
+
+\newcommand{\astar}{{A*}}
+
+\newcommand{\defun}[1]{%
+\makeatletter
+\expandafter\def\csname the#1\endcsname{\mbox{\it #1}}
+\expandafter\def\csname #1\endcsname ##1{\csname the#1\endcsname\left(##1\right)}%
+\makeatother
+}
+
+\newcommand{\defsetop}[2]{%
+\makeatletter% variable, set, descriptor
+ \expandafter\def\csname #1\endcsname ##1##2##3{%
+  \expandafter\def\csname #1arg\endcsname{##1}%
+  \expandafter\def\csname #1set\endcsname{##2}%
+  \expandafter\def\csname #1cond\endcsname{##3}%
+  \braces{##1##2\mid #2 ##3}%
+ }%
+\makeatother%
+}
+
+
+\defun{precond}
+\defun{condition}
+\defun{params}
+\defun{type}
+\defun{proc}
+\defun{cost}
+
+
+\defun{push}
+
+% \defun{append}
+% \defun{remove}
+
+\newcommand{\append}[2]{#1 \gets #1\cap #2}
+\newcommand{\remove}[2]{#1 \gets #1\setminus #2}
+
+
+
+\defun{init}
+\defun{goal}
+\defun{objects}
+
+\newcommand{\procs}[1]{\mbox{$\mbox{\it proc}^*$}\left(#1\right)}
+
+\defsetop{filter}{}
+\defsetop{map}{}
+
+\def\ca{{\relsize{-1}CELL-ASSEMBLY}\xspace}
+\def\ww{{\relsize{-1}Woodworking}\xspace}
+\def\barm{{\relsize{-1}Barman}\xspace}
+

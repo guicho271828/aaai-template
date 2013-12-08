@@ -1,0 +1,67 @@
+% \usepackage[dvipdfm]{graphicx}
+% \usepackage{moreverb}
+
+\newcommand{\defmath}[1]{\mbox{$#1$}}
+
+% \newcommand{\mat}[1]{\defmath{\mathbf{#1}}}
+% \renewcommand{\vec}[1]{\defmath{\mathit{#1}}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\renewcommand{\vec}[1]{\mathit{#1}}
+\newcommand{\norm}[1]{\defmath{\|#1\|}}
+
+\newcommand{\then}{\therefore \qquad}
+% \renewcommand{\iff}{\Leftrightarrow \qquad}
+% \DeclareMathOperator{\diver}{div}
+% \DeclareMathOperator{\dist}{dist}
+% \DeclareMathOperator{\rot}{rot}
+\newcommand{\ppartialby}[2]{\frac{\partial^2}{\partial #1 \partial #2}}
+\newcommand{\partialby}[1]{\frac{\partial}{\partial #1}}
+\newcommand{\partialofby}[2]{\frac{\partial #1}{\partial #2}}
+
+\newcommand{\ddifby}[2]{\frac{d^2}{d#1d#2}}
+\newcommand{\difby}[1]{\frac{d}{d#1}}
+\newcommand{\difofby}[2]{\frac{d#1}{d#2}}
+
+\newcommand{\si}[1]{\mathrm{[#1]}}
+\newcommand{\ten}[1]{\times 10^{#1}}
+\newcommand{\mev}{\si{MeV}}
+\newcommand{\kev}{\si{KeV}}
+
+\newtheorem{prob}{Problem}
+\newtheorem{defi}{Definition}
+\newtheorem{ex}{Example}
+\newtheorem{theo}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{colorary}{Colorary}
+
+\newcommand{\reflst}[1]{List \ref{#1}}
+\newcommand{\refig}[1]{Fig. \ref{#1}}
+\newcommand{\refalgo}[1]{Alg. \ref{#1}}
+\newcommand{\refsec}[1]{Section \ref{#1}}
+\newcommand{\refseq}[1]{Section \ref{#1}}
+\newcommand{\refchap}[1]{Chapter \ref{#1}}
+\newcommand{\reftbl}[1]{Table \ref{#1}}
+\newcommand{\refeq}[1]{Eq. \eqref{#1}}
+\newcommand{\refpage}[1]{p.\pageref{#1}}
+\newcommand{\refcitequote}[1]{%
+\begin{flushright}\hspace{2em}\rule{4em}{0.1mm}%
+quoted from \cite{#1}\end{flushright}}
+
+% \renewcommand{\bibname}{ª≤πÕ ∏∏•}
+
+% \newcommand{\newalias}[2]{\newcommand{#1}{#2}}
+
+\newcounter{list}[section]
+\renewcommand{\thelist}{\thesection .\arabic{list}}
+
+\usepackage{float}
+\makeatletter
+\newfloat{@listbox}{htbp}{lol}[section]
+\newenvironment{listbox}[2][tbp]{
+  \begin{@listbox}[#1]
+   \refstepcounter{list}
+   \begin{itembox}{List \thelist\quad#2}
+ }{
+   \end{itembox}
+  \end{@listbox}
+}

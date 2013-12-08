@@ -1,0 +1,11 @@
+(add-to-list 'load-path "org-mode/lisp/")
+(add-to-list 'load-path "org-mode/contrib/lisp/")
+(add-to-list 'load-path "org-mode/contrib/babel/langs/")
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+
+(require 'org)
+(autoload 'org-table-export "org-table")
+(defun compile-org (in out)
+  (find-file in)
+  (search-forward "|" nil t)
+  (org-table-export out "orgtbl-to-tsv"))

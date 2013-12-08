@@ -1,0 +1,22 @@
+K 10
+svn:ignore
+V 109
+*~
+*.bb
+*.?bb
+*.png
+*.dep
+*.bak
+*.aux
+*.bbl
+*.dvi
+*.log
+*.elc
+*.utf8
+*.blg
+/main.org
+sources/*
+__*
+nohup.out
+
+END
