@@ -1,30 +1,34 @@
 
 name       = asai
-reference  = asai-reference.bib
+reference  = asai-references.bib
 emacs 	   = emacs
 styles     = abbrev.sty aaai_my.sty
 sources    = abstract.tex introduction.tex main.org.tex
+max_pages   = 7
 
 .SUFFIXES: .tex .org
-.PHONY: all en ja open imgs clean allclean
+.PHONY: all en ja open imgs clean allclean check_pages en_pdf ja_pdf
 
 all: en
 
+check_pages:
+	./check_pages.sh $(max_pages) $(name)
 
-en: $(name).tex imgs $(sources) $(styles) $(reference)
-	pdflatex -halt-on-error $<
-	pdflatex -halt-on-error $<
-	bibtex $(name)
-	pdflatex -halt-on-error $<
-	pdflatex -halt-on-error $<
+en:	en_pdf check_pages
+ja:	ja_pdf check_pages
 
-ja: $(name).tex imgs $(sources) $(styles) $(reference)
-	platex -halt-on-error $<
-	platex -halt-on-error $<
-	jbibtex $(name)
-	platex -halt-on-error $<
-	platex -halt-on-error $<
-	dvipdfm $(name)
+en_pdf: $(name).tex imgs $(sources) $(styles) $(reference)
+	latexmk -pdf \
+		-latexoption="-halt-on-error" \
+		-bibtex \
+		$<
+
+ja_pdf: $(name).tex imgs $(sources) $(styles) $(reference)
+	latexmk -r rc_ja.pl \
+		-latexoption="-halt-on-error" \
+		-pdfdvi \
+		-bibtex \
+		$<
 
 open: $(name).pdf
 	nohup evince $< &
@@ -48,9 +52,10 @@ img/%.svg: %.gnuplot %.csv
 	$(emacs) -Q --batch -f batch-byte-compile $<
 
 clean:
-	rm -f *~ *.aux *.dvi *.log *.toc *.bbl *.blg *.utf8 *.org.tex *.elc *.pdf
-	rm -f -r sources
-	rm -f __*
+	-rm *~ *.aux *.dvi *.log *.toc *.bbl \
+		*.blg *.utf8 *.org.tex *.elc *.pdf \
+		fdb_latexmk __*
+	-rm -r sources
 
 allclean: clean
 	make -C img clean

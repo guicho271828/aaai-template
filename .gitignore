@@ -16,3 +16,6 @@ __*
 nohup.out
 */.svn/*
 *.org.*
+*.fdb_latexmk
+*.fls
+formatting-instructions-latex.pdf

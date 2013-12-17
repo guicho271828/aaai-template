@@ -2,5 +2,10 @@
 
 git submodule init
 git submodule update
-sudo apt-get install nkf inkscape imagemagick jbibtex-base texlive dvipdfm ptex-jisfonts inotify-tools
-ln -s /usr/share/texmf/fonts/type1/public/lm ~/.fonts/
+
+sudo apt-get install \
+    nkf inkscape imagemagick \
+    jbibtex-base texlive dvipdfm ptex-jisfonts \
+    inotify-tools pdftk latexmk
+
+# ln -s /usr/share/texmf/fonts/type1/public/lm ~/.fonts/
