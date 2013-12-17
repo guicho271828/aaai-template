@@ -2,9 +2,8 @@
 name       = asai
 reference  = asai-reference.bib
 emacs 	   = emacs
-emacsflags =
 styles     = abbrev.sty aaai_my.sty
-sources    = abstract.tex introduction.tex
+sources    = abstract.tex introduction.tex main.org.tex
 
 .SUFFIXES: .tex .org
 .PHONY: all en ja open imgs clean allclean
@@ -34,7 +33,7 @@ imgs:
 	make -C img
 
 %.csv: %.csvorg compile-csv-org.elc
-	$emacs --batch --quick --script compile-csv-org.elc --eval "(progn (load-file \"compile-csv-org.el\")(compile-org \"$<\" \"$@\"))"
+	$(emacs) --batch --quick --script compile-csv-org.elc --eval "(progn (load-file \"compile-csv-org.el\")(compile-org \"$<\" \"$@\"))"
 
 img/%.tex: %.gnuplot %.csv
 	gnuplot $<
@@ -43,10 +42,10 @@ img/%.svg: %.gnuplot %.csv
 	gnuplot $<
 
 %.org.tex: %.org compile-main-org.elc
-	emacs --batch --quick --script compile-main-org.elc --eval "(progn (load-file \"compile-main-org.el\")(compile-org \"$<\" \"$@\"))"
+	$(emacs) --batch --quick --script compile-main-org.elc --eval "(progn (load-file \"compile-main-org.el\")(compile-org \"$<\" \"$@\"))"
 
 %.elc : %.el
-	$(EMACS) -Q --batch $(EMACSFLAGS) -f batch-byte-compile $<
+	$(emacs) -Q --batch -f batch-byte-compile $<
 
 clean:
 	rm -f *~ *.aux *.dvi *.log *.toc *.bbl *.blg *.utf8 *.org.tex *.elc *.pdf
