@@ -53,7 +53,7 @@ img/%.svg: %.gnuplot %.csv
 
 clean:
 	-rm *~ *.aux *.dvi *.log *.toc *.bbl \
-		*.blg *.utf8 *.org.tex *.elc *.pdf \
+		*.blg *.utf8 *.org.tex *.elc $(name).pdf \
 		fdb_latexmk __*
 	-rm -r sources
 

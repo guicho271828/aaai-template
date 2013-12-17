@@ -2,7 +2,7 @@
 # latexmkrc
 
 $latex         = 'platex';
-$bibtex        = 'jbibtex';
-$dvipdf         = 'dvipdfm';
+$bibtex        = 'pbibtex';
+# $dvipdf         = 'dvipdfm';
 
 

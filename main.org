@@ -15,11 +15,11 @@
 
 * Experimental Results
 
-# ストーリーこそが重要
+ストーリーこそが重要
 
 * Related Work
 
-# 関連性も重要
+関連性も重要
 
 * Conclusions
 
