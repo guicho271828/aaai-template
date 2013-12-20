@@ -31,7 +31,7 @@ ja_pdf: $(name).tex imgs $(sources) $(styles) $(reference)
 		$<
 
 open: $(name).pdf
-	nohup evince $< &
+	nohup evince $< &>/dev/null &
 
 imgs:
 	make -C img
