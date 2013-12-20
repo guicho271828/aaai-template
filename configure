@@ -5,8 +5,10 @@ git submodule update
 
 sudo apt-get install \
     nkf inkscape imagemagick \
-    jbibtex-base texlive dvipdfm ptex-jisfonts \
+    jbibtex-base texlive-lang-cjk \
     inotify-tools pdftk latexmk \
     texlive-fonts-recommended
+
+#  dvipdfm ptex-jisfonts : obsolete in ubuntu 13.10
 
 # ln -s /usr/share/texmf/fonts/type1/public/lm ~/.fonts/
