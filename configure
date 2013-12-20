@@ -6,6 +6,7 @@ git submodule update
 sudo apt-get install \
     nkf inkscape imagemagick \
     jbibtex-base texlive dvipdfm ptex-jisfonts \
-    inotify-tools pdftk latexmk
+    inotify-tools pdftk latexmk \
+    texlive-fonts-recommended
 
 # ln -s /usr/share/texmf/fonts/type1/public/lm ~/.fonts/
