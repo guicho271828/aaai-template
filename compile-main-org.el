@@ -1,12 +1,16 @@
-(add-to-list 'load-path "org-mode/lisp/")
-(add-to-list 'load-path "org-mode/contrib/lisp/")
-(add-to-list 'load-path "org-mode/contrib/babel/langs/")
-(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(message default-directory)
+(add-to-list 'load-path (concat default-directory "org-mode/lisp/"))
+(add-to-list 'load-path (concat default-directory "org-mode/contrib/lisp/"))
+(add-to-list 'load-path (concat default-directory "org-mode/contrib/babel/langs/"))
 
-(require 'org)
-(autoload 'org-latex-export-as-latex "ox-latex")
 
 (defun compile-org (in out)
+  (require 'org)
+  (require 'org-table)
+  (require 'ox-latex)
   (find-file in)
   (org-latex-export-as-latex nil nil nil t)
+  (replace-regexp "#.*
+" "")
+  (replace-regexp "\\\\label{sec-[0-9][^}]*}" "")
   (write-file out))

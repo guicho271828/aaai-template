@@ -1,3 +1,7 @@
+# Local Variables:
+# coding: utf8
+# eval: (auto-fill-mode 1)
+# End:
 
 #+OPTIONS: texht:nil
 #+OPTIONS: H:5 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t

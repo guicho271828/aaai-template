@@ -10,11 +10,7 @@
 \newcommand{\sss}{SS's\xspace}
 \newcommand{\ssset}{{\cal S}}
 
-\newcommand{\pstep}{$procs{b,S}$\xspace}
-\newcommand{\psteps}{$proc{b}$\xspace}
-
 \newcommand{\uline}[1]{\underline{#1}}
-
 
 \newcommand{\msss}{\mbox{{$\mbox{MS}^{3}$}}\xspace}
 
@@ -80,7 +76,6 @@
 \defun{proc}
 \defun{cost}
 
-
 \defun{push}
 
 % \defun{append}
@@ -97,6 +92,10 @@
 
 \newcommand{\procs}[1]{\mbox{$\mbox{\it proc}^*$}\left(#1\right)}
 
+\newcommand{\pstep}{$\procs{b,S}$\xspace}
+\newcommand{\psteps}{$\proc{b}$\xspace}
+
+
 \defsetop{filter}{}
 \defsetop{map}{}
 
@@ -104,3 +103,7 @@
 \def\ww{{\relsize{-1}Woodworking}\xspace}
 \def\barm{{\relsize{-1}Barman}\xspace}
 
+\newcommand{\pddl}[1]{{\small \textsf{#1}}}
+\newcommand{\pddls}[1]{{\scriptsize \textsf{#1}}}
+
+\newcommand{\tpred}[2]{\pddl{(#1 \uline{#2})}}

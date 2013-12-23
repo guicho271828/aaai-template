@@ -6,8 +6,9 @@ styles     = abbrev.sty aaai_my.sty
 sources    = abstract.tex introduction.tex main.org.tex
 max_pages   = 7
 
-.SUFFIXES: .tex .org
-.PHONY: all en ja open imgs clean allclean check_pages en_pdf ja_pdf
+.SUFFIXES: .tex .org .el .elc .svg
+.SECONDARY: compile-csv-org.elc compile-main-org.elc
+.PHONY: all en ja open imgs clean allclean check_pages en_pdf ja_pdf automake
 
 all: en
 
@@ -33,6 +34,9 @@ ja_pdf: $(name).tex imgs $(sources) $(styles) $(reference)
 open: $(name).pdf
 	nohup evince $< &>/dev/null &
 
+automake:
+	nohup ./make-periodically.sh &
+
 imgs:
 	make -C img
 
@@ -46,7 +50,9 @@ img/%.svg: %.gnuplot %.csv
 	gnuplot $<
 
 %.org.tex: %.org compile-main-org.elc
-	$(emacs) --batch --quick --script compile-main-org.elc --eval "(progn (load-file \"compile-main-org.el\")(compile-org \"$<\" \"$@\"))"
+	$(emacs) --batch --quick \
+		 --script compile-main-org.elc \
+		 --eval "(compile-org \"$<\" \"$@\")"
 
 %.elc : %.el
 	$(emacs) -Q --batch -f batch-byte-compile $<
