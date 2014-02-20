@@ -1,32 +1,35 @@
 
+where-am-i = $(CURDIR)/$(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST))
+OVERWRITEBB=$(shell dirname $(call where-am-i))/overwritebb.sh
+BB=$(shell ls *.svg | sed -e "s/svg/bb/g")
 SBB=$(shell ls *.svg | sed -e "s/svg/sbb/g")
 MBB=$(shell ls *.svg | sed -e "s/svg/mbb/g")
 XBB=$(shell ls *.svg | sed -e "s/svg/xbb/g")
 PNG=$(shell ls *.svg | sed -e "s/svg/png/g")
 
-.SUFFIXES: .svg .png
+BBTYPE=SBB
+
 .PHONY:	clean all
 
-all: $(PNG) $(SBB)
-	$(shell ./overwritebb.sh $(SBB))
+all: $(PNG) $($(BBTYPE))
 
-dvipdfm: $(PNG) $(MBB) always
-	$(shell ./overwritebb.sh $(MBB))
+%.colorpng : %.svg
+	inkscape -z -f $< -e $*.colorpng -w 800
 
-dvipdfmx: $(PNG) $(XBB) always
-	$(shell ./overwritebb.sh $(XBB))
-
-%.png : %.svg
-	inkscape -f $< -e $*.png -d 600
+%.png : %.colorpng
+	convert $< -grayscale Rec709Luminance $@
 
 %.mbb : %.png
-	ebb -O -m $< > $@
+	ebb -O -m $< > $*.bb
+	cp -f $*.bb $@
 
 %.sbb : %.png
-	ebb -O $< > $@		# standard bb
+	ebb -O $< > $*.bb
+	cp -f $*.bb $@
 
 %.xbb : %.png
-	ebb -O -x $< > $@
+	ebb -O -x $< > $*.bb
+	cp -f $*.bb $@
 
 clean:
 	rm -f *.png *bb
