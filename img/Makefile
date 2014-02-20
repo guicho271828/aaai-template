@@ -17,8 +17,8 @@ all: $(PNG) $($(BBTYPE))
 	inkscape -z -f $< -e $*.colorpng -w 800
 
 %.png : %.colorpng
-	convert $< -grayscale Rec709Luminance $@
-
+	# convert $< -grayscale Rec709Luminance $@
+	convert $< -colorspace gray $@
 %.mbb : %.png
 	ebb -O -m $< > $*.bb
 	cp -f $*.bb $@
