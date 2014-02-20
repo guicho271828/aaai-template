@@ -2,9 +2,10 @@
 name       = asai
 reference  = asai-references.bib
 emacs 	   = emacs
+latexmk    = latexmk/latexmk.pl
 styles     = abbrev.sty aaai_my.sty
-sources    = abstract.tex introduction.tex main.org.tex
-max_pages   = 7
+sources    = abstract.tex main.org.tex
+max_pages   = 8
 
 .SUFFIXES: .tex .org .el .elc .svg
 .SECONDARY: compile-csv-org.elc compile-main-org.elc
@@ -19,26 +20,31 @@ en:	en_pdf check_pages
 ja:	ja_pdf check_pages
 
 en_pdf: $(name).tex imgs $(sources) $(styles) $(reference)
-	latexmk -pdf \
-		-latexoption="-halt-on-error" \
-		-bibtex \
-		$<
+	$(latexmk) -pdf \
+		   -latexoption="-halt-on-error" \
+		   -bibtex \
+		   $<
 
 ja_pdf: $(name).tex imgs $(sources) $(styles) $(reference)
-	latexmk -r rc_ja.pl \
-		-latexoption="-halt-on-error" \
-		-pdfdvi \
-		-bibtex \
-		$<
+	$(latexmk) -r rc_ja.pl \
+		   -latexoption="-halt-on-error" \
+		   -pdfdvi \
+		   -bibtex \
+		   $<
 
 open: $(name).pdf
 	nohup evince $< &>/dev/null &
 
-automake:
+automake: all
 	nohup ./make-periodically.sh &
 
-imgs:
-	make -C img
+imgs:	workshop-result/output
+
+workshop-result/output:
+	git submodule init
+	git submodule update
+
+# parametrized targets
 
 %.csv: %.csvorg compile-csv-org.elc
 	$(emacs) --batch --quick --script compile-csv-org.elc --eval "(progn (load-file \"compile-csv-org.el\")(compile-org \"$<\" \"$@\"))"
@@ -59,9 +65,8 @@ img/%.svg: %.gnuplot %.csv
 
 clean:
 	-rm *~ *.aux *.dvi *.log *.toc *.bbl \
-		*.blg *.utf8 *.org.tex *.elc $(name).pdf \
-		fdb_latexmk __*
+		*.blg *.utf8 *.elc $(name).pdf \
+		*.fdb_latexmk __* *.fls
 	-rm -r sources
 
 allclean: clean
-	make -C img clean
