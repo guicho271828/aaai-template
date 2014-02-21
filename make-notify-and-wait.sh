@@ -16,4 +16,5 @@ else
     notify-send -t 1 "TeX fail!" "$warnings $overfull $errors"
 fi
 
-inotifywait -r -e modify . --exclude "\.svn/.*"
+# ignore *.log, which is problematic when multiple calls to make-notify-and-wait occured. 
+inotifywait -r -e modify . --exclude "\.svn/.*" --exclude ".*\.log"
