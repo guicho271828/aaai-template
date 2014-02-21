@@ -19,8 +19,8 @@ check_pages:
 check_overflow: $(name).log
 	./check_overflow.sh $(name).log
 
-en:	en_pdf check_pages
-ja:	ja_pdf check_pages
+en:	en_pdf check_pages check_overflow
+ja:	ja_pdf check_pages check_overflow
 
 en_pdf: $(name).tex imgs $(sources) $(styles) $(reference)
 	$(latexmk) -pdf \
