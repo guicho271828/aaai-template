@@ -17,4 +17,4 @@ else
 fi
 
 # ignore *.log, which is problematic when multiple calls to make-notify-and-wait occured. 
-inotifywait -r -e modify . --exclude "\.svn/.*" --exclude ".*\.log"
+inotifywait -r -e modify . --exclude "\.git/.*" --exclude "\.svn/.*" --exclude ".*\.log"
