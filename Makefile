@@ -42,7 +42,7 @@ automake: all
 	nohup ./make-periodically.sh &
 
 imgs:
-	make -C img
+	$(MAKE) -C img
 
 %.csv: %.csvorg compile-csv-org.elc
 	$(emacs) --batch --quick --script compile-csv-org.elc --eval "(progn (load-file \"compile-csv-org.el\")(compile-org \"$<\" \"$@\"))"
@@ -68,4 +68,4 @@ clean:
 	-rm -r sources
 
 allclean: clean
-	make -C img clean
+	$(MAKE) -C img clean
