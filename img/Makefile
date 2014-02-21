@@ -14,7 +14,7 @@ BBTYPE=SBB
 all: $(PNG) $($(BBTYPE))
 
 %.colorpng : %.svg
-	inkscape -z -f $< -e $*.colorpng -w 800
+	inkscape -z -f $< -e $*.colorpng -d 300
 
 %.png : %.colorpng
 	# convert $< -grayscale Rec709Luminance $@
