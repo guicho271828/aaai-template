@@ -70,5 +70,5 @@ clean:
 allclean: clean
 	$(MAKE) -C img clean
 
-submission:
+submission: en
 	./aaai_script.sh $(name).tex
