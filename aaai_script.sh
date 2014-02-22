@@ -115,6 +115,9 @@ echo "creating the PDF using"
 		   -latexoption="-halt-on-error" \
 		   -bibtex \
 		   full.tex
-popd ..
-
+mv full.tex $1
+mv full.pdf ${1%.*}.pdf
+rm full.*
+popd
+rm __tmp1 __tmp2
 echo "DONE"
