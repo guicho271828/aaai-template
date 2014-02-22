@@ -71,7 +71,8 @@ allclean: clean
 	$(MAKE) -C img clean
 
 submission: en
+	-rm -r sources
 	./aaai_script.sh $(name).tex
 
 archive: submission
-	tar cvzf asai.tar.gz sources
+	tar cvzf $(name).tar.gz sources
