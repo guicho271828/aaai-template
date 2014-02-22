@@ -115,9 +115,10 @@ echo "creating the PDF using"
 		   -latexoption="-halt-on-error" \
 		   -bibtex \
 		   full.tex
-mv full.tex $1
-mv full.pdf ${1%.*}.pdf
-rm full.*
+for file in $(ls full.*)
+do
+    mv $file ${1%.*}.${file#*.}
+done
 popd
 rm __tmp1 __tmp2
 echo "DONE"
