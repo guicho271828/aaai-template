@@ -115,6 +115,7 @@ echo "creating the PDF using"
 		   -latexoption="-halt-on-error" \
 		   -bibtex \
 		   full.tex
+rm full.fls full.fdb_latexmk
 for file in $(ls full.*)
 do
     mv $file ${1%.*}.${file#*.}
