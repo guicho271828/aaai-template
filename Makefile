@@ -9,7 +9,7 @@ max_pages   = 8
 
 .SUFFIXES: .tex .org .el .elc .svg
 .SECONDARY: compile-csv-org.elc compile-main-org.elc __tmp1 __tmp2
-.PHONY: all en ja open imgs clean allclean check_pages check_overflow en_pdf ja_pdf automake submission
+.PHONY: all en ja open imgs clean allclean check_pages check_overflow en_pdf ja_pdf automake submission archive
 
 all: en
 
@@ -72,3 +72,6 @@ allclean: clean
 
 submission: en
 	./aaai_script.sh $(name).tex
+
+archive: submission
+	tar cvzf asai.tar.gz source
