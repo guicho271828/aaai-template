@@ -8,7 +8,7 @@ sources    = abstract.tex main.org.tex
 max_pages   = 8
 
 .SUFFIXES: .tex .org .el .elc .svg
-.SECONDARY: compile-csv-org.elc compile-main-org.elc
+.SECONDARY: compile-csv-org.elc compile-main-org.elc __tmp1 __tmp2
 .PHONY: all en ja open imgs clean allclean check_pages check_overflow en_pdf ja_pdf automake submission
 
 all: en
