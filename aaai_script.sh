@@ -95,22 +95,26 @@ FIGURES=`grep includegraphics __tmp2 | grep -v ^% | sed 's/.*{\([^}]*\)}*/\1/'`
 for name in $FIGURES; do
     echo "getting figure $name"
     mkdir -p sources/`echo "$name" | sed 's/\(.*\)\/.*/\1/'`
-    cp ${name%.*}.* sources/`echo "$name" | sed 's/\(.*\)\/.*/\1/'`
+    cp ${name%.*}.png sources/`echo "$name" | sed 's/\(.*\)\/.*/\1/'`
+    cp ${name%.*}.bb sources/`echo "$name" | sed 's/\(.*\)\/.*/\1/'`
     # modified by asai 2013/10/14
     #cp $name.*ps sources/`echo "$name" | sed 's/\(.*\)\/.*/\1/'` 
 done
 
 #            -------------------------------              
 
-cd sources
-echo "latexing source"
-latex full.tex
-echo "latexing source once more"
-latex full.tex
-
+pushd sources
+# echo "latexing source"
+# latex full.tex
+# echo "latexing source once more"
+# latex full.tex
+# dvips -Ppdf -G0 -tletter full -o full.ps
+# ps2pdf -sPAPERSIZE=letter -dMaxSubsetPct=100 -dCompatibilityLevel=1.2 -dSubsetFonts=false -dEmbedAllFonts=true full.ps
 echo "creating the PDF using"
-dvips -Ppdf -G0 -tletter full -o full.ps
-ps2pdf -sPAPERSIZE=letter -dMaxSubsetPct=100 -dCompatibilityLevel=1.2 -dSubsetFonts=false -dEmbedAllFonts=true full.ps
-cd ..
+../latexmk/latexmk.pl -pdf \
+		   -latexoption="-halt-on-error" \
+		   -bibtex \
+		   full.tex
+popd ..
 
 echo "DONE"
