@@ -74,4 +74,4 @@ submission: en
 	./aaai_script.sh $(name).tex
 
 archive: submission
-	tar cvzf asai.tar.gz source
+	tar cvzf asai.tar.gz sources
