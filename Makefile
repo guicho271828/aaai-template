@@ -75,4 +75,4 @@ submission: en
 	./aaai_script.sh $(name).tex
 
 archive: submission
-	tar cvzf $(name).tar.gz sources
+	cd sources/ ; tar cvzf $(name).tar.gz * ; mv $(name).tar.gz ../
