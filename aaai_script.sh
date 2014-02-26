@@ -29,6 +29,7 @@ recurseStyles() {
 	if [ ! -e sources/$name.sty ]; then 
 	    echo "..locating and copying: $name"
 	    FILE=`locate /$name.sty | head -n 1`
+            echo $FILE
 	    if [ -e $FILE ]; then
 		cp $FILE sources
 	    else
@@ -37,7 +38,9 @@ recurseStyles() {
 	    if [ -e sources/$name.sty ]; then
 		recurseStyles sources/$name.sty
 	    fi
-	fi
+	else
+            echo "$name.sty is already in sources/"
+        fi
     done
 }
 
@@ -51,6 +54,8 @@ fi;
 
 mkdir sources
 
+sudo updatedb
+
 echo "locating and copying all used packages"
 PACKAGES=`grep ^.usepackage $1 | sed -e 's/.*usepackage{\(.*.\)}.*/\1/' | sed -e 's/, /\n/g'`
 for name in $PACKAGES; do
@@ -59,6 +64,7 @@ for name in $PACKAGES; do
 	cp $name.sty sources
     else
 	FILE=`locate /$name.sty | head -n 1`
+        echo $FILE
 	if [ -e $FILE ]; then
 	    cp $FILE sources
 	else
@@ -115,11 +121,17 @@ echo "creating the PDF using"
 		   -latexoption="-halt-on-error" \
 		   -bibtex \
 		   full.tex
-rm full.fls full.fdb_latexmk
+rm -v full.fls full.fdb_latexmk
 for file in $(ls full.*)
 do
-    mv $file ${1%.*}.${file#*.}
+    mv -v $file ${1%.*}.${file#*.}
 done
+
+echo Info: check for any files that are nonstandard... with your own eyes
+cat ${1%.*}.log | grep "(/[^ ]*$"
+
+
+
 popd
 rm __tmp1 __tmp2
 echo "DONE"
