@@ -3,6 +3,4 @@
 
 $latex         = 'platex';
 $bibtex        = 'pbibtex';
-# $dvipdf         = 'dvipdfm';
-
-
+$dvipdf = "dvipdfm %O -o %D %S";
