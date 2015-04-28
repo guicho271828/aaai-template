@@ -1,3 +1,5 @@
+\newcommand{\union}{\cup}
+\newcommand{\intersection}{\cap}
 
 \newcommand{\brackets}[1]{\left<#1\right>}
 \newcommand{\braces}[1]{\left\{#1\right\}}
@@ -89,6 +91,7 @@
 \defun{init}
 \defun{goal}
 \defun{objects}
+\defun{task}
 
 \newcommand{\procs}[1]{\mbox{$\mbox{\it proc}^*$}\left(#1\right)}
 
@@ -100,6 +103,7 @@
 \defsetop{map}{}
 
 \def\ca{{\relsize{-1}CELL-ASSEMBLY}\xspace}
+\def\cae{{\relsize{-1}CELL-ASSEMBLY-EACHPARTS}\xspace}
 \def\ww{{\relsize{-1}Woodworking}\xspace}
 \def\barm{{\relsize{-1}Barman}\xspace}
 
@@ -108,5 +112,126 @@
 
 \newcommand{\tpred}[2]{\pddl{(#1 \uline{#2})}}
 
-\newcommand{\todo}[1]{{\bf [XXX TODO: #1]}}
-% \renewcommand{\todo}[1]{}
+\newcommand{\first}[1]{{\em \makefirstuc{#1}}}
+
+\newcommand{\ac}{abstract component\xspace}
+\newcommand{\at}{abstract type\xspace}
+\newcommand{\atask}{component task\xspace}
+\newcommand{\sg}{static graph\xspace}
+\newcommand{\sfact}{static fact\xspace}
+% \newcommand{\cplan}{component plan\xspace}
+% \newcommand{\cprob}{component problem\xspace}
+
+\newcommand{\acs}{abstract components\xspace}
+\newcommand{\ats}{abstract types\xspace}
+\newcommand{\atasks}{component tasks\xspace}
+\newcommand{\sfacts}{static facts\xspace}
+% \newcommand{\cplans}{component plans\xspace}
+% \newcommand{\cprobs}{component problems\xspace}
+
+
+\makeatletter
+
+\newcommand{\myfig}[3]{%
+ \@ifstar
+ {\@myfigs{#1}{#2}{#3}}
+ {\@myfigns{#1}{#2}{#3}}
+}
+
+\newcommand{\@myfigs}[3]{
+ \begin{figure*}[htbp]%
+  \centering%
+  \includegraphics{#1}%
+  \caption{#3}%
+  \label{#2}%
+ \end{figure*}%
+}
+
+\newcommand{\@myfigns}[3]{
+ \begin{figure}[htbp]%
+  \centering%
+  \includegraphics{#1}%
+  \caption{#3}%
+  \label{#2}%
+ \end{figure}%
+}
+\makeatother
+
+% subfigure is not available in aaai
+% \newcommand{\mysubfig}[3]{%
+%  \begin{subfigure}{.5\textwidth}%
+%   \centering%
+%   \includegraphics[width=0.6\linewidth]{#1}%
+%   \caption{#3}%
+%   \label{#2}%
+%  \end{subfigure}%
+% }
+
+\newcommand{\wimg}[1]{workshop-result/output/#1}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{1.9cm}
+
+\makeatletter
+
+\def\todo{\@ifstar{\@todos}{\@todons}}
+\newcommand{\@todons}[1]{}
+\newcommand{\@todos}[1]{}
+
+\makeatother
+
+
+% for table
+
+
+\def\ncysym{{\relsize{-1}($\circlearrowleft^\times$)}\xspace}
+\def\ncpsym{{\relsize{-1}($\approx^\times$)}\xspace}
+
+\newcommand{\spc}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+\def\_{\\[-0.3em]}
+
+\def\ff{{\relsize{-1}FF}\xspace}
+\def\fd{{\relsize{-1}FD/lama}\xspace}
+\def\cea{{\relsize{-1}FD/$h_{\mbox{cea}}$}\xspace}
+\def\mv{{\relsize{-1}Marvin}\xspace}
+\def\pr{{\relsize{-1}Probe}\xspace}
+
+  \def\cc{{\relsize{-1}\spc{CAP(\cea)}}}
+\def\ffff{{\relsize{-1}\spc{CAP(\ff)}}}
+\def\fdfd{{\relsize{-1}\spc{CAP\_(\fd)}}}
+\def\prpr{{\relsize{-1}\spc{CAP(\pr)}}}
+\def\mvmv{{\relsize{-1}\spc{CAP\_(\mv)}}}
+
+\newcommand{\ncp}[1]{\spc{#1\_\ncpsym}}
+\newcommand{\ncy}[1]{\spc{#1\_\ncysym}}
+\newcommand{\tl}[1]{pre#1}
+
+  \newcommand{\cctl}[1][15]{{\relsize{-1}\spc{CAP\_ (\cea,\_\tl{#1})}}}
+\newcommand{\fffftl}[1][15]{{\relsize{-1}\spc{CAP\_ (\ff,  \tl{#1})}}}
+\newcommand{\fdfdtl}[1][15]{{\relsize{-1}\spc{CAP\_ (\fd, \_\tl{#1})}}}
+\newcommand{\prprtl}[1][15]{{\relsize{-1}\spc{CAP\_ (\pr,  \tl{#1})}}}
+\newcommand{\mvmvtl}[1][15]{{\relsize{-1}\spc{CAP\_ (\mv, \_\tl{#1})}}}
+% \newcommand{\fffdtl}[1][15]{{\relsize{-1}\spc{CAP\_ ff+ lama \tl{#1}}}}
+
+\def\spm{{\relsize{-1}$\pm$}}
+
+\def\off{{\relsize{-1}\spc{Chrpa \_ baseline \ff}}}
+\def\ofd{{\relsize{-1}\spc{Chrpa \_ baseline \_ \fd}}}
+\def\opr{{\relsize{-1}\spc{Chrpa \_ baseline \_ \pr}}}
+
+\def\wff{{\relsize{-1}\spc{Wizard\_\ff}}}
+\def\wfd{{\relsize{-1}\spc{Wizard\_\fd}}}
+\def\wpr{{\relsize{-1}\spc{Wizard\_\pr}}}
+
+\def\mumff{{\relsize{-1}\spc{MUM\_\ff}}}
+\def\mumfd{{\relsize{-1}\spc{MUM\_\fd}}}
+\def\mumpr{{\relsize{-1}\spc{MUM\_\pr}}}
+
+\newcommand{\wave}{\includegraphics{img/wave-circle.png}\xspace}
+\newcommand{\white}{\includegraphics{img/white-circle.png}\xspace}
+\newcommand{\gray}{\includegraphics{img/gray-circle.png}\xspace}
+\newcommand{\dotted}{\includegraphics{img/dotted-circle.png}\xspace}
+
+\newcommand{\ipc}[1][2011]{IPC#1\xspace}
+
+\def\caed{{\small CA-ED}\xspace}

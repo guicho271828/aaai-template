@@ -1,66 +1,62 @@
 % Created 2013-10-07 月 18:04
 \documentclass[10pt,letterpaper]{article}
 \usepackage{aaai}
-\usepackage{fixbib}
 \usepackage{times}
 \usepackage{helvet}
 \usepackage{courier}
-
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{amsthm}
-\theoremstyle{definition}
-
 \usepackage{xspace}
 \usepackage{relsize}
-\usepackage{algorithm}
-\usepackage{algpseudocode}
-
 \usepackage{aaai_my}
-
-\usepackage{graphicx} % 本番
-
-% \usepackage[dvipdfm]{graphicx}   % development
-
-\usepackage{float}
+\usepackage{graphicx}
 \usepackage{abbrev}
+\usepackage{multirow}
 
 \frenchspacing
-% \setlength{\pdfpagewidth}{8.5in}
-% \setlength{\pdfpageheight}{11in}
-% \pdfinfo{
-% /Title Exploiting Iterative Structures from the Planning Domains and Reduce the Complexity
-% /Author Masataro Asai, Alex Fukunaga}
-\setcounter{secnumdepth}{2}
+\setlength{\pdfpagewidth}{8.5in}
+\setlength{\pdfpageheight}{11in}
+\pdfinfo{
+/Title (Solving Large-Scale Planning Problems by Decomposition and Macro Generation)
+/Author (Masataro Asai, Alex Fukunaga)
+/Keywords (Planning, Abstraction and Reformulation, Problem Decomposition, Macro Operators, Factored Planning)
+}
 
-\setlength{\floatsep}{1.5mm}
-\setlength{\textfloatsep}{1.5mm}
-\setlength{\abovecaptionskip}{1.5mm}
-\setlength{\belowcaptionskip}{1.5mm}
-\setlength{\abovedisplayskip}{1.5mm}
-\setlength{\belowdisplayskip}{1.5mm}
-\setlength{\arraycolsep}{1.5mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% forbid the direct use of \\ref --- it results in inconsistency in styles, e.g., Figure,Fig., etc.
+% Macros are for styles!
+% !!!WARN!!! this should be removed in the camera-ready version.
+% \let\ref\relax
+% \renewcommand{\subsubparagraph}[1]{%
+% \hrule width \linewidth%
+% \marginpar[\relsize{-2} $\triangleright$ #1]{\relsize{-2} $\triangleleft$ #1}}
+% \renewcommand{\@todos}[1]{\marginpar{\tiny DONE \it #1}}
+% \renewcommand{\@todons}[1]{\marginpar{\tiny\bf #1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%\setcounter{secnumdepth}{2}
+\setlength{\floatsep}{1mm}
+\setlength{\textfloatsep}{1mm}
+\setlength{\abovecaptionskip}{1mm}
+\setlength{\belowcaptionskip}{1mm}
+\setlength{\abovedisplayskip}{1mm}
+\setlength{\belowdisplayskip}{1mm}
+\setlength{\arraycolsep}{1mm}
 
-% submission must be anonymous
-%\author{Masataro Asai\and Alex Fukunaga}
-\author{Submission XXX}
-\title{Title}
+\setlength{\tabcolsep}{0.1em}
+
+\author{Masataro Asai\and Alex Fukunaga \\ Graduate School of Arts and Sciences \\ The University of Tokyo}
+\title{
+Solving Large-Scale Planning Problems
+by Decomposition and Macro Generation}
 \begin{document}
 \maketitle
-\begin{abstract}
-\input{abstract.tex}
-\end{abstract}
 
-\section{Introduction}
-\input{introduction.tex}
-
-\input{main.org.tex}
-
-aaa \cite{Blum1997}
+\input{main.tex}
 
 \fontsize{9.5pt}{10.5pt}
 \selectfont
+
 \bibliography{asai-references}
 \bibliographystyle{aaai}
 \end{document}

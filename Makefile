@@ -4,7 +4,7 @@ reference  = asai-references.bib
 emacs 	   = emacs
 latexmk    = latexmk/latexmk.pl
 styles     = abbrev.sty aaai_my.sty
-sources    = abstract.tex main.org.tex
+sources    = main.tex
 max_pages   = 8
 
 .SUFFIXES: .tex .org .el .elc .svg
