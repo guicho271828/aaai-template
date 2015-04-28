@@ -38,8 +38,8 @@ ja_pdf: $(name).tex imgs $(sources) $(styles) $(reference)
 open: $(name).pdf
 	nohup evince $< &>/dev/null &
 
-automake: all
-	nohup ./make-periodically.sh &
+auto:
+	./make-periodically.sh
 
 imgs:
 	$(MAKE) -C img

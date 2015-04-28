@@ -8,5 +8,5 @@
 while true
 do
     ./make-notify-and-wait.sh $@
-    sleep 4
+    sleep 1.5
 done
