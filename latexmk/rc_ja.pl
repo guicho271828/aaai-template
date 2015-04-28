@@ -3,4 +3,4 @@
 
 $latex         = 'platex';
 $bibtex        = 'pbibtex';
-$dvipdf = "dvipdfm %O -o %D %S";
+$dvipdf = "dvipdfm %O -f latexmk/ipa.map -o %D %S";

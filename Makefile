@@ -32,7 +32,7 @@ en_pdf: $(name).tex imgs $(sources) $(styles) $(reference)
 		   $<
 
 ja_pdf: $(name).tex imgs $(sources) $(styles) $(reference)
-	$(latexmk) -r rc_ja.pl \
+	$(latexmk) -r latexmk/rc_ja.pl \
 		   -latexoption="-halt-on-error" \
 		   -pdfdvi \
 		   -bibtex \
