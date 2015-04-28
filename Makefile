@@ -11,7 +11,10 @@ max_pages   = 8
 .SECONDARY: compile-csv-org.elc compile-main-org.elc __tmp1 __tmp2
 .PHONY: all en ja open imgs clean allclean check_pages check_overflow en_pdf ja_pdf automake submission archive
 
-all: en
+all: en GTAGS
+
+GTAGS: $(name).tex imgs $(sources) $(styles) $(reference)
+	gtags
 
 check_pages:
 	./check_pages.sh $(max_pages) $(name)
