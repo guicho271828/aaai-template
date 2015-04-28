@@ -46,6 +46,7 @@ auto:
 
 imgs:
 	$(MAKE) -C img
+# $(MAKE) -C staticimg
 
 %.csv: %.csvorg compile-csv-org.elc
 	$(emacs) --batch --quick --script compile-csv-org.elc --eval "(progn (load-file \"compile-csv-org.el\")(compile-org \"$<\" \"$@\"))"
