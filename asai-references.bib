@@ -1,280 +1,845 @@
-% This file was created with JabRef 2.9.2.
+% This file was created with JabRef 2.10b2.
 % Encoding: UTF-8
+@string{ECAI = {European Conference on Artificial Intelligence}}
+@string{IJCAI = {International Joint Conference on Artificial Intelligence}}
+@string{JAIR = {J. Artif. Intell. Res.(JAIR)}}
+@string{KEPS = {Proceedings of the ICAPS Workshop on Knowledge Engineering for Planning and Scheduling(KEPS)}}
+@string{ICAPS = {Proceedings of the International Conference of Automated Planning and Scheduling(ICAPS)}}
+@string{SPARK = {Scheduling and Planning Applications Workshop}}
 
-@INPROCEEDINGS{Amdahl1967,
-  author = {Amdahl, Gene M},
-  title = {Validity of the single processor approach to achieving large scale
-	computing capabilities},
-  booktitle = {Proceedings of the April 18-20, 1967, spring joint computer conference},
-  year = {1967},
-  pages = {483--485},
-  organization = {ACM},
-  owner = {guicho},
-  timestamp = {2013.10.13},
-  url = {http://dl.acm.org/citation.cfm?id=1465560}
+@article{wang2014tburton,
+  title={tBurton: A Divide and Conquer Temporal Planner},
+  booktitle={Proceedings of the 8th international planning competition (IPC)},
+  author={Wang, David and Williams, Brian C},
+  year={2014}
 }
 
-@ARTICLE{Bacchus2000,
-  author = {Bacchus, Fahiem},
-  title = {Subset of {PDDL} for the {AIPS2000} Planning Competition},
-  journal = {The AIPS-00 Planning Competition Comitee},
-  year = {2000},
-  __markedentry = {[guicho:6]},
-  owner = {guicho},
-  timestamp = {2013.10.27}
+@inproceedings{jonsson2007role,
+  title={The Role of Macros in Tractable Planning over Causal Graphs.},
+  author={Jonsson, Anders},
+  booktitle={IJCAI},
+  pages={1936--1941},
+  year={2007}
+}
+@inproceedings{amir2003factored,
+  title={Factored planning},
+  author={Amir, Eyal and Engelhardt, Barbara},
+  booktitle={IJCAI},
+  volume={3},
+  pages={929--935},
+  year={2003},
+  organization={Citeseer}
+}
+@inproceedings{brafman2006factored,
+  title={Factored planning: How, when, and when not},
+  author={Brafman, Ronen I and Domshlak, Carmel},
+  booktitle={AAAI},
+  volume={6},
+  pages={809--814},
+  year={2006}
+}
+@inproceedings{chen2009stratified,
+  title={Stratified Planning.},
+  author={Chen, Yixin and Xu, You and Yao, Guohui},
+  booktitle={IJCAI},
+  pages={1665--1670},
+  year={2009}
 }
 
-@INPROCEEDINGS{Baier2007,
-  author = {Baier, Jorge A and Fritz, Christian and McIlraith, Sheila A},
-  title = {Exploiting Procedural Domain Control Knowledge in State-of-the-Art
-	Planners.},
-  booktitle = {ICAPS},
-  year = {2007},
-  pages = {26--33},
-  owner = {guicho},
-  timestamp = {2013.10.12},
-  url = {http://www.aaai.org/Papers/ICAPS/2007/ICAPS07-004.pdf}
+
+@inproceedings{minton1985selectively,
+  title={{Selectively Generalizing Plans for Problem-Solving.}},
+  author={Minton, Steven},
+  booktitle=IJCAI,
+  pages={596--599},
+  year={1985}
 }
 
-@ARTICLE{Blum1997,
-  author = {Blum, Avrim L and Furst, Merrick L},
-  title = {Fast planning through planning graph analysis},
-  journal = {Artificial intelligence},
-  year = {1997},
-  volume = {90},
-  pages = {281--300},
-  number = {1},
-  owner = {guicho},
-  publisher = {Elsevier},
-  timestamp = {2013.10.19}
+@inproceedings{nejati2006learning,
+  title={{Learning Hierarchical Task Networks by Observation}},
+  author={Nejati, Negin and Langley, Pat and Konik, Tolga},
+  booktitle={Proceedings of the 23rd international conference on Machine learning},
+  pages={665--672},
+  year={2006},
+  organization={ACM}
 }
 
-@ARTICLE{Botea2005,
-  author = {Botea, Adi and Enzenberger, Markus and M{\"u}ller, Martin and Schaeffer,
-	Jonathan},
-  title = {Macro-FF: Improving AI Planning with Automatically Learned Macro-Operators.},
-  journal = {J. Artif. Intell. Res.(JAIR)},
-  year = {2005},
-  volume = {24},
-  pages = {581--621},
-  owner = {guicho},
-  timestamp = {2013.10.12},
-  url = {http://www.aaai.org/Papers/JAIR/Vol24/JAIR-2415.pdf}
+@inproceedings{hogg2008htn,
+  title={{HTN-MAKER: Learning HTNs with Minimal Additional Knowledge Engineering Required.}},
+  author={Hogg, Chad and Munoz-Avila, H{\'e}ctor and Kuter, Ugur},
+  booktitle={AAAI},
+  pages={950--956},
+  year={2008}
+}
+@incollection{edelkamp2000exhibiting,
+  title={{Exhibiting Knowledge in Planning Problems to Minimize State Encoding Length}},
+  author={Edelkamp, Stefan and Helmert, Malte},
+  booktitle={Recent Advances in AI Planning},
+  pages={135--147},
+  year={2000},
+  publisher={Springer}
 }
 
-@ARTICLE{Chrpa2010,
-  author = {Chrpa, Luk{\'a}{\v{s}}},
-  title = {Generation of macro-operators via investigation of action dependencies
-	in plans},
-  journal = {Knowledge Engineering Review},
-  year = {2010},
-  volume = {25},
-  pages = {281},
-  number = {3},
-  owner = {guicho},
-  publisher = {Cambridge Univ Press},
-  timestamp = {2013.10.12},
-  url = {http://journals.cambridge.org/production/action/cjoGetFulltext?fulltextid=7875408}
+@article{hoffmann01,
+  author    = {J{\"{o}}rg Hoffmann and Bernhard Nebel},
+  title     = {{The FF Planning System: Fast Plan Generation through Heuristic Search}},
+  journal   = {J. Artif. Intell. Res. {(JAIR)}},
+  year      = {2001},
+  volume    = {14},
+  pages     = {253--302},
+  url       = {http://dx.doi.org/10.1613/jair.855},
+  doi       = {10.1613/jair.855},
+  timestamp = {Mon, 10 Nov 2014 01:51:17 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/jair/HoffmannN01},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
 }
 
-@INPROCEEDINGS{Chrpa2008,
-  author = {Chrpa, Luk{\'a}s and Bart{\'a}k, Roman},
-  title = {Towards Getting Domain Knowledge: Plans Analysis through Investigation
-	of Actions Dependencies.},
-  booktitle = {FLAIRS Conference},
-  year = {2008},
-  pages = {531--536},
-  owner = {guicho},
-  timestamp = {2013.10.12},
-  url = {http://www.aaai.org/Papers/FLAIRS/2008/FLAIRS08-122.pdf}
+
+
+@inproceedings{haslum2011gnome,
+  title={{Computing Genome Edit Distances using Domain-Independent Planning}},
+  author={Haslum, P},
+  booktitle={SPARK Workshop},
+  year={2011}
 }
 
-@INPROCEEDINGS{Chrpa2012,
-  author = {Chrpa, Luk{\'a}s and McCluskey, Thomas Leo and Osborne, Hugh},
-  title = {Optimizing Plans through Analysis of Action Dependencies and Independencies.},
-  booktitle = {ICAPS},
-  year = {2012},
-  owner = {guicho},
-  timestamp = {2013.10.12},
-  url = {http://www.aaai.org/ocs/index.php/ICAPS/ICAPS12/paper/viewPDFInterstitial/4712/4746}
+@article{helmert2006approximation,
+  title={{Approximation properties of planning benchmarks}},
+  author={Helmert, Malte and Mattm{\"u}ller, Robert and R{\"o}ger, Gabriele},
+  journal={Frontiers in Artificial Intelligence and Applications},
+  volume={141},
+  pages={585},
+  year={2006},
+  publisher={IOS Press}
 }
 
-@ARTICLE{Dreo2011,
-  author = {Dr{\'e}o, Johann and Sav{\'e}ant, Pierre and Schoenauer, Marc and
-	Vidal, Vincent},
-  title = {Divide-and-evolve: the marriage of descartes and darwin},
-  journal = {Proceedings of the 7th international planning competition (IPC).
-	Freiburg, Germany},
-  year = {2011},
-  __markedentry = {[guicho:]},
-  owner = {guicho},
-  timestamp = {2013.10.22}
+@inproceedings{helmert2006new,
+  title={{New Complexity Results for Classical Planning Benchmarks.}},
+  author={Helmert, Malte},
+  booktitle={ICAPS},
+  pages={52--62},
+  year={2006}
 }
 
-@ARTICLE{Fox1998,
-  author = {Fox, Maria and Long, Derek},
-  title = {The automatic inference of state invariants in {TIM}},
-  journal = {Journal of Artificial Intelligence Research},
-  year = {1998},
-  owner = {guicho},
-  timestamp = {2013.10.19},
-  url = {http://arxiv.org/abs/1105.5451}
+@article{melis1999knowledge,
+  title={{Knowledge-based proof planning}},
+  author={Melis, Erica and Siekmann, J{\"o}rg},
+  journal={Artificial Intelligence},
+  volume={115},
+  number={1},
+  pages={65--105},
+  year={1999},
+  publisher={Elsevier}
 }
 
-@ARTICLE{Helmert2006,
-  author = {Helmert, Malte},
-  title = {The Fast Downward Planning System.},
-  journal = {J. Artif. Intell. Res.(JAIR)},
-  year = {2006},
-  volume = {26},
-  pages = {191--246},
-  owner = {guicho},
-  timestamp = {2013.10.12},
-  url = {http://www.aaai.org/Papers/JAIR/Vol26/JAIR-2606.pdf}
+@inproceedings{kautz1998blackbox,
+  title={{BLACKBOX: A new approach to the application of theorem proving to problem solving}},
+  author={Kautz, Henry and Selman, Bart},
+  booktitle={AIPS98 Workshop on Planning as Combinatorial Search},
+  volume={58260},
+  pages={58--60},
+  year={1998}
 }
 
-@INPROCEEDINGS{Helmert2009,
-  author = {Helmert, Malte and Domshlak, Carmel},
-  title = {Landmarks, Critical Paths and Abstractions: What's the Difference
-	Anyway?},
-  booktitle = {ICAPS},
-  year = {2009},
-  owner = {guicho},
-  timestamp = {2013.10.12},
-  url = {http://www.aaai.org/ocs/index.php/ICAPS/ICAPS09/paper/viewPDFInterstitial/735/1107}
+@incollection{benzmuller1997omegamega,
+  title={{$\Omega$mega: Towards a mathematical assistant}},
+  author={Benzm{\"u}ller, Christoph and Cheikhrouhou, Lassaad and Fehrer, Detlef and Fiedler, Armin and Huang, Xiaorong and Kerber, Manfred and Kohlhase, Michael and Konrad, Karsten and Meier, Andreas and Melis, Erica and others},
+  booktitle={Automated Deduction—CADE-14},
+  pages={252--255},
+  year={1997},
+  publisher={Springer}
 }
 
-@ARTICLE{Ochi2013,
-  author = {Ochi, Kimitomo and Fukunaga, Alex and Kondo, Chikako and Maeda, Munehiko
-	and Hasegawa, Fumio and Kawano, Yukihiro},
-  title = {A Steady-State Model for Automated Sequence Generation in a Robotic
-	Assembly System},
-  journal = {SPARK 2013},
-  year = {2013},
-  owner = {guicho},
-  timestamp = {2013.10.12}
+
+@inproceedings{helmert2008good,
+  title={{How Good is Almost Perfect?}},
+  author={Helmert, Malte and R{\"o}ger, Gabriele and others},
+  booktitle={AAAI},
+  volume={8},
+  pages={944--949},
+  year={2008}
 }
 
-@INCOLLECTION{Schoenauer2006,
-  author = {Schoenauer, Marc and Sav{\'e}ant, Pierre and Vidal, Vincent},
-  title = {Divide-and-evolve: A new memetic scheme for domain-independent temporal
-	planning},
-  booktitle = {Evolutionary Computation in Combinatorial Optimization},
-  publisher = {Springer},
-  year = {2006},
-  pages = {247--260},
-  owner = {guicho},
-  timestamp = {2013.10.21},
-  url = {http://link.springer.com/chapter/10.1007/11730095_21}
+@article{levesque1987expressiveness,
+  title={{Expressiveness and tractability in knowledge representation and reasoning}},
+  author={Levesque, Hector J and Brachman, Ronald J},
+  journal={Computational intelligence},
+  volume={3},
+  number={1},
+  pages={78--93},
+  year={1987},
+  publisher={Wiley Online Library}
 }
 
-@INPROCEEDINGS{Smith1993,
-  author = {Smith, Stephen F and Cheng, Cheng-Chung},
-  title = {Slack-based heuristics for constraint satisfaction scheduling},
-  booktitle = {AAAI},
-  year = {1993},
-  pages = {139--144},
-  owner = {guicho},
-  timestamp = {2013.10.12}
+@inproceedings{pochter2011exploiting,
+  title={{Exploiting Problem Symmetries in State-Based Planners.}},
+  author={Pochter, Nir and Zohar, Aviv and Rosenschein, Jeffrey S},
+  booktitle={AAAI},
+  year={2011}
 }
 
-@ARTICLE{Vidal2011,
-  author = {Vidal, Vincent},
-  title = {{CPT4}: An Optimal Temporal Planner Lost in a Planning Competition
-	without Optimal Temporal Track},
-  journal = {Angel Garc{\i}a-Olaya, SJ, and L{\'o}pez, CL, eds., Seventh International
-	Planning Competition},
-  year = {2011},
-  pages = {25--28},
-  __markedentry = {[guicho:]},
-  owner = {guicho},
-  timestamp = {2013.10.22}
+@inproceedings{domshlak2013symmetry,
+  title={{Symmetry Breaking: Satisficing Planning and Landmark Heuristics.}},
+  author={Domshlak, Carmel and Katz, Michael and Shleyfman, Alexander},
+  booktitle={ICAPS},
+  year={2013}
 }
 
-@ARTICLE{Vidal2011a,
-  author = {Vidal, Vincent},
-  title = {{YAHSP2}: Keep it simple, stupid},
-  journal = {Angel Garc{\i}a-Olaya, SJ, and L{\'o}pez, CL, eds., Seventh International
-	Planning Competition},
-  year = {2011},
-  pages = {83--90},
-  __markedentry = {[guicho:]},
-  owner = {guicho},
-  timestamp = {2013.10.22}
+@InProceedings{Asai2014,
+  title                    = {{Fully Automated Cyclic Planning for Large-Scale Manufacturing Domains}},
+  Author                   = {Masataro Asai and Alex Fukunaga},
+  Booktitle                = ICAPS,
+  Year                     = {2014},
+
+  Address                  = {Portsmouth, NH},
+  Month                    = {June},
+
+  Owner                    = {guicho},
+  Timestamp                = {2013.01.23}
 }
 
-@ARTICLE{Vidal2006a,
-  author = {Vidal, Vincent and Geffner, H{\'e}ctor},
-  title = {Branching and pruning: An optimal temporal {POCL} planner based on
-	constraint programming},
-  journal = {Artificial Intelligence},
-  year = {2006},
-  volume = {170},
-  pages = {298--335},
-  number = {3},
-  owner = {guicho},
-  publisher = {Elsevier},
-  timestamp = {2013.10.21}
+@InProceedings{Asai2014b,
+  title                    = {{Applying Problem Decomposition to Extremely Large Planning Domains}},
+  Author                   = {Masataro Asai and Alex Fukunaga},
+  Booktitle                = KEPS,
+  Year                     = {2014},
+
+  Address                  = {Portsmouth, NH},
+  Month                    = {June},
+
+  Owner                    = {guicho},
+  Timestamp                = {2013.01.23}
 }
 
-@INPROCEEDINGS{Vidal2004,
-  author = {Vidal, Vincent and others},
-  title = {A Lookahead Strategy for Heuristic Search Planning.},
-  booktitle = {ICAPS},
-  year = {2004},
-  pages = {150--160},
-  owner = {guicho},
-  timestamp = {2013.10.21},
-  url = {http://www.aaai.org/Papers/ICAPS/2004/ICAPS04-020.pdf}
+@InProceedings{Amdahl1967,
+  title                    = {{Validity of the Single Processor Approach to Achieving Large Scale Computing Capabilities}},
+  Author                   = {Amdahl, Gene M},
+  Booktitle                = {Proceedings of the April 18-20, 1967, spring joint computer conference},
+  Year                     = {1967},
+  Organization             = {ACM},
+  Pages                    = {483--485},
+
+  Owner                    = {guicho},
+  Timestamp                = {2013.10.13},
+  Url                      = {http://dl.acm.org/citation.cfm?id=1465560}
 }
 
-@ARTICLE{Vidal2006,
-  author = {Vidal, Vincent and Tabary, S{\'e}bastien},
-  title = {The new version of {CPT}, an optimal temporal {POCL} planner based on
-	constraint programming},
-  journal = {ICAPS 2006},
-  year = {2006},
-  pages = {50},
-  owner = {guicho},
-  timestamp = {2013.10.21}
+@Article{backstrom1995complexity,
+  title                    = {{Complexity results for SAS+ planning}},
+  Author                   = {B{\"a}ckstr{\"o}m, Christer and Nebel, Bernhard},
+  Journal                  = {Computational Intelligence},
+  Year                     = {1995},
+  Number                   = {4},
+  Pages                    = {625--655},
+  Volume                   = {11},
+
+  Publisher                = {Wiley Online Library}
 }
 
-@OTHER{val4.2,
-  owner = {guicho},
-  timestamp = {2013.10.23},
-  url = {http://www.plg.inf.uc3m.es/ipc2011-deterministic/attachments/FrontPage(2f)Software/VAL-4.2.09.tar.gz}
+@Article{Bacchus2000,
+  title                    = {{Subset of {PDDL} for the {AIPS2000} Planning Competition}},
+  Author                   = {Bacchus, Fahiem},
+  Journal                  = {The AIPS-00 Planning Competition Comitee},
+  Year                     = {2000},
+
+  __markedentry            = {[guicho:6]},
+  Owner                    = {guicho},
+  Timestamp                = {2013.10.27}
+}
+
+@Article{bacchus2000using,
+  title                    = {{Using temporal logics to express search control knowledge for planning}},
+  Author                   = {Bacchus, Fahiem and Kabanza, Froduald},
+  Journal                  = {Artificial Intelligence},
+  Year                     = {2000},
+  Number                   = {1},
+  Pages                    = {123--191},
+  Volume                   = {116},
+
+  Publisher                = {Elsevier}
+}
+
+@InProceedings{Baier2007,
+  title                    = {{Exploiting Procedural Domain Control Knowledge in State-of-the-Art Planners.}},
+  Author                   = {Baier, Jorge A and Fritz, Christian and McIlraith, Sheila A},
+  Booktitle                = ICAPS,
+  Year                     = {2007},
+  Pages                    = {26--33},
+
+  Owner                    = {guicho},
+  Timestamp                = {2013.10.12},
+  Url                      = {http://www.aaai.org/Papers/ICAPS/2007/ICAPS07-004.pdf}
+}
+
+@Article{Blum1997,
+  title                    = {{Fast Planning Through Planning Graph Analysis}},
+  Author                   = {Blum, Avrim L and Furst, Merrick L},
+  Journal                  = {Artificial intelligence},
+  Year                     = {1997},
+  Number                   = {1},
+  Pages                    = {281--300},
+  Volume                   = {90},
+
+  Owner                    = {guicho},
+  Publisher                = {Elsevier},
+  Timestamp                = {2013.10.19}
+}
+
+@Article{bonet2001planning,
+  title                    = {{Planning as Heuristic Search}},
+  Author                   = {Bonet, Blai and Geffner, H{\'e}ctor},
+  Journal                  = {Artificial Intelligence},
+  Year                     = {2001},
+  Number                   = {1},
+  Pages                    = {5--33},
+  Volume                   = {129},
+
+  Publisher                = {Elsevier}
+}
+
+@Article{Botea2005,
+  title                    = {{Macro-FF: Improving AI Planning with Automatically Learned Macro-Operators.}},
+  Author                   = {Botea, Adi and Enzenberger, Markus and M{\"u}ller, Martin and Schaeffer, Jonathan},
+  Journal                  = {J. Artif. Intell. Res.(JAIR)},
+  Year                     = {2005},
+  Pages                    = {581--621},
+  Volume                   = {24},
+
+  Owner                    = {guicho},
+  Timestamp                = {2013.10.12},
+  Url                      = {http://www.aaai.org/Papers/JAIR/Vol24/JAIR-2415.pdf}
+}
+
+@InProceedings{BoteaMS04,
+  title                    = {{Using Component Abstraction for Automatic Generation of Macro-Actions}},
+  Author                   = {Adi Botea and Martin M{\"u}ller and Jonathan Schaeffer},
+  Booktitle                = ICAPS,
+  Year                     = {2004},
+  Pages                    = {181-190}
+}
+
+@Article{bylander1996,
+  title                    = {{A Probabilistic Analysis of Prepositional {STRIPS} Planning}},
+  Author                   = {Bylander, Tom},
+  Journal                  = {Artificial Intelligence},
+  Year                     = {1996},
+  Number                   = {1},
+  Pages                    = {241--271},
+  Volume                   = {81},
+
+  Publisher                = {Elsevier}
+}
+
+@Article{bylander1994,
+  title                    = {{The Computational Complexity of Propositional {STRIPS} Planning}},
+  Author                   = {Bylander, Tom},
+  Journal                  = {Artificial Intelligence},
+  Year                     = {1994},
+  Number                   = {1},
+  Pages                    = {165--204},
+  Volume                   = {69},
+
+  Publisher                = {Elsevier}
+}
+
+@Article{Chrpa2010,
+  title                    = {{Generation of macro-operators via investigation of action dependencies in plans}},
+  Author                   = {Chrpa, Luk{\'a}{\v{s}}},
+  Journal                  = {Knowledge Engineering Review},
+  Year                     = {2010},
+  Number                   = {3},
+  Pages                    = {281},
+  Volume                   = {25},
+
+  Owner                    = {guicho},
+  Publisher                = {Cambridge Univ Press},
+  Timestamp                = {2013.10.12},
+  Url                      = {http://journals.cambridge.org/production/action/cjoGetFulltext?fulltextid=7875408}
+}
+
+@Article{Chrpa2008,
+  title                    = {{Towards Getting Domain Knowledge: Plans Analysis through Investigation of Actions Dependencies.}},
+  Author                   = {Chrpa, Luk{\'a}s and Bart{\'a}k, Roman},
+  Journal                  = {FLAIRS Conference},
+  Year                     = {2008},
+  Pages                    = {531--536},
+
+  Owner                    = {guicho},
+  Timestamp                = {2013.10.12},
+  Url                      = {http://www.aaai.org/Papers/FLAIRS/2008/FLAIRS08-122.pdf}
+}
+
+@inproceedings{chrpa2014mum,
+  title={{MUM: A Technique for Maximising the Utility of Macro-operators by Constrained Generation and Use}},
+  author={Chrpa, Luk{\'a}{\v{s}} and Vallati, Mauro and McCluskey, Thomas Leo},
+  booktitle={Proceedings of the International Conference on Automated Planning and Scheduling (ICAPS)},
+  pages={65--73},
+  year={2014}
+}
+
+@InProceedings{Chrpa2012,
+  title                    = {{Optimizing Plans through Analysis of Action Dependencies and Independencies.}},
+  Author                   = {Chrpa, Luk{\'a}s and McCluskey, Thomas Leo and Osborne, Hugh},
+  Booktitle                = ICAPS,
+  Year                     = {2012},
+
+  Owner                    = {guicho},
+  Timestamp                = {2013.10.12},
+  Url                      = {http://www.aaai.org/ocs/index.php/ICAPS/ICAPS12/paper/viewPDFInterstitial/4712/4746}
 }
 
 @InProceedings{CushingKTWM2007,
-  author = 	 {W. Cushing and S. Kambhampati and K. Talamadupula and D. Weld and Mausam},
-  title = 	 {Evaluating Temporal Planning Domains},
-  booktitle = {ICAPS},
-  year = 	 2007}
-
-@inproceedings{GereviniS98,
-  author    = {Alfonso Gerevini and
-               Lenhart K. Schubert},
-  title     = {Inferring State Constraints for Domain-Independent Planning},
-  booktitle = {AAAI},
-  year      = {1998},
-  pages     = {905-912},
+  title                    = {{Evaluating Temporal Planning Domains}},
+  Author                   = {W. Cushing and S. Kambhampati and K. Talamadupula and D. Weld and Mausam},
+  Booktitle                = ICAPS,
+  Year                     = {2007}
 }
 
+@Article{dawande2005sequencing,
+  title                    = {{Sequencing and scheduling in robotic cells: Recent developments}},
+  Author                   = {Dawande, Milind and Geismar, H Neil and Sethi, Suresh P and Sriskandarajah, Chelliah},
+  Journal                  = {Journal of Scheduling},
+  Year                     = {2005},
+  Number                   = {5},
+  Pages                    = {387--426},
+  Volume                   = {8},
 
-@InProceedings{DraperJCJ1999,
-  author = 	 {D. Draper and A. Jonsson and D. Clements and D. Joslin},
-  title = 	 {Cyclic Scheduling},
-  booktitle = {Proc. IJCAI},
-  year = 	 1999}
-
-
-@article{dawande2005sequencing,
-  title={Sequencing and scheduling in robotic cells: Recent developments},
-  author={Dawande, Milind and Geismar, H Neil and Sethi, Suresh P and Sriskandarajah, Chelliah},
-  journal={Journal of Scheduling},
-  volume={8},
-  number={5},
-  pages={387--426},
-  year={2005},
-  publisher={Springer}
+  Publisher                = {Springer}
 }
+
+@InProceedings{Dreo2011,
+  title                    = {{Divide-and-evolve: the marriage of descartes and darwin}},
+  Author                   = {Dr{\'e}o, Johann and Sav{\'e}ant, Pierre and Schoenauer, Marc and Vidal, Vincent},
+  Booktitle                = {Proceedings of the 7th international planning competition (IPC). Freiburg, Germany},
+  Year                     = {2011},
+
+  __markedentry            = {[guicho:]},
+  Owner                    = {guicho},
+  Timestamp                = {2013.10.22}
+}
+
+@Article{DraperJCJ1999,
+  title                    = {{Cyclic Scheduling}},
+  Author                   = {D. Draper and A. Jonsson and D. Clements and D. Joslin},
+  Journal                  = {International Joint Conference on Artificial Intelligence},
+  Year                     = {1999}
+}
+
+@InProceedings{erol1994,
+  title                    = {{HTN Planning: Complexity and Expressivity}},
+  Author                   = {Erol, Kutluhan and Hendler, James and Nau, Dana S},
+  Booktitle                = {AAAI},
+  Year                     = {1994},
+  Pages                    = {1123--1128},
+  Volume                   = {94}
+}
+
+@InProceedings{fern2004learning,
+  title                    = {{Learning Domain-Specific Control Knowledge from Random Walks.}},
+  Author                   = {Fern, Alan and Yoon, Sung Wook and Givan, Robert},
+  Booktitle                = ICAPS,
+  Year                     = {2004},
+  Pages                    = {191--199}
+}
+
+@Article{fikes1972strips,
+  title                    = {STRIPS: A New Approach to the Application of Theorem Proving to Problem Solving},
+  Author                   = {Fikes, Richard E and Nilsson, Nils J},
+  Journal                  = {Artificial intelligence},
+  Year                     = {1972},
+  Number                   = {3},
+  Pages                    = {189--208},
+  Volume                   = {2},
+
+  Publisher                = {Elsevier}
+}
+
+@Article{Fox1998,
+  title                    = {{The Automatic Inference of State Invariants in {TIM}}},
+  Author                   = {Fox, Maria and Long, Derek},
+  Journal                  = {J. Artif. Intell. Res.(JAIR)},
+  Year                     = {1998},
+
+  Owner                    = {guicho},
+  Timestamp                = {2013.10.19},
+  Url                      = {http://arxiv.org/abs/1105.5451}
+}
+
+@InProceedings{GereviniS98,
+  title                    = {{Inferring State Constraints for Domain-Independent Planning}},
+  Author                   = {Alfonso Gerevini and Lenhart K. Schubert},
+  Booktitle                = {AAAI},
+  Year                     = {1998},
+  Pages                    = {905-912}
+}
+
+@Article{gupta1992complexity,
+  title                    = {{On the complexity of blocks-world planning}},
+  Author                   = {Gupta, Naresh and Nau, Dana S},
+  Journal                  = {Artificial Intelligence},
+  Year                     = {1992},
+  Number                   = {2},
+  Pages                    = {223--254},
+  Volume                   = {56},
+
+  Publisher                = {Elsevier}
+}
+
+@Article{helbing1998generalized,
+  title                    = {{Generalized force model of traffic dynamics}},
+  Author                   = {Helbing, Dirk and Tilch, Benno},
+  Journal                  = {Physical Review E},
+  Year                     = {1998},
+  Number                   = {1},
+  Pages                    = {133},
+  Volume                   = {58},
+
+  Publisher                = {APS}
+}
+
+@Article{Helmert2006,
+  title                    = {{The {Fast Downward} Planning System.}},
+  Author                   = {Helmert, Malte},
+  Journal                  = {J. Artif. Intell. Res.(JAIR)},
+  Year                     = {2006},
+  Pages                    = {191--246},
+  Volume                   = {26},
+
+  Owner                    = {guicho},
+  Timestamp                = {2013.10.12},
+  Url                      = {http://www.aaai.org/Papers/JAIR/Vol26/JAIR-2606.pdf}
+}
+
+@InProceedings{Helmert2009,
+  title                    = {{Landmarks, Critical Paths and Abstractions: What's the Difference Anyway?}},
+  Author                   = {Helmert, Malte and Domshlak, Carmel},
+  Booktitle                = ICAPS,
+  Year                     = {2009},
+
+  Owner                    = {guicho},
+  Timestamp                = {2013.10.12},
+  Url                      = {http://www.aaai.org/ocs/index.php/ICAPS/ICAPS09/paper/viewPDFInterstitial/735/1107}
+}
+
+@Article{junghanns2001sokoban,
+  title                    = {{Sokoban: Enhancing general single-agent search methods using domain knowledge}},
+  Author                   = {Junghanns, Andreas and Schaeffer, Jonathan},
+  Journal                  = {Artificial Intelligence},
+  Year                     = {2001},
+  Number                   = {1},
+  Pages                    = {219--251},
+  Volume                   = {129},
+
+  Publisher                = {Elsevier}
+}
+
+@inproceedings{kuffner2000rrt,
+  title={{RRT-connect: An efficient approach to single-query path planning}},
+  author={Kuffner, James J and LaValle, Steven M},
+  booktitle={Robotics and Automation, 2000. Proceedings. ICRA'00. IEEE International Conference on},
+  volume={2},
+  pages={995--1001},
+  year={2000},
+  organization={IEEE}
+}
+
+@Article{lavalle1998rapidly,
+  title                    = {{Rapidly-Exploring Random Trees A New Tool for Path Planning}},
+  Author                   = {LaValle, Steven M},
+  Year                     = {1998}
+}
+
+@Article{likhachev2008r,
+  title                    = {{R* search}},
+  Author                   = {Likhachev, Maxim and Stentz, Anthony},
+  Journal                  = {Lab Papers (GRASP)},
+  Year                     = {2008},
+  Pages                    = {23}
+}
+
+@InProceedings{lipovetzky2014planning,
+  title                    = {{Planning for Mining Operations with Time and Resource Constraints}},
+  Author                   = {Lipovetzky, Nir},
+  Booktitle                = ICAPS,
+  Year                     = {2014}
+}
+@Comment and Burt, Christina N and Pearce, Adrian R and Stuckey, Peter J
+
+@InProceedings{mitchell1992,
+  title                    = {{Hard and easy distributions of SAT problems}},
+  Author                   = {Mitchell, David and Selman, Bart and Levesque, Hector},
+  Booktitle                = {AAAI},
+  Year                     = {1992},
+  Organization             = {Citeseer},
+  Pages                    = {459--465},
+  Volume                   = {92}
+}
+
+@Article{nau2003shop2,
+  title                    = {{SHOP2: An HTN Planning System}},
+  Author                   = {Nau, Dana S and Au, Tsz Chiu and Ilghami, Okhtay and Kuter, Ugur and Murdock, J William and Wu, Dan and Yaman, Fusun},
+  Journal                  = {J. Artif. Intell. Res.(JAIR)},
+  Year                     = {2003},
+  Pages                    = {379--404},
+  Volume                   = {20}
+}
+
+@Article{nissim2012tunneling,
+  title                    = {{Tunneling and Decomposition-Based State Reduction for Optimal Planning.}},
+  Author                   = {Nissim, Raz and Apsel, Udi and Brafman, Ronen I},
+  Journal                  = {European Conference on Artificial Intelligence},
+  Year                     = {2012},
+  Pages                    = {624--629}
+}
+
+@InProceedings{Ochi2013,
+  title                    = {{A Steady-State Model for Automated Sequence Generation in a Robotic Assembly System}},
+  Author                   = {Ochi, Kimitomo and Fukunaga, Alex and Kondo, Chikako and Maeda, Munehiko and Hasegawa, Fumio and Kawano, Yukihiro},
+  Booktitle                = {Scheduling and Planning Applications Workshop},
+  Year                     = {2013},
+
+  Owner                    = {guicho},
+  Timestamp                = {2013.10.12}
+}
+
+@InProceedings{parkinson2012application,
+  title                    = {{The Application of Automated Planning to Machine Tool Calibration.}},
+  Author                   = {Parkinson, Simon},
+  Booktitle                = ICAPS,
+  Year                     = {2012}
+}
+@Comment  and Longstaff, Andrew and Crampton, Andrew and Gregory, Peter
+
+@Article{richter2010lama,
+  title                    = {{The {LAMA} planner: Guiding cost-based anytime planning with landmarks}},
+  Author                   = {Richter, Silvia and Westphal, Matthias},
+  Journal                  = {J. Artif. Intell. Res.(JAIR)},
+  Year                     = {2010},
+  Number                   = {1},
+  Pages                    = {127--177},
+  Volume                   = {39}
+}
+
+@InProceedings{rintanen2004phase,
+  title                    = {{Phase Transitions in Classical Planning: An Experimental Study.}},
+  Author                   = {Rintanen, Jussi and others},
+  Booktitle                = ICAPS,
+  Year                     = {2004},
+  Pages                    = {101--110},
+  Volume                   = {2004}
+}
+
+@Book{russell1995artificial,
+  title                    = {{Artificial intelligence: a modern approach}},
+  Author                   = {Russell, Stuart Jonathan and Norvig, Peter and Canny, John F and Malik, Jitendra M and Edwards, Douglas D},
+  Publisher                = {Prentice hall Englewood Cliffs},
+  Year                     = {1995},
+  Volume                   = {2}
+}
+
+@Article{Schoenauer2006,
+  title                    = {{Divide-and-evolve: A new memetic scheme for domain-independent temporal planning}},
+  Author                   = {Schoenauer, Marc and Sav{\'e}ant, Pierre and Vidal, Vincent},
+  Journal                  = {Evolutionary Computation in Combinatorial Optimization},
+  Year                     = {2006},
+  Pages                    = {247--260},
+
+  Owner                    = {guicho},
+  Publisher                = {Springer},
+  Timestamp                = {2013.10.21},
+  Url                      = {http://link.springer.com/chapter/10.1007/11730095_21}
+}
+
+@InProceedings{Smith1993,
+  title                    = {{Slack-based heuristics for constraint satisfaction scheduling}},
+  Author                   = {Smith, Stephen F and Cheng, Cheng-Chung},
+  Booktitle                = {AAAI},
+  Year                     = {1993},
+  Pages                    = {139--144},
+
+  Owner                    = {guicho},
+  Timestamp                = {2013.10.12}
+}
+
+@Article{Vidal2011,
+  title                    = {{CPT4}: An Optimal Temporal Planner Lost in a Planning Competition without Optimal Temporal Track},
+  Author                   = {Vidal, Vincent},
+  Journal                  = {Angel Garc{\i}a-Olaya, SJ, and L{\'o}pez, CL, eds., Seventh International Planning Competition},
+  Year                     = {2011},
+  Pages                    = {25--28},
+
+  __markedentry            = {[guicho:]},
+  Owner                    = {guicho},
+  Timestamp                = {2013.10.22}
+}
+
+@Article{Vidal2011a,
+  title                    = {{YAHSP2}: Keep it simple, stupid},
+  Author                   = {Vidal, Vincent},
+  Journal                  = {Angel Garc{\i}a-Olaya, SJ, and L{\'o}pez, CL, eds., Seventh International Planning Competition},
+  Year                     = {2011},
+  Pages                    = {83--90},
+
+  __markedentry            = {[guicho:]},
+  Owner                    = {guicho},
+  Timestamp                = {2013.10.22}
+}
+
+@Article{Vidal2006a,
+  title                    = {{Branching and pruning: An optimal temporal {POCL} planner based on constraint programming}},
+  Author                   = {Vidal, Vincent and Geffner, H{\'e}ctor},
+  Journal                  = {Artificial Intelligence},
+  Year                     = {2006},
+  Number                   = {3},
+  Pages                    = {298--335},
+  Volume                   = {170},
+
+  Owner                    = {guicho},
+  Publisher                = {Elsevier},
+  Timestamp                = {2013.10.21}
+}
+
+@InProceedings{Vidal2004,
+  title                    = {{A Lookahead Strategy for Heuristic Search Planning.}},
+  Author                   = {Vidal, Vincent and others},
+  Booktitle                = ICAPS,
+  Year                     = {2004},
+  Pages                    = {150--160},
+
+  Owner                    = {guicho},
+  Timestamp                = {2013.10.21},
+  Url                      = {http://www.aaai.org/Papers/ICAPS/2004/ICAPS04-020.pdf}
+}
+
+@InProceedings{Vidal2006,
+  title                    = {{The new version of {CPT}, an optimal temporal {POCL} planner based on constraint programming}},
+  Author                   = {Vidal, Vincent and Tabary, S{\'e}bastien},
+  Booktitle                = ICAPS,
+  Year                     = {2006},
+  Pages                    = {50},
+
+  Owner                    = {guicho},
+  Timestamp                = {2013.10.21}
+}
+
+@Article{yang1994,
+  title                    = {{A Framework for Automatic Problem Decomposition in Planning.}},
+  Author                   = {Yang, Qiang and Bai, Shuo and Qiu, Guiyou},
+  Journal                  = {AIPS},
+  Year                     = {1994},
+  Pages                    = {347--352}
+}
+
+@InProceedings{NewtonLFL2007,
+  author = 	 {Newton, M. H. and  Levine, J. and  Fox, M. and Long, D},
+  title = 	 {{Learning Macro-Actions for Arbitrary Planners and Domains}},
+  booktitle = ICAPS,
+  year = 	 2007,
+  pages = 	 {256-263}
+}
+
+@article{Coles07,
+  author    = {Andrew Coles and Amanda Smith},
+  title     = {{Marvin: A Heuristic Search Planner with Online Macro-Action Learning}},
+  journal   = {J. Artif. Intell. Res. (JAIR)},
+  volume    = {28},
+  year      = {2007},
+  pages     = {119-156},
+  ee        = {http://dx.doi.org/10.1613/jair.2077},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@InProceedings{Coles04,
+  title                    = {{Marvin: Macro Actions from Reduced Versions of the Instance}},
+  Author                   = {Coles, Andrew and Smith, Amanda},
+  Booktitle                = {Proceedings of the 4th International Planning Competition (IPC).},
+  Year                     = {2004},
+  Owner                    = {guicho},
+  Timestamp                = {2013.10.22}
+}
+
+@article{Korf87,
+  author    = {Richard E. Korf},
+  title     = {{Planning as Search: {A} Quantitative Approach}},
+  journal   = {Artificial Intelligence},
+  year      = 1987,
+  volume    = 33,
+  number    = 1,
+  pages     = {65--88},
+  url       = {http://dx.doi.org/10.1016/0004-3702(87)90051-8},
+  doi       = {10.1016/0004-3702(87)90051-8},
+  timestamp = {Mon, 15 Sep 2014 01:42:11 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/ai/Korf87},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{BarrettW93,
+  author    = {Anthony Barrett and
+               Daniel S. Weld},
+  title     = {{Characterizing Subgoal Interactions for Planning}},
+  booktitle = {Proceedings of the 13th International Joint Conference on Artificial
+               Intelligence},
+  year      = 1993,
+  pages     = {1388--1393},
+  crossref  = {DBLP:conf/ijcai/1993},
+  timestamp = {Mon, 15 Sep 2014 01:58:24 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/ijcai/BarrettW93},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+@InProceedings{ColesS2004,
+  author = 	 {A. Coles and A. Smith},
+  title = 	 {{Marvin: Macro Actions from Reduced Versions of the Instance (Extended Abstract)}},
+  booktitle = {International Planning Contest (IPC-4) Proceedings},
+  year = 	 2004,
+  pages = 	 {24-26},
+  note = 	 {http://www.tzi.de/~edelkamp/ipc-4/IPC-4.pdf}}
+
+@InProceedings{FoxL99,
+  author = 	 {M. Fox and D. Long},
+  title = 	 {{The detection and exploitation of symmetry in planning problems}},
+  booktitle =    IJCAI,
+  year = 	 1999,
+  pages = 	 {956-961}}
+
+@inproceedings{LipovetzkyG11,
+  author    = {Nir Lipovetzky and
+               Hector Geffner},
+  title     = {{Searching for Plans with Carefully Designed Probes}},
+  booktitle = {Proceedings of the 21st International Conference on Automated Planning
+               and Scheduling, {ICAPS} 2011, Freiburg, Germany June 11-16, 2011},
+  year      = 2011,
+  url       = {http://aaai.org/ocs/index.php/ICAPS/ICAPS11/paper/view/2706},
+  timestamp = {Tue, 11 Nov 2014 09:48:08 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/aips/LipovetzkyG11},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{LipovetzkyG09,
+  author    = {Nir Lipovetzky and
+               Hector Geffner},
+  title     = {{Inference and Decomposition in Planning using Causal Consistent Chains}},
+  booktitle = {Proceedings of the 19th International Conference on Automated Planning
+               and Scheduling, {ICAPS} 2009, Thessaloniki, Greece, September 19-23,
+               2009},
+  year      = 2009,
+  url       = {http://aaai.org/ocs/index.php/ICAPS/ICAPS09/paper/view/745},
+  timestamp = {Tue, 11 Nov 2014 09:55:45 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/aips/LipovetzkyG09},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{NakhostM10,
+  author    = {Hootan Nakhost and
+               Martin M{\"{u}}ller},
+  title     = {{Action Elimination and Plan Neighborhood Graph Search: Two Algorithms for Plan Improvement}},
+  booktitle = {Proceedings of the 20th International Conference on Automated Planning
+               and Scheduling, {ICAPS} 2010, Toronto, Ontario, Canada, May 12-16,
+               2010},
+  year      = {2010},
+  pages     = {121--128},
+  url       = {http://www.aaai.org/ocs/index.php/ICAPS/ICAPS10/paper/view/1420},
+  timestamp = {Sun, 16 Nov 2014 08:04:38 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/aips/NakhostM10},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
