@@ -61,7 +61,7 @@ img/%.svg: %.gnuplot %.csv
 %.elc : %.el
 	$(emacs) -Q --batch -f batch-byte-compile $<
 
-clean:
+clean: clean-submission
 	-rm *~ *.aux *.dvi *.log *.toc *.bbl \
 		*.blg *.utf8 *.elc $(name).pdf \
 		*.fdb_latexmk __* *.fls
@@ -70,9 +70,4 @@ clean:
 allclean: clean
 	$(MAKE) -C img clean
 
-submission: en
-	-rm -r sources
-	./aaai_script.sh $(name).tex
-
-archive: submission
-	cd sources/ ; tar cvzf $(name).tar.gz * ; mv $(name).tar.gz ../
+include submission.mk
