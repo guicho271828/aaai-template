@@ -20,3 +20,12 @@ nohup.out
 *.fls
 *.pdf
 *.gz
+/GPATH
+/GRTAGS
+/GSYMS
+/GTAGS
+/asai.spl
+/asai.toc
+!tables/*.pdf
+!img/static/*.png
+!img/static/*.jpg
