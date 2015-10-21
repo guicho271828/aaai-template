@@ -33,7 +33,8 @@ en_pdf: $(name).pdf supplemental.pdf
 		   -latexoption="-halt-on-error" \
 		   -bibtex \
 		   $<
-	cp $@ ~/Dropbox/FukunagaLabShare/repos/$*-$(shell hostname).pdf
+	mkdir -p ~/Dropbox/FukunagaLabShare/repos/$(notdir $(PWD))/
+	cp $@ ~/Dropbox/FukunagaLabShare/repos/$(notdir $(PWD))/$(shell hostname)-$*.pdf
 
 %.ja.pdf: %.tex imgs $(sources) $(styles) $(reference)
 	$(latexmk) -r latexmk/rc_ja.pl \
