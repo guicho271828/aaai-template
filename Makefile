@@ -51,6 +51,9 @@ open: $(name).pdf
 auto:
 	./make-periodically.sh
 
+ci:
+	while : ; do git pull && make ; sleep 60 ; done
+
 imgs:
 	$(MAKE) -C img
 # $(MAKE) -C staticimg
