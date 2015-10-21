@@ -43,7 +43,7 @@ en_pdf: $(name).pdf supplemental.pdf
 		   $<
 
 %.bib:
-	-cp $$(kpsewhich $@) .
+	-ln -s $$(kpsewhich $@)
 
 open: $(name).pdf
 	nohup evince $< &>/dev/null &
