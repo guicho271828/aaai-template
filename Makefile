@@ -1,6 +1,6 @@
 
 name       = asai
-reference  = asai-references.bib
+reference  = local.bib global.bib
 emacs 	   = emacs
 latexmk    = latexmk/latexmk.pl
 styles     = abbrev.sty aaai_my.sty
@@ -43,8 +43,8 @@ en_pdf: $(name).pdf supplemental.pdf
 		   -bibtex \
 		   $<
 
-%.bib:
-	-ln -s $$(kpsewhich $@)
+# %.bib:
+# 	-ln -s $$(kpsewhich $@)
 
 open: $(name).pdf
 	nohup evince $< &>/dev/null &
