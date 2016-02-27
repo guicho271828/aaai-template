@@ -7,6 +7,8 @@ styles     = abbrev.sty aaai_my.sty
 sources    = main.tex
 max_pages   = 8
 
+upload     = ~/Dropbox/FukunagaLabShare/OngoingWorks/asai/
+
 ncpu       = $(shell grep "processor" /proc/cpuinfo | wc -l)
 
 .SUFFIXES: .tex .org .el .elc .svg
@@ -33,8 +35,8 @@ en_pdf: $(name).pdf supplemental.pdf
 		   -latexoption="-halt-on-error" \
 		   -bibtex \
 		   $<
-	mkdir -p ~/Dropbox/FukunagaLabShare/repos/$(notdir $(PWD))/
-	cp $@ ~/Dropbox/FukunagaLabShare/repos/$(notdir $(PWD))/$(shell hostname)-$*.pdf
+	mkdir -p $(upload)/$(notdir $(PWD))/
+	cp $@ $(upload)/$(notdir $(PWD))/$(shell hostname)-$*.pdf
 
 %.ja.pdf: %.tex imgs $(sources) $(styles) $(reference)
 	$(latexmk) -r latexmk/rc_ja.pl \
