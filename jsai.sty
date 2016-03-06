@@ -1,0 +1,443 @@
+%%
+%% jsaiac.sty
+%% A style file for the annual conferences of JSAI
+%% by Zoo.Com and the Japanese Society for Artificial Intelligence
+%%
+%% (c) The Japanese Society for Artificial Intelligence, 2002
+%%
+\def\fileversion{version 1.02}
+\def\filedate{March 6, 2003 (kita)}
+%%
+\typeout{Document Class(Style) `j(-)article' Option Style: 
+`jsaiac \fileversion\space' [\filedate]}
+%%
+%%
+\newif\if@NTT
+\@ifundefined{zw}{}{%		%% add at Mar/23/2001 by kita
+\@ifundefined{kanjiskip}{\@NTTtrue
+ \let\kanjiskip\jintercharskip
+ \let\xkanjiskip\jasciikanjiskip
+ \def\bf{\protect\pdg\protect\pbf}%
+ }{\@NTTfalse\let\jmathkanjiskip\xkanjiskip}
+} %% add by kita
+%%
+%\let\dg\gt
+%\let\dm\mc
+%%
+\setlength\lineskip{2\p@}
+\setlength\lineskiplimit{2\p@}
+\setlength\normallineskip{1\p@}
+\setlength\normallineskiplimit{2\p@}
+\renewcommand{\baselinestretch}{1}
+\setlength\parindent{9pt}	% changed at Mar/23/2001 by kita
+%\setlength\parindent{1zw}
+\setlength{\columnsep}{9mm}
+\setlength{\textwidth}{176mm}
+\setlength\textheight{245mm}
+\setlength{\oddsidemargin}{-8.4mm}
+\setlength{\evensidemargin}{-8.4mm}
+\setlength{\headheight}{3mm}
+\newif\if@OLDLATEX
+\@ifundefined{NeedsTeXFormat}{\@OLDLATEXtrue
+   \setlength{\headsep}{5mm}%
+   }{\@OLDLATEXfalse
+   \setlength\topskip{0pt}
+   \setlength{\headsep}{7mm}
+}
+\setlength{\footskip}{16mm}
+\setlength{\footnotesep}{0mm}
+\setlength{\topmargin}{-10.4mm}
+
+%%\newif\if@OLDLATEX
+\@ifundefined{NeedsTeXFormat}{\@OLDLATEXtrue
+\def\@normalsize{\@setsize\normalsize{12pt plus1pt minus1pt}\ixpt\@ixpt
+  \abovedisplayskip 10pt plus2pt minus5pt\belowdisplayskip \abovedisplayskip
+  \abovedisplayshortskip \z@ plus3pt
+  \belowdisplayshortskip 6pt plus3pt minus3pt
+  \let\@listi\@listI}
+\def\small{\@setsize\small{10pt}\viiipt\@viiipt
+\abovedisplayskip 8.5pt plus 3pt minus 4pt
+\belowdisplayskip \abovedisplayskip
+\abovedisplayshortskip \z@ plus2pt
+\belowdisplayshortskip 4pt plus2pt minus 2pt
+\def\@listi{\leftmargin\leftmargini \topsep 4pt plus 2pt minus 2pt
+\parsep 2pt plus 1pt minus 1pt \itemsep \parsep}}
+\def\bsmall{\@setsize\bsmall{10pt}\ixpt\@ixpt
+\abovedisplayskip 8.5pt plus 3pt minus 4pt\belowdisplayskip \abovedisplayskip
+\abovedisplayshortskip \z@ plus2pt\belowdisplayshortskip 4pt plus2pt minus 2pt
+\def\@listi{\leftmargin\leftmargini \topsep 4pt plus 2pt minus 2pt
+\parsep 2pt plus 1pt minus 1pt
+\itemsep \parsep}}
+\def\footnotesize{\@setsize\footnotesize{7pt}\viipt\@viipt
+\abovedisplayskip 6pt plus 2pt minus 4pt
+\belowdisplayskip \abovedisplayskip
+\abovedisplayshortskip \z@ plus 1pt
+\belowdisplayshortskip 3pt plus 1pt minus 2pt
+\def\@listi{\leftmargin\leftmargini \topsep 3pt plus 1pt minus 1pt
+\parsep 2pt plus 1pt minus 1pt \itemsep \parsep}}
+\def\scriptsize{\@setsize\scriptsize{7pt}\vipt\@vipt}
+\def\tiny{\@setsize\tiny{6pt}\vpt\@vpt}
+\def\large{\@setsize\large{12pt}\xpt\@xpt}
+\def\Large{\@setsize\Large{15pt}\xiipt\@xiipt}
+\def\LARGE{\@setsize\LARGE{20pt}\xivpt\@xivpt}
+\def\huge{\@setsize\huge{30pt}\xviipt\@xviipt}
+\def\Huge{\@setsize\Huge{33pt}\xxpt\@xxpt}
+ }{\@OLDLATEXfalse
+\renewcommand{\normalsize}{%
+  \@setfontsize\normalsize\@ixpt{12}%
+  \abovedisplayskip 10\p@ \@plus2\p@ \@minus5\p@
+  \abovedisplayshortskip \z@ \@plus3\p@
+  \belowdisplayshortskip 6\p@ \@plus3\p@ \@minus3\p@
+  \belowdisplayskip \abovedisplayskip
+  \let\@listi\@listI}
+\renewcommand{\small}{%
+  \@setfontsize\small\@viiipt{10}%
+  \abovedisplayskip 8.5\p@ \@plus3\p@ \@minus4\p@
+  \abovedisplayshortskip \z@ \@plus2\p@
+  \belowdisplayshortskip 4\p@ \@plus2\p@ \@minus2\p@
+  \def\@listi{\leftmargin\leftmargini
+      \topsep 4\p@ \@plus2\p@ \@minus2\p@
+      \parsep 2\p@ \@plus\p@ \@minus\p@
+      \itemsep \parsep}%
+  \belowdisplayskip \abovedisplayskip}
+\newcommand{\bsmall}{%
+  \@setfontsize\small\@ixpt{10}%
+  \abovedisplayskip 8.5\p@ \@plus3\p@ \@minus4\p@
+  \abovedisplayshortskip \z@ \@plus2\p@
+  \belowdisplayshortskip 4\p@ \@plus2\p@ \@minus2\p@
+  \def\@listi{\leftmargin\leftmargini
+      \topsep 4\p@ \@plus2\p@ \@minus2\p@
+      \parsep 2\p@ \@plus\p@ \@minus\p@
+      \itemsep \parsep}%
+  \belowdisplayskip \abovedisplayskip}
+\renewcommand{\footnotesize}{%
+  \@setfontsize\footnotesize\@viipt{7}%
+  \abovedisplayskip 6\p@ \@plus2\p@ \@minus4\p@
+  \abovedisplayshortskip \z@ \@plus\p@
+  \belowdisplayshortskip 3\p@ \@plus\p@ \@minus2\p@
+  \def\@listi{\leftmargin\leftmargini
+      \topsep 3\p@ \@plus\p@ \@minus\p@
+      \parsep 2\p@ \@plus\p@ \@minus\p@
+      \itemsep \parsep}%
+  \belowdisplayskip \abovedisplayskip}
+\renewcommand{\scriptsize}{\@setfontsize\scriptsize\@vipt\@viipt}
+\renewcommand{\tiny}{\@setfontsize\tiny\@vpt\@vipt}
+\renewcommand{\large}{\@setfontsize\large\@xpt{12}}
+\renewcommand{\Large}{\@setfontsize\Large\@xiipt{15}}
+\renewcommand{\LARGE}{\@setfontsize\LARGE\@xivpt{20}}
+\renewcommand{\huge}{\@setfontsize\huge\@xviipt{30}}
+\renewcommand{\Huge}{\@setfontsize\Huge\@xxpt{33}}
+}
+%%
+\normalsize 
+%%\def\large{\@setsize\large{17pt}\xiipt\@xiipt}
+%%\def\Large{\@setsize\Large{21pt}\xivpt\@xivpt}
+%%\def\LARGE{\@setsize\LARGE{25pt}\xviipt\@xviipt}
+%%\def\huge{\@setsize\huge{28pt}\xxpt\@xxpt}
+%%\def\Huge{\@setsize\Huge{33pt}\xxvpt\@xxvpt}
+%%
+
+\def\thepart{\Roman{part}}
+\def\thesection {\arabic{section}.}
+\def\thesubsection {\thesection\arabic{subsection}}
+\def\thesubsubsection {\thesubsection.\arabic{subsubsection}}
+\def\theparagraph {\thesubsubsection\arabic{paragraph}}
+\def\thesubparagraph {\theparagraph\arabic{subparagraph}}
+
+% BEGIN: modifiby kamishima 2008.3.17
+\def\section{\@startsection{section}{1}{\z@}
+   {12pt plus 1pt minus 1pt}{6pt plus 1pt minus 1pt}{\Large\bf}}
+\def\subsection{\@startsection{subsection}{2}{\z@}
+   {6pt plus 1pt minus 1pt}{.01pt plus .5pt minus .5pt}%
+   {\large\bf}}
+\def\subsubsection{\@startsection{subsubsection}{3}{0pt}
+   {1pt}{1pt}{\normalsize\bf}}
+\def\paragraph{\@startsection{paragraph}{4}{\z@}
+   {\z@}{\z@}{\normalsize\bf}}
+\def\subparagraph{\@startsection{subparagraph}{5}{\z@}
+   {\z@}{\z@}{\normalsize\bf}}
+ \setcounter{secnumdepth}{3}
+% END: modifiby kamishima 2008.3.17
+
+%% For Contact address
+\def\addressfootnotetext{%
+  \@ifnextchar[%]
+    {\@addressxfootnotenext}%
+    {
+\xdef\@thefnmark{\thempfn}\@addressfootnotetext}}
+\def\@addressxfootnotenext[#1]{%
+  \begingroup 
+    \csname c@\@mpfn\endcsname #1\relax
+    \xdef\@thefnmark{\thempfn}%
+  \endgroup 
+  \@addressfootnotetext}
+\long\def\@addressfootnotetext#1{%
+  \insert\footins{\normalsize%%\samll
+    \interlinepenalty\interfootnotelinepenalty
+    \splittopskip\footnotesep
+    \splitmaxdepth \dp\strutbox 
+    \floatingpenalty \@MM
+    \hsize\columnwidth 
+    \@parboxrestore
+    \hangindent=18pt	% changed at Mar/23/2001 by kita
+%    \hangindent=2zw 
+    \hangafter\@ne
+   \edef\@currentlabel{\csname p@footnote\endcsname\@thefnmark}\@admakefntext
+    {\rule{\z@}{\footnotesep}\ignorespaces#1\strut}}}
+ \long\def\@admakefntext#1{\noindent\hbox to \z@{}Contact:~#1}%
+%%
+\def\jaddressfootnotetext{%
+  \@ifnextchar[%]
+    {\@jaddressxfootnotenext}%
+    {
+\xdef\@thefnmark{\thempfn}\@jaddressfootnotetext}}
+\def\@jaddressxfootnotenext[#1]{%
+  \begingroup 
+    \csname c@\@mpfn\endcsname #1\relax
+    \xdef\@thefnmark{\thempfn}%
+  \endgroup 
+  \@jaddressfootnotetext}
+\long\def\@jaddressfootnotetext#1{%
+  \insert\footins{\normalsize%%\samll
+    \interlinepenalty\interfootnotelinepenalty
+    \splittopskip\footnotesep
+    \splitmaxdepth \dp\strutbox 
+    \floatingpenalty \@MM
+    \hsize\columnwidth 
+    \@parboxrestore
+    \hangindent=18pt	% changed at Mar/23/2001 by kita
+%   \hangindent=2zw 
+    \hangafter\@ne
+   \edef\@currentlabel{\csname p@footnote\endcsname\@thefnmark}\@jadmakefntext
+    {\rule{\z@}{\footnotesep}\ignorespaces#1\strut}}}
+ \long\def\@jadmakefntext#1{\noindent\hbox to \z@{}連絡先:~#1}%
+%%
+%% For footnote
+\long\def\@footnotetext#1{\insert\footins{\small%\footnotesize%
+    \interlinepenalty\interfootnotelinepenalty 
+    \splittopskip\footnotesep
+    \splitmaxdepth \dp\strutbox \floatingpenalty \@MM
+    \hsize\columnwidth \@parboxrestore
+   \edef\@currentlabel{\csname p@footnote\endcsname\@thefnmark}\@makefntext
+    {\rule{\z@}{\footnotesep}\ignorespaces
+      #1\strut}}}
+%%
+%% For footnote line
+\def\footnoterule{\kern-3\p@ 
+ \hrule width \columnwidth 
+ \kern 2.6\p@} 
+\long\def\@makefntext#1{\parindent 0em\noindent\leftskip8pt 
+\noindent\hbox to \z@{\hss{$\ast$}\@thefnmark}\hskip8pt #1}
+
+%% Macro for Contact address
+%\if@OLDLATEX
+\def\address#1{\begingroup
+\def\protect{\noexpand\protect\noexpand}
+   \xdef\@address{\@address
+   \protect\addressfootnotetext{#1}}\endgroup
+}
+\def\jaddress#1{\begingroup
+\def\protect{\noexpand\protect\noexpand}
+   \xdef\@jaddress{\@jaddress
+   \protect\jaddressfootnotetext{#1}}\endgroup
+}
+%\else
+%\def\address#1{\footnotemark
+%  \protected@xdef\@address{\@address
+%  \protect\specialfootnotetext[\the\c@footnote]{#1}}%
+%}
+%\def\jaddress#1{\footnotemark
+%  \protected@xdef\@jaddress{\@jaddress
+%  \protect\specialfootnotetext[\the\c@footnote]{#1}}%
+%}
+%\fi
+\let\@address\@empty
+\let\@jaddress\@empty
+%%
+%%
+\def\maketitle{\par
+ \begingroup
+ \if@twocolumn 
+ \twocolumn[\@maketitle] 
+ \else \newpage
+ \global\@topnum\z@ \@maketitle \fi\thispagestyle{plain}
+ \endgroup
+ \@address
+ \@jaddress
+ \setcounter{footnote}{0}
+ \thispagestyle{headings}
+ \let\maketitle\relax
+ \let\@maketitle\relax
+ \gdef\@session{}
+ \gdef\@title{}
+ \gdef\@jtitle{}
+ \gdef\@etitle{}
+ \gdef\@author{}
+ \gdef\@affiliate{}
+ \gdef\@jname{}
+ \gdef\@ename{}
+ \gdef\@address{}
+ \gdef\@jaddress{}
+ \gdef\@thanks{}
+ \let\thanks\relax}
+%% BEGIN: modified by T.Kamishima 2008.3.20
+\def\jtitle#1{\protect{\parbox{\linewidth}{%
+\def\baselinestretch{0.5}%
+\huge\noindent\centering{}#1}}\\}
+\def\etitle#1{\protect{\parbox{\linewidth}{%
+\def\baselinestretch{0.5}%
+\Large\noindent\centering{}#1}}}
+%% END: modified by T.Kamishima 2008.3.20
+\def\session#1{\gdef\@session{#1}}
+%%
+\def\and{%                  % \begin{tabular}
+  \end{tabular}%
+  \hskip.5em
+  \begin{tabular}[t]{c}
+}%   % \end{tabular}
+%%
+\def\jname#1{{\Large #1}\\}
+\def\ename#1{{\small #1}}
+%%
+\def\affiliate#1{\gdef\@affiliate{\Large\rm #1}}
+%%
+%%
+%% For abstract
+\newbox\@abstractbox
+\long\def\abstract{%
+  \global\setbox\@abstractbox\hbox\bgroup%
+   \begin{minipage}[t]{\textwidth}%
+    \leftskip7mm
+    \rightskip7mm
+    \bsmall%\baselineskip10pt
+    \parindent9pt
+    %{\bf \abstractname:\hskip2ex }
+}
+\def\endabstract{\end{minipage}\egroup}
+
+\def\@maketitle{\newpage
+ \null
+\@ifundefined{NeedsTeXFormat}{\@OLDLATEXtrue
+   \vskip-2mm 
+   }{\@OLDLATEXfalse
+   \vskip-3mm 
+}
+\vskip1mm	% add by kita
+\@ifundefined{@session}{}{%
+\hfill {\LARGE\sf \@session}\hspace*{-5mm}\par
+\nointerlineskip
+}
+\vskip1mm	% changed by kita %% T.Kamishima 2008.3.20
+{\centering
+  {\huge \lineskip .5em
+  {\renewcommand{\arraystretch}{0.9} %% T.Kamishima 2008.3.20
+  \begin{tabular}[t]{c}\@title 
+  \end{tabular}\par}
+  }
+  \par
+  \vskip3mm
+  {\Large \lineskip .5em
+  {\renewcommand{\arraystretch}{.7}
+  \begin{tabular}[t]{c}\@author 
+  \end{tabular}\par}
+  }
+  \par
+  \vskip3mm
+  {\Large \lineskip .5em
+  {\renewcommand{\arraystretch}{.7}
+  \begin{tabular}[t]{c}\@affiliate 
+  \end{tabular}\par}
+  }
+}
+\vskip5mm 
+ \ifvoid\@abstractbox
+ \else
+ \leavevmode\box\@abstractbox\par
+ \fi
+ \nointerlineskip
+ \vskip6mm
+}
+
+\def\@makefnmark{\hbox{$^{*\@thefnmark}$}}
+\def\thefootnote{\arabic{footnote}}
+
+% BEGIN: modified by T.Kamishima 2008.3.7
+%% For header
+\def\Vol#1{\gdef\@Vol{#1}%
+\gdef\@Volth{\@nth{#1}}%
+ \ifx\@Vol\empty
+  \gdef\@Year{\number\year}%
+ \else
+  \@tempcnta=#1\advance\@tempcnta 1986\relax
+   \xdef\@Year{\the\@tempcnta}%
+ \fi
+}
+\newcount\@tempcnta\@tempcnta=\year\advance\@tempcnta by -1986
+\def\@Vol{\number\@tempcnta}
+\def\@Volth{\@nth{22}}
+%% BEGIN: original version in tugboat package: T.Kamishima 
+%  Adapted from c.t.t posting by Donald Arseneau, 26 May 93.
+\def\@nth#1{\newcount\@tempcnta\newcount\@tempcntb\relax
+\@tempcnta=#1%
+\@tempcntb=\@tempcnta%
+\divide\@tempcntb by 100 \multiply \@tempcntb by 100%
+\advance\@tempcnta by -\@tempcntb%
+\ifnum\@tempcnta >20 \@tempcntb=\@tempcnta%
+  \divide\@tempcntb by 10 \multiply \@tempcntb by 10%
+  \advance\@tempcnta by -\@tempcntb%
+\fi%
+\number#1%
+       \ifcase\@tempcnta th%    0th
+       \or   st%                1st
+       \or   nd%                2nd
+       \or   rd%                3rd
+       \else th%                nth
+       \fi
+}
+%% END: original version in tugboat package: T.Kamishima
+% END: modified by T.Kamishima 2008.3.7
+\def\@Year{\number\year}
+
+\def\Underline#1{%
+ \setbox0\hbox{#1}\leavevmode
+ \lower2mm\hbox to0pt{\vrule width\wd0 depth0pt height.15mm\hss}\box0}
+
+\def\ps@headings{%
+\def\@oddfoot{\hfill 
+\hbox{\rule[3mm]{.9mm}{.3mm}\hskip2mm%
+\raisebox{2mm}{\hbox{\hskip-1mm{\large \thepage}\hskip-1mm}}%
+\hskip2mm \rule[3mm]{.9mm}{.3mm}}%
+\hfill}
+\def\@evenfoot{\hfill
+\hbox{\rule[3mm]{.9mm}{.3mm}\hskip2mm%
+\raisebox{2mm}{\hbox{\hskip-1mm{\large \thepage}\hskip-1mm}}%
+\hskip2mm \rule[3mm]{.9mm}{.3mm}}%
+\hfill}%
+\def\@evenhead{\Underline{\protect\makebox[\textwidth]
+{\ }}}
+%{\it The \@Volth{} Annual Conference of the Japanese Society for Artificial 
+%Intelligence, \@Year{}}}}
+\def\@oddhead{\Underline{\protect\makebox[\textwidth]
+{\ }}}
+%{\it The \@Volth{} Annual Conference of the Japanese Society for Artificial 
+%Intelligence, \@Year{}}}}
+}
+
+\pagestyle{headings}
+
+%%% same affiliation %%%
+\def\first{\hbox{$\m@th^{\ast 1}$\hss}}
+\def\second{\hbox{$\m@th^{\ast 2}$\hss}}
+\def\third{\hbox{$\m@th^{\ast 3}$\hss}}
+\def\fourth{\hbox{$\m@th^{\ast 4}$\hss}}
+\def\fifth{\hbox{$\m@th^{\ast 5}$\hss}}
+\def\sixth{\hbox{$\m@th^{\ast 6}$\hss}}
+\def\seventh{\hbox{$\m@th^{\ast 7}$\hss}}
+\def\eighth{\hbox{$\m@th^{\ast 8}$\hss}}
+\def\ninth{\hbox{$\m@th^{\ast 9}$\hss}}
+%%
+\raggedbottom
+%%
+%%
+%%
+\endinput
