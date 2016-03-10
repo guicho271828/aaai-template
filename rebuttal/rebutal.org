@@ -1,0 +1,20 @@
+#+TITLE: 
+#+DATE: 
+#+AUTHOR: 
+#+EMAIL: 
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:nil
+#+OPTIONS: c:nil creator:nil d:(not "LOGBOOK") date:nil e:t email:nil
+#+OPTIONS: f:t inline:t num:t p:nil pri:nil stat:t tags:t tasks:t tex:nil
+#+OPTIONS: timestamp:nil toc:nil todo:t |:t
+#+CREATOR: Emacs 24.3.1 (Org mode 8.2.10)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+
+# Local Variables:
+# truncate-lines: nil
+# eval: (load-file "publish-and-count-word-for-aaai.el")
+# End:
+
