@@ -7,7 +7,7 @@ styles     = abbrev.sty aaai_my.sty
 sources    = main.tex
 max_pages   = 8
 
-upload     = ~/Dropbox/FukunagaLabShare/OngoingWorks/asai/
+upload     = ~/Dropbox/FukunagaLabShare/OngoingWorks/Asai/
 
 ncpu       = $(shell grep "processor" /proc/cpuinfo | wc -l)
 
