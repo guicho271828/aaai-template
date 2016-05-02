@@ -107,6 +107,34 @@ no-tankage scan-alyzer soko-ban tidy-bot visit-all zeno-travel tie-break-ing}
 
 \setlength{\tabcolsep}{0.02em}
 
+
+%% figure/table caption for journal
+% \makeatletter
+%   \renewcommand{\thefigure}{%
+%   \thesection.\arabic{figure}}
+%   \@addtoreset{figure}{section}
+%   \renewcommand{\thetable}{%
+%   \thesection.\arabic{table}}
+%  \@addtoreset{table}{section}
+% \makeatother
+
+%% journal title / author
+% \usepackage{array}
+% % hidden column type
+% \newcolumntype{H}{>{\setbox0=\hbox\bgroup}c<{\egroup}@{}}
+% \newcolumntype{E}{r!{$\pm$}l}
+% 
+% \jairheading{1}{1993}{1-15}{6/91}{9/91}
+% \ShortHeadings{Tiebreaking Strategies}{Asai \& Fukunaga}
+% \firstpageno{25}
+% 
+% \author{
+% \name Masataro Asai \email guicho2.71828\textcircled{$\alpha$}gmail.com\\
+% \name Alex Fukunaga \\
+% \addr Graduate School of Arts and Sciences, University of Tokyo}
+% \title{Tiebreaking Strategies for Best First Search}
+
+%% conference title / author
 % \author{Masataro Asai, Alex Fukunaga \\ Graduate School of Arts and Sciences \\ University of Tokyo}
 \author{Submision XXX}
 \title{Tiebreaking Strategies for Classical Planning Using $A^*$ Search}
@@ -115,6 +143,8 @@ no-tankage scan-alyzer soko-ban tidy-bot visit-all zeno-travel tie-break-ing}
 \maketitle
 
 \input{main.tex}
+
+% not necessary in journal
 \fontsize{9.5pt}{10.5pt}
 \selectfont
  
