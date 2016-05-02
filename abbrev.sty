@@ -14,8 +14,6 @@
 
 \newcommand{\uline}[1]{\underline{#1}}
 
-\newcommand{\msss}{\mbox{{$\mbox{MS}^{3}$}}\xspace}
-
 \newcommand{\rel}[1]{\in \params{#1}}
 
 \newcommand{\sota}{State-of-the-Art\xspace}
@@ -54,7 +52,7 @@
 
 \newcommand{\defun}[1]{%
 \makeatletter
-\expandafter\def\csname the#1\endcsname{\mbox{\it #1}}
+\expandafter\def\csname the#1\endcsname{\text{\it #1}}
 \expandafter\def\csname #1\endcsname ##1{\csname the#1\endcsname\left(##1\right)}%
 \makeatother
 }
@@ -79,7 +77,7 @@
 \defun{cost}
 
 \defun{push}
-
+\defun{pref}
 % \defun{append}
 % \defun{remove}
 
@@ -94,14 +92,10 @@
 \defun{task}
 
 \defun{parent}
-\defun{depth}
+% \defun{depth}
 \defun{plateau}
 
-\newcommand{\procs}[1]{\mbox{$\mbox{\it proc}^*$}\left(#1\right)}
-
-\newcommand{\pstep}{$\procs{b,S}$\xspace}
-\newcommand{\psteps}{$\proc{b}$\xspace}
-
+\newcommand{\depth}{\brackets{d}}
 
 \defsetop{filter}{}
 \defsetop{map}{}
@@ -111,8 +105,8 @@
 \def\ww{{\relsize{-1}Woodworking}\xspace}
 \def\barm{{\relsize{-1}Barman}\xspace}
 
-\newcommand{\pddl}[1]{{\small \textsf{#1}}}
-\newcommand{\pddls}[1]{{\scriptsize \textsf{#1}}}
+\newcommand{\pddl}[1]{\textsf{\small #1}}
+\newcommand{\pddls}[1]{\textsf{\scriptsize #1}}
 
 \newcommand{\tpred}[2]{\pddl{(#1 \uline{#2})}}
 
@@ -208,17 +202,20 @@
 
 \def\*a*{\verb~*A*~}
 
-\def\lmcut{\mbox{LMcut}\xspace}
-\def\mands{\mbox{M\&S}\xspace}
+\def\lmcut{\text{LMcut}\xspace}
+\def\mands{\text{M\&S}\xspace}
+\def\ff{\text{FF}\xspace}
+\def\ce{\text{CEA}\xspace}
+\def\cg{\text{CG}\xspace}
 
-\def\tree{\mbox{tree}}
-\def\noh{\mbox{[f]}}
+\def\ffo{\hat{h}^{\ff}}
+\def\ceo{\hat{h}^{\ce}}
+\def\cgo{\hat{h}^{\cg}}
+\def\lmo{\hat{h}^{\lmcut}}
+\def\mno{\hat{h}^{\mands}}
+\def\gco{\hat{h}^{\text{GoalCount}}}
 
-\def\mit#1{\mbox{\textit{#1}}}
-
-\def\lf{\mit{lifo}}
-\def\ff{\mit{fifo}}
-\def\r{r}
+\def\mit#1{{\text{\textit{#1}}}}
 
 \def\fifo{\mit{fifo}\xspace}
 \def\lifo{\mit{lifo}\xspace}
@@ -227,3 +224,6 @@
 \def\fd{\mit{fd}\xspace}
 \def\ld{\mit{ld}\xspace}
 \def\rd{\mit{rd}\xspace}
+\def\id{\mit{id}\xspace}
+\def\hh{\hat{h}}
+\def\rb#1{\rotatebox{90}{#1}}
