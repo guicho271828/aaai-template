@@ -20,20 +20,15 @@ get-archive = wget -O- $(1) | tar xz ; mv $(2) $(3)
 .SECONDARY: compile-csv-org.elc compile-main-org.elc __tmp1 __tmp2
 .PHONY: all en ja open imgs clean allclean check_pages check_overflow en_pdf ja_pdf automake submission archive clean-submission
 
-all: en GTAGS
+all: check_pages check_overflow
 
-GTAGS: $(name).tex imgs $(sources) $(styles) $(reference)
-	gtags
+check_pages: en
+	-./check_pages.sh $(max_pages) $(name)
 
-check_pages:
-	./check_pages.sh $(max_pages) $(name)
+check_overflow: en
+	-./check_overflow.sh $(name).log
 
-check_overflow: $(name).log
-	./check_overflow.sh $(name).log
-
-en:	en_pdf check_pages check_overflow
-
-en_pdf: $(name).pdf supplemental.pdf
+en:	$(name).pdf supplemental.pdf $(sources)
 
 %.pdf: %.tex $(name).tex supplemental.tex imgs $(sources) $(styles) $(reference)
 	$(latexmk) -pdf \
