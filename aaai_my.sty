@@ -6,7 +6,7 @@
 % \newcommand{\mat}[1]{\defmath{\mathbf{#1}}}
 % \renewcommand{\vec}[1]{\defmath{\mathit{#1}}}
 \newcommand{\mat}[1]{\mathbf{#1}}
-\renewcommand{\vec}[1]{\mathit{#1}}
+\renewcommand{\vec}[1]{\mathbf{#1}}
 \newcommand{\norm}[1]{\defmath{\|#1\|}}
 
 \newcommand{\subsubparagraph}[1]{}
@@ -75,3 +75,7 @@ quoted from \cite{#1}\end{flushright}}
 % }
 \usepackage{environ}
 \NewEnviron{hidden}{}
+\newcommand{\bi}[1]{\textbf{\Large #1}}
+
+% \usepackage{latexsym}
+\def\qed{\hfill $\Box$}
