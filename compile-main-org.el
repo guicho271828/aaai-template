@@ -9,8 +9,9 @@
   (require 'org-table)
   (require 'ox-latex)
   (find-file in)
-  (org-latex-export-as-latex nil nil nil t)
-  (replace-regexp "^#.*
-" "")
-  (replace-regexp "\\\\label{sec-[0-9][^}]*}" "")
-  (write-file out))
+  (org-latex-export-to-latex nil nil t t)
+;;   (replace-regexp "^#.*
+;; " "")
+;;   (replace-regexp "\\\\label{sec-[0-9][^}]*}" "")
+;;   (write-file out)
+  )
