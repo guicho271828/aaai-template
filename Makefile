@@ -57,7 +57,7 @@ open: $(name).pdf
 	nohup evince $< &>/dev/null &
 
 auto:
-	./make-periodically.sh
+	+./make-periodically.sh
 
 ci:
 	while : ; do git pull && make ; sleep 60 ; done
