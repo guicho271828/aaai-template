@@ -1,34 +1,23 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{hidden}
  
-Like any other software, the key part of collaborative development is *documentation*. In this camera-ready version, I added a macro \subsubparagraph, which does not exist in aaai style and does not violate the camera-ready submission rule. This macro adds a horizontal line and a small note in the marginpar. The code is in asai.tex, and it should be commented out finally (and it becomes a \relax ).
+* too much ``''s make the sentence look scattered and visually less recognizable. ``e.g.'' also.
 
-Other overall implementation strategy should be added here. When some new principle is introduced, it should be here.
- 
-1. Not to say ``CAP is designed for decomposable problems''. It gives an wrong impression that it cannot solve nondecomposable problem. Instead, ``CAP is able to solve large problems, detecting the decomposable parts of the problem in an automated manner. If the problem is not decomposable, then it's ability to solve it solely depends on the underlying MainPlanner. If MainPlanner X can or cannot solve it, then CAP(X) can or cannot solve it, respectively.''
+* \em, \bf, \it are all obsolete \TeX primitives, and it does not take effect properly --- for example, {\bf {\it aaa}} shows ``aaa'' in italic but NOT IN BOLD. Use \emph{}, \textit{}, \textbf{} and so on.
 
-2. too much ``''s make the sentence look scattered and visually less recognizable. ``e.g.'' also.
+* always use \ff, \fd, \cea, \pr, \mv , and do not use it directly, e.g. FF, FD/LAMA2011, etc. 
 
-3. \em, \bf, \it are all obsolete \TeX primitives, and it does not take effect properly --- for example, {\bf {\it aaa}} shows ``aaa'' in italic but NOT IN BOLD. Use \emph{}, \textit{}, \textbf{} and so on.
+* use of footnotes should be minimized.
 
-4. always use \ff, \fd, \cea, \pr, \mv , and do not use it directly, e.g. FF, FD/LAMA2011, etc. 
+* IPC2011 should always be \ipc . The definition can later be modified in abbrev.sty .
 
-5. use of footnotes should be minimized.
+* prefer separated words over hyphened words. domain
+  independent>domain-independent, planner independent >
+  planner-independent.
 
-6. No more mention on R2 or R1 of marvin, because it just cause a confusion.
+* Table, Figure, Fig., should not be used directly. Always use \refig and \reftbl. When the development flag is enabled, direct use of \ref signals an error.
 
-7. IPC2011 should always be \ipc . The definition can later be modified in abbrev.sty .
-
-8. assembly instances are 20.
-
-9. macro actions -> operators.
-10. always use \domind and never ``domain-independent'' nor ``domain independent''.
-11. ``planner independent'', not ``planner-independent''.
-12. "best first", not "best-first"
-13. "mass manufacturing", not "mass-manufacturing"
-14. "Component Abstraction", not "component-abstraction"
-15. Table, Figure, Fig., are not allowed. Always use \refig and \reftbl. When the development flag is enabled, direct use of \ref signals an error.
-16. Caption ends with a period. 
+* Caption ends with a period.
 \end{hidden}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
