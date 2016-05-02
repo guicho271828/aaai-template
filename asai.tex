@@ -53,6 +53,16 @@
 % Macros are for styles!
 % !!!WARN!!! this should be removed in the camera-ready version.
 \def\ref{\todo{Do not use ``ref'' directly!}}
+%% journal, wide margin
+% \renewcommand{\subsubparagraph}[1]{%
+% \vspace{3pt}%
+% \hrule width \linewidth%
+% \marginpar[\hfill\relsize{-1} \protect{{#1}} $\triangleright$]{\relsize{-1} $\triangleleft$ \protect{{#1}}}%
+% \vspace{3pt}%
+% }
+% \setlength{\marginparwidth}{3.3cm}
+% \setlength{\marginparsep}{5pt}
+%% conference, smaller margin
 \renewcommand{\subsubparagraph}[1]{%
 \hrule width \linewidth%
 \marginpar[\hfill\relsize{-1} \protect{\rotatebox[origin=c]{90}{#1}} $\triangleright$]{\relsize{-1} $\triangleleft$ \protect{\rotatebox[origin=c]{-90}{#1}}}}
