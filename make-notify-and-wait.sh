@@ -13,7 +13,7 @@ overfull=$(echo "$message" | grep -E "Overfull" | sort -u)
 
 if [ $success = 0 ]
 then
-    notify-send -t 1 "TeX Success!" "$(echo "$warnings $overfull" | head -n 7)"
+    : notify-send -t 1 "TeX Success!" "$(echo "$warnings $overfull" | head -n 7)"
 else
     notify-send -t 1 "TeX fail!" "$(echo "$warnings $overfull $errors" | head -n 7)"
 fi
