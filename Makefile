@@ -28,7 +28,10 @@ check_pages: en
 check_overflow: en
 	-./check_overflow.sh $(name).log
 
-en:	$(name).pdf supplemental.pdf $(sources)
+en:	en_pdf
+	$(MAKE) check_pages check_overflow
+
+en_pdf: $(name).pdf supplemental.pdf
 
 %.pdf: %.tex $(name).tex supplemental.tex imgs $(sources) $(styles) $(reference)
 	$(latexmk) -pdf \
