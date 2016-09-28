@@ -17,6 +17,7 @@
 \newcommand{\rel}[1]{\in \params{#1}}
 
 \newcommand{\sota}{State-of-the-Art\xspace}
+\newcommand{\lsota}{state-of-the-art\xspace}  %lower-case version
 \newcommand{\domind}{domain-independent\xspace}
 
 % template
@@ -92,7 +93,6 @@
 \defun{task}
 
 \defun{parent}
-% \defun{depth}
 \defun{plateau}
 
 \newcommand{\depth}{\brackets{d}}
@@ -215,15 +215,37 @@
 \def\mno{\hat{h}^{\mands}}
 \def\gco{\hat{h}^{\text{GoalCount}}}
 
-\def\mit#1{{\text{\textit{#1}}}}
+% \def\lf{\mit{lifo}}
+% \def\ff{\mit{fifo}}
+% \def\r{random}
 
-\def\fifo{\mit{fifo}\xspace}
-\def\lifo{\mit{lifo}\xspace}
-\def\ro{\mit{ro}\xspace}
+\def\fifo{{\small\mit{fifo}}\xspace}
+\def\lifo{{\small\mit{lifo}}\xspace}
+\def\ro{{\small\mit{ro}}\xspace}
 
-\def\fd{\mit{fd}\xspace}
-\def\ld{\mit{ld}\xspace}
-\def\rd{\mit{rd}\xspace}
-\def\id{\mit{id}\xspace}
-\def\hh{\hat{h}}
-\def\rb#1{\rotatebox{90}{#1}}
+
+% \def\fd{\mit{fd}\xspace}
+% \def\ld{\mit{ld}\xspace}
+% \def\rd{\mit{rd}\xspace}
+
+\def\lmcut{h^\text{LMcut}\xspace}
+\def\mands{h^\text{M\&S}\xspace}
+\def\ff{h^\text{FF}\xspace}
+\def\lc{h^\text{LC}\xspace}
+\def\ce{h^\text{CEA}\xspace}
+\def\cg{h^\text{CG}\xspace}
+\def\ad{h^\text{add}\xspace}
+
+\def\ffo{\hat{h}^{\text{FF}}}
+\def\ceo{\hat{h}^{\text{CEA}}}
+\def\cgo{\hat{h}^{\text{CG}}}
+\def\lmo{\hat{h}^{\text{LMcut}}}
+\def\mno{\hat{h}^{\text{M\&S}}}
+\def\gco{\hat{h}^{\text{GoalCount}}}
+
+\def\sip{r_\text{SIP}}
+\def\bip{r_\text{BIP}}
+\def\depth{\brackets{d}}
+\newcommand{\bi}[1]{\textbf{\relsize{0.5}#1}}
+\newcommand{\ui}[1]{\uline{\textit{#1}}}
+
