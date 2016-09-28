@@ -4,7 +4,7 @@
 \usepackage{times}
 \usepackage{helvet}
 \usepackage{courier}
-
+\usepackage{tabularx}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{xspace}
@@ -14,9 +14,11 @@
 \usepackage{abbrev}
 \usepackage{multirow}
 \usepackage{xr}
+\usepackage{pdflscape}
 \externaldocument{asai}
 \renewcommand{\thetable}{S\arabic{table}}
 \renewcommand{\thefigure}{S\arabic{figure}}
+% \usepackage[margin=1cm]{geometry}
 
 \setlength{\pdfpagewidth}{8.5in}
 \setlength{\pdfpageheight}{11in}
@@ -29,12 +31,20 @@
 % \setlength{\abovedisplayskip}{1mm}
 % \setlength{\belowdisplayskip}{1mm}
 % \setlength{\arraycolsep}{0.5mm}
-\setlength{\tabcolsep}{0.1em}
+% \setlength{\tabcolsep}{0.1em}
 
 \nocopyright
-\author{Submision 974}
-\title{Tiebreaking Strategies for Classical Planning Using $A^*$ Search\\ (Supplemental Material)}
+\author{Submision 1537}
+\title{Improving Greedy Best-First Search by Removing Unintended Search Bias}
 \begin{document}
-\maketitle
+\onecolumn
+\makeatletter
+\@maketitle
+\makeatother
+
+
+\begin{landscape}
+aaa
+\end{landscape}
 
 \end{document}
