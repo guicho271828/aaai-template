@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# $1 : input file
+
+tmp=$(mktemp)
+trap "rm $tmp" EXIT
+
+echo "inlining all included files"
+
+while ( grep ^.input $1 ); do
+    awk '{ if ( $0 ~ /\\input( |{)/ ) { sub(/\\input( |{)/,""); sub(/}/, ""); sub(/\.tex/, ""); system("cat "$0".tex | sed  '/^%.*\$/d'") } else { print $0; } }' $1 > $tmp
+    cp $tmp $1
+done
+
+
+echo "inlining bibitems"
+BIBFILE=`echo $1 | sed 's/.tex/.bbl/'`
+awk -v filename=$BIBFILE '{ if ($0 ~ ".bibliography{") { system("cat "filename); } else { print $0; } }' < $1 > $tmp
+cp $tmp $1
+
+
