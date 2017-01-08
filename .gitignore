@@ -32,3 +32,5 @@ nohup.out
 !img/static/*.jpg
 /org-mode/
 tables/.#*
+*.subm
+/submission/
