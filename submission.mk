@@ -2,8 +2,8 @@
 %.subm: $(name).fls submission.mk
 	awk '/INPUT .*\.$*/{print $$2}' $< | xargs readlink -ef | sort | uniq | grep -v "texlive" | sed -e "s~$$(pwd)/~~g" > $@
 
-bb.subm:  png.subm submission.mk
-	sed -e 's/png/bb/g' $< > $@
+xbb.subm:  png.subm submission.mk
+	sed -e 's/png/xbb/g' $< > $@
 
 submission: en sty.subm png.subm pdf.subm bb.subm tex.subm bbl.subm
 	bash -c "rsync --files-from=<(cat *.subm) . submission/"
