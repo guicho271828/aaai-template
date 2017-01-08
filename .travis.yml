@@ -6,6 +6,7 @@ addons:
   apt:
     packages:
       - texlive-latex-extra
+      - texlive-generic-recommended
 
 env:
   global:
