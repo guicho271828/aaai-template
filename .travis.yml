@@ -7,6 +7,7 @@ addons:
     packages:
       - texlive-latex-extra
       - texlive-generic-recommended
+      - texlive-fonts-recommended
 
 env:
   global:
