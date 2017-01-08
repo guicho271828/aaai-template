@@ -1,0 +1,24 @@
+language: tex
+sudo: false
+
+addons:
+  apt:
+    packages:
+      - texlive
+
+env:
+  global:
+  matrix:
+
+matrix:
+  allow_failures:
+    # - env: LISP=clisp
+
+install:
+
+cache:
+  directories:
+
+script:
+  - make submission
+
