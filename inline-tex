@@ -13,8 +13,9 @@ grep "\\\\input" *.tex
 echo "================================"
 
 
-while ( grep "\\input" $1 ); do
-    awk '{ if ( $0 ~ / *\\input/ ) { sub(/ *\\input{/,""); sub(/}/, ""); sub(/\.tex/, ""); system("cat "$0".tex | sed  '/^%.*\$/d'"); system("rm "$0".tex") } else { print $0; } }' $1 > $tmp
+while ( grep '^ *\\input{[^}]*} *$' $1 ); do
+    echo "found an input line"
+    awk -f $(dirname $0)/inline-tex-sub.awk $1 > $tmp
     cp $tmp $1
 done
 
