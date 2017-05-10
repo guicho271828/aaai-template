@@ -11,6 +11,7 @@
     close($0)
     print "removing "$0 > "/dev/stderr"
     system("rm "$0)
+    sub(/.*/, "")
 }
 
 {
