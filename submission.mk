@@ -22,7 +22,8 @@ submission: en sty.subm png.subm pdf.subm bb.subm tex.subm bbl.subm
 	@echo "Make sure every \\input commands are in the beginning of line but space"
 
 clean-submission:
-	-rm -rf *.subm submission
+	-rm -rf *.subm submission *.tar.gz *.zip
 
 archive: submission
-	cd submission ; tar cvzf $(name).tar.gz * ; mv $(name).tar.gz ../
+	cd submission ; tar cvzf ../$(name).tar.gz *
+	cd submission ; zip -r ../$(name) *
