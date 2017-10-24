@@ -1,6 +1,6 @@
 %Filename: AAAI.bst
 % BibTeX `aaai' style file for BibTeX version 0.99c, LaTeX version 2.09
-% Version of 22 February 2008
+% Version of 22 February 2017
 % Place it in a file called aaai.bst in the BibTeX search path. (Placing it
 % in the same directory as the LaTeX document should also work.)
 % Support for named citations is provided by named.sty

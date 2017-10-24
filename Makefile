@@ -20,7 +20,7 @@ get-archive = wget -O- $(1) | tar xz ; mv $(2) $(3)
 .SECONDARY: compile-csv-org.elc compile-main-org.elc __tmp1 __tmp2
 .PHONY: all en ja open imgs clean allclean check_pages check_overflow en_pdf ja_pdf automake submission archive clean-submission
 
-all: check_pages check_overflow
+all: check_pages check_overflow en
 
 $(name).log $(name).fls: $(name).pdf
 
@@ -30,22 +30,21 @@ check_pages: $(name).pdf
 check_overflow: $(name).log
 	-./check_overflow.sh $(name).log
 
-en:	en_pdf
-	$(MAKE) check_pages check_overflow
+en: $(name).pdf supplemental.pdf
 
-en_pdf: $(name).pdf supplemental.pdf
+$(name).pdf: supplemental.pdf
 
 %.pdf: %.tex $(name).tex supplemental.tex imgs $(sources) $(styles) $(reference)
-	$(latexmk) -pdf \
-		   -latexoption="-halt-on-error" \
+	-$(latexmk) -pdf \
+		   -latexoption="-halt-on-error -shell-escape" \
 		   -bibtex \
 		   $<
 	mkdir -p $(upload)/$(notdir $(PWD))/
-	cp $@ $(upload)/$(notdir $(PWD))/$(shell hostname)-$*.pdf
+	cp $@ $(upload)/$(notdir $(PWD))/$(shell hostname)-$(shell git rev-parse --abbrev-ref HEAD)-$*.pdf
 
 %.ja.pdf: %.tex imgs $(sources) $(styles) $(reference)
 	$(latexmk) -r latexmk/rc_ja.pl \
-		   -latexoption="-halt-on-error" \
+		   -latexoption="-halt-on-error -shell-escape" \
 		   -pdfdvi \
 		   -bibtex \
 		   $<

@@ -26,12 +26,12 @@ nohup.out
 /GTAGS
 /asai.spl
 /asai.toc
-!tables/*.pdf
-!tables/*/*/*.pdf
-!img/static/*.png
-!img/static/*.jpg
+!tables/**/*.pdf
+!img/static/**/*.png
+!img/static/**/*.jpg
 /org-mode/
 tables/.#*
 *.subm
 /submission/
+rebuttal/*.txt
 /asai.zip
