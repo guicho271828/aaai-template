@@ -1,10 +1,5 @@
-% \usepackage[dvipdfm]{graphicx}
-% \usepackage{moreverb}
-
 \newcommand{\defmath}[1]{\mbox{$#1$}}
 
-% \newcommand{\mat}[1]{\defmath{\mathbf{#1}}}
-% \renewcommand{\vec}[1]{\defmath{\mathit{#1}}}
 \newcommand{\mat}[1]{\mathbf{#1}}
 \renewcommand{\vec}[1]{\mathbf{#1}}
 \newcommand{\norm}[1]{\defmath{\|#1\|}}
@@ -24,6 +19,7 @@
 \newcommand{\difby}[1]{\frac{d}{d#1}}
 \newcommand{\difofby}[2]{\frac{d#1}{d#2}}
 
+% SI unit
 \newcommand{\si}[1]{\mathrm{[#1]}}
 \newcommand{\ten}[1]{\times 10^{#1}}
 \newcommand{\mev}{\si{MeV}}
@@ -59,24 +55,7 @@
 \begin{flushright}\hspace{2em}\rule{4em}{0.1mm}%
 quoted from \cite{#1}\end{flushright}}
 
-% \newcommand{\newalias}[2]{\newcommand{#1}{#2}}
-
 \newcounter{list}[section]
 \renewcommand{\thelist}{\thesection .\arabic{list}}
 
-% \usepackage{float}
-% \makeatletter
-% \newfloat{@listbox}{htbp}{lol}[section]
-% \newenvironment{listbox}[2][tbp]{
-%   \begin{@listbox}[#1]
-%    \refstepcounter{list}
-%    \begin{itembox}{List \thelist\quad#2}
-%  }{
-%    \end{itembox}
-%   \end{@listbox}
-% }
-\usepackage{environ}
-\NewEnviron{hidden}{}
-
-% \usepackage{latexsym}
 \def\qed{\hfill $\Box$}

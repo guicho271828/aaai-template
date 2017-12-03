@@ -8,13 +8,7 @@
 
 \newcommand{\apply}[2]{#1\big|_{#2}}
 
-\renewcommand{\ss}{SS\xspace}
-\newcommand{\sss}{SS's\xspace}
-\newcommand{\ssset}{{\cal S}}
-
 \newcommand{\uline}[1]{\underline{#1}}
-
-\newcommand{\rel}[1]{\in \params{#1}}
 
 \newcommand{\sota}{State-of-the-Art\xspace}
 \newcommand{\lsota}{state-of-the-art\xspace}  %lower-case version
@@ -30,9 +24,6 @@
 \newcommand{\adde}[1]{e^+\parens{#1}}
 \newcommand{\dele}[1]{e^-\parens{#1}}
 \newcommand{\eff}[1]{e^{\pm}\parens{#1}}
-
-\newcommand{\movement}{\bar{M}}
-\newcommand{\movements}{\bar{M}^*}
 
 \newcommand{\plan}{P}
 \newcommand{\nplan}[1]{P_{#1}}
@@ -85,8 +76,6 @@
 \newcommand{\append}[2]{#1 \gets #1\cap #2}
 \newcommand{\remove}[2]{#1 \gets #1\setminus #2}
 
-
-
 \defun{init}
 \defun{goal}
 \defun{objects}
@@ -100,74 +89,10 @@
 \defsetop{filter}{}
 \defsetop{map}{}
 
-\def\ca{{\relsize{-1}CELL-ASSEMBLY}\xspace}
-\def\cae{{\relsize{-1}CELL-ASSEMBLY-EACHPARTS}\xspace}
-\def\ww{{\relsize{-1}Woodworking}\xspace}
-\def\barm{{\relsize{-1}Barman}\xspace}
-
 \newcommand{\pddl}[1]{\textsf{\small #1}}
 \newcommand{\pddls}[1]{\textsf{\scriptsize #1}}
 
-\newcommand{\tpred}[2]{\pddl{(#1 \uline{#2})}}
-
 \newcommand{\first}[1]{{\em \makefirstuc{#1}}}
-
-\newcommand{\ac}{abstract component\xspace}
-\newcommand{\at}{abstract type\xspace}
-\newcommand{\atask}{component task\xspace}
-\newcommand{\sg}{static graph\xspace}
-\newcommand{\sfact}{static fact\xspace}
-% \newcommand{\cplan}{component plan\xspace}
-% \newcommand{\cprob}{component problem\xspace}
-
-\newcommand{\acs}{abstract components\xspace}
-\newcommand{\ats}{abstract types\xspace}
-\newcommand{\atasks}{component tasks\xspace}
-\newcommand{\sfacts}{static facts\xspace}
-% \newcommand{\cplans}{component plans\xspace}
-% \newcommand{\cprobs}{component problems\xspace}
-
-
-\makeatletter
-
-\newcommand{\myfig}[3]{%
- \@ifstar
- {\@myfigs{#1}{#2}{#3}}
- {\@myfigns{#1}{#2}{#3}}
-}
-
-\newcommand{\@myfigs}[3]{
- \begin{figure*}[htbp]%
-  \centering%
-  \includegraphics{#1}%
-  \caption{#3}%
-  \label{#2}%
- \end{figure*}%
-}
-
-\newcommand{\@myfigns}[3]{
- \begin{figure}[htbp]%
-  \centering%
-  \includegraphics{#1}%
-  \caption{#3}%
-  \label{#2}%
- \end{figure}%
-}
-\makeatother
-
-% subfigure is not available in aaai
-% \newcommand{\mysubfig}[3]{%
-%  \begin{subfigure}{.5\textwidth}%
-%   \centering%
-%   \includegraphics[width=0.6\linewidth]{#1}%
-%   \caption{#3}%
-%   \label{#2}%
-%  \end{subfigure}%
-% }
-
-\newcommand{\wimg}[1]{workshop-result/output/#1}
-\setlength{\marginparsep}{0pt}
-\setlength{\marginparwidth}{1.9cm}
 
 \makeatletter
 \NewDocumentCommand{\todo}{s O{} m}{%
@@ -178,12 +103,7 @@
 \newcommand{\@todos}[2]{}
 \makeatother
 
-
 % for table
-
-
-\def\ncysym{{\relsize{-1}($\circlearrowleft^\times$)}\xspace}
-\def\ncpsym{{\relsize{-1}($\approx^\times$)}\xspace}
 
 \newcommand{\spc}[2][c]{%
   \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
@@ -191,16 +111,8 @@
 
 \def\spm{$\mathsmaller{\mathsmaller{\pm}}$}
 
-\newcommand{\wave}{\includegraphics{img/wave-circle.png}\xspace}
-\newcommand{\white}{\includegraphics{img/white-circle.png}\xspace}
-\newcommand{\gray}{\includegraphics{img/gray-circle.png}\xspace}
-\newcommand{\dotted}{\includegraphics{img/dotted-circle.png}\xspace}
-
 \newcommand{\ipc}[1][2011]{IPC#1\xspace}
 
-\def\caed{{\small CA-ED}\xspace}
-
-\def\*a*{\verb~*A*~}
 
 \def\lmcut{\text{LMcut}\xspace}
 \def\mands{\text{M\&S}\xspace}
