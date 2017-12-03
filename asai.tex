@@ -24,7 +24,18 @@
 \usepackage{graphicx}
 \usepackage{multirow}
 \usepackage{comment}
+% package minted.
 \usepackage[draft]{minted}
+% during the camera-ready,
+% 1. comment the above line
+% 2. uncomment the line below to obtain the full \input source in _minted-$NAME directory.
+% \usepackage[finalizecache]{minted}
+% 3. then, comment the line above again, and uncomment the lines below.
+% \input{_minted-asai/default.pygstyle}
+% \input{_minted-asai/default-pyg-prefix.pygstyle}
+% 4. finally, replace each minted command in the document with 
+% corresponding \input source to make it recognized by inline-tex .
+
 \usepackage{algorithm}
 \usepackage[noend]{algorithmic}
 % for conference submission with supplements. AAAI camera-ready does not allow them
