@@ -113,51 +113,53 @@
 
 \newcommand{\ipc}[1][2011]{IPC#1\xspace}
 
+\def\fifo{{\small\textit{fifo}}\xspace}
+\def\lifo{{\small\textit{lifo}}\xspace}
+\def\ro{{\small\textit{ro}}\xspace}
 
-\def\lmcut{\text{LMcut}\xspace}
-\def\mands{\text{M\&S}\xspace}
-\def\ff{\text{FF}\xspace}
-\def\ce{\text{CEA}\xspace}
-\def\cg{\text{CG}\xspace}
+\makeatletter
 
-\def\ffo{\hat{h}^{\ff}}
-\def\ceo{\hat{h}^{\ce}}
-\def\cgo{\hat{h}^{\cg}}
-\def\lmo{\hat{h}^{\lmcut}}
-\def\mno{\hat{h}^{\mands}}
-\def\gco{\hat{h}^{\text{GoalCount}}}
+% heuristics command. h^XXX when in math mode.
 
-% \def\lf{\mit{lifo}}
-% \def\ff{\mit{fifo}}
-% \def\r{random}
+\newcommand{\newheuristic}[2]{%
+ \def#1{%
+  \ifmmode%
+  h^\text{#2}\xspace%
+  \else%
+  \text{#2}\xspace%
+  \fi%
+ }%
+}
 
-\def\fifo{{\small\mit{fifo}}\xspace}
-\def\lifo{{\small\mit{lifo}}\xspace}
-\def\ro{{\small\mit{ro}}\xspace}
+\newheuristic{\lmcut}{LMcut}
+\newheuristic{\mands}{M\&S}
+\newheuristic{\pdb}{PDB}
+\newheuristic{\ff}{FF}
+\newheuristic{\ce}{CEA}
+\newheuristic{\cg}{CG}
+\newheuristic{\ad}{add}
+\newheuristic{\lc}{LC}
 
+\newcommand{\newUnitCostHeuristic}[2]{%
+ \def#1{%
+  \ifmmode%
+  \hat{h}^\text{#2}\xspace%
+  \else%
+  \text{#2}\xspace%
+  \fi%
+ }%
+}
 
-% \def\fd{\mit{fd}\xspace}
-% \def\ld{\mit{ld}\xspace}
-% \def\rd{\mit{rd}\xspace}
+\newUnitCostHeuristic{\lmcuto}{LMcut}
+\newUnitCostHeuristic{\mandso}{M\&S}
+\newUnitCostHeuristic{\ffo}{FF}
+\newUnitCostHeuristic{\ceo}{CEA}
+\newUnitCostHeuristic{\cgo}{CG}
+\newUnitCostHeuristic{\ado}{add}
+\newUnitCostHeuristic{\gco}{GoalCount}
+\newUnitCostHeuristic{\lco}{LC}
 
-\def\lmcut{h^\text{LMcut}\xspace}
-\def\mands{h^\text{M\&S}\xspace}
-\def\ff{h^\text{FF}\xspace}
-\def\lc{h^\text{LC}\xspace}
-\def\ce{h^\text{CEA}\xspace}
-\def\cg{h^\text{CG}\xspace}
-\def\ad{h^\text{add}\xspace}
+\makeatother
 
-\def\ffo{\hat{h}^{\text{FF}}}
-\def\ceo{\hat{h}^{\text{CEA}}}
-\def\cgo{\hat{h}^{\text{CG}}}
-\def\lmo{\hat{h}^{\text{LMcut}}}
-\def\mno{\hat{h}^{\text{M\&S}}}
-\def\gco{\hat{h}^{\text{GoalCount}}}
-
-\def\sip{r_\text{SIP}}
-\def\bip{r_\text{BIP}}
-\def\depth{\brackets{d}}
 \newcommand{\bi}[1]{\textbf{\relsize{0.5}#1}}
 \newcommand{\ui}[1]{\uline{\textit{#1}}}
-
