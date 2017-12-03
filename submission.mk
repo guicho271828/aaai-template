@@ -5,7 +5,7 @@
 xbb.subm:  png.subm submission.mk
 	sed -e 's/png/xbb/g' $< > $@
 
-submission: en sty.subm png.subm pdf.subm bb.subm tex.subm bbl.subm
+submission: en sty.subm png.subm pdf.subm bb.subm tex.subm bbl.subm pygstyle.subm pygtex.subm
 	bash -c "rsync --files-from=<(cat *.subm) . submission/"
 	cd submission ; ../inline-tex $(name).tex
 	find submission -name "*\.log" -delete
