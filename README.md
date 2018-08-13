@@ -12,9 +12,16 @@ This repository includes templates and makefiles for:
 + IJCAI style
 + JAIR style
 
+Requirements: GNU Make, TexLive, inkscape, perl
+
 Several notes:
 
-* It encourages the use of [Inkskape](https://inkscape.org/) to prepare svg images in `img` subdirectory, which are automatically compiled into pdf figures. (This is a recommended way, since pngs are bitmaps and doesnt print nicely)
+* It encourages the use of [Inkskape](https://inkscape.org/) to prepare svg
+  images in `img` subdirectory, which are automatically compiled into pdf
+  figures. (This is a recommended way, since pngs are bitmaps and doesnt print
+  nicely.)
+  
+  On OSX, inkscape is available from `brew install inkscape`
 
 * One thing that bugs me every time my paper is accepted to these conferences is how to prepare the **camera-ready submission** archive, which does not allow the use of `\\input{}` command. This repo also has a complete automated script for doing this, via `make submission`.
 
