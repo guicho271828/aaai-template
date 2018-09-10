@@ -94,15 +94,6 @@
 
 \newcommand{\first}[1]{{\em \makefirstuc{#1}}}
 
-\makeatletter
-\NewDocumentCommand{\todo}{s O{} m}{%
-  \IfBooleanTF#1%
-    {\@todos{#2}{#3}}%
-    {\@todons{#2}{#3}}}
-\newcommand{\@todons}[2]{}
-\newcommand{\@todos}[2]{}
-\makeatother
-
 % for table
 
 \newcommand{\spc}[2][c]{%
