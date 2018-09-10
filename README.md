@@ -26,7 +26,8 @@ Several notes:
   
   On OSX, inkscape is available from `brew install inkscape`
 
-* One thing that bugs me every time my paper is accepted to these conferences is how to prepare the **camera-ready submission** archive, which does not allow the use of `\\input{}` command. This repo also has a complete automated script for doing this, via `make submission`.
+* One thing that bugs me every time my paper is accepted to these conferences is how to prepare the **camera-ready submission** archive, which does not allow the use of `\\input{}` command. This repo also has a complete automated script for doing this, via `make submission`. There are a few things that should be kept in mind while using this:
+  * all `\\input{}` commands must be at the beginning of line, nothing before or after it. Otherwise it may remove some necessary text
 
 * `make auto` watches the source files and builds the pdf when they are updated. Requirements: `inotify-tools` package (it uses `inotifywait` for watching files and also sends messages via inotify notification popup window)
 
