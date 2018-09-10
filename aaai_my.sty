@@ -35,7 +35,6 @@
 
 \makeatletter
 \let\@myref\ref
-\makeatother
 
 \newcommand{\refsec}[1]{Sec.\,\@myref{#1}}
 \newcommand{\refseq}[1]{Sec.\,\@myref{#1}}
@@ -56,6 +55,8 @@
 \newcommand{\refcitequote}[1]{%
 \begin{flushright}\hspace{2em}\rule{4em}{0.1mm}%
 quoted from \cite{#1}\end{flushright}}
+
+\makeatother
 
 \newcounter{list}[section]
 \renewcommand{\thelist}{\thesection .\arabic{list}}
