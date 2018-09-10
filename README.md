@@ -19,6 +19,9 @@ Requirements: GNU Make, TexLive, inkscape, perl
 
 Several notes:
 
+* Why the file is named asai.tex?: Because the camera-ready submission requires
+  that you need to name the latex source file in your last name. Asai is my last name...
+
 * It encourages the use of [Inkskape](https://inkscape.org/) to prepare svg
   images in `img` subdirectory, which are automatically compiled into pdf
   figures. (This is a recommended way, since pngs are bitmaps and doesnt print
