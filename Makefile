@@ -3,7 +3,7 @@ name       = asai
 reference  = confs.bib journals.bib
 emacs 	   = emacs
 latexmk    = latexmk/latexmk.pl
-styles     = abbrev.sty aaai_my.sty
+styles     = abbrev.sty aaai_my.sty common-header.sty
 tables     = $(addsuffix .tex,$(basename $(wildcard tables/*.org)))
 sources    = main.tex $(wildcard [0-9]-*.tex) $(tables)
 $(info $(sources))

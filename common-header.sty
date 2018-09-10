@@ -1,0 +1,98 @@
+% aaai
+\documentclass[10pt,letterpaper]{article}
+\usepackage{aaai19}
+% ecai
+% \documentclass{ecai}
+% \usepackage{times}
+% jair
+% \documentclass[11pt]{article}
+% \usepackage{jair}
+% \usepackage{theapa}
+% nips
+% \documentclass{article}
+% \usepackage{nips_2018}
+% \usepackage[preprint]{nips_2018}
+% \usepackage[final]{nips_2018}
+% --- note: didn't added inputenc/fontenc for aaai compatibility
+%%%%%%%%%%%%
+\usepackage{tabularx}
+\usepackage{xparse}
+\usepackage{times}
+\usepackage{helvet}
+\usepackage{courier}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{xspace}
+\usepackage{relsize}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{url}
+\usepackage{comment}
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+
+\usepackage[draft]{minted}
+% during the camera-ready,
+% 1. comment the above line
+% 2. uncomment the line below to obtain the full \input source in _minted-$NAME directory.
+% \usepackage[finalizecache]{minted}
+% 3. then, comment the line above again, and uncomment the lines below.
+% \input{_minted-asai/default.pygstyle}
+% \input{_minted-asai/default-pyg-prefix.pygstyle}
+% 4. finally, replace each minted command in the document with 
+% corresponding \input source to make it recognized by inline-tex .
+
+% for conference submission with supplements. AAAI camera-ready does not allow them
+\usepackage{xr}
+
+% custom commands
+\input{aaai_my.sty}
+\input{abbrev.sty}
+
+\pdfinfo{
+/Title (aaaaa)
+/Keywords (Planning, Heuristic Search)
+}
+% /Author (Masataro Asai, Alex Fukunaga)
+% be anonymous
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% forbid the direct use of \\ref --- it results in inconsistency in styles, e.g., Figure,Fig., etc.
+% Macros are for styles!
+% !!!WARN!!! this should be removed in the camera-ready version.
+\def\ref{\todo{Do not use ``ref'' directly!}}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hyphenation{bar-man air-port cyber-sec driver-log floor-tile free-cell
+no-mystery open-stacks parc-printer path-ways peg-sol pipes-world
+no-tankage scan-alyzer soko-ban tidy-bot visit-all zeno-travel tie-break-ing}
+
+\frenchspacing
+\setlength{\pdfpagewidth}{8.5in}
+\setlength{\pdfpageheight}{11in}
+\setcounter{secnumdepth}{2}
+
+%% jair-specific
+% 
+% \usepackage{fancyhdr}
+% \fancypagestyle{plain}{%
+% \fancyhf{} % clear all header and footer fields
+% \fancyfoot[C]{\iffloatpage{}{\thepage}} % except the center
+% \renewcommand{\headrulewidth}{0pt}
+% \renewcommand{\footrulewidth}{0pt}}
+% \pagestyle{plain}
+% \usepackage{longtable}
+% \setlength{\LTcapwidth}{\textwidth}
+% \setcounter{LTchunksize}{10}
+% 
+%% figure/table caption for journal
+% \makeatletter
+%   \renewcommand{\thefigure}{%
+%   \thesection.\arabic{figure}}
+%   \@addtoreset{figure}{section}
+%   \renewcommand{\thetable}{%
+%   \thesection.\arabic{table}}
+%  \@addtoreset{table}{section}
+% \makeatother
+

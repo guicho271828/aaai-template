@@ -1,43 +1,43 @@
-\documentclass[10pt,letterpaper]{article}
-\usepackage{aaai}
-\usepackage{xparse}
-\usepackage{times}
-\usepackage{helvet}
-\usepackage{courier}
-\usepackage{tabularx}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{xspace}
-\usepackage{relsize}
-\usepackage{aaai_my}
-\usepackage{graphicx}
-\usepackage{abbrev}
-\usepackage{multirow}
-\usepackage{xr}
-\usepackage{pdflscape}
+% not usepackage due to aaai camera-ready requirements (don't allow custom style file)
+% this is inlined by the script
+\input{common-header.sty}
 \externaldocument{asai}
+\usepackage{pdflscape}
 \renewcommand{\thesection}{S\arabic{section}}
 \renewcommand{\thetable}{S\arabic{table}}
 \renewcommand{\thefigure}{S\arabic{figure}}
-% \usepackage[margin=1cm]{geometry}
 
-\setlength{\pdfpagewidth}{8.5in}
-\setlength{\pdfpageheight}{11in}
 \pagestyle{empty}
-\frenchspacing
 
 \nocopyright
-\author{Submision 1537}
+\author{Supplemental materials for Submision 1537}
 \title{Improving Greedy Best-First Search by Removing Unintended Search Bias}
 \begin{document}
+
 \onecolumn
 \makeatletter
 \@maketitle
 \makeatother
-
+% or, just
+% \maketitle
 
 \begin{landscape}
 aaa
 \end{landscape}
+
+% not necessary in journal
+\fontsize{9.5pt}{10.5pt}
+\selectfont
+ 
+\bibliography{journals,confs}
+\bibliographystyle{aaai}
+% ijcai
+% \bibliographystyle{named}
+% jsai
+% \bibliographystyle{jsai}
+% ecai
+% \bibliographystyle{ecai}
+% jair
+% \bibliographystyle{theapa}
 
 \end{document}
