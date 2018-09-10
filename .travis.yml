@@ -5,9 +5,7 @@ sudo: false
 addons:
   apt:
     packages:
-      - texlive-latex-extra
-      - texlive-generic-recommended
-      - texlive-fonts-recommended
+      - texlive-full
 
 env:
   global:
