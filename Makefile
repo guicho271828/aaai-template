@@ -65,28 +65,6 @@ imgs:
 	$(MAKE) -C img
 # $(MAKE) -C staticimg
 
-%.csv: %.csvorg compile-csv-org.elc
-	$(emacs) --batch --quick --script compile-csv-org.elc --eval "(progn (load-file \"compile-csv-org.el\")(compile-org \"$<\" \"$@\"))"
-
-img/%.tex: %.gnuplot %.csv
-	gnuplot $<
-
-img/%.svg: %.gnuplot %.csv
-	gnuplot $<
-
-version = 8.3.4
-org-mode:
-	$(call get-archive, http://orgmode.org/org-$(version).tar.gz, org-$(version), $@)
-	$(MAKE) -C $@ compile
-
-%.tex: %.org compile-main-org.elc
-	$(emacs) --batch --quick \
-		 --script compile-main-org.elc \
-		 --eval "(compile-org \"$<\" \"$(notdir $@)\")"
-
-%.elc : %.el
-	$(emacs) -Q --batch -f batch-byte-compile $<
-
 clean: clean-submission
 	-rm *~ *.aux *.dvi *.log *.toc *.bbl \
 		*.blg *.utf8 *.elc $(name).pdf \
