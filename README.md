@@ -13,6 +13,7 @@ This repository includes templates and makefiles for:
 + JAIR style
 + NIPS style
 + ICML style
++ ICLR style
 
 Requirements: GNU Make, TexLive, inkscape, perl
 
