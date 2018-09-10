@@ -28,8 +28,11 @@
 \usepackage{relsize}
 \usepackage{graphicx}
 \usepackage{multirow}
+\usepackage{url}
 \usepackage{comment}
-% package minted.
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+
 \usepackage[draft]{minted}
 % during the camera-ready,
 % 1. comment the above line
@@ -41,11 +44,8 @@
 % 4. finally, replace each minted command in the document with 
 % corresponding \input source to make it recognized by inline-tex .
 
-\usepackage{algorithm}
-\usepackage[noend]{algorithmic}
 % for conference submission with supplements. AAAI camera-ready does not allow them
 \usepackage{xr}
-\usepackage{url}
 \externaldocument{supplemental}
 
 % custom commands
