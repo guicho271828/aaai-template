@@ -11,6 +11,8 @@ This repository includes templates and makefiles for:
 + ECAI style
 + IJCAI style
 + JAIR style
++ NIPS style
++ ICML style
 
 Requirements: GNU Make, TexLive, inkscape, perl
 
