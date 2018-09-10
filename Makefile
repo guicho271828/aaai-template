@@ -52,8 +52,14 @@ $(name).pdf: supplemental.pdf
 # %.bib:
 # 	-ln -s $$(kpsewhich $@)
 
+ifeq ($(UNAME), Darwin)
 open: $(name).pdf
-	nohup evince $< &>/dev/null &
+	open $< &>/dev/null
+endif
+ifeq ($(UNAME), Linux)
+open: $(name).pdf
+	nohup xdg-open $< &>/dev/null &
+endif
 
 auto:
 	+./make-periodically.sh
