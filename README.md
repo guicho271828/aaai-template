@@ -15,7 +15,7 @@ This repository includes templates and makefiles for:
 + ICML style
 + ICLR style
 
-Requirements: GNU Make, TexLive, inkscape, perl
+Requirements: GNU Make, TexLive, inkscape, perl (see dependency.sh)
 
 Several notes:
 
