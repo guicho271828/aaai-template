@@ -14,6 +14,7 @@ This repository includes templates and makefiles for:
 + NIPS style
 + ICML style
 + ICLR style
++ CVPR style
 
 Requirements: GNU Make, TexLive, inkscape, perl (see dependency.sh)
 
