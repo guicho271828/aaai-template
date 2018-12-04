@@ -10,7 +10,7 @@ submission: en sty.subm png.subm pdf.subm bb.subm tex.subm bbl.subm pygstyle.sub
 	cd submission ; ../inline-tex $(name).tex
 	find submission -name "*\.log" -delete
 	find submission -name "*\.bbl" -delete
-	find submission -type d -empty -exec rmdir {} \;
+	find submission -type d -empty -delete
 	ls submission
 	cd submission ; pdflatex $(name).tex
 	cd submission ; pdflatex $(name).tex
