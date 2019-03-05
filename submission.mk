@@ -8,17 +8,17 @@ xbb.subm:  png.subm submission.mk
 submission: en sty.subm png.subm pdf.subm bb.subm tex.subm bbl.subm pygstyle.subm pygtex.subm
 	bash -c "rsync --files-from=<(cat *.subm) . submission/"
 	cd submission ; ../inline-tex $(name).tex
-	find submission -name "*\.log" -delete
-	find submission -name "*\.bbl" -delete
-	find submission -type d -empty -delete
+	-find submission -name "*\.log" -delete
+	-find submission -name "*\.bbl" -delete
+	-find submission -type d -empty -exec rmdir {} \; # remove the empty directories
 	ls submission
 	cd submission ; pdflatex $(name).tex
 	cd submission ; pdflatex $(name).tex
 	cd submission ; pdflatex $(name).tex
-	find submission -name "*\.log" -delete
-	find submission -name "*\.bbl" -delete
-	find submission -name "*\.aux" -delete
-	find submission -name "*\.out" -delete
+	-find submission -name "*\.log" -delete
+	-find submission -name "*\.bbl" -delete
+	-find submission -name "*\.aux" -delete
+	-find submission -name "*\.out" -delete
 	@echo "Make sure every \\input commands are in the beginning of line but space"
 
 clean-submission:
