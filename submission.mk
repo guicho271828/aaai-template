@@ -28,6 +28,14 @@ submission: en all.subm_fromto
 	while read from to ; do echo "$$from -> $$to" ; sed -i "s@$$from@$$to@g" submission/*.tex ; done < all.subm_fromto
 	cd submission ; ../inline-tex $(name).tex
 
+# removing comments
+	sed -i '/^[ ]*%.*/d' submission/$(name).tex
+# "Your .tex source must be as simple as possible. Do not include unused style
+# files, and do not include large areas of commented out text, or conditional
+# statements for various versions. (You may be required to resubmit and pay the
+# resubmission fee if your source is cluttered with extraneous text or
+# scripted)." https://www.aaai.org/Publications/Author/icaps-submit.php
+
 	-find submission -name "*\.log" -delete
 	-find submission -name "*\.bbl" -delete
 	-find submission -type d -empty -exec rmdir {} \; # remove the empty directories
