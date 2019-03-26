@@ -24,18 +24,21 @@ To address the requirement we changed the file structure --- see below.
 
 # File structure
 
-+ main.tex
++ `main.tex`
   + toplevel file for the main paper, only containing the preamble.
-+ body.tex
++ `body.tex`
   + the text inside `\begin{document}`--`\end{document}` for `main.tex`.
-+ supplemental.tex
++ `supplemental.tex`
   + toplevel text file for the supplementary material. Unlike the main paper,
     the text should be in this file too.
-+ common-header.sty
-  + Part of the preamble shared by `main.tex` and `supplemental.tex`
-+ commands-general.sty
+  + `supplemental.tex` and `main.tex` can cross-reference the figures, tables and sections each other.
++ `common-header.sty`
+  + Part of the preamble shared by `main.tex` and `supplemental.tex`.
+  + This file also contains the specific code for each conference.
+    You should uncomment the code for the conference you plan to submit
++ `commands-general.sty`
   + general custom commands
-+ commands-abbrev.sty
++ `commands-abbrev.sty`
   + custom commands (only for the abbreviation)
 
 # Usage notes
@@ -47,13 +50,21 @@ To address the requirement we changed the file structure --- see below.
   
   On OSX, inkscape is available from `brew install inkscape`
 
-* One thing that bugs me every time my paper is accepted to these conferences is
-  how to prepare the **camera-ready submission** archive, which does not allow
-  the use of `\\input{}` command. This repo also has a complete automated script
-  for doing this, via `make submission`. There are a few things that should be
-  kept in mind while using this:
-  * all `\input{}` commands must be at the beginning of line, nothing before or
+* `make submission` and `make archive` :
+  These `make` targets will create a `submission` directory and prepares the camera-ready
+  tex files. There are sometimes extensive instruction for preparing the camera-ready submission,
+  such as https://www.aaai.org/Publications/Author/icaps-submit.php .
+  
+  * These camera-ready submissions do not allow the use of `\input{}` command.
+    When you run `make submission`, the results generated in the directory will have
+    * a single, flattened tex file whose `\input` commands are inlined completely
+    * All image files referenced by the text are renamed and put in this root directory
+      (AAAI Press does not allow putting images in the nested subdirectories)
+    * Garbage files and style files are removed (they are not allowed)
+  * **Usage note**: all `\input{}` commands must be at the beginning of line, nothing before or
     after it. Otherwise it may remove some necessary text
+  * `make archive` compresses the `submission/` directory and create a zip or a tar.gz file.
+    AAAI Press receive the zip file only, but this feature is also useful when submitting to Arxiv.
 
 * `make auto` watches the source files and builds the pdf when they are
   updated. Requirements: `inotify-tools` package (it uses `inotifywait` for
