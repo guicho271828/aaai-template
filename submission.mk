@@ -48,4 +48,4 @@ archive: submission
 	-rm $(name).tar.gz
 	cd submission ; tar cvzf ../$(name).tar.gz *
 	-rm $(name).zip
-	cd submission ; zip -r ../$(name) *
+	cd submission ; zip -r ../$(name).zip *
