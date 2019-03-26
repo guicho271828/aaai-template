@@ -1,1 +1,0 @@
-((nil . ((truncate-lines . t))))

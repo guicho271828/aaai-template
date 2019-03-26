@@ -1,28 +1,15 @@
 
 name       = $(shell ./target-filename.sh)
-reference  = confs.bib journals.bib
-emacs 	   = emacs
 latexmk    = latexmk/latexmk.pl
-styles     = commands-general.sty commands-abbrev.sty common-header.sty
-tables     = $(addsuffix .tex,$(basename $(wildcard tables/*.org)))
-sources    = main.tex $(wildcard [0-9]-*.tex) $(tables)
+sources    = $(wildcard *.tex) $(wildcard *.sty) $(wildcard *.bib)
+max_pages  = 8
+
 $(info $(sources))
 
-max_pages   = 8
-
-upload     = ~/Dropbox/FukunagaLabShare/OngoingWorks/Asai/
-
-ncpu       = $(shell grep "processor" /proc/cpuinfo | wc -l)
-
-get-archive = wget -O- $(1) | tar xz ; mv $(2) $(3)
-
-.SUFFIXES: .tex .org .el .elc .svg
-.SECONDARY: compile-csv-org.elc compile-main-org.elc __tmp1 __tmp2
-.PHONY: all en ja open imgs clean allclean check_pages check_overflow en_pdf ja_pdf automake submission archive clean-submission
+.PHONY: all en ja open imgs clean allclean check_pages check_overflow auto \
+	submission archive clean-submission
 
 all: check_pages check_overflow en
-
-$(name).log $(name).fls: $(name).pdf
 
 check_pages: $(name).pdf
 	-./check_pages.sh $(max_pages) $(name)
@@ -30,30 +17,30 @@ check_pages: $(name).pdf
 check_overflow: $(name).log
 	-./check_overflow.sh $(name).log
 
-en: $(name).pdf supplemental.pdf
+en: $(name).pdf    supplemental.pdf
+
+ja: $(name).ja.pdf supplemental.pdf
+
 
 $(name).tex:
 	echo "\input{main.tex}" > $@
 
+$(name).log $(name).fls: $(name).pdf
+
 $(name).pdf: supplemental.pdf
 
-%.pdf: %.tex $(name).tex supplemental.tex imgs $(sources) $(styles) $(reference)
+%.pdf: %.tex imgs $(sources)
 	-$(latexmk) -pdf \
 		   -latexoption="-halt-on-error -shell-escape" \
 		   -bibtex \
 		   $<
-	mkdir -p $(upload)/$(notdir $(PWD))/
-	cp $@ $(upload)/$(notdir $(PWD))/$(shell hostname)-$(shell git rev-parse --abbrev-ref HEAD)-$*.pdf
 
-%.ja.pdf: %.tex imgs $(sources) $(styles) $(reference)
+%.ja.pdf: %.tex imgs $(sources)
 	$(latexmk) -r latexmk/rc_ja.pl \
 		   -latexoption="-halt-on-error -shell-escape" \
 		   -pdfdvi \
 		   -bibtex \
 		   $<
-
-# %.bib:
-# 	-ln -s $$(kpsewhich $@)
 
 ifeq ($(UNAME), Darwin)
 open: $(name).pdf
@@ -67,12 +54,8 @@ endif
 auto:
 	+./make-periodically.sh
 
-ci:
-	while : ; do git pull && make ; sleep 60 ; done
-
 imgs:
 	$(MAKE) -C img
-# $(MAKE) -C staticimg
 
 clean: clean-submission
 	-rm *~ *.aux *.dvi *.log *.toc *.bbl \
