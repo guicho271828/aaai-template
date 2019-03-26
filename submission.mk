@@ -45,6 +45,7 @@ clean-submission:
 	-rm -rf *.subm submission *.tar.gz *.zip
 
 archive: submission
+	-rm submission/*.sty submission/*.bst
 	-rm $(name).tar.gz
 	cd submission ; tar cvzf ../$(name).tar.gz *
 	-rm $(name).zip
