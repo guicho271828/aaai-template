@@ -5,9 +5,29 @@
 xbb.subm:  png.subm submission.mk
 	sed -e 's/png/xbb/g' $< > $@
 
-submission: en sty.subm png.subm pdf.subm bb.subm tex.subm bbl.subm pygstyle.subm pygtex.subm
-	bash -c "rsync --files-from=<(cat *.subm) . submission/"
+# Now AAAI press requires all image files to be stored under the root directory.
+# Putting the images in a nested directory is no longer allowed in the camera ready.
+# Thus we implemented a method that automatically flattens the directory structure.
+# Directory separaters "/" are replaced with "^".
+
+all.subm_from: sty.subm png.subm pdf.subm bb.subm tex.subm bbl.subm pygstyle.subm pygtex.subm
+	cat $^ > $@
+
+all.subm_to: all.subm_from
+	tr "/" "^" < $< > $@
+
+all.subm_fromto: all.subm_from all.subm_to
+	paste all.subm_from all.subm_to > $@
+
+submission: en all.subm_fromto
+
+	mkdir -p submission
+	while read from to ; do cp -v $$from submission/$$to ; done < all.subm_fromto
+
+# replace the image pathnames in the text
+	while read from to ; do echo "$$from -> $$to" ; sed -i "s@$$from@$$to@g" submission/*.tex ; done < all.subm_fromto
 	cd submission ; ../inline-tex $(name).tex
+
 	-find submission -name "*\.log" -delete
 	-find submission -name "*\.bbl" -delete
 	-find submission -type d -empty -exec rmdir {} \; # remove the empty directories

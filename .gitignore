@@ -31,7 +31,7 @@ nohup.out
 !img/static/**/*.jpg
 /org-mode/
 tables/.#*
-*.subm
+*.subm*
 /submission/
 rebuttal/*.txt
 /asai.zip
