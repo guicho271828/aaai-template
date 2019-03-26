@@ -1,63 +1,74 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{comment}
+% not usepackage due to aaai camera-ready requirements (don't allow custom style file)
+% this is inlined by the script
+\input{common-header.sty}
+\externaldocument{supplemental}
 
-* Maintain 80 characters / line.
+%% journal title / author
+% 
+% \jairheading{1}{1993}{1-15}{6/91}{9/91}
+% \ShortHeadings{Tiebreaking Strategies}{Asai \& Fukunaga}
+% \firstpageno{25}
+% 
+% \author{
+% \name Masataro Asai \email guicho2.71828\textcircled{$\alpha$}gmail.com\\
+% \name Alex Fukunaga \\
+% \addr Graduate School of Arts and Sciences, University of Tokyo}
+% \title{Tiebreaking Strategies for Best First Search}
+
+%% conference title / author
+% \author{Masataro Asai, Alex Fukunaga \\ Graduate School of Arts and Sciences \\ University of Tokyo}
+\author{Submision XXX}
+\title{Tiebreaking Strategies for Classical Planning Using $A^*$ Search}
+
+% Don't use commands within pdfinfo
+\pdfinfo{
+/Title (Tiebreaking Strategies for Classical Planning Using A* Search)
+/Keywords (Planning, Heuristic Search)
+}
+% /Author (Masataro Asai, Alex Fukunaga)
+% be anonymous
+
+% %% ICML title and author
+% \icmltitlerunning{Submission and Formatting Instructions for ICML 2018}
+% \twocolumn[
+% \icmltitle{Submission and Formatting Instructions for \\
+%            International Conference on Machine Learning (ICML 2018)}
+% \icmlsetsymbol{equal}{*}
+% \begin{icmlauthorlist}
+% \icmlauthor{Aeiau Zzzz}{equal,to}
+% \icmlauthor{Bauiu C.~Yyyy}{equal,to,goo}
+% \icmlauthor{Cieua Vvvvv}{goo}
+% \icmlauthor{Iaesut Saoeu}{ed}
+% \icmlauthor{Fiuea Rrrr}{to}
+% \icmlauthor{Tateu H.~Yasehe}{ed,to,goo}
+% \icmlauthor{Aaoeu Iasoh}{goo}
+% \icmlauthor{Buiui Eueu}{ed}
+% \icmlauthor{Aeuia Zzzz}{ed}
+% \icmlauthor{Bieea C.~Yyyy}{to,goo}
+% \icmlauthor{Teoau Xxxx}{ed}
+% \icmlauthor{Eee Pppp}{ed}
+% \end{icmlauthorlist}
+% \icmlaffiliation{to}{Department of Computation, University of Torontoland, Torontoland, Canada}
+% \icmlaffiliation{goo}{Googol ShallowMind, New London, Michigan, USA}
+% \icmlaffiliation{ed}{School of Computation, University of Edenborrow, Edenborrow, United Kingdom}
+% \icmlcorrespondingauthor{Cieua Vvvvv}{c.vvvvv@googol.com}
+% \icmlcorrespondingauthor{Eee Pppp}{ep@eden.co.uk}
+% \icmlkeywords{Machine Learning, ICML}
+% \vskip 0.3in
+% ]
+% %\printAffiliationsAndNotice{}  % leave blank if no need to mention equal contribution
+% \printAffiliationsAndNotice{\icmlEqualContribution} % otherwise use the standard text.
+
+
+\begin{document}
+\maketitle
+
+\input{body.tex}
+
+% not necessary in journal
+\fontsize{9.5pt}{10.5pt}
+\selectfont
  
-* too much ``''s make the sentence look scattered and visually less recognizable. ``e.g.'' also.
+\bibliography{journals,confs}
 
-* \em, \bf, \it are all obsolete \TeX primitives, and it does not take effect properly --- for example, {\bf {\it aaa}} shows ``aaa'' in italic but NOT IN BOLD. Use \emph{}, \textit{}, \textbf{} and so on.
-
-* always use \ff, \fd, \cea, \pr, \mv , and do not use it directly, e.g. FF, FD/LAMA2011, etc. 
-
-* use of footnotes should be minimized.
-
-* IPC2011 should always be \ipc . The definition can later be modified in abbrev.sty .
-
-* prefer separated words over hyphened words. domain
-  independent>domain-independent, planner independent >
-  planner-independent.
-
-* Table, Figure, Fig., should not be used directly. Always use \refig and \reftbl. When the development flag is enabled, direct use of \ref signals an error.
-
-* Caption ends with a period.
-\end{comment}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{abstract}
-AAA!
-\end{abstract}
-
-\section{Introduction}
-
-BBB! \refig{fig:ip} \cite{Asai2016}
-
-\begin{figure}[tb]
- \includegraphics[width=\linewidth]{img/static/ip.png}
- \caption{This is Invasion Percolation}
- \label{fig:ip}
-\end{figure}
-
-\lmcut, \mands, \pdb, \ff, \ce, \cg, \ad, \lc heuristics.
-
-In math mode,
-
-\[
- \lmcut, \mands, \pdb, \ff, \ce, \cg, \ad, \lc.
-\]
-
-\lmcuto, \mandso, \ffo, \ceo, \cgo, \ado, \gco, \lco heuristics.
-
-In math mode,
-
-\[
- \lmcuto, \mandso, \ffo, \ceo, \cgo, \ado, \gco, \lco.
-\]
-
-\begin{minted}{common-lisp}
-(defun factorial (n)
-  (if (zerop n)
-      1
-      (* n (factorial (1- n)))))
-\end{minted}
-
+\end{document}

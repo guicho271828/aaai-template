@@ -1,9 +1,9 @@
 
-name       = asai
+name       = $(shell ./target-filename.sh)
 reference  = confs.bib journals.bib
 emacs 	   = emacs
 latexmk    = latexmk/latexmk.pl
-styles     = abbrev.sty aaai_my.sty common-header.sty
+styles     = commands-general.sty commands-abbrev.sty common-header.sty
 tables     = $(addsuffix .tex,$(basename $(wildcard tables/*.org)))
 sources    = main.tex $(wildcard [0-9]-*.tex) $(tables)
 $(info $(sources))
@@ -31,6 +31,9 @@ check_overflow: $(name).log
 	-./check_overflow.sh $(name).log
 
 en: $(name).pdf supplemental.pdf
+
+$(name).tex:
+	echo "\input{main.tex}" > $@
 
 $(name).pdf: supplemental.pdf
 

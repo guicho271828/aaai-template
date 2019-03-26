@@ -1,0 +1,63 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+
+* Maintain 80 characters / line.
+ 
+* too much ``''s make the sentence look scattered and visually less recognizable. ``e.g.'' also.
+
+* \em, \bf, \it are all obsolete \TeX primitives, and it does not take effect properly --- for example, {\bf {\it aaa}} shows ``aaa'' in italic but NOT IN BOLD. Use \emph{}, \textit{}, \textbf{} and so on.
+
+* always use \ff, \fd, \cea, \pr, \mv , and do not use it directly, e.g. FF, FD/LAMA2011, etc. 
+
+* use of footnotes should be minimized.
+
+* IPC2011 should always be \ipc . The definition can later be modified in abbrev.sty .
+
+* prefer separated words over hyphened words. domain
+  independent>domain-independent, planner independent >
+  planner-independent.
+
+* Table, Figure, Fig., should not be used directly. Always use \refig and \reftbl. When the development flag is enabled, direct use of \ref signals an error.
+
+* Caption ends with a period.
+\end{comment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{abstract}
+AAA!
+\end{abstract}
+
+\section{Introduction}
+
+BBB! \refig{fig:ip} \cite{Asai2016}
+
+\begin{figure}[tb]
+ \includegraphics[width=\linewidth]{img/static/ip.png}
+ \caption{This is Invasion Percolation}
+ \label{fig:ip}
+\end{figure}
+
+\lmcut, \mands, \pdb, \ff, \ce, \cg, \ad, \lc heuristics.
+
+In math mode,
+
+\[
+ \lmcut, \mands, \pdb, \ff, \ce, \cg, \ad, \lc.
+\]
+
+\lmcuto, \mandso, \ffo, \ceo, \cgo, \ado, \gco, \lco heuristics.
+
+In math mode,
+
+\[
+ \lmcuto, \mandso, \ffo, \ceo, \cgo, \ado, \gco, \lco.
+\]
+
+\begin{minted}{common-lisp}
+(defun factorial (n)
+  (if (zerop n)
+      1
+      (* n (factorial (1- n)))))
+\end{minted}
+
