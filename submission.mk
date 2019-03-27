@@ -62,3 +62,9 @@ archive: submission
 	cd submission ; tar cvzf ../$(name).tar.gz *
 	-rm $(name).zip
 	cd submission ; zip -r ../$(name).zip *
+
+arxiv: submission
+# do not remove the style files
+	-rm $(name).tar.gz $(name).zip
+	cd submission ; tar cvzf ../$(name).tar.gz *
+	cd submission ; zip -r ../$(name).zip *
