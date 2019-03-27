@@ -60,8 +60,7 @@ imgs:
 clean: clean-submission
 	-rm *~ *.aux *.dvi *.log *.toc *.bbl \
 		*.blg *.utf8 *.elc $(name).pdf \
-		*.fdb_latexmk __* *.fls
-	-rm -r sources
+		*.fdb_latexmk __* *.fls *.subm*
 
 allclean: clean
 	$(MAKE) -C img clean
