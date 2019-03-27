@@ -14,7 +14,7 @@ all.subm_from: sty.subm png.subm pdf.subm bb.subm tex.subm bbl.subm pygstyle.sub
 	cat $^ > $@
 
 all.subm_to: all.subm_from
-	tr "/" "^" < $< > $@
+	sed "s@/@___@g" < $< > $@
 
 all.subm_fromto: all.subm_from all.subm_to
 	paste all.subm_from all.subm_to > $@
