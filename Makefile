@@ -58,11 +58,13 @@ imgs:
 	$(MAKE) -C img
 
 clean: clean-submission
-	-rm *~ *.aux *.dvi *.log *.toc *.bbl \
+	-rm -r *~ *.aux *.dvi *.log *.toc *.bbl \
 		*.blg *.utf8 *.elc $(name).pdf \
-		*.fdb_latexmk __* *.fls *.subm*
+		*.fdb_latexmk __* *.fls *.subm* \
+		_minted*
 
 allclean: clean
 	$(MAKE) -C img clean
+	rm target
 
 include submission.mk
