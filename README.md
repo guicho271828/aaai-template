@@ -76,3 +76,12 @@ To address the requirement we changed the file structure --- see below.
 
 * This template also supports JSAI, a local Japanese non-refereed confernece.
 
+# If you have space in your paper, credit me
+
+``` bibtex
+@article{aaai-template,
+    author = {Asai, Masataro},
+    title = {{This paper was written using AAAI Template \url{github.com/guicho271828/aaai-template}}},
+    year = {2019}
+}
+```
