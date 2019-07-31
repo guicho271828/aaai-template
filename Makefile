@@ -1,5 +1,5 @@
 
-name       = $(shell ./target-filename.sh)
+name       = default
 latexmk    = latexmk/latexmk.pl
 sources    = $(wildcard *.tex) $(wildcard *.sty) $(wildcard *.bib)
 max_pages  = 8
