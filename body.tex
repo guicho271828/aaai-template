@@ -23,6 +23,172 @@
 AAA!
 \end{abstract}
 
+\section{\texttt{aaai-template}}\label{aaai-template}
+
+For the frequent attendants of top-tier AI conferences!
+This repository includes templates and makefiles for:
+
+\begin{itemize}
+
+\item
+  AAAI style
+\item
+  ECAI style
+\item
+  IJCAI style
+\item
+  JAIR style
+\item
+  NIPS style
+\item
+  ICML style
+\item
+  ICLR style
+\item
+  CVPR style
+\end{itemize}
+
+Requirements: GNU Make, TexLive, inkscape, perl (see dependency.sh)
+
+\textbf{Update:} AAAI Press recently made a significant change to the
+camera-ready requirements (such as
+https://www.aaai.org/Publications/Author/icaps-submit.php). To address
+the requirement we changed the file structure --- see below.
+
+\section{File structure}
+
+\begin{itemize}
+
+\item
+  \texttt{main.tex}
+
+  \begin{itemize}
+  
+  \item
+    toplevel file for the main paper, only containing the preamble.
+  \end{itemize}
+\item
+  \texttt{body.tex}
+
+  \begin{itemize}
+  
+  \item
+    the text inside
+    \texttt{\textbackslash{}begin\{document\}}--\texttt{\textbackslash{}end\{document\}}
+    for \texttt{main.tex}.
+  \end{itemize}
+\item
+  \texttt{supplemental.tex}
+
+  \begin{itemize}
+  
+  \item
+    toplevel text file for the supplementary material. Unlike the main
+    paper, the text should be in this file too.
+  \item
+    \texttt{supplemental.tex} and \texttt{main.tex} can cross-reference
+    the figures, tables and sections each other.
+  \end{itemize}
+\item
+  \texttt{common-header.sty}
+
+  \begin{itemize}
+  
+  \item
+    Part of the preamble shared by \texttt{main.tex} and
+    \texttt{supplemental.tex}.
+  \item
+    This file also contains the specific code for each conference. You
+    should uncomment the code for the conference you plan to submit
+  \end{itemize}
+\item
+  \texttt{commands-general.sty}
+
+  \begin{itemize}
+  
+  \item
+    general custom commands
+  \end{itemize}
+\item
+  \texttt{commands-abbrev.sty}
+
+  \begin{itemize}
+  
+  \item
+    custom commands (only for the abbreviation)
+  \end{itemize}
+\end{itemize}
+
+\section{Usage notes}
+
+\begin{itemize}
+\item
+  It encourages the use of Inkskape to
+  prepare svg images in \texttt{img} subdirectory, which are
+  automatically compiled into pdf figures. (This is a recommended way,
+  since pngs are bitmaps and doesnt print nicely.)
+
+  On OSX, inkscape is available from \texttt{brew\ install\ inkscape}
+\item
+  \texttt{make\ submission}, \texttt{make\ archive},
+  \texttt{make\ arxiv} : These \texttt{make} targets will create a
+  \texttt{submission} directory and prepares the camera-ready tex files.
+  There are sometimes extensive instruction for preparing the
+  camera-ready submission, such as
+  https://www.aaai.org/Publications/Author/icaps-submit.php .
+
+  \begin{itemize}
+  
+  \item
+    These camera-ready submissions do not allow the use of
+    \texttt{\textbackslash{}input\{\}} command. When you run
+    \texttt{make\ submission}, the results generated in the directory
+    will have
+
+    \begin{itemize}
+    
+    \item
+      a single, flattened tex file whose \texttt{\textbackslash{}input}
+      commands are inlined completely
+    \item
+      All image files referenced by the text are renamed and put in this
+      root directory (AAAI Press does not allow putting images in the
+      nested subdirectories)
+    \item
+      Garbage files (log files etc.) are removed.
+    \end{itemize}
+  \item
+    \textbf{Usage note}: all \texttt{\textbackslash{}input\{\}} commands
+    must be at the beginning of line, nothing before or after it.
+    Otherwise it may remove some necessary text
+  \item
+    \texttt{make\ archive} compresses the \texttt{submission/} directory
+    and create a zip or a tar.gz file. AAAI Press receive the zip file
+    only, but this feature is also useful when submitting to Arxiv.
+
+    \begin{itemize}
+    
+    \item
+      Style files are removed (they are not allowed).
+    \end{itemize}
+  \item
+    \texttt{make\ arxiv} is same as \texttt{make\ archive}, but does not
+    remove the style files.
+  \end{itemize}
+\item
+  \texttt{make\ auto} watches the source files and builds the pdf when
+  they are updated. Requirements: \texttt{inotify-tools} package (it
+  uses \texttt{inotifywait} for watching files and also sends messages
+  via inotify notification popup window)
+\item
+  It also checks for the paper length limit and overful/underful hboxes,
+  very useful in the last-limit optimization for overlength papers.
+\item
+  This template also supports JSAI, a local Japanese non-refereed
+  confernece.
+\end{itemize}
+
+
 \section{Introduction}
 
 BBB! \refig{fig:ip} \cite{Asai2016}
