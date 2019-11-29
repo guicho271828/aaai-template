@@ -76,7 +76,7 @@ To address the requirement we changed the file structure --- see below.
 
 * This template also supports JSAI, a local Japanese non-refereed confernece.
 
-# If you have space in your paper, credit me
+# If you have enough space in your paper, please cite me
 
 ``` bibtex
 @article{aaai-template,
