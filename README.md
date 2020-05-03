@@ -65,7 +65,7 @@ Also, due to incompatibility in BSD, some commands e.g. `find` may fail.
 * We encourage the use of [Inkskape](https://inkscape.org/) to prepare svg
   images in `img` subdirectory, which are automatically compiled into pdf figures.
   Compilation into pdf is highly recommended because
-  bitmap formats like png have the risk of resulting in a blurry image.
+  bitmap formats like png have the risk of resulting in blurry images.
   They also increase the file size significantly compared to the vector data in pdf-based figures.
   
   On OSX, inkscape is available from `brew install inkscape`
