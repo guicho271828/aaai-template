@@ -36,14 +36,14 @@ To address the requirement we changed the file structure --- see below.
     * → `body.tex`
       * The text inside `\begin{document}`--`\end{document}` for `main.tex`.
         This is the file you will spend most of the time editing.
-  * → `common-header.sty`
-    * Part of the preamble shared by `main.tex` and `supplemental.tex`.
-    * This file also contains the specific code for each conference.
-      You should uncomment the code for the conference you plan to submit
-    * → `common-general.sty`
-      * general custom commands
-    * → `common-abbrev.sty`
-      * custom commands (only for the abbreviation)
+    * → `common-header.sty`
+      * Part of the preamble shared by `main.tex` and `supplemental.tex`.
+      * This file also contains the specific code for each conference.
+        You should uncomment the code for the conference you plan to submit
+      * → `common-general.sty`
+        * general custom commands
+      * → `common-abbrev.sty`
+        * custom commands (only for the abbreviation)
 * `supplemental.tex`
   * Toplevel file for the supplementary material. Unlike the main paper, there is no separation of preamble.
   * `supplemental.tex` and `main.tex` can cross-reference the figures, tables and sections each other.
