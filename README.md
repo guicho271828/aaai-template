@@ -34,7 +34,8 @@ To address the requirement we changed the file structure --- see below.
   * → `main.tex`
     * The true toplevel file for the main paper containing the preamble.
     * → `body.tex`
-      * the text inside `\begin{document}`--`\end{document}` for `main.tex`.
+      * The text inside `\begin{document}`--`\end{document}` for `main.tex`.
+        This is the file you will spend most of the time editing.
   * → `common-header.sty`
     * Part of the preamble shared by `main.tex` and `supplemental.tex`.
     * This file also contains the specific code for each conference.
