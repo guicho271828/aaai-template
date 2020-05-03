@@ -74,7 +74,7 @@ Also, due to incompatibility in BSD, some commands e.g. `find` may fail.
   such as https://www.aaai.org/Publications/Author/icaps-submit.php .
   
   * These camera-ready submissions do not allow the use of `\input{}` command.
-    When you run `make submission`, the results generated in the directory will have
+    When you run `make submission`, the results generated in the `submission` directory will have
     * a single, flattened tex file whose `\input` commands are inlined completely
     * All image files referenced by the text are renamed and put in this root directory
       (AAAI Press does not allow putting images in the nested subdirectories)
