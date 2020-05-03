@@ -64,7 +64,9 @@ Also, due to incompatibility in BSD, some commands e.g. `find` may fail.
 
 * We encourage the use of [Inkskape](https://inkscape.org/) to prepare svg
   images in `img` subdirectory, which are automatically compiled into pdf figures.
-  (Compilation into pdf is recommended, since pngs are bitmaps and doesn't print nicely.)
+  Compilation into pdf is highly recommended because
+  bitmap formats like png have the risk of resulting in a blurry image.
+  They also increase the file size significantly compared to the vector data in pdf-based figures.
   
   On OSX, inkscape is available from `brew install inkscape`
 
@@ -81,10 +83,12 @@ Also, due to incompatibility in BSD, some commands e.g. `find` may fail.
     * Garbage files (log files etc.) are removed.
   * **Usage note**: all `\input{}` commands must be at the beginning of line, nothing before or
     after it. Otherwise it may remove some necessary text
-  * `make archive` compresses the `submission/` directory and create a zip or a tar.gz file.
-    AAAI Press receive the zip file only, but this feature is also useful when submitting to Arxiv.
-    * Style files are removed (they are not allowed).
-  * `make arxiv` is same as `make archive`, but does not remove the style files.
+  * `make archive` compresses the `submission/` directory
+    and create a zip file and a tar.gz file containing the same contents.
+    AAAI Press receive the zip file only.
+    Additional style files are removed because they are not allowed.
+  * `make arxiv` is same as `make archive`, but it does not remove the style files.
+    This feature is therefore useful when submitting the paper to Arxiv.
 
 * It also checks for the paper length limit and overful/underful hboxes,
   which may be useful in the last-limit optimization for overlength papers.
