@@ -22,7 +22,7 @@ all:    $(shell find . -name "*.svg" | sed -e s/svg/xbb/g ) \
 
 # due to a bug in X11 on OSX, inkscape always requires absolute pathname
 %.pdf : %.svg
-	inkscape -f $(CURDIR)/$< -A $(CURDIR)/$*.pdf -d 150
+	inkscape -f $(CURDIR)/$< -A $(CURDIR)/$*.pdf -d 150 || inkscape -o $(CURDIR)/$*.pdf -d 150 $(CURDIR)/$<
 # %.png : %.svg
 # 	inkscape -f $< -e $*.png -d 150
 #	convert $< $*.png
