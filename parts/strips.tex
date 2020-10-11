@@ -1,0 +1,24 @@
+Let $\mathcal{F}(V)$ be a propositional formula consisting of
+ logical operations $\braces{\land,\lnot}$,
+ constants $\braces{\top,\bot}$, and
+ a set of propositional variables $V$.
+We define a grounded (propositional) STRIPS Planning problem
+as a 4-tuple $\brackets{P,A,I,G}$
+where
+ $P$ is a set of propositions,
+ $A$ is a set of actions,
+ $I\subseteq P$ is the initial state, and
+ $G\subseteq P$ is a goal condition.
+Each action $a\in A$ is a 3-tuple $\brackets{\pre{a},\adde{a},\dele{a}}$ where
+ $\pre{a} \in \mathcal{F}(P)$ is a precondition and
+ $\adde{a}$, $\dele{a}$ are the add-effects and delete-effects, where $\adde{a} \cap \dele{a} = \emptyset$.
+%Each effect is denoted as $c \triangleright e$ where
+% $c \in \mathcal{F}(P)$ is an \emph{effect condition} and
+% $e \in P$.
+A state $s\subseteq P$ is a set of true propositions,
+an action $a$ is \emph{applicable} when $s$ \emph{satisfies} $\pre{a}$,
+and applying an action $a$ to $s$ yields a new successor state
+$a(s) = (s \setminus \dele{a}) \cup \adde{a}$.
+% By construction, the learned representation ensures $\adde{a} \cap \dele{a} = \emptyset$. % should discussed in the cube-space AE section
+% The \emph{STRIPS subclass} of the Classical Planning problems
+% is those problems where all effects are conditioned by $\top$.
