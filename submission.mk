@@ -25,7 +25,7 @@ submission: en all.subm_fromto
 	while read from to ; do cp -v $$from submission/$$to ; done < all.subm_fromto
 
 # replace the image pathnames in the text
-	while read from to ; do echo "$$from -> $$to" ; sed -i "s@$$from@$$to@g" submission/*.tex ; done < all.subm_fromto
+	while read from to ; do echo "$$from -> $$to" ; sed -i "s@$$from@$$to@g" submission/*.tex submission/*.sty ; done < all.subm_fromto
 	cd submission ; ../inline-tex $(name).tex
 
 # removing comments
