@@ -5,12 +5,12 @@
 tmp=$(mktemp)
 trap "rm $tmp" EXIT
 
-echo "inlining all included files"
-echo "Be sure each \\input command is in the beginning of line and is not followed by any texts."
-echo "Check it below:"
-echo "================================"
-grep "\\\\input" *.tex
-echo "================================"
+echo "inline-tex: inlining all included files"
+echo "inline-tex: Be sure each \\input command is in the beginning of line and is not followed by any texts."
+echo "inline-tex: Check it below:"
+echo "inline-tex: ================================"
+grep "\\\\input" *.tex *.sty
+echo "inline-tex: ================================"
 
 
 while ( grep '^ *\\input{[^}]*} *$' $1 ); do
@@ -20,7 +20,7 @@ while ( grep '^ *\\input{[^}]*} *$' $1 ); do
 done
 
 
-echo "inlining bibitems"
+echo "inline-tex: inlining bibitems"
 BIBFILE=`echo $1 | sed 's/.tex/.bbl/'`
 awk -v filename=$BIBFILE '{ if ($0 ~ ".bibliography{") { system("cat "filename); } else { print $0; } }' < $1 > $tmp
 cp $tmp $1
