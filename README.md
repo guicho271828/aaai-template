@@ -14,6 +14,7 @@ This repository includes templates and makefiles for:
 + NIPS style
 + ICML style
 + ICLR style
++ NAACL style
 + CVPR style
 + JSAI, a local Japanese non-refereed conference.
 
