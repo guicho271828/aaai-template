@@ -11,6 +11,7 @@
 *.elc
 *.utf8
 *.blg
+*.out
 sources/*
 __*
 nohup.out
