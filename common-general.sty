@@ -2,26 +2,111 @@
 % General commands more than the simple abbreviations.
 
 
-\newcommand{\defmath}[1]{\mbox{$#1$}}
 
-\newcommand{\then}{\therefore \qquad}
-% \renewcommand{\iff}{\Leftrightarrow \qquad}
-% \DeclareMathOperator{\diver}{div}
-% \DeclareMathOperator{\dist}{dist}
-% \DeclareMathOperator{\rot}{rot}
-\newcommand{\ppartialby}[2]{\frac{\partial^2}{\partial #1 \partial #2}}
-\newcommand{\partialby}[1]{\frac{\partial}{\partial #1}}
-\newcommand{\partialofby}[2]{\frac{\partial #1}{\partial #2}}
 
-\newcommand{\ddifby}[2]{\frac{d^2}{d#1d#2}}
-\newcommand{\difby}[1]{\frac{d}{d#1}}
-\newcommand{\difofby}[2]{\frac{d#1}{d#2}}
+% font commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% SI unit
+% https://tex.stackexchange.com/questions/415659/double-tilde-over-symbol
+\usepackage{stackengine}
+\stackMath
+\newcommand\tsup[2][2]{%
+ \def\useanchorwidth{T}%
+  \ifnum#1>1%
+    \stackon[-.5pt]{\tsup[\numexpr#1-1\relax]{#2}}{\scriptscriptstyle\sim}%
+  \else%
+    \stackon[.5pt]{#2}{\scriptscriptstyle\sim}%
+  \fi%
+}
+
+\renewcommand{\tilde}[1]{\tsup[1]{#1}}
+\newcommand{\uline}[1]{\underline{#1}}
+\newcommand{\pddl}[1]{\textsf{\small #1}}
+\newcommand{\pddls}[1]{\textsf{\scriptsize #1}}
+\newcommand{\bi}[1]{\textbf{\relsize{0.5}#1}}
+\newcommand{\ui}[1]{\uline{\textit{#1}}}
+\let\tb\textbf
+\newcommand{\function}[1]{\textsc{#1}}
+
+
+
+% colors %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \usepackage{tcolorbox}
+% \usepackage{manfnt}
+% \tcbuselibrary{breakable}
+% \newcommand{\dnote}[1]{%
+% \vspace{1em}%
+% \begin{tcolorbox}[breakable]%
+%  \begin{minipage}{0.1\textwidth}%
+%   \huge\textdbend%
+%  \end{minipage}%
+%  \begin{minipage}{0.9\textwidth}%
+%   \setlength{\parindent}{2em}%
+%   #1
+%  \end{minipage}%
+% \end{tcolorbox}%
+% }
+
+% \newcommand{\mycolor}[2]{%
+% \ifmmode%
+% \mathchoice%
+% {\colorbox{#1}{$\displaystyle #2$}}%
+% {\colorbox{#1}{$\textstyle #2$}}%
+% {\colorbox{#1}{$\scriptstyle #2$}}%
+% {\colorbox{#1}{$\scriptscriptstyle #2$}}%
+% \else%
+% \colorbox{#1}{$#2$}%
+% \fi%
+% }
+
+\newcommand{\mycolor}[2]{\textcolor{#1}{#2}}
+
+\newcommand{\red}[1]{\mycolor{red}{#1}}
+\newcommand{\green}[1]{\mycolor{Green}{#1}}
+\newcommand{\blue}[1]{\mycolor{blue}{#1}}
+\newcommand{\cyan}[1]{\mycolor{cyan}{#1}}
+\newcommand{\magenta}[1]{\mycolor{magenta}{#1}}
+\newcommand{\yellow}[1]{\mycolor{yellow}{#1}}
+\newcommand{\black}[1]{\mycolor{black}{#1}}
+\newcommand{\gray}[1]{\mycolor{gray}{#1}}
+\newcommand{\white}[1]{\mycolor{white}{#1}}
+\newcommand{\arkgray}[1]{\mycolor{arkgray}{#1}}
+\newcommand{\lightgray}[1]{\mycolor{lightgray}{#1}}
+\newcommand{\brown}[1]{\mycolor{Brown}{#1}}
+\newcommand{\lime}[1]{\mycolor{lime}{#1}}
+\newcommand{\olive}[1]{\mycolor{olive}{#1}}
+\newcommand{\orange}[1]{\mycolor{orange}{#1}}
+\newcommand{\pink}[1]{\mycolor{pink}{#1}}
+\newcommand{\teal}[1]{\mycolor{teal}{#1}}
+\newcommand{\violet}[1]{\mycolor{violet}{#1}}
+
+
+
+% for table %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\spc}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+\def\_{\\[-0.3em]}
+\def\spm{$\mathsmaller{\mathsmaller{\pm}}$}
+
+
+% algorithmic shortcuts %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \newcommand{\var}[1]{\textsf{\relsize{-1}#1}}
+% \newcommand{\constant}[1]{\textsc{#1}}
+% \algblockdefx[method]{Method}{EndMethod}[2]{\textbf{method} \textsc{#1} (#2)}{}
+% \algblockdefx[function]{Method}{EndMethod}[2]{\textbf{method} \textsc{#1} (#2)}{}
+
+
+% SI unit %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \newcommand{\si}[1]{\mathrm{[#1]}}
 \newcommand{\ten}[1]{\times 10^{#1}}
 \newcommand{\mev}{\si{MeV}}
 \newcommand{\kev}{\si{KeV}}
+
+
+% environments %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newtheorem{prob}{Problem}
 \newtheorem{defi}{Definition}
@@ -31,28 +116,43 @@
 \newtheorem{corollary}{Corollary}
 \newtheorem{observation}{Observation}
 
+
+
+% citation and reference %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \makeatletter
 \let\@myref\ref
 
 \newcommand{\refsec}[1]{Sec.\,\@myref{#1}}
 \newcommand{\refseq}[1]{Sec.\,\@myref{#1}}
+\newcommand{\refsecs}[2]{Sec. \@myref{#1}-\@myref{#2}}
 \newcommand{\refig}[1]{Fig.\,\@myref{#1}}
 \newcommand{\refigs}[2]{Fig.\,\@myref{#1}-\@myref{#2}}
 \newcommand{\reftbl}[1]{Table \@myref{#1}}
 \newcommand{\refstep}[1]{Step \@myref{#1}}
-\newcommand{\refalgo}[1]{Algorithm \@myref{#1}}
-\newcommand{\refchap}[1]{Chapter \@myref{#1}}
+\newcommand{\refalgo}[1]{Alg.\,\@myref{#1}}
+\newcommand{\refchap}[1]{Chap.\,\@myref{#1}}
 \newcommand{\reflst}[1]{List \@myref{#1}}
-\newcommand{\refeq}[1]{Eq. \@myref{#1}}
+\newcommand{\refeq}[1]{Eq.\,\@myref{#1}}
 \newcommand{\refpage}[1]{p.\pageref{#1}}
+\newcommand{\refthm}[1]{Thm.\,\@myref{#1}}
+\newcommand{\refline}[1]{line\,\@myref{#1}}
+\newcommand{\reflines}[2]{lines\,\@myref{#1}-\@myref{#2}}
 
 % long versions
 % \newcommand{\refsec}[1]{Section \@myref{#1}}
 % \newcommand{\refseq}[1]{Section \@myref{#1}}
-% \newcommand{\refig}[1]{Figure\,\@myref{#1}}
-% \newcommand{\refigs}[2]{Figure\,\@myref{#1}-\@myref{#2}}
-% \newcommand{\refeq}[1]{Equation\,\@myref{#1}}
-% \newcommand{\refpage}[1]{page\,\pageref{#1}}
+% \newcommand{\refsecs}[2]{Section \@myref{#1}-\@myref{#2}}
+% \newcommand{\refig}[1]{Figure  \@myref{#1}}
+% \newcommand{\refigs}[2]{Figure  \@myref{#1}-\@myref{#2}}
+% \newcommand{\reftbl}[1]{Table \@myref{#1}}
+% \newcommand{\refstep}[1]{Step \@myref{#1}}
+% \newcommand{\refalgo}[1]{Algorithm \@myref{#1}}
+% \newcommand{\refchap}[1]{Chapter \@myref{#1}}
+% \newcommand{\reflst}[1]{List \@myref{#1}}
+% \newcommand{\refeq}[1]{Equation \@myref{#1}}
+% \newcommand{\refpage}[1]{page \pageref{#1}}
+% \newcommand{\refthm}[1]{Theorem \@myref{#1}}
 
 \newcommand{\refcitequote}[1]{%
 \begin{flushright}\hspace{2em}\rule{4em}{0.1mm}%
@@ -63,4 +163,30 @@ quoted from \cite{#1}\end{flushright}}
 \newcounter{list}[section]
 \renewcommand{\thelist}{\thesection .\arabic{list}}
 
-\def\qed{\hfill $\Box$}
+% mimick natbib without natbib
+
+% \NewDocumentCommand{\citet}{o m}{%
+%   % <code>
+%   \IfNoValueTF{#1}%
+%     {\citeauthor{#2} (\citeyear{#2})}
+%     {\citeauthor{#2} (\citeyear[#1]{#2})}%
+%   % <code>
+% }
+% \NewDocumentCommand{\citep}{o m}{%
+%   % <code>
+%   \IfNoValueTF{#1}%
+%     {\cite{#2}}
+%     {\cite[#1]{#2}}%
+%   % <code>
+% }
+
+\usepackage[marginpar]{todo}          %add \todo
+
+% https://tex.stackexchange.com/questions/214215/how-can-i-use-an-align-environment-or-tabbing-in-the-algorithm-environment
+\newlength{\maxwidth}
+\newcommand{\algalign}[2]% #1 = text to left, #2 = text to right
+{\makebox[\maxwidth][r]{$#1{}$}${}#2$}
+
+% when forced to use algorithmicx. not necessary in algpseudocode
+% \renewcommand{\algorithmiccomment}[1]{\hfill #1}
+

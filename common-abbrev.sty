@@ -1,119 +1,35 @@
 
-% Custom commands for simple abbreviations.
+% Custom commands for simple abbreviations, except maths.
 
+% NN activations %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newcommand{\BN}{\function{bn}}
+\newcommand{\GS}{\function{gs}}
+\newcommand{\BC}{\function{bc}}
+\newcommand{\STGS}{\function{ST-GS}}
+\newcommand{\loss}{\mathcal{L}}
+\newcommand{\nlm}{\function{\small NLM}}
 
-\newcommand{\union}{\cup}
-\newcommand{\intersection}{\cap}
+% STRIPS-related %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\brackets}[1]{{\left<#1\right>}}
-\newcommand{\braces}[1]{{\left\{#1\right\}}}
-\newcommand{\parens}[1]{{\left(#1\right)}}
-\newcommand{\bars}[1]{{\left|#1\right|}}
+\newcommand{\pre}{\function{pre}}
+\newcommand{\adde}{\function{add}}
+\newcommand{\dele}{\function{del}}
+\newcommand{\effect}{\function{effect}}
 
-\newcommand{\apply}[2]{#1\big|_{#2}}
+\def\hash{\text{\relsize{-1}\#}}
+\newcommand{\ar}[1]{\hash{}#1}
 
-\newcommand{\uline}[1]{\underline{#1}}
+% Planning-related %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\sota}{State-of-the-Art\xspace}
 \newcommand{\lsota}{state-of-the-art\xspace}  %lower-case version
 \newcommand{\domind}{domain-independent\xspace}
-
-% template
-
-\newcommand{\domain}{{\cal D}}
-\newcommand{\actions}{{\cal A}}
-\newcommand{\objects}{{\cal O}}
-\newcommand{\predicates}{{\cal P}}
-\newcommand{\problem}{\Pi}
-\newcommand{\adde}[1]{e^+\parens{#1}}
-\newcommand{\dele}[1]{e^-\parens{#1}}
-\newcommand{\eff}[1]{e^{\pm}\parens{#1}}
-
-\newcommand{\plan}{P}
-\newcommand{\nplan}[1]{P_{#1}}
-\newcommand{\totalplan}{P_t}
-\newcommand{\unitplan}{P_u}
-\newcommand{\loopplan}{P_l}
-
-\newcommand{\action}{a}
-
-\newcommand{\lambdafn}[2]{%
-\lambda(#1)\left(#2\right)%
-}
-
-\newcommand{\eqtype}{=_\tau}
-\newcommand{\subtype}{\leq_\tau}
-
 \newcommand{\astar}{\xspace {$A^*$}\xspace}
-
-\newcommand{\defun}[1]{%
-\makeatletter
-\expandafter\def\csname the#1\endcsname{\text{\it #1}}
-\expandafter\def\csname #1\endcsname ##1{\csname the#1\endcsname\left(##1\right)}%
-\makeatother
-}
-
-\newcommand{\defsetop}[2]{%
-\makeatletter% variable, set, descriptor
- \expandafter\def\csname #1\endcsname ##1##2##3{%
-  \expandafter\def\csname #1arg\endcsname{##1}%
-  \expandafter\def\csname #1set\endcsname{##2}%
-  \expandafter\def\csname #1cond\endcsname{##3}%
-  \braces{##1##2\mid #2 ##3}%
- }%
-\makeatother%
-}
-
-
-\defun{precond}
-\defun{condition}
-\defun{params}
-\defun{type}
-\defun{proc}
-\defun{cost}
-
-\defun{push}
-\defun{pref}
-% \defun{append}
-% \defun{remove}
-
-\newcommand{\append}[2]{#1 \gets #1\cap #2}
-\newcommand{\remove}[2]{#1 \gets #1\setminus #2}
-
-\defun{init}
-\defun{goal}
-\defun{objects}
-\defun{task}
-
-\defun{parent}
-\defun{plateau}
-
-\newcommand{\depth}{\brackets{d}}
-
-\defsetop{filter}{}
-\defsetop{map}{}
-
-\newcommand{\pddl}[1]{\textsf{\small #1}}
-\newcommand{\pddls}[1]{\textsf{\scriptsize #1}}
-
-% for table
-
-\newcommand{\spc}[2][c]{%
-  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
-\def\_{\\[-0.3em]}
-
-\def\spm{$\mathsmaller{\mathsmaller{\pm}}$}
-
 \newcommand{\ipc}[1][2011]{IPC#1\xspace}
 
-\def\fifo{{\small\textit{fifo}}\xspace}
-\def\lifo{{\small\textit{lifo}}\xspace}
-\def\ro{{\small\textit{ro}}\xspace}
-
 \makeatletter
 
-% heuristics command. h^XXX when in math mode.
 
 \newcommand{\newheuristic}[2]{%
  \def#1{%
@@ -155,7 +71,3 @@
 
 \makeatother
 
-\newcommand{\bi}[1]{\textbf{\relsize{0.5}#1}}
-\newcommand{\ui}[1]{\uline{\textit{#1}}}
-
-\def\latentplanner{Latplan\xspace}
