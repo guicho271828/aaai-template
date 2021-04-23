@@ -17,6 +17,8 @@ This repository includes templates and makefiles for:
 + NAACL style
 + CVPR style
 + JSAI, a local Japanese non-refereed conference.
++ *New* Grammarly style --- Print the paper without hyphenation into single page, without page numbers.
+  Convenient for checking the grammar with [Grammarly grammar checking service](https://app.grammarly.com/).
 
 Requirements: GNU Make, TexLive, inkscape, perl (see dependency.sh)
 
