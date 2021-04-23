@@ -194,6 +194,12 @@ the requirement we changed the file structure --- see below.
 
 Like this! \cite{aaai-template}
 Or you can also use \texttt{nocite} command like this. \nocite{aaa-template}
+Depending on the conference styles,
+\texttt{natbib} may or may not be automatically loaded,
+and may or may not be prohibited (due to incompatibility).
+We thus define our version of \texttt{citet} and \texttt{citep},
+only when they are not defined.
+Like \citet{aaai-template}, or like this \citep{aaai-template}.
 
 \section{Introduction}
 

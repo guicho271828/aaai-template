@@ -165,20 +165,22 @@ quoted from \cite{#1}\end{flushright}}
 
 % mimick natbib without natbib
 
-% \NewDocumentCommand{\citet}{o m}{%
-%   % <code>
-%   \IfNoValueTF{#1}%
-%     {\citeauthor{#2} (\citeyear{#2})}
-%     {\citeauthor{#2} (\citeyear[#1]{#2})}%
-%   % <code>
-% }
-% \NewDocumentCommand{\citep}{o m}{%
-%   % <code>
-%   \IfNoValueTF{#1}%
-%     {\cite{#2}}
-%     {\cite[#1]{#2}}%
-%   % <code>
-% }
+\makeatletter
+\@ifundefined{citet}{
+  \NewDocumentCommand{\citet}{o m}{%
+    \IfNoValueTF{#1}%
+      {\citeauthor{#2} (\citeyear{#2})}
+      {\citeauthor{#2} (\citeyear[#1]{#2})}%
+  }
+}{}
+\@ifundefined{citep}{
+  \NewDocumentCommand{\citep}{o m}{%
+    \IfNoValueTF{#1}%
+      {\cite{#2}}
+      {\cite[#1]{#2}}%
+  }
+}{}
+\makeatother
 
 \usepackage[marginpar]{todo}          %add \todo
 
