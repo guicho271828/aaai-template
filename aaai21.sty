@@ -1,10 +1,10 @@
-\def\year{2019}
+\def\year{2021}
 %
-%Filename: aaai19.sty
+%Filename: aaai21-mod.sty
 %
-\typeout{Conference Style for AAAI for LaTeX 2e -- version for the AAAI-19 conference}
+\typeout{Conference Style for AAAI for LaTeX 2e -- version for the AAAI-21 conference - MODIFIED}
 % WARNING: IF YOU ARE USING THIS STYLE SHEET FOR AN AAAI PUBLICATION, YOU
-% MAY NOT MODIFY IT FOR ANY REASON. MODIFICATIONS (IN YOUR SOURCE 
+% MAY NOT MODIFY IT FOR ANY REASON. MODIFICATIONS (IN YOUR SOURCE
 % OR IN THIS STYLE SHEET WILL RESULT IN REJECTION OF YOUR PAPER).
 %
 % WARNING: This style is NOT guaranteed to work. It is provided in the
@@ -16,8 +16,8 @@
 % There are undoubtably bugs in this style. If you would like to submit
 % bug fixes, improvements, etc. please let us know. Please use the contact form
 % at www.aaai.org.
-% 
-% Do not use this file unless you are an experienced LaTeX user. 
+%
+% Do not use this file unless you are an experienced LaTeX user.
 %
 %
 % PHYSICAL PAGE LAYOUT
@@ -37,7 +37,7 @@
 Association for the Advancement of Artificial Intelligence (www.aaai.org).
 All rights reserved.}
 \def\copyright@on{T}
-\def\nocopyright{\gdef\copyright@on{}}
+% \def\nocopyright{\gdef\copyright@on{}} % Copyright notice is required for AAAI-21 papers.
 \def\copyrighttext#1{\gdef\copyright@on{T}\gdef\copyright@text{#1}}
 \def\copyrightyear#1{\gdef\copyright@on{T}\gdef\copyright@year{#1}}
 % gf: End changes for copyright notice (used in \maketitle, below)
@@ -55,26 +55,51 @@ All rights reserved.}
 \setcounter{footnote}{0}
 \let\maketitle\relax \let\@maketitle\relax
 \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\let\thanks\relax}
-\def\@maketitle{\vbox to \titlebox{\hsize\textwidth
+\long\gdef\affiliations #1{ \def \affiliations_{#1}}
+
+\def\@maketitle{%
+    \newsavebox{\titlearea}
+    \sbox{\titlearea}{
+      \let\footnote\relax\let\thanks\relax
+        \vbox{
+            \hsize\textwidth
 %%% AAAI changed: 03/05/2010
 %%\linewidth\hsize \vskip 0.625in minus 0.125in \centering
 \linewidth\hsize \vskip 0.625in minus 0.125in \centering
 %%% END changed
 {\LARGE\bf \@title \par} \vskip 0.2in plus 1fil minus 0.1in
-{\def\and{\unskip\enspace{\rm and}\enspace}%
-\def\And{\end{tabular}\hss \egroup \hskip 1in plus 2fil 
- \hbox to 0pt\bgroup\hss \begin{tabular}[t]{c}\Large\bf}%
-\def\AND{\end{tabular}\hss\egroup \hfil\hfil\egroup
-\vskip 0.25in plus 1fil minus 0.125in
-% hg: Changed Large to normalsize on next line
- \hbox to \linewidth\bgroup\normalsize \hfil\hfil
-\hbox to 0pt\bgroup\hss \begin{tabular}[t]{c}\Large\bf}
+{
 \hbox to \linewidth\bgroup\normalsize \hfil\hfil
-\hbox to 0pt\bgroup\hss \begin{tabular}[t]{c}\Large\bf\@author 
+\hbox to 0pt\bgroup\hss
+\begin{tabular}[t]{p{\textwidth}}\centering \Large{\textbf \@author}
+  \vspace{3pt}  \normalsize  \affiliations_
 \end{tabular}\hss\egroup
 \hfil\hfil\egroup}
-\vskip 0.3in plus 2fil minus 0.1in
-}}
+\vskip 0.0in plus 2fil minus 0.1in}}
+    \newlength\actualheight
+    \settoheight{\actualheight}{\usebox{\titlearea}}
+    \ifdim\actualheight>\titlebox
+        \setlength{\titlebox}{\actualheight}
+    \fi
+    \setcounter{footnote}{0}
+    \vbox to \titlebox {\let\footnote\thanks\relax
+    \vbox{
+        \hsize\textwidth
+%%% AAAI changed: 03/05/2010
+%%\linewidth\hsize \vskip 0.625in minus 0.125in \centering
+\linewidth\hsize \vskip 0.625in minus 0.125in \centering
+%%% END changed
+{\LARGE\bf \@title \par} \vskip 0.2in plus 1fil minus 0.1in
+{
+\hbox to \linewidth\bgroup\normalsize \hfil\hfil
+\hbox to 0pt\bgroup\hss
+\begin{tabular}[t]{p{\textwidth}}\centering \Large{\textbf \@author}
+\vspace{3pt}  \normalsize  \affiliations_
+\end{tabular}\hss\egroup
+\hfil\hfil\egroup}
+\vskip 0.0in plus 2fil minus 0.1in}}
+}
+
 \renewenvironment{abstract}{\centerline{\bf
 Abstract}\vspace{0.5ex}\begin{quote}\small}{\par\end{quote}\vskip 1ex}
 % jsp added:
@@ -121,7 +146,7 @@ Abstract}\vspace{0.5ex}\begin{quote}\small}{\par\end{quote}\vskip 1ex}
 \itemsep \parsep}
 \def\@listiii{\leftmargin\leftmarginiii
 \labelwidth\leftmarginiii\advance\labelwidth-\labelsep
-\topsep 1pt plus 0.5pt minus 0.5pt 
+\topsep 1pt plus 0.5pt minus 0.5pt
 \parsep \z@ \partopsep 0.5pt plus 0pt minus 0.5pt
 \itemsep \topsep}
 \def\@listiv{\leftmargin\leftmarginiv
@@ -132,7 +157,7 @@ Abstract}\vspace{0.5ex}\begin{quote}\small}{\par\end{quote}\vskip 1ex}
 \labelwidth\leftmarginvi\advance\labelwidth-\labelsep}
 \abovedisplayskip 7pt plus2pt minus5pt%
 \belowdisplayskip \abovedisplayskip
-\abovedisplayshortskip 0pt plus3pt% 
+\abovedisplayshortskip 0pt plus3pt%
 \belowdisplayshortskip 4pt plus3pt minus3pt%
 % Less leading in most fonts (due to the narrow columns)
 % The choices were between 1-pt and 1.5-pt leading
@@ -146,68 +171,16 @@ Abstract}\vspace{0.5ex}\begin{quote}\small}{\par\end{quote}\vskip 1ex}
 \def\LARGE{\@setfontsize\LARGE\@xivpt{16}}    % 14 point on 16
 \def\huge{\@setfontsize\huge\@xviipt{20}}    % 17 point on 20
 \def\Huge{\@setfontsize\Huge\@xxpt{23}}    % 20 point on 23
-%%%% named style for aaai, included here for ease of use
-% This section implements citations for the ``named'' bibliography style,
-% modified for AAAI use.
-% This file can be modified and used in other conferences as long
-% as credit to the authors and supporting agencies is retained, this notice
-% is not changed, and further modification or reuse is not restricted.
-% The ``named'' bibliography style creates citations with labels like
-% \citeauthoryear{author-info}{year}
-% these labels are processed by the following commands:
-% \cite{keylist}
-%  which produces citations with both author and year,
-%  enclosed in square brackets
-% \shortcite{keylist}
-%  which produces citations with year only,
-%  enclosed in square brackets
-% \citeauthor{key}
-%  which produces the author information only
-% \citeyear{key}
-%  which produces the year information only
-\def\leftcite{(}\def\rightcite{)}
-\def\cite{\def\citeauthoryear##1##2{\def\@thisauthor{##1}%
-\ifx \@lastauthor \@thisauthor \relax \else##1 \fi ##2}\@icite}
-\def\shortcite{\def\citeauthoryear##1##2{##2}\@icite}
-\def\citeauthor{\def\citeauthoryear##1##2{##1}\@nbcite}
-\def\citeyear{\def\citeauthoryear##1##2{##2}\@nbcite}
-% internal macro for citations with () and with breaks between citations
-% used in \cite and \shortcite
-\def\@icite{\leavevmode\def\@citeseppen{-1000}%
-\def\@cite##1##2{\leftcite\nobreak\hskip 0in{##1\if@tempswa , ##2\fi}\rightcite}%
-\@ifnextchar [{\@tempswatrue\@citex}{\@tempswafalse\@citex[]}}
-% internal macro for citations without [] and with no breaks
-% used in \citeauthor and \citeyear
-\def\@nbcite{\leavevmode\def\@citeseppen{1000}%
-\def\@cite##1##2{{##1\if@tempswa , ##2\fi}}%
-\@ifnextchar [{\@tempswatrue\@citex}{\@tempswafalse\@citex[]}}
-% don't box citations, separate with ; and a space
-% also, make the penalty between citations a parameter, 
-% it may be a good place to break
-\def\@citex[#1]#2{%
-\def\@lastauthor{}\def\@citea{}%
-\@cite{\@for\@citeb:=#2\do
-{\@citea\def\@citea{;\penalty\@citeseppen\ }%
-\if@filesw\immediate\write\@auxout{\string\citation{\@citeb}}\fi
-\@ifundefined{b@\@citeb}{\def\@thisauthor{}{\bf ?}\@warning
-{Citation `\@citeb' on page \thepage \space undefined}}%
-{\csname b@\@citeb\endcsname}\let\@lastauthor\@thisauthor}}{#1}}
-%Ignore the key when generating the Reference section.
-\def\@lbibitem[#1]#2{\item\if@filesw 
-{ \def\protect##1{\string ##1\space}\immediate
-\write\@auxout{\string\bibcite{#2}{#1}}}\fi\ignorespaces}
-\def\thebibliography#1{\section*{References\@mkboth
-{REFERENCES}{REFERENCES}}\list
-{}{\labelwidth 0in\leftmargin\labelwidth
-%%% DIEGO removed
-%%\advance\leftmargin\labelsep
-%%% END removed
-%%% DIEGO changed
-\itemsep .011in % original
-%%\itemsep -.0125in % reduced space between bib entries
-%%% END changed
+
+\AtBeginDocument{\@ifpackageloaded{natbib}
+  {
+    % When natbib is in use, set the proper style and fix a few things
+    \let\cite\citep
+    \let\shortcite\citeyearpar
+    \setcitestyle{aysep={}}
+    \setlength\bibhang{0pt}
+    \bibliographystyle{aaai21}
+  }{}
 }
-\def\newblock{\hskip .11em plus .33em minus .07em}
-\sloppy\clubpenalty4000\widowpenalty4000
-\sfcode`\.=1000\relax}
+
 \let\endthebibliography=\endlist
