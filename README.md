@@ -41,8 +41,8 @@ To address the requirement we changed the file structure --- see below.
         This is the file you will spend most of the time editing.
     * → `common-header.sty`
       * Part of the preamble shared by `main.tex` and `supplemental.tex`.
-      * This file also contains the specific code for each conference.
-        You should uncomment the code for the conference you plan to submit
+      * This file also contains conference-specific code.
+        You should uncomment the part for the conference you plan to submit
       * → `common-general.sty`
         * general custom commands
       * → `common-abbrev.sty`
@@ -88,7 +88,7 @@ Also, due to incompatibility in BSD, some commands e.g. `find` may fail.
     after it. Otherwise it may remove some necessary text
   * `make archive` compresses the `submission/` directory
     and create a zip file and a tar.gz file containing the same contents.
-    AAAI Press receive the zip file only.
+    Note that AAAI Press does not accept tar.gz files.
     Additional style files are removed because they are not allowed.
   * `make arxiv` is same as `make archive`, but it does not remove the style files.
     This feature is therefore useful when submitting the paper to Arxiv.
