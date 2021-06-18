@@ -120,7 +120,7 @@ the requirement we changed the file structure --- see below.
 \end{itemize}
 
 \section{Usage notes}
-
+\label{sec:usage}
 \begin{itemize}
 \item
   It encourages the use of Inkskape to
@@ -183,6 +183,10 @@ the requirement we changed the file structure --- see below.
 \item
   This template also supports JSAI, a local Japanese non-refereed
   confernece.
+ \item Do not use \texttt{\textbackslash{}ref} command directly like this: \ref{sec:usage}.
+       This cause style inconsistency, e.g., Section \ref{sec:usage} vs. Sec. \ref{sec:usage}.
+       Use \texttt{\textbackslash{}refsec}, \texttt{\textbackslash{}reftbl}, etc.
+       in \texttt{common-general.sty}.
 \end{itemize}
 
 

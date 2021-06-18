@@ -88,6 +88,7 @@
 \usepackage{url}
 \usepackage{comment}
 \usepackage{math_commands}
+\usepackage{xcolor}
 
 %% may cause conflicts, enable them by your own needs
 % \usepackage{algorithm}
@@ -127,7 +128,9 @@
 % forbid the direct use of \\ref --- it results in inconsistency in styles, e.g., Figure,Fig., etc.
 % Macros are for styles!
 % !!!WARN!!! this should be removed in the camera-ready version.
-\def\ref{\todo{Do not use ``ref'' directly!}}
+\makeatletter
+\renewcommand{\ref}[1]{\@myref{#1}\todo{(Do not use ``ref'' directly!)}}
+\makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
 \hyphenation{bar-man air-port cyber-sec driver-log floor-tile free-cell
