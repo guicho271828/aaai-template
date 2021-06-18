@@ -66,7 +66,7 @@
 
 @string{COLING = {{Proc. of the International Conference on Computational Linguistics}}}
 
-@string{COMPINT = "Computational Intelligence"}
+@string{COMPINT = {Computational Intelligence}}
 
 @string{ECML = {{Proc. of the European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases}}}
 
@@ -471,9 +471,10 @@
 	year = {2000}
 }
 
-@inproceedings{Baier2007,
+@inproceedings{baier2007exploiting,
 	author = {Baier, Jorge A and Fritz, Christian and McIlraith, Sheila A},
 	booktitle = ICAPS,
+	pages = {26--33},
 	title = {{Exploiting Procedural Domain Control Knowledge in State-of-the-Art Planners}},
 	year = {2007}
 }
@@ -2052,7 +2053,7 @@
 @article{bacchus2000using,
 	author = {Bacchus, Fahiem and Kabanza, Froduald},
 	journal = AIJ,
-	number = {1},
+	number = {1-2},
 	pages = {123--191},
 	publisher = {Elsevier},
 	title = {{Using Temporal Logics to Express Search Control Knowledge for Planning}},
@@ -2391,7 +2392,9 @@
 	year = {2010}
 }
 
-@other{val4.2,
+@misc{val4.2,
+	title = {VAL: The plan validation system.},
+	url = {https://github.com/KCL-Planning/VAL}
 }
 
 @book{PegsolBook,
@@ -2746,15 +2749,12 @@
 }
 
 @inproceedings{ArfaeeZH10,
-  author    = {Shahab Jabbari Arfaee and
-               Sandra Zilles and
-               Robert C. Holte},
-  editor    = {Ariel Felner and
-               Nathan R. Sturtevant},
-  title     = {Bootstrap Learning of Heuristic Functions},
-  booktitle = SOCS,
-  publisher = {{AAAI} Press},
-  year      = {2010},
+	author = {Arfaee, Shahab Jabbari and Zilles, Sandra and Holte, Robert C.},
+	booktitle = SOCS,
+	editor = {Felner, Ariel and Sturtevant, Nathan R.},
+	publisher = {{AAAI} Press},
+	title = {Bootstrap Learning of Heuristic Functions},
+	year = {2010}
 }
 
 @article{ArfaeeZH11,
@@ -2894,8 +2894,8 @@
 
 @misc{ng2011cs294a,
 	author = {Ng, Andrew},
-        url = {https://web.stanford.edu/class/cs294a/sparseAutoencoder_2011new.pdf},
 	title = {{CS294A lecture notes}},
+	url = {https://web.stanford.edu/class/cs294a/sparseAutoencoder_2011new.pdf},
 	year = {2011}
 }
 
@@ -3746,11 +3746,11 @@
 }
 
 @inproceedings{silver2020pddlgym,
-  author    = {Silver, Tom and Chitnis, Rohan},
-  title     = {PDDLGym: Gym Environments from PDDL Problems},
-  booktitle = PRL,
-  year      = {2020},
-  url       = {https://github.com/tomsilver/pddlgym},
+	author = {Silver, Tom and Chitnis, Rohan},
+	booktitle = PRL,
+	title = {PDDLGym: Gym Environments from PDDL Problems},
+	url = {https://github.com/tomsilver/pddlgym},
+	year = {2020}
 }
 
 @inproceedings{redmon2017yolo9000,
@@ -3850,9 +3850,9 @@
 
 @inproceedings{rivlin2020generalized,
 	author = {Rivlin, Or and Hazan, Tamir and Karpas, Erez},
+	booktitle = PRL,
 	title = {Generalized Planning With Deep Reinforcement Learning},
-	year = {2019},
-	booktitle = PRL
+	year = {2019}
 }
 
 @article{fox2003pddl2,
@@ -4377,556 +4377,538 @@
 }
 
 @inproceedings{ng1999policy,
-  title={{Policy Invariance under Reward Transformations: Theory and Application to Reward Shaping}},
-  author={Ng, Andrew Y and Harada, Daishi and Russell, Stuart},
-  booktitle=ICML,
-  volume={99},
-  pages={278--287},
-  year={1999}
+	author = {Ng, Andrew Y and Harada, Daishi and Russell, Stuart},
+	booktitle = ICML,
+	pages = {278--287},
+	title = {{Policy Invariance under Reward Transformations: Theory and Application to Reward Shaping}},
+	volume = {99},
+	year = {1999}
 }
 
 @article{wiewiora2003potential,
-  title={Potential-based shaping and Q-value initialization are equivalent},
-  author={Wiewiora, Eric},
-  journal=JAIR,
-  volume={19},
-  pages={205--208},
-  year={2003}
+	author = {Wiewiora, Eric},
+	journal = JAIR,
+	pages = {205--208},
+	title = {Potential-based shaping and Q-value initialization are equivalent},
+	volume = {19},
+	year = {2003}
 }
 
 @article{barto1995learning,
-  title={Learning to act using real-time dynamic programming},
-  author={Barto, Andrew G and Bradtke, Steven J and Singh, Satinder P},
-  journal=AIJ,
-  volume={72},
-  number={1-2},
-  pages={81--138},
-  year={1995},
-  publisher={Elsevier}
-}
-
-@article{mnih2015human,
-  title={Human-level control through deep reinforcement learning},
-  author={Mnih, Volodymyr and Kavukcuoglu, Koray and Silver, David and Rusu, Andrei A and Veness, Joel and Bellemare, Marc G and Graves, Alex and Riedmiller, Martin and Fidjeland, Andreas K and Ostrovski, Georg and others},
-  journal={nature},
-  volume={518},
-  number={7540},
-  pages={529--533},
-  year={2015},
-  publisher={Nature Publishing Group}
+	author = {Barto, Andrew G and Bradtke, Steven J and Singh, Satinder P},
+	journal = AIJ,
+	number = {1-2},
+	pages = {81--138},
+	publisher = {Elsevier},
+	title = {Learning to act using real-time dynamic programming},
+	volume = {72},
+	year = {1995}
 }
 
 @inproceedings{ernandes2004likely,
-  title={{Likely-Admissible and Sub-Symbolic Heuristics}},
-  author={Ernandes, Marco and Gori, Marco},
-  booktitle=ECAI,
-  volume={16},
-  pages={613},
-  year={2004},
-  organization={Citeseer}
+	author = {Ernandes, Marco and Gori, Marco},
+	booktitle = ECAI,
+	organization = {Citeseer},
+	pages = {613},
+	title = {{Likely-Admissible and Sub-Symbolic Heuristics}},
+	volume = {16},
+	year = {2004}
 }
+
 @inproceedings{shen2020learning,
-  title={{Learning Domain-Independent Planning Heuristics with Hypergraph Networks}},
-  author={Shen, William and Trevizan, Felipe and Thi{\'e}baux, Sylvie},
-  booktitle=ICAPS,
-  volume={30},
-  pages={574--584},
-  year={2020}
+	author = {Shen, William and Trevizan, Felipe and Thi{\'e}baux, Sylvie},
+	booktitle = ICAPS,
+	pages = {574--584},
+	title = {{Learning Domain-Independent Planning Heuristics with Hypergraph Networks}},
+	volume = {30},
+	year = {2020}
 }
+
 @inproceedings{marom2020utilising,
-  title={{Utilising Uncertainty for Efficient Learning of Likely-Admissible Heuristics}},
-  author={Marom, Ofir and Rosman, Benjamin},
-  booktitle=ICAPS,
-  volume={30},
-  pages={560--568},
-  year={2020}
+	author = {Marom, Ofir and Rosman, Benjamin},
+	booktitle = ICAPS,
+	pages = {560--568},
+	title = {{Utilising Uncertainty for Efficient Learning of Likely-Admissible Heuristics}},
+	volume = {30},
+	year = {2020}
 }
+
 @article{cortes1995support,
-  title={{Support-Vector Networks}},
-  author={Cortes, Corinna and Vapnik, Vladimir},
-  journal={Machine learning},
-  volume={20},
-  number={3},
-  pages={273--297},
-  year={1995},
-  publisher={Springer}
+	author = {Cortes, Corinna and Vapnik, Vladimir},
+	journal = {Machine learning},
+	number = {3},
+	pages = {273--297},
+	publisher = {Springer},
+	title = {{Support-Vector Networks}},
+	volume = {20},
+	year = {1995}
 }
+
 @article{mcaleer2018solving,
-  title={{Solving the Rubik's Cube Without Human Knowledge}},
-  author={McAleer, Stephen and Agostinelli, Forest and Shmakov, Alexander and Baldi, Pierre},
-  journal={arXiv preprint arXiv:1805.07470},
-  year={2018}
+	author = {McAleer, Stephen and Agostinelli, Forest and Shmakov, Alexander and Baldi, Pierre},
+	journal = {arXiv preprint arXiv:1805.07470},
+	title = {{Solving the Rubik's Cube Without Human Knowledge}},
+	year = {2018}
 }
+
 @article{agostinelli2019solving,
-  title={{Solving the Rubik’s Cube with Deep Reinforcement Learning and Search}},
-  author={Agostinelli, Forest and McAleer, Stephen and Shmakov, Alexander and Baldi, Pierre},
-  journal={Nature Machine Intelligence},
-  volume={1},
-  number={8},
-  pages={356--363},
-  year={2019},
-  publisher={Nature Publishing Group}
+	author = {Agostinelli, Forest and McAleer, Stephen and Shmakov, Alexander and Baldi, Pierre},
+	journal = {Nature Machine Intelligence},
+	number = {8},
+	pages = {356--363},
+	publisher = {Nature Publishing Group},
+	title = {{Solving the Rubik{\rq}s Cube with Deep Reinforcement Learning and Search}},
+	volume = {1},
+	year = {2019}
 }
+
 @inproceedings{henderson2018deep,
-  title={Deep reinforcement learning that matters},
-  author={Henderson, Peter and Islam, Riashat and Bachman, Philip and Pineau, Joelle and Precup, Doina and Meger, David},
-  booktitle=AAAI,
-  volume={32},
-  number={1},
-  year={2018}
+	author = {Henderson, Peter and Islam, Riashat and Bachman, Philip and Pineau, Joelle and Precup, Doina and Meger, David},
+	booktitle = AAAI,
+	number = {1},
+	title = {Deep reinforcement learning that matters},
+	volume = {32},
+	year = {2018}
 }
+
 @article{hilgard1966theories,
-  title={{Theories of Learning}},
-  author={Hilgard, Ernest R and Bower, Gordon H},
-  year={1966},
-  publisher={Appleton-Century-Crofts}
+	author = {Hilgard, Ernest R and Bower, Gordon H},
+	publisher = {Appleton-Century-Crofts},
+	title = {{Theories of Learning}},
+	year = {1966}
 }
+
 @inproceedings{junyent2018improving,
-  title={{Improving Width-Based Planning with Compact Policies}},
-  author={Junyent, Miquel and Jonsson, Anders and G{\'o}mez, Vicen{\c{c}}},
-  booktitle={ICML / IJCAI / AAMAS 2018 Workshop on Planning and Learning (PAL-18)},
-  year={2018}
+	author = {Junyent, Miquel and Jonsson, Anders and G{\'o}mez, Vicen{\c c}},
+	booktitle = {ICML / IJCAI / AAMAS 2018 Workshop on Planning and Learning (PAL-18)},
+	title = {{Improving Width-Based Planning with Compact Policies}},
+	year = {2018}
 }
+
 @incollection{grounds2005combining,
-  title={{Combining Reinforcement Learning with Symbolic Planning}},
-  author={Grounds, Matthew and Kudenko, Daniel},
-  booktitle={Adaptive Agents and Multi-Agent Systems III. Adaptation and Multi-Agent Learning},
-  pages={75--86},
-  year={2005},
-  publisher={Springer}
+	author = {Grounds, Matthew and Kudenko, Daniel},
+	booktitle = {Adaptive Agents and Multi-Agent Systems III. Adaptation and Multi-Agent Learning},
+	pages = {75--86},
+	publisher = {Springer},
+	title = {{Combining Reinforcement Learning with Symbolic Planning}},
+	year = {2005}
 }
+
 @inproceedings{bandres2018planning,
-  title={{Planning with Pixels in (Almost) Real Time}},
-  author={Bandres, Wilmer and Bonet, Blai and Geffner, Hector},
-  booktitle=AAAI,
-  volume={32},
-  number={1},
-  year={2018}
+	author = {Bandres, Wilmer and Bonet, Blai and Geffner, Hector},
+	booktitle = AAAI,
+	number = {1},
+	title = {{Planning with Pixels in (Almost) Real Time}},
+	volume = {32},
+	year = {2018}
 }
+
 @article{bellemare2013arcade,
-  title={{The Arcade Learning Environment: An Evaluation Platform for General Agents}},
-  author={Bellemare, Marc G and Naddaf, Yavar and Veness, Joel and Bowling, Michael},
-  journal=JAIR,
-  volume={47},
-  pages={253--279},
-  year={2013}
+	author = {Bellemare, Marc G and Naddaf, Yavar and Veness, Joel and Bowling, Michael},
+	journal = JAIR,
+	pages = {253--279},
+	title = {{The Arcade Learning Environment: An Evaluation Platform for General Agents}},
+	volume = {47},
+	year = {2013}
 }
+
 @inproceedings{thayer2011learning,
-  title={{Learning Inadmissible Heuristics during Search}},
-  author={Thayer, Jordan and Dionne, Austin and Ruml, Wheeler},
-  booktitle=ICAPS,
-  volume={21},
-  number={1},
-  year={2011}
+	author = {Thayer, Jordan and Dionne, Austin and Ruml, Wheeler},
+	booktitle = ICAPS,
+	number = {1},
+	title = {{Learning Inadmissible Heuristics during Search}},
+	volume = {21},
+	year = {2011}
 }
+
 @book{sutton2018reinforcement,
-  title={{Reinforcement Learning: An Introduction}},
-  author={Sutton, Richard S and Barto, Andrew G},
-  year={2018},
-  publisher={MIT press}
+	author = {Sutton, Richard S and Barto, Andrew G},
+	publisher = {MIT press},
+	title = {{Reinforcement Learning: An Introduction}},
+	year = {2018}
 }
+
 @inproceedings{riedmiller2005neural,
-  title={{Neural Fitted Q Iteration--First Experiences with a Data Efficient Neural Reinforcement Learning Method}},
-  author={Riedmiller, Martin},
-  booktitle={European Conference on Machine Learning},
-  pages={317--328},
-  year={2005},
-  organization={Springer}
+	author = {Riedmiller, Martin},
+	booktitle = {European Conference on Machine Learning},
+	organization = {Springer},
+	pages = {317--328},
+	title = {{Neural Fitted Q Iteration--First Experiences with a Data Efficient Neural Reinforcement Learning Method}},
+	year = {2005}
 }
+
 @inproceedings{glorot2010understanding,
-  title={{Understanding the difficulty of training deep feedforward neural networks}},
-  author={Glorot, Xavier and Bengio, Yoshua},
-  booktitle=AISTATS,
-  pages={249--256},
-  year={2010},
-  organization={JMLR Workshop and Conference Proceedings}
+	author = {Glorot, Xavier and Bengio, Yoshua},
+	booktitle = AISTATS,
+	organization = {JMLR Workshop and Conference Proceedings},
+	pages = {249--256},
+	title = {{Understanding the difficulty of training deep feedforward neural networks}},
+	year = {2010}
 }
+
 @inproceedings{badia2020agent57,
-  title={{Agent57: Outperforming the Atari Human Benchmark}},
-  author={Badia, Adri{\`a} Puigdom{\`e}nech and Piot, Bilal and Kapturowski, Steven and Sprechmann, Pablo and Vitvitskyi, Alex and Guo, Zhaohan Daniel and Blundell, Charles},
-  booktitle=ICML,
-  pages={507--517},
-  year={2020},
-  organization={PMLR}
+	author = {Badia, Adri{\`a} Puigdom{\`e}nech and Piot, Bilal and Kapturowski, Steven and Sprechmann, Pablo and Vitvitskyi, Alex and Guo, Zhaohan Daniel and Blundell, Charles},
+	booktitle = ICML,
+	organization = {PMLR},
+	pages = {507--517},
+	title = {{Agent57: Outperforming the Atari Human Benchmark}},
+	year = {2020}
 }
+
 @inproceedings{harabor2011online,
-  title={{Online Graph Pruning for Pathfinding on Grid Maps}},
-  author={Harabor, Daniel and Grastien, Alban},
-  booktitle=AAAI,
-  volume={25},
-  number={1},
-  year={2011}
+	author = {Harabor, Daniel and Grastien, Alban},
+	booktitle = AAAI,
+	number = {1},
+	title = {{Online Graph Pruning for Pathfinding on Grid Maps}},
+	volume = {25},
+	year = {2011}
 }
+
 @article{schulman2017proximal,
-  title={{Proximal Policy Optimization Algorithms}},
-  author={Schulman, John and Wolski, Filip and Dhariwal, Prafulla and Radford, Alec and Klimov, Oleg},
-  journal={arXiv preprint arXiv:1707.06347},
-  year={2017}
+	author = {Schulman, John and Wolski, Filip and Dhariwal, Prafulla and Radford, Alec and Klimov, Oleg},
+	journal = {arXiv preprint arXiv:1707.06347},
+	title = {{Proximal Policy Optimization Algorithms}},
+	year = {2017}
 }
+
 @inproceedings{toyer2018action,
-  title={{Action Schema Networks: Generalised Policies with Deep Learning}},
-  author={Toyer, Sam and Trevizan, Felipe and Thi{\'e}baux, Sylvie and Xie, Lexing},
-  booktitle=AAAI,
-  volume={32},
-  number={1},
-  year={2018}
+	author = {Toyer, Sam and Trevizan, Felipe and Thi{\'e}baux, Sylvie and Xie, Lexing},
+	booktitle = AAAI,
+	number = {1},
+	title = {{Action Schema Networks: Generalised Policies with Deep Learning}},
+	volume = {32},
+	year = {2018}
 }
 
-
-@Article{backstrom-klein-compint1991,
-  author =       "Christer B{\"a}ckstr{\"o}m and Inger Klein",
-  title =        "Planning in polynomial time: the {SAS-PUBS} class",
-  journal =      COMPINT,
-  year =         "1991",
-  volume =       "7",
-  number =       "3",
-  pages =        "181--197"
+@article{backstrom-klein-compint1991,
+	author = {B{\"a}ckstr{\"o}m, Christer and Klein, Inger},
+	journal = COMPINT,
+	number = {3},
+	pages = {181--197},
+	title = {Planning in polynomial time: the {SAS-PUBS} class},
+	volume = {7},
+	year = {1991}
 }
 
-@Article{erol-et-al-aij1995,
-  author =       "Kutluhan Erol and Dana S. Nau and V. S. Subrahmanian",
-  title =        "Complexity, Decidability and Undecidability Results for
-                  Domain-Independent Planning",
-  journal =      AIJ,
-  year =         "1995",
-  volume =       "76",
-  number =       "1--2",
-  pages =        "75--88"
+@article{erol-et-al-aij1995,
+	author = {Erol, Kutluhan and Nau, Dana S. and Subrahmanian, V. S.},
+	journal = AIJ,
+	number = {1--2},
+	pages = {75--88},
+	title = {Complexity, Decidability and Undecidability Results for Domain-Independent Planning},
+	volume = {76},
+	year = {1995}
 }
 
 % Data verified.
-@Article{jonsson-backstrom-aij1998,
-  author =       "Peter Jonsson and Christer B{\"a}ckstr{\"o}m",
-  title =        "State-Variable Planning under Structural Restrictions:
-                  {Algorithms} and Complexity",
-  journal =      AIJ,
-  year =         "1998",
-  volume =       "100",
-  number =       "1--2",
-  pages =        "125--176"
+
+@article{jonsson-backstrom-aij1998,
+	author = {Jonsson, Peter and B{\"a}ckstr{\"o}m, Christer},
+	journal = AIJ,
+	number = {1--2},
+	pages = {125--176},
+	title = {State-Variable Planning under Structural Restrictions: {Algorithms} and Complexity},
+	volume = {100},
+	year = {1998}
 }
 
 % Data from first author's homepage:
 % - http://www.ida.liu.se/~petej/Research/article.html
-@Article{jonsson-backstrom-amai1998,
-  author =       "Peter Jonsson and Christer B{\"a}ckstr{\"o}m",
-  title =        "Tractable Plan Existence Does Not Imply Tractable
-                  Plan Generation",
-  journal =      AMAI,
-  year =         "1998",
-  volume =       "22",
-  number =       "3,4",
-  pages =        "281--296"
+
+@article{jonsson-backstrom-amai1998,
+	author = {Jonsson, Peter and B{\"a}ckstr{\"o}m, Christer},
+	journal = AMAI,
+	number = {3,4},
+	pages = {281--296},
+	title = {Tractable Plan Existence Does Not Imply Tractable Plan Generation},
+	volume = {22},
+	year = {1998}
 }
 
-@Article{katz-domshlak-jair2008,
-  author =       "Michael Katz and Carmel Domshlak",
-  title =        "New Islands of Tractability of Cost-Optimal Planning",
-  journal =      JAIR,
-  volume =       "32",
-  year =         "2008",
-  pages =        "203--288"
+@article{katz-domshlak-jair2008,
+	author = {Katz, Michael and Domshlak, Carmel},
+	journal = JAIR,
+	pages = {203--288},
+	title = {New Islands of Tractability of Cost-Optimal Planning},
+	volume = {32},
+	year = {2008}
 }
 
-@InProceedings{katz-domshlak-icaps2008b,
-  author =       "Michael Katz and Carmel Domshlak",
-  title =        "Structural Patterns Heuristics via Fork Decomposition",
-  pages =        "182--189",
-  booktitle =    ICAPS,
-  year =         "2008"
+@inproceedings{katz-domshlak-icaps2008b,
+	author = {Katz, Michael and Domshlak, Carmel},
+	booktitle = ICAPS,
+	pages = {182--189},
+	title = {Structural Patterns Heuristics via Fork Decomposition},
+	year = {2008}
 }
 
-@InProceedings{katz-keyder-aaai2012,
-  author =       "Michael Katz and Emil Keyder",
-  title =        "Structural Patterns Beyond Forks: Extending the Complexity Boundaries of Classical Planning",
-  booktitle =    AAAI,
-  year =         "2012",
-  pages =        "1779--1785"
+@inproceedings{katz-keyder-aaai2012,
+	author = {Katz, Michael and Keyder, Emil},
+	booktitle = AAAI,
+	pages = {1779--1785},
+	title = {Structural Patterns Beyond Forks: Extending the Complexity Boundaries of Classical Planning},
+	year = {2012}
 }
 
-@InProceedings{keyder-et-al-icaps2012,
-  author =       "Emil Keyder and J{\"o}rg Hoffmann and Patrik Haslum",
-  title =        "Semi-Relaxed Plan Heuristics",
-  booktitle =    ICAPS,
-  year =         "2012",
-  pages =        "128--136"
+@inproceedings{keyder-et-al-icaps2012,
+	author = {Keyder, Emil and Hoffmann, J{\"o}rg and Haslum, Patrik},
+	booktitle = ICAPS,
+	pages = {128--136},
+	title = {Semi-Relaxed Plan Heuristics},
+	year = {2012}
 }
 
-@Article{brafman-domshlak-jair2003,
-  author =       "Ronen I. Brafman and Carmel Domshlak",
-  title =        "Structure and Complexity in Planning with Unary
-                  Operators",
-  journal =      JAIR,
-  year =         "2003",
-  volume =       "18",
-  pages =        "315--349"
+@article{brafman-domshlak-jair2003,
+	author = {Brafman, Ronen I. and Domshlak, Carmel},
+	journal = JAIR,
+	pages = {315--349},
+	title = {Structure and Complexity in Planning with Unary Operators},
+	volume = {18},
+	year = {2003}
 }
+
 @techreport{lin1993reinforcement,
-  title={{Reinforcement Learning for Robots using Neural Networks}},
-  author={Lin, Long-Ji},
-  year={1993},
-  institution={Carnegie-Mellon Univ Pittsburgh PA School of Computer Science}
+	author = {Lin, Long-Ji},
+	institution = {Carnegie-Mellon Univ Pittsburgh PA School of Computer Science},
+	title = {{Reinforcement Learning for Robots using Neural Networks}},
+	year = {1993}
 }
+
 @inproceedings{trpo,
-  title={{Trust Region Policy Optimization}},
-  author={Schulman, John and Levine, Sergey and Abbeel, Pieter and Jordan, Michael and Moritz, Philipp},
-  booktitle=ICML,
-  pages={1889--1897},
-  year={2015},
-  organization={PMLR}
+	author = {Schulman, John and Levine, Sergey and Abbeel, Pieter and Jordan, Michael and Moritz, Philipp},
+	booktitle = ICML,
+	organization = {PMLR},
+	pages = {1889--1897},
+	title = {{Trust Region Policy Optimization}},
+	year = {2015}
 }
+
 @inproceedings{ddpg,
-  title={{Continuous Control with Deep Reinforcement Learning}},
-  author={Lillicrap, Timothy P and Hunt, Jonathan J and Pritzel, Alexander and Heess, Nicolas and Erez, Tom and Tassa, Yuval and Silver, David and Wierstra, Daan},
-  booktitle=ICLR,
-  year={2016}
+	author = {Lillicrap, Timothy P and Hunt, Jonathan J and Pritzel, Alexander and Heess, Nicolas and Erez, Tom and Tassa, Yuval and Silver, David and Wierstra, Daan},
+	booktitle = ICLR,
+	title = {{Continuous Control with Deep Reinforcement Learning}},
+	year = {2016}
 }
+
 @article{muzero,
-  title={{Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model}},
-  author={Schrittwieser, Julian and Antonoglou, Ioannis and Hubert, Thomas and Simonyan, Karen and Sifre, Laurent and Schmitt, Simon and Guez, Arthur and Lockhart, Edward and Hassabis, Demis and Graepel, Thore and others},
-  journal={Nature},
-  volume={588},
-  number={7839},
-  pages={604--609},
-  year={2020},
-  publisher={Nature Publishing Group}
+	author = {Schrittwieser, Julian and Antonoglou, Ioannis and Hubert, Thomas and Simonyan, Karen and Sifre, Laurent and Schmitt, Simon and Guez, Arthur and Lockhart, Edward and Hassabis, Demis and Graepel, Thore and others},
+	journal = {Nature},
+	number = {7839},
+	pages = {604--609},
+	publisher = {Nature Publishing Group},
+	title = {{Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model}},
+	volume = {588},
+	year = {2020}
 }
+
 @inproceedings{a2c,
-  title={{Asynchronous Methods for Deep Reinforcement Learning}},
-  author={Mnih, Volodymyr and Badia, Adria Puigdomenech and Mirza, Mehdi and Graves, Alex and Lillicrap, Timothy and Harley, Tim and Silver, David and Kavukcuoglu, Koray},
-  booktitle=ICML,
-  pages={1928--1937},
-  year={2016},
-  organization={PMLR}
+	author = {Mnih, Volodymyr and Badia, Adria Puigdomenech and Mirza, Mehdi and Graves, Alex and Lillicrap, Timothy and Harley, Tim and Silver, David and Kavukcuoglu, Koray},
+	booktitle = ICML,
+	organization = {PMLR},
+	pages = {1928--1937},
+	title = {{Asynchronous Methods for Deep Reinforcement Learning}},
+	year = {2016}
 }
+
 @article{alphagozero,
-  title={{Mastering the Game of Go without Human Knowledge}},
-  author={Silver, David and Schrittwieser, Julian and Simonyan, Karen and Antonoglou, Ioannis and Huang, Aja and Guez, Arthur and Hubert, Thomas and Baker, Lucas and Lai, Matthew and Bolton, Adrian and others},
-  journal={Nature},
-  volume={550},
-  number={7676},
-  pages={354--359},
-  year={2017},
-  publisher={Nature Publishing Group}
+	author = {Silver, David and Schrittwieser, Julian and Simonyan, Karen and Antonoglou, Ioannis and Huang, Aja and Guez, Arthur and Hubert, Thomas and Baker, Lucas and Lai, Matthew and Bolton, Adrian and others},
+	journal = {Nature},
+	number = {7676},
+	pages = {354--359},
+	publisher = {Nature Publishing Group},
+	title = {{Mastering the Game of Go without Human Knowledge}},
+	volume = {550},
+	year = {2017}
 }
-@ARTICLE{junghanns00sokoban,
-    author = {Andreas Junghanns and Jonathan Schaeffer},
-    title = {{Sokoban: A Case-Study in the Application of Domain Knowledge in General Search Enhancements to Increase Efficiency in Single-Agent Search}},
-    journal = AIJ,
-    year = {2000}
+
+@article{junghanns00sokoban,
+	author = {Junghanns, Andreas and Schaeffer, Jonathan},
+	journal = AIJ,
+	title = {{Sokoban: A Case-Study in the Application of Domain Knowledge in General Search Enhancements to Increase Efficiency in Single-Agent Search}},
+	year = {2000}
 }
 
 @article{jimenez2019review,
-  title={A review of generalized planning},
-  author={Jim{\'e}nez, Sergio and Segovia-Aguas, Javier and Jonsson, Anders},
-  journal={The Knowledge Engineering Review},
-  volume={34},
-  number={e5},
-  pages={1--28},
-  year={2019},
-  publisher={Cambridge University Press}
+	author = {Jim{\'e}nez, Sergio and Segovia-Aguas, Javier and Jonsson, Anders},
+	journal = {The Knowledge Engineering Review},
+	number = {e5},
+	pages = {1--28},
+	publisher = {Cambridge University Press},
+	title = {A review of generalized planning},
+	volume = {34},
+	year = {2019}
 }
 
 @inproceedings{schaul2015universal,
-  title={{Universal Value Function Approximators}},
-  author={Schaul, Tom and Horgan, Daniel and Gregor, Karol and Silver, David},
-  booktitle=ICML,
-  pages={1312--1320},
-  year={2015},
-  organization={PMLR}
+	author = {Schaul, Tom and Horgan, Daniel and Gregor, Karol and Silver, David},
+	booktitle = ICML,
+	organization = {PMLR},
+	pages = {1312--1320},
+	title = {{Universal Value Function Approximators}},
+	year = {2015}
 }
 
 @article{fern2011first,
-  title={The first learning track of the international planning competition},
-  author={Fern, Alan and Khardon, Roni and Tadepalli, Prasad},
-  journal={Machine Learning},
-  volume={84},
-  number={1-2},
-  pages={81--107},
-  year={2011},
-  publisher={Springer}
+	author = {Fern, Alan and Khardon, Roni and Tadepalli, Prasad},
+	journal = {Machine Learning},
+	number = {1-2},
+	pages = {81--107},
+	publisher = {Springer},
+	title = {The first learning track of the international planning competition},
+	volume = {84},
+	year = {2011}
 }
 
 @software{jax2018github,
-  author = {James Bradbury and Roy Frostig and Peter Hawkins and Matthew James Johnson and Chris Leary and Dougal Maclaurin and George Necula and Adam Paszke and Jake Vander{P}las and Skye Wanderman-{M}ilne and Qiao Zhang},
-  title = {{JAX}: composable transformations of {P}ython+{N}um{P}y programs},
-  version = {0.2.5},
-  year = {2018},
+	author = {Bradbury, James and Frostig, Roy and Hawkins, Peter and Johnson, Matthew James and Leary, Chris and Maclaurin, Dougal and Necula, George and Paszke, Adam and Vander{P}las, Jake and Wanderman-{M}ilne, Skye and Zhang, Qiao},
+	title = {{JAX}: composable transformations of {P}ython+{N}um{P}y programs},
+	version = {0.2.5},
+	year = {2018}
 }
+
 @inproceedings{yoon2006learning,
-  title={{Learning Heuristic Functions from Relaxed Plans.}},
-  author={Yoon, Sung Wook and Fern, Alan and Givan, Robert},
-  booktitle=ICAPS,
-  volume={2},
-  pages={3},
-  year={2006}
+	author = {Yoon, Sung Wook and Fern, Alan and Givan, Robert},
+	booktitle = ICAPS,
+	pages = {3},
+	title = {{Learning Heuristic Functions from Relaxed Plans.}},
+	volume = {2},
+	year = {2006}
 }
+
 @article{yoon2008learning,
-  title={{Learning Control Knowledge for Forward Search Planning.}},
-  author={Yoon, Sungwook and Fern, Alan and Givan, Robert},
-  journal={Journal of Machine Learning Research},
-  volume={9},
-  number={4},
-  year={2008}
+	author = {Yoon, Sungwook and Fern, Alan and Givan, Robert},
+	journal = {Journal of Machine Learning Research},
+	number = {4},
+	title = {{Learning Control Knowledge for Forward Search Planning.}},
+	volume = {9},
+	year = {2008}
 }
+
 @inproceedings{garrett2016learning,
-  title={{Learning to Rank for Synthesizing Planning Heuristics}},
-  author={Garrett, Caelan Reed and Kaelbling, Leslie Pack and Lozano-P{\'e}rez, Tom{\'a}s},
-  booktitle=IJCAI,
-  pages={3089--3095},
-  year={2016}
+	author = {Garrett, Caelan Reed and Kaelbling, Leslie Pack and Lozano-P{\'e}rez, Tom{\'a}s},
+	booktitle = IJCAI,
+	pages = {3089--3095},
+	title = {{Learning to Rank for Synthesizing Planning Heuristics}},
+	year = {2016}
 }
+
 @inproceedings{ma2020online,
-  title={{Online Planner Selection with Graph Neural Networks and Adaptive Scheduling}},
-  author={Ma, Tengfei and Ferber, Patrick and Huo, Siyu and Chen, Jie and Katz, Michael},
-  booktitle=AAAI,
-  volume={34},
-  number={04},
-  pages={5077--5084},
-  year={2020}
+	author = {Ma, Tengfei and Ferber, Patrick and Huo, Siyu and Chen, Jie and Katz, Michael},
+	booktitle = AAAI,
+	number = {04},
+	pages = {5077--5084},
+	title = {{Online Planner Selection with Graph Neural Networks and Adaptive Scheduling}},
+	volume = {34},
+	year = {2020}
 }
-@inproceedings{baier2007exploiting,
-  title={{Exploiting Procedural Domain Control Knowledge in State-of-the-Art Planners}},
-  author={Baier, Jorge A and Fritz, Christian and McIlraith, Sheila A},
-  booktitle={ICAPS},
-  pages={26--33},
-  year={2007}
-}
-@article{bacchus2000using,
-  title={{Using Temporal Logics to Express Search Control Knowledge for Planning}},
-  author={Bacchus, Fahiem and Kabanza, Froduald},
-  journal=AIJ,
-  volume={116},
-  number={1-2},
-  pages={123--191},
-  year={2000},
-  publisher={Elsevier}
-}
+
 @inproceedings{hogg2010learning,
-  title={{Learning Methods to Generate Good Plans: Integrating HTN Learning and Reinforcement Learning}},
-  author={Hogg, Chad and Kuter, Ugur and Munoz-Avila, Hector},
-  booktitle=AAAI,
-  volume={24},
-  number={1},
-  year={2010}
+	author = {Hogg, Chad and Kuter, Ugur and Munoz-Avila, Hector},
+	booktitle = AAAI,
+	number = {1},
+	title = {{Learning Methods to Generate Good Plans: Integrating HTN Learning and Reinforcement Learning}},
+	volume = {24},
+	year = {2010}
 }
+
 @inproceedings{sievers2019deep,
-  title={{Deep Learning for Cost-Optimal Planning: Task-Dependent Planner Selection}},
-  author={Sievers, Silvan and Katz, Michael and Sohrabi, Shirin and Samulowitz, Horst and Ferber, Patrick},
-  booktitle=AAAI,
-  volume={33},
-  number={01},
-  pages={7715--7723},
-  year={2019}
+	author = {Sievers, Silvan and Katz, Michael and Sohrabi, Shirin and Samulowitz, Horst and Ferber, Patrick},
+	booktitle = AAAI,
+	number = {01},
+	pages = {7715--7723},
+	title = {{Deep Learning for Cost-Optimal Planning: Task-Dependent Planner Selection}},
+	volume = {33},
+	year = {2019}
 }
-@InProceedings{ferber-et-al-ecai2020,
-  author =       {Ferber, Patrick and Helmert, Malte and Hoffmann, J{\"o}rg},
-  title =        {{Neural Network Heuristics for Classical Planning: A Study of Hyperparameter Space}},
-  pages =        {{2346--2353}},
-  booktitle = ECAI,
-  year={2020}
+
+@inproceedings{ferber-et-al-ecai2020,
+	author = {Ferber, Patrick and Helmert, Malte and Hoffmann, J{\"o}rg},
+	booktitle = ECAI,
+	pages = {{2346--2353}},
+	title = {{Neural Network Heuristics for Classical Planning: A Study of Hyperparameter Space}},
+	year = {2020}
 }
+
 @techreport{wolpert1995no,
-  title={{No Free Lunch Theorems for Search}},
-  author={Wolpert, David H and Macready, William G and others},
-  year={1995},
-  institution={Technical Report SFI-TR-95-02-010, Santa Fe Institute}
+	author = {Wolpert, David H and Macready, William G and others},
+	institution = {Technical Report SFI-TR-95-02-010, Santa Fe Institute},
+	title = {{No Free Lunch Theorems for Search}},
+	year = {1995}
 }
+
 @misc{pyperplan,
-  author =       "Yusra Alkhazraji and Matthias Frorath and Markus Gr{\"u}tzner
-                  and Malte Helmert and Thomas Liebetraut and Robert Mattm{\"u}ller
-                  and Manuela Ortlieb and Jendrik Seipp and Tobias Springenberg and
-                  Philip Stahl and Jan W{\"u}lfing",
-  title =        "Pyperplan",
-  publisher =    "Zenodo",
-  year =         "2020",
-  doi =          "10.5281/zenodo.3700819",
+	author = {Alkhazraji, Yusra and Frorath, Matthias and Gr{\"u}tzner, Markus and Helmert, Malte and Liebetraut, Thomas and Mattm{\"u}ller, Robert and Ortlieb, Manuela and Seipp, Jendrik and Springenberg, Tobias and Stahl, Philip and W{\"u}lfing, Jan},
+	doi = {10.5281/zenodo.3700819},
+	publisher = {Zenodo},
+	title = {Pyperplan},
+	year = {2020}
 }
 
 @inproceedings{victor2013adaptive,
-  author    = {Victor Gabillon and
-               Branislav Kveton and
-               Zheng Wen and
-               Brian Eriksson and
-               S. Muthukrishnan},
-  editor    = {Christopher J. C. Burges and
-               L{\'{e}}on Bottou and
-               Zoubin Ghahramani and
-               Kilian Q. Weinberger},
-  title     = {Adaptive Submodular Maximization in Bandit Setting},
-  booktitle = NIPS,
-  pages     = {2697--2705},
-  year      = {2013},
+	author = {Gabillon, Victor and Kveton, Branislav and Wen, Zheng and Eriksson, Brian and Muthukrishnan, S.},
+	booktitle = NIPS,
+	editor = {Burges, Christopher J. C. and Bottou, L{\'e}on and Ghahramani, Zoubin and Weinberger, Kilian Q.},
+	pages = {2697--2705},
+	title = {Adaptive Submodular Maximization in Bandit Setting},
+	year = {2013}
 }
 
 @article{corah2019distributed,
-  title={{Distributed matroid-constrained submodular maximization for multi-robot exploration: Theory and practice}},
-  author={Corah, Micah and Michael, Nathan},
-  journal={Autonomous Robots},
-  volume={43},
-  number={2},
-  pages={485--501},
-  year={2019},
-  publisher={Springer}
+	author = {Corah, Micah and Michael, Nathan},
+	journal = {Autonomous Robots},
+	number = {2},
+	pages = {485--501},
+	publisher = {Springer},
+	title = {{Distributed matroid-constrained submodular maximization for multi-robot exploration: Theory and practice}},
+	volume = {43},
+	year = {2019}
 }
+
 @inproceedings{krayse07observation,
-  author    = {Andreas Krause and
-               Carlos Guestrin},
-  title     = {Near-Optimal Observation Selection using Submodular Functions},
-  booktitle = AAAI,
-  pages     = {1650--1654},
-  publisher = {{AAAI} Press},
-  year      = {2007},
+	author = {Krause, Andreas and Guestrin, Carlos},
+	booktitle = AAAI,
+	pages = {1650--1654},
+	publisher = {{AAAI} Press},
+	title = {Near-Optimal Observation Selection using Submodular Functions},
+	year = {2007}
 }
+
 @inproceedings{krause05submodular,
-  author    = {Andreas Krause and
-               Carlos Guestrin},
-  title     = {{Near-Optimal Nonmyopic Value of Information in Graphical Models}},
-  booktitle = UAI,
-  pages     = {324--331},
-  publisher = {{AUAI} Press},
-  year      = {2005},
+	author = {Krause, Andreas and Guestrin, Carlos},
+	booktitle = UAI,
+	pages = {324--331},
+	publisher = {{AUAI} Press},
+	title = {{Near-Optimal Nonmyopic Value of Information in Graphical Models}},
+	year = {2005}
 }
+
 @inproceedings{gutierrez2021meta,
-  title={{Meta Reinforcement Learning for Heuristic Planing}},
-  author={Gutierrez, Ricardo Luna and Leonetti, Matteo},
-  booktitle=ICAPS,
-  volume={31},
-  pages={551--559},
-  year={2021}
+	author = {Gutierrez, Ricardo Luna and Leonetti, Matteo},
+	booktitle = ICAPS,
+	pages = {551--559},
+	title = {{Meta Reinforcement Learning for Heuristic Planing}},
+	volume = {31},
+	year = {2021}
 }
+
 @article{duanscbsa16,
-  author    = {Yan Duan and
-               John Schulman and
-               Xi Chen and
-               Peter L. Bartlett and
-               Ilya Sutskever and
-               Pieter Abbeel},
-  title     = {RL$^2$: Fast Reinforcement Learning via
-               Slow Reinforcement Learning},
-  journal   = {CoRR},
-  volume    = {abs/1611.02779},
-  year      = {2016},
-  archivePrefix = {arXiv},
-  eprint    = {1611.02779},
+	archiveprefix = {arXiv},
+	author = {Duan, Yan and Schulman, John and Chen, Xi and Bartlett, Peter L. and Sutskever, Ilya and Abbeel, Pieter},
+	eprint = {1611.02779},
+	journal = {CoRR},
+	title = {RL$^2$: Fast Reinforcement Learning via Slow Reinforcement Learning},
+	volume = {abs/1611.02779},
+	year = {2016}
 }
 
 @inproceedings{buffet2007ff,
-  title={{FF+FPG: Guiding a Policy-Gradient Planner}},
-  author={Buffet, Olivier and Aberdeen, Douglas and others},
-  booktitle=ICAPS,
-  pages={42--48},
-  year={2007}
+	author = {Buffet, Olivier and Aberdeen, Douglas and others},
+	booktitle = ICAPS,
+	pages = {42--48},
+	title = {{FF+FPG: Guiding a Policy-Gradient Planner}},
+	year = {2007}
 }
 
+%ages =        "13--17"
+%}
 
-@InProceedings{fawcett-et-al-icaps2011wspal,
-  author =       "Chris Fawcett and Malte Helmert and Holger Hoos and
-                  Erez Karpas and Gabriele R{\"o}ger and Jendrik Seipp",
-  title =        "{FD-Autotune}: Domain-Specific Configuration using
-                  {Fast} {Downward}",
-  booktitle = "{ICAPS} 2011 Workshop on Planning and Learning",
-  year = 2011,
-  url = {github.com/AI-Planning/pddl-generators}
-  pages =        "13--17"
-}
