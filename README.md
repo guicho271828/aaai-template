@@ -93,10 +93,6 @@ Also, due to incompatibility in BSD, some commands e.g. `find` may fail.
   * `make arxiv` is same as `make archive`, but it does not remove the style files.
     This feature is therefore useful when submitting the paper to Arxiv.
 
-* It also checks for the paper length limit and overful/underful hboxes,
-  which may be useful in the last-limit optimization for overlength papers.
-  * Requirements: `pdftk`.
-
 # If you have enough space in your paper, please cite me
 
 ``` bibtex

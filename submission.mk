@@ -48,9 +48,6 @@ submission: en all.subm_fromto
 	-find submission -name "*\.aux" -delete
 	-find submission -name "*\.out" -delete
 
-# To ensure that the operations done above did not affect the paper.
-	latexmk/pdfdiff.py $(name).pdf submission/$(name).pdf
-
 	@echo "Make sure every \\input commands are in the beginning of line but space"
 
 clean-submission:

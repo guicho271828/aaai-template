@@ -6,16 +6,10 @@ max_pages  = 8
 
 $(info $(sources))
 
-.PHONY: all en ja open imgs clean allclean check_pages check_overflow auto \
+.PHONY: all en ja open imgs clean allclean auto \
 	submission archive clean-submission
 
-all: check_pages check_overflow en
-
-check_pages: $(name).pdf
-	-./check_pages.sh $(max_pages) $(name)
-
-check_overflow: $(name).log
-	-./check_overflow.sh $(name).log
+all: en
 
 en: $(name).pdf    supplemental.pdf
 
