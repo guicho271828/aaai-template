@@ -125,9 +125,7 @@
 
 \newcommand{\refsec}[1]{Sec.\,\@myref{#1}}
 \newcommand{\refseq}[1]{Sec.\,\@myref{#1}}
-\newcommand{\refsecs}[2]{Sec. \@myref{#1}-\@myref{#2}}
 \newcommand{\refig}[1]{Fig.\,\@myref{#1}}
-\newcommand{\refigs}[2]{Fig.\,\@myref{#1}-\@myref{#2}}
 \newcommand{\reftbl}[1]{Table \@myref{#1}}
 \newcommand{\refstep}[1]{Step \@myref{#1}}
 \newcommand{\refalgo}[1]{Alg.\,\@myref{#1}}
@@ -137,14 +135,25 @@
 \newcommand{\refpage}[1]{p.\pageref{#1}}
 \newcommand{\refthm}[1]{Thm.\,\@myref{#1}}
 \newcommand{\refline}[1]{line\,\@myref{#1}}
-\newcommand{\reflines}[2]{lines\,\@myref{#1}-\@myref{#2}}
+
+% multiple references
+\newcommand{\refsecs}[2]{Sec.\,\@myref{#1}-\@myref{#2}}
+\newcommand{\refseqs}[2]{Sec.\,\@myref{#1}-\@myref{#2}}
+\newcommand{\refigs}[2]{Fig.\,\@myref{#1}-\@myref{#2}}
+\newcommand{\reftbls}[2]{Tables \@myref{#1}-\@myref{#2}}
+\newcommand{\refsteps}[2]{Steps \@myref{#1}-\@myref{#2}}
+\newcommand{\refalgos}[2]{Alg.\,\@myref{#1}-\@myref{#2}}
+\newcommand{\refchaps}[2]{Chap.\,\@myref{#1}-\@myref{#2}}
+\newcommand{\reflsts}[2]{Lists \@myref{#1}-\@myref{#2}}
+\newcommand{\refeqs}[2]{Eq.\,\@myref{#1}-\@myref{#2}}
+\newcommand{\refpages}[2]{p.\pageref{#1}-\@myref{#2}}
+\newcommand{\refthms}[2]{Thm.\,\@myref{#1}-\@myref{#2}}
+\newcommand{\reflines}[2]{line\,\@myref{#1}-\@myref{#2}}
 
 % long versions
 % \newcommand{\refsec}[1]{Section \@myref{#1}}
 % \newcommand{\refseq}[1]{Section \@myref{#1}}
-% \newcommand{\refsecs}[2]{Section \@myref{#1}-\@myref{#2}}
 % \newcommand{\refig}[1]{Figure  \@myref{#1}}
-% \newcommand{\refigs}[2]{Figure  \@myref{#1}-\@myref{#2}}
 % \newcommand{\reftbl}[1]{Table \@myref{#1}}
 % \newcommand{\refstep}[1]{Step \@myref{#1}}
 % \newcommand{\refalgo}[1]{Algorithm \@myref{#1}}
@@ -153,6 +162,21 @@
 % \newcommand{\refeq}[1]{Equation \@myref{#1}}
 % \newcommand{\refpage}[1]{page \pageref{#1}}
 % \newcommand{\refthm}[1]{Theorem \@myref{#1}}
+% \newcommand{\refline}[1]{line\,\@myref{#1}}
+% 
+% \newcommand{\refsecs}[2]{Sections \@myref{#1}-\@myref{#2}}
+% \newcommand{\refseqs}[2]{Sections \@myref{#1}-\@myref{#2}}
+% \newcommand{\refigs}[2]{Figures  \@myref{#1}-\@myref{#2}}
+% \newcommand{\reftbls}[2]{Tables \@myref{#1}-\@myref{#2}}
+% \newcommand{\refsteps}[2]{Steps \@myref{#1}-\@myref{#2}}
+% \newcommand{\refalgos}[2]{Algorithms \@myref{#1}-\@myref{#2}}
+% \newcommand{\refchaps}[2]{Chapters \@myref{#1}-\@myref{#2}}
+% \newcommand{\reflsts}[2]{Lists \@myref{#1}-\@myref{#2}}
+% \newcommand{\refeqs}[2]{Equations \@myref{#1}-\@myref{#2}}
+% \newcommand{\refpages}[2]{pages \pageref{#1}-\@myref{#2}}
+% \newcommand{\refthms}[2]{Theorems \@myref{#1}-\@myref{#2}}
+% \newcommand{\reflines}[2]{lines\,\@myref{#1}-\@myref{#2}}
+
 
 \newcommand{\refcitequote}[1]{%
 \begin{flushright}\hspace{2em}\rule{4em}{0.1mm}%
