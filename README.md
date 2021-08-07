@@ -26,6 +26,10 @@ Requirements: GNU Make, TexLive, inkscape, perl (see dependency.sh)
 (such as https://www.aaai.org/Publications/Author/icaps-submit.php).
 To address the requirement we changed the file structure --- see below.
 
+**Update** The template contains an example paper about elephant's eggs.
+
+[![example](./example.png)](./example.pdf)
+
 # File structure
 
 * `<name>.tex`
