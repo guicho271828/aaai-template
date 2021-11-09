@@ -1,14 +1,14 @@
 %%
-%% This is file `aaai-new.bst',
+%% This is file `aaai22.bst',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:
 %%
-%% merlin.mbs  (with options: `ay,nat,nm-rev,ed-rev,jnrlst,aunm-semi,mcite,mct-1,mct-x3,keyxyr,dt-beg,yr-per,yrp-per,note-yr,atit-u,volp-sp,num-xser,jnm-x,bkpg-x,add-pub,isbn,issn,doi,ppx,ed,xedn,and-com,and-com-ed,etal-xc,url,url-blk,nfss,')
+%% merlin.mbs  (with options: `head,ay,nat,ed-au,nm-rev,ed-rev,jnrlst,aunm-semi,mcite,mct-1,mct-x3,keyxyr,dt-beg,yr-per,yrp-per,note-yr,atit-u,volp-sp,num-xser,bkpg-x,add-pub,isbn,ppx,ed,xedn,and-com,and-com-ed,etal-xc,nfss,,{}')
+%% merlin.mbs  (with options: `tail,ay,nat,ed-au,nm-rev,ed-rev,jnrlst,aunm-semi,mcite,mct-1,mct-x3,keyxyr,dt-beg,yr-per,yrp-per,note-yr,atit-u,volp-sp,num-xser,bkpg-x,add-pub,isbn,ppx,ed,xedn,and-com,and-com-ed,etal-xc,nfss,,{}')
 %% ----------------------------------------
 %% *** Natbib-compatible implementation of 'aaai' bib style ***
 %% 
-%% Copyright 1994-2011 Patrick W Daly
  % ===============================================================
  % IMPORTANT NOTICE:
  % This bibliographic style (bst) file has been generated from one or
@@ -53,17 +53,17 @@
 
 ENTRY
   { address
+    archivePrefix
     author
     booktitle
     chapter
-    doi
     edition
     editor
     eid
+    eprint
     howpublished
     institution
     isbn
-    issn
     journal
     key
     month
@@ -76,7 +76,6 @@ ENTRY
     series
     title
     type
-    url
     volume
     year
   }
@@ -356,15 +355,17 @@ FUNCTION {bibinfo.warn}
     }
   if$
 }
-FUNCTION {format.url}
-{
-  url
-  duplicate$ empty$
-    { pop$ "" }
-    { "\urlprefix\url{" swap$ * "}" * }
+FUNCTION {format.eprint}
+{ eprint duplicate$ empty$
+    'skip$
+    { archivePrefix duplicate$ empty$
+        'skip$
+        { ":" * swap$ }
+      if$
+      * "." *
+    }
   if$
 }
-
 INTEGERS { nameptr namesleft numnames }
 
 
@@ -379,24 +380,29 @@ FUNCTION {format.names}
   s num.names$ 'numnames :=
   numnames 'namesleft :=
     { namesleft #0 > }
-    { s nameptr "{vv~}{ll}{, jj}{, f.}" format.name$
+    { s nameptr
+      "{vv~}{ll}{, f.}{, jj}"
+      format.name$
       bibinfo bibinfo.check
       't :=
       nameptr #1 >
-        { namesleft #1 >
+        {
+          namesleft #1 >
             { "; " * t * }
-            { s nameptr "{ll}" format.name$ duplicate$ "others" =
+            {
+              s nameptr "{ll}" format.name$ duplicate$ "others" =
                 { 't := }
                 { pop$ }
               if$
               ";" *
-%              { numnames #2 >
-%              { ";" * }
-%              { "," * }
-%              if$
               t "others" =
-                { " " * bbl.etal * }
-                { bbl.and space.word * t * }
+                {
+                  " " * bbl.etal *
+                }
+                {
+                  bbl.and
+                  space.word * t *
+                }
               if$
             }
           if$
@@ -446,25 +452,6 @@ FUNCTION {format.isbn}
   if$
 }
 
-FUNCTION {format.issn}
-{ issn "issn" bibinfo.check
-  duplicate$ empty$ 'skip$
-    {
-      new.block
-      "ISSN " swap$ *
-    }
-  if$
-}
-
-FUNCTION {format.doi}
-{ doi empty$
-    { "" }
-    {
-      new.block
-      "\doi{" doi * "}" *
-    }
-  if$
-}
 FUNCTION {format.note}
 {
  note empty$
@@ -908,17 +895,12 @@ FUNCTION {article}
       "journal" bibinfo.check
       emphasize
       "journal" output.check
-      add.blank
       format.vol.num.pages output
     }
     { format.article.crossref output.nonnull
       format.pages output
     }
   if$
-  format.issn output
-  format.doi output
-  new.block
-  format.url output
   new.block
   format.note output
   fin.entry
@@ -953,9 +935,6 @@ FUNCTION {book}
   if$
   format.edition output
   format.isbn output
-  format.doi output
-  new.block
-  format.url output
   new.block
   format.note output
   fin.entry
@@ -971,9 +950,6 @@ FUNCTION {booklet}
   howpublished "howpublished" bibinfo.check output
   address "address" bibinfo.check output
   format.isbn output
-  format.doi output
-  new.block
-  format.url output
   new.block
   format.note output
   fin.entry
@@ -1015,9 +991,6 @@ FUNCTION {inbook}
     { format.isbn output }
     'skip$
   if$
-  format.doi output
-  new.block
-  format.url output
   new.block
   format.note output
   fin.entry
@@ -1045,9 +1018,6 @@ FUNCTION {incollection}
       format.chapter.pages output
     }
   if$
-  format.doi output
-  new.block
-  format.url output
   new.block
   format.note output
   fin.entry
@@ -1073,15 +1043,11 @@ FUNCTION {inproceedings}
         }
       if$
       format.isbn output
-      format.issn output
     }
     { format.incoll.inproc.crossref output.nonnull
       format.pages output
     }
   if$
-  format.doi output
-  new.block
-  format.url output
   new.block
   format.note output
   fin.entry
@@ -1098,9 +1064,6 @@ FUNCTION {manual}
   organization "organization" bibinfo.check output
   address "address" bibinfo.check output
   format.edition output
-  format.doi output
-  new.block
-  format.url output
   new.block
   format.note output
   fin.entry
@@ -1118,9 +1081,6 @@ FUNCTION {mastersthesis}
   bbl.mthesis format.thesis.type output.nonnull
   school "school" bibinfo.warn output
   address "address" bibinfo.check output
-  format.doi output
-  new.block
-  format.url output
   new.block
   format.note output
   fin.entry
@@ -1135,11 +1095,9 @@ FUNCTION {misc}
   format.title output
   new.block
   howpublished "howpublished" bibinfo.check output
-  format.doi output
-  new.block
-  format.url output
   new.block
   format.note output
+  format.eprint output
   fin.entry
 }
 FUNCTION {phdthesis}
@@ -1154,9 +1112,6 @@ FUNCTION {phdthesis}
   bbl.phdthesis format.thesis.type output.nonnull
   school "school" bibinfo.warn output
   address "address" bibinfo.check output
-  format.doi output
-  new.block
-  format.url output
   new.block
   format.note output
   fin.entry
@@ -1179,10 +1134,6 @@ FUNCTION {proceedings}
     }
   if$
   format.isbn output
-  format.issn output
-  format.doi output
-  new.block
-  format.url output
   new.block
   format.note output
   fin.entry
@@ -1200,9 +1151,6 @@ FUNCTION {techreport}
   format.tr.number output.nonnull
   institution "institution" bibinfo.warn output
   address "address" bibinfo.check output
-  format.doi output
-  new.block
-  format.url output
   new.block
   format.note output
   fin.entry
@@ -1215,9 +1163,6 @@ FUNCTION {unpublished}
   format.date "year" output.check
   date.block
   format.title "title" output.check
-  format.doi output
-  new.block
-  format.url output
   new.block
   format.note "note" output.check
   fin.entry
@@ -1534,16 +1479,6 @@ FUNCTION {begin.bib}
   write$ newline$
   "\providecommand{\natexlab}[1]{#1}"
   write$ newline$
-  "\providecommand{\url}[1]{\texttt{#1}}"
-  write$ newline$
-  "\providecommand{\urlprefix}{URL }"
-  write$ newline$
-  "\expandafter\ifx\csname urlstyle\endcsname\relax"
-  write$ newline$
-  "  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else"
-  write$ newline$
-  "  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup \urlstyle{rm}\Url}\fi"
-  write$ newline$
 }
 EXECUTE {begin.bib}
 EXECUTE {init.state.consts}
@@ -1555,4 +1490,4 @@ FUNCTION {end.bib}
 EXECUTE {end.bib}
 %% End of customized bst file
 %%
-%% End of file `aaai-new.bst'.
+%% End of file `aaai22.bst'.
