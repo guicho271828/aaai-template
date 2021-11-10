@@ -54,7 +54,30 @@
 \newheuristic{\ce}{CEA}
 \newheuristic{\cg}{CG}
 \newheuristic{\ad}{add}
+\newheuristic{\hmax}{max}
 \newheuristic{\lc}{LC}
+\newheuristic{\blind}{blind}
+
+\newcommand{\newlearnedheuristic}[2]{%
+ \def#1{%
+  \ifmmode%
+  H^\text{#2}\xspace%
+  \else%
+  \text{#2}\xspace%
+  \fi%
+ }%
+}
+
+\newlearnedheuristic{\Hlmcut}{LMcut}
+\newlearnedheuristic{\Hmands}{M\&S}
+\newlearnedheuristic{\Hpdb}{PDB}
+\newlearnedheuristic{\Hff}{FF}
+\newlearnedheuristic{\Hce}{CEA}
+\newlearnedheuristic{\Hcg}{CG}
+\newlearnedheuristic{\Had}{add}
+\newlearnedheuristic{\Hmax}{max}
+\newlearnedheuristic{\Hlc}{LC}
+\newlearnedheuristic{\Hblind}{blind}
 
 \newcommand{\newUnitCostHeuristic}[2]{%
  \def#1{%
