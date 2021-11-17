@@ -28,8 +28,9 @@ nohup.out
 /asai.spl
 /asai.toc
 !tables/**/*.pdf
-!img/static/**/*.png
-!img/static/**/*.jpg
+!img/static/**/
+img/static/**/*.bb
+img/static/**/*.?bb
 /org-mode/
 tables/.#*
 *.subm*
