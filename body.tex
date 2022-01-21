@@ -1,24 +1,36 @@
-% 
-% 
-% * Maintain 100 characters / line.
+%
+%
+% * Maintain 100 characters / line. But keep sentence structure intact ---
+%   Try not to break a line in the middle of a sentence.
+%   Even if you do, break lines at a major clause boundary like ``and'', ``or''.
+%
 % * too much ``''s make the sentence look scattered and visually less recognizable. ``e.g.'' also.
+%
 % * \em, \bf, \it are all obsolete \TeX primitives, and it does not take effect properly ---
 %   for example, {\bf {\it aaa}} shows ``aaa'' in italic but NOT IN BOLD.
 %   Use \emph{}, \textit{}, \textbf{} and so on.
-% 
-% * Always use \ff, \fd, \cea, or other abbreviation commands in abbrev.sty.
-%   Inconsistent notations would not be the major reason for rejection, but 
-%   they eventually severely harm the impression of the paper.
-% 
-% * use of footnotes should be minimized.
+%
+% * Always use \ff, \fd, \cea, or other abbreviation commands in common-abbrev.sty.
+%   Find-and-replace is an error-prone operation that is inferior to custom commands
+%   --- the amount of work needed for find-and-replace grows linearly with the number of usages,
+%   and the probability of producing a consistent document shrinks exponentially.
+%   Inconsistent notations would not be the major reason for rejection, but
+%   they eventually harm the impression of the paper.
+%
+% * Use of footnotes should be minimized.
+%
 % * IPC2011 should always be \ipc . The definition can later be modified in abbrev.sty .
-% * prefer separated words over hyphened words. domain
-%   independent>domain-independent, planner independent >
-%   planner-independent.
-% * Table, Figure, Fig., should not be used directly. Always use \refig and \reftbl. When the development flag is enabled, direct use of \ref signals an error.
-% * Caption ends with a period.
-% 
-% 
+%
+% * Prefer separated words over hyphened words, e.g., domain independent > domain-independent,
+%   planner independent > planner-independent.
+%
+% * Table, Figure, Fig., should not be used directly.
+%   Always use \refig and \reftbl etc, which are defined in common-general.sty .
+%   When the development flag is enabled, direct use of \ref signals an error.
+%
+% * Caption must end with a period.
+%
+%
 \begin{abstract}
 AAA!
 \end{abstract}
