@@ -1,6 +1,6 @@
 
 name       = default
-latexmk    = latexmk/latexmk.pl
+latexmk    = perl latexmk/latexmk.pl
 sources    = $(wildcard *.tex) $(wildcard *.sty) $(wildcard *.bib)
 max_pages  = 8
 
@@ -46,7 +46,7 @@ open: $(name).pdf
 endif
 
 auto:
-	+./make-periodically.sh
+	+bash ./make-periodically.sh
 
 imgs:
 	$(MAKE) -C img

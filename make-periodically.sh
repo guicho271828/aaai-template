@@ -7,6 +7,6 @@
 
 while true
 do
-    ./make-notify-and-wait.sh $@
+    bash $dir/make-notify-and-wait.sh $@
     sleep 1.5
 done
