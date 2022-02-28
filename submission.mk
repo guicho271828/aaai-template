@@ -8,7 +8,7 @@ xbb.subm:  png.subm submission.mk
 # Now AAAI press requires all image files to be stored under the root directory.
 # Putting the images in a nested directory is no longer allowed in the camera ready.
 # Thus we implemented a method that automatically flattens the directory structure.
-# Directory separaters "/" are replaced with "^".
+# Directory separaters "/" are replaced with "___".
 
 all.subm_from: sty.subm png.subm pdf.subm bb.subm tex.subm bbl.subm pygstyle.subm pygtex.subm
 	cat $^ > $@
