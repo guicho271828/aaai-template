@@ -5,6 +5,8 @@
 # if make fails, retry after 2 sec
 # on success, retry after 45 sec
 
+dir=$(dirname $(readlink -ef $0))
+
 while true
 do
     bash $dir/make-notify-and-wait.sh $@
