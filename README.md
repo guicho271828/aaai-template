@@ -20,7 +20,7 @@ This repository includes templates and makefiles for:
 + *New* Grammarly style --- It typesets a paper with a single column, without hyphenations and page numbers.
   It is convenient for checking the grammar with [Grammarly grammar checking service](https://app.grammarly.com/).
 
-Requirements: GNU Make, TexLive, inkscape, perl (run =bash dependency.sh=)
+Requirements: GNU Make, TexLive, inkscape, perl (run =bash dependency.sh=), GNU awk (gawk) (instead of awk in BSD/OSX)
 
 **Update:** AAAI Press recently made a significant change to the camera-ready requirements
 (such as https://www.aaai.org/Publications/Author/icaps-submit.php).

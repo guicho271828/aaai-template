@@ -15,14 +15,14 @@ echo "inline-tex: ================================"
 
 while ( grep '^ *\\input{[^}]*} *$' $1 ); do
     echo "found an input line"
-    awk -f $(dirname $0)/inline-tex-sub.awk $1 > $tmp
+    gawk -f $(dirname $0)/inline-tex-sub.awk $1 > $tmp
     cp $tmp $1
 done
 
 
 echo "inline-tex: inlining bibitems"
 BIBFILE=`echo $1 | sed 's/.tex/.bbl/'`
-awk -v filename=$BIBFILE '{ if ($0 ~ ".bibliography{") { system("cat "filename); } else { print $0; } }' < $1 > $tmp
+gawk -v filename=$BIBFILE '{ if ($0 ~ ".bibliography{") { system("cat "filename); } else { print $0; } }' < $1 > $tmp
 cp $tmp $1
 
 
