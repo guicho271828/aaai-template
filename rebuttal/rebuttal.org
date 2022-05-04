@@ -18,3 +18,6 @@
 # eval: (load-file "publish-and-count-word-for-aaai.el")
 # End:
 
+Thanks very much for the thoughtful comments.
+Thank you for the thoughtful reviews.
+

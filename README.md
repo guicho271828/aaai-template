@@ -74,14 +74,14 @@ Also, due to incompatibility in BSD, some commands e.g. `find` may fail.
   Compilation into pdf is highly recommended because
   bitmap formats like png have the risk of resulting in blurry images.
   They also increase the file size significantly compared to the vector data in pdf-based figures.
-  
+
   On OSX, inkscape is available from `brew install inkscape`
 
 * `make submission`, `make archive`, `make arxiv` :
   These `make` targets will create a `submission` directory and prepares the camera-ready
   tex files. There are sometimes extensive instruction for preparing the camera-ready submission,
   such as https://www.aaai.org/Publications/Author/icaps-submit.php .
-  
+
   * These camera-ready submissions do not allow the use of `\input{}` command.
     When you run `make submission`, the results generated in the `submission` directory will have
     * a single, flattened tex file whose `\input` commands are inlined completely
@@ -96,6 +96,16 @@ Also, due to incompatibility in BSD, some commands e.g. `find` may fail.
     Additional style files are removed because they are not allowed.
   * `make arxiv` is same as `make archive`, but it does not remove the style files.
     This feature is therefore useful when submitting the paper to Arxiv.
+
+* In `rebuttal/` directory, there are several templates useful for conference/journal rebuttals.
+
+  * `make` will build `journal-rebuttal.pdf`. It has
+    `\begin{review}...\end{review}` and `\begin{reply}...\end{reply}` commands
+    which supports cross-references through `\label`.
+  * (Exclusive to emacs) `rebuttal.org` is an [org-mode](orgmode.org) text file which is useful for
+    organizing thoughts and exporting to an ASCII text file for conference rebuttals, e.g., http://easychair.org/ .
+    It is set up so that it will export the file to an ASCII file upon saving, and count the word after the export.
+
 
 # If you have enough space in your paper, please cite me
 

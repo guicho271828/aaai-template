@@ -1,0 +1,145 @@
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage{hyperref}
+\usepackage{times}
+\usepackage{helvet}
+\usepackage{courier}
+\usepackage{tabularx}
+\usepackage[svgnames]{xcolor}
+\usepackage{colortbl}
+\usepackage{xparse}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{xspace}
+\usepackage{relsize}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{comment}
+\usepackage{adjustbox}
+\usepackage{algorithm}
+\usepackage[noend]{algorithmic}
+\usepackage{booktabs}   % for professional tables
+\usepackage[margin=5em]{geometry}
+
+\newcounter{reviewer} % counter for reviewer 'A', 'B', 'C'
+\newcounter{review}[section]
+%\renewcommand{\thereview}{\arabic{section}.\arabic{review}}
+\renewcommand{\thereview}{\Alph{reviewer}.\arabic{review}}
+\newcounter{reply}[section]
+%\renewcommand{\thereply}{\arabic{section}.\arabic{reply}}
+\renewcommand{\thereply}{\Alph{reviewer}.\arabic{reply}}
+\setcounter{reviewer}{0} % reviewer starts at 'A'
+
+\NewDocumentEnvironment{review}{}
+{%
+\noindent%
+\refstepcounter{review}%
+\textbf{Reviewer comment \thereview:}%
+\it%
+}
+{%
+}
+
+\NewDocumentEnvironment{reply}{}
+{%
+\nopagebreak%
+\refstepcounter{reply}%
+\noindent\textbf{Reply \thereply}:%
+}
+{%
+\vspace{1.5em}%
+}
+
+\NewDocumentCommand{\shortreply}{m}{%
+\refstepcounter{reply}%
+\textbf{Reply \thereply}: #1%
+\vspace{1.5em}%
+}
+
+\newcommand{\refrep}[1]{Reply \ref{#1}}
+\newcommand{\refrev}[1]{Comment \ref{#1}}
+
+
+\input{../math_commands.sty}
+\input{../common-general.sty}
+\input{../common-abbrev.sty}
+\author{masataro}
+\date{\today}
+\title{rebuttal}
+\begin{document}
+
+Thank you very much for providing thoughtful comments on our work.
+In this re-submission, we XXX.
+The changes include the following:
+\begin{itemize}
+ \item We removed XXX.
+ \item We improved XXX.
+ \item We added XXX.
+\end{itemize}
+
+Below, we first reply to everyone, then to each reviewer.
+In the reply, we answer questions and resolve misunderstandings,
+along with how each minor comments are now addressed.
+When we mention sections, figures or tables, we refer to the section/figure/table numbers in the original submission and the revised submission.
+
+\section{General Replies}
+
+\subsection{On XXXX}
+\label{sec:XXXX}
+
+XXXX
+
+\subsection{On YYYY}
+\label{sec:YYYY}
+
+YYYY
+
+\refstepcounter{reviewer} % increment reviewer counter to 'A'
+\section{Reviewer A}
+\label{sec:A}
+
+\begin{review}
+\label{rev:A1}
+Quote from reviewer A.
+\end{review}
+
+\begin{reply}
+\label{rep:A1}
+Please see the general reply above (\refrep{sec:XXXX}) for a full explanation.
+XXX. YYY. ZZZ.
+\end{reply}
+
+
+\begin{review}
+There is a missing comma in page X. ``think $\rightarrow$ thinks''.
+\end{review}
+
+\shortreply{Fixed, thank you!}
+
+\begin{review}
+Quote from reviewer A.
+\end{review}
+
+\begin{reply}
+ We can quote other reviews and replies like this: \refrev{rev:A1}, \refrep{rep:A1}.
+It also works between sections: \refrev{rev:B1}, \refrep{rep:B1}
+\end{reply}
+
+
+\refstepcounter{reviewer} % increment reviewer counter to 'B'
+\section{Reviewer B}
+\label{sec:B}
+
+\begin{review}
+\label{rev:B1}
+Quote from reviewer B.
+\end{review}
+
+\begin{reply}
+\label{rep:B1}
+XXXX.
+\end{reply}
+
+
+\end{document}
