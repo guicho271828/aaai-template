@@ -6,6 +6,7 @@ auto:
 
 %.pdf: %.tex
 	pdflatex -halt-on-error -shell-escape $<
+	bibtex $*
 	pdflatex -halt-on-error -shell-escape $<
 	pdflatex -halt-on-error -shell-escape $<
 
