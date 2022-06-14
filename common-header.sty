@@ -1,4 +1,5 @@
-% grammarly --- use this to remove the page number, paste the result to grammarly for checking
+% grammarly %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% --- use this to remove the page number, paste the result to grammarly for checking
 % \documentclass[11pt]{article}
 % \usepackage{jair}
 % \usepackage{theapa}
@@ -6,7 +7,7 @@
 % \pagestyle{empty}
 % \setlength{\parskip}{1em}
 % \usepackage[none]{hyphenat}
-% aaai
+% aaai %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[10pt,letterpaper]{article}
 \usepackage{natbib}
 \usepackage{aaai22}
@@ -18,23 +19,41 @@
 % change this as AAAI style files are updated
 /TemplateVersion (2022.1) % ``Multiple appearances of \pdfinfo are concatenated.'' --- pdfTeX manual, p19
 }
-% ijcai
+% ijcai %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \documentclass[10pt,letterpaper]{article}
 % \usepackage{times}
 % \usepackage{ijcai20}
 % \usepackage[hidelinks]{hyperref}
 % \usepackage[small]{caption}
 % \bibliographystyle{named}
-% ecai
+% ecai %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \documentclass{ecai}
 % \usepackage{times}
 % \bibliographystyle{ecai}
-% jair
+% jair %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \documentclass[11pt]{article}
 % \usepackage{jair}
 % \usepackage{theapa}
 % \bibliographystyle{theapa}
-% neurips
+% \usepackage{fancyhdr}
+% \fancypagestyle{plain}{%
+% \fancyhf{} % clear all header and footer fields
+% \fancyfoot[C]{\iffloatpage{}{\thepage}} % except the center
+% \renewcommand{\headrulewidth}{0pt}
+% \renewcommand{\footrulewidth}{0pt}}
+% \pagestyle{plain}
+% \usepackage{longtable}
+% \setlength{\LTcapwidth}{\textwidth}
+% \setcounter{LTchunksize}{10}
+% \makeatletter
+%   \renewcommand{\thefigure}{%
+%   \thesection.\arabic{figure}}
+%   \@addtoreset{figure}{section}
+%   \renewcommand{\thetable}{%
+%   \thesection.\arabic{table}}
+%  \@addtoreset{table}{section}
+% \makeatother
+% neurips %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \documentclass{article}
 % \usepackage[nonatbib]{neurips_2022}
 % \usepackage[numbers]{natbib}
@@ -42,17 +61,17 @@
 % % \usepackage[preprint]{neurips_2022}
 % % \usepackage[final]{neurips_2022}
 % % --- note: didn't added inputenc/fontenc for aaai compatibility
-% icml
+% icml %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \documentclass{article}
 % \usepackage{icml2018}
 % % \usepackage[accepted]{icml2018}
 % \bibliographystyle{icml2018}
-% iclr
+% iclr %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \documentclass{article} % For LaTeX2e
 % \usepackage{iclr2019_conference}
 % \usepackage{times}
 % \bibliographystyle{iclr2019_conference}
-% naacl
+% naacl %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \pdfoutput=1
 % \documentclass[11pt]{article}
 % \usepackage[review]{naacl2021}
@@ -67,7 +86,7 @@
 % %\setlength\titlebox{<dim>}
 % % and set <dim> to something 5cm or larger.
 % \bibliographystyle{acl_natbib}
-% cvpr
+% cvpr %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \documentclass[10pt,twocolumn,letterpaper]{article}
 % \usepackage{cvpr}
 % \usepackage{times}
@@ -76,7 +95,7 @@
 % \def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
 % \ifcvprfinal\pagestyle{empty}\fi % Pages are numbered in submission mode, and unnumbered in camera-ready
 % \bibliographystyle{ieee}
-% jsai
+% jsai %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \documentclass{article}
 % \usepackage{jsai}
 % \bibliographystyle{jsai}
@@ -119,7 +138,7 @@
 % for conference submission with supplements. AAAI camera-ready does not allow them
 \usepackage{xr}
 
-% custom commands. The use of \input is intentional --- 
+% custom commands. The use of \input is intentional ---
 % they will be inlined by the camera-ready script.
 
 \input{common-general.sty}
@@ -143,26 +162,4 @@ no-tankage scan-alyzer soko-ban tidy-bot visit-all zeno-travel tie-break-ing}
 \setlength{\pdfpageheight}{11in}
 \setcounter{secnumdepth}{2}
 
-%% jair-specific
-% 
-% \usepackage{fancyhdr}
-% \fancypagestyle{plain}{%
-% \fancyhf{} % clear all header and footer fields
-% \fancyfoot[C]{\iffloatpage{}{\thepage}} % except the center
-% \renewcommand{\headrulewidth}{0pt}
-% \renewcommand{\footrulewidth}{0pt}}
-% \pagestyle{plain}
-% \usepackage{longtable}
-% \setlength{\LTcapwidth}{\textwidth}
-% \setcounter{LTchunksize}{10}
-% 
-%% figure/table caption for journal
-% \makeatletter
-%   \renewcommand{\thefigure}{%
-%   \thesection.\arabic{figure}}
-%   \@addtoreset{figure}{section}
-%   \renewcommand{\thetable}{%
-%   \thesection.\arabic{table}}
-%  \@addtoreset{table}{section}
-% \makeatother
 
