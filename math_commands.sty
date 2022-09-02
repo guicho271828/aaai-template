@@ -685,7 +685,12 @@
 
 \newcommand{\satisfies}{\vDash}
 
-\renewcommand{\to}{\rightarrow}
+\RenewDocumentCommand{\to}{o}{%
+ \IfNoValueTF{#1}%
+  {\rightarrow}%
+  {\overset{#1}{\rightarrow}}%
+}
+
 \newcommand{\from}{\leftarrow}
 \renewcommand{\then}{\Rightarrow}
 \newcommand{\when}{\Leftarrow}
