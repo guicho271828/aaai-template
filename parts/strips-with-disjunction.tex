@@ -9,13 +9,13 @@ where
  $A$ is a set of actions,
  $I\subset P$ is the initial state, and
  $G\subset P$ is a goal condition.
-Each action $a\in A$ is a 3-tuple $\brackets{\pre{a},\adde{a},\dele{a}}$ where
- $\pre{a} \in \mathcal{F}(P)$ is a precondition and
- $\adde{a}$, $\dele{a}$ are the sets of effects called add-effects and delete-effects, respectively.
+Each action $a\in A$ is a 3-tuple $\brackets{\pre(a),\adde(a),\dele(a)}$ where
+ $\pre(a) \in \mathcal{F}(P)$ is a precondition and
+ $\adde(a)$, $\dele(a)$ are the sets of effects called add-effects and delete-effects, respectively.
 Each effect is denoted as $c \triangleright e$ where
  $c \in \mathcal{F}(P)$ is an \emph{effect condition} and
  $e \in P$.
 A state $s\subseteq P$ is a set of true propositions,
-an action $a$ is \emph{applicable} when $s \vDash \pre{a}$ ($s$ \emph{satisfies} $\pre{a}$),
+an action $a$ is \emph{applicable} when $s \vDash \pre(a)$ ($s$ \emph{satisfies} $\pre(a)$),
 and applying an action $a$ to $s$ yields a new successor state $a(s)$ which is
-$a(s) = s \cup \braces{e \mid (c \triangleright e) \in \adde{a}, c\vDash s} \setminus \braces{e \mid (c \triangleright e) \in \dele{a}, c\vDash s}$.
+$a(s) = s \cup \braces{e \mid (c \triangleright e) \in \adde(a), c\vDash s} \setminus \braces{e \mid (c \triangleright e) \in \dele(a), c\vDash s}$.

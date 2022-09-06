@@ -21,16 +21,16 @@ A state $s\subseteq P(O)$ represents truth assignments to the propositions,
 e.g., $s=\braces{\textit{have(I, food)}}$ represents \textit{have(I, food)} = $\top$. % and \textit{full(I)} = $\bot$.
 We can also represent it as a bitvector of size $\sum_p O^{\ar{p}}$.
 
-Each lifted action $a(X)\in A$ has an arity $\ar{a}$
-and parameters $X=(x_1,\cdots,x_{\ar{a}})$, such as \textit{eat($x_1, x_2$)}.
-% Without loss of generality, we assume $\adde{a} \cap \dele{a} = \emptyset$ by removing the duplicates from $\dele{a}$.
+Each lifted action $a(X)\in A$ has an arity $\ar(a)$
+and parameters $X=(x_1,\cdots,x_{\ar(a)})$, such as \textit{eat($x_1, x_2$)}.
+% Without loss of generality, we assume $\adde(a) \cap \dele(a) = \emptyset$ by removing the duplicates from $\dele(a)$.
 Lifted actions are instantiated into 
-\emph{ground actions} $A(O)=\bigcup_{a\in A} \parens{\braces{a}\times O\times\overset{\ar{a}}{\ldots}\times O}$,
+\emph{ground actions} $A(O)=\bigcup_{a\in A} \parens{\braces(a)\times O\times\overset{\ar(a)}{\ldots}\times O}$,
 such as $\textit{eat}(\textit{I},\textit{food})$.
 %, substituting $x_1,x_2$ with \textit{I}, \textit{food}.
-% where $a(o_1,\cdots,o_{\ar{a}})$ substitutes the parameters $(x_1,\cdots,x_{\ar{a}})$ in $a(X)$ with the objects $(o_1,\cdots,o_{\ar{a}})$.
-$a(X)$ is a 3-tuple $\brackets{\pre{a},\adde{a},\dele{a}}$, where
- $\pre{a}, \adde{a}, \dele{a} \in \mathcal{F}(P(X))$ are
+% where $a(o_1,\cdots,o_{\ar(a)})$ substitutes the parameters $(x_1,\cdots,x_{\ar(a)})$ in $a(X)$ with the objects $(o_1,\cdots,o_{\ar(a)})$.
+$a(X)$ is a 3-tuple $\brackets{\pre(a),\adde(a),\dele(a)}$, where
+ $\pre(a), \adde(a), \dele(a) \in \mathcal{F}(P(X))$ are
  preconditions, add-effects, and delete-effects:
 e.g., \textit{eat($x_1$, $x_2$)} = $\brackets{\braces{\textit{have}(x_1, x_2)}, \braces{\textit{full}(x_1)}, \braces{\textit{have}(x_1,x_2)}}$.
 The semantics of these three elements are as follows:
@@ -38,7 +38,7 @@ A ground action $a^{\dagger}\in A(O)$ is \emph{applicable} when a state $s$ \emp
 and applying an action $a^{\dagger}$ to $s$ yields a new successor state
 $a^{\dagger}(s) = (s \setminus \dele{a^{\dagger}}) \cup \adde{a^{\dagger}}$,
 e.g., $\textit{eat}(\textit{I},\textit{food})=$ ``\emph{I can eat a food when I have one, and if I eat one I am full but the food is gone.}''
-% By construction, the learned representation ensures $\adde{a} \cap \dele{a} = \emptyset$. % should discussed in the cube-space AE section
+% By construction, the learned representation ensures $\adde(a) \cap \dele(a) = \emptyset$. % should discussed in the cube-space AE section
 % The \emph{STRIPS subclass} of the Classical Planning problems
 % is those problems where all effects are conditioned by $\top$.
 Finally,
