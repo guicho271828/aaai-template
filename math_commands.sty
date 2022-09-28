@@ -693,6 +693,16 @@
    {\overset{#1}{\underset{#2}{\rightarrow}}}}%
 }
 
+\NewDocumentCommand{\cause}{o o}{%
+ \IfNoValueTF{#1}%
+  {\rightsquigarrow}%
+  {\IfNoValueTF{#2}%
+   % {\overset{#1}{\rightsquigarrow}}%
+   % {\overset{#1}{\underset{#2}{\rightsquigarrow}}}}%
+   {\rightsquigarrow^{#1}}%
+   {\rightsquigarrow^{#1}_{#2}}}%
+}
+
 \newcommand{\from}{\leftarrow}
 \renewcommand{\then}{\Rightarrow}
 \newcommand{\when}{\Leftarrow}
