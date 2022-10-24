@@ -689,8 +689,8 @@
  \IfNoValueTF{#1}%
   {\rightarrow}%
   {\IfNoValueTF{#2}%
-   {\overset{#1}{\rightarrow}}%
-   {\overset{#1}{\underset{#2}{\rightarrow}}}}%
+   {\xrightarrow{#1}}%
+   {\xrightarrow[#2]{#1}}}%
 }
 
 \NewDocumentCommand{\cause}{o o}{%
