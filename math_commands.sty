@@ -624,6 +624,55 @@
 \def\Y{{\mathcal{Y}}}
 \def\Z{{\mathbb{Z}}}
 
+% empirical statistics
+\def\ealpha{{\bar{\alpha}}}
+\def\ebeta{{\bar{\beta}}}
+\def\echi{{\bar{\chi}}}
+\def\edelta{{\bar{\delta}}}
+\def\eeta{{\bar{\eta}}}
+\def\eepsilon{{\bar{\epsilon}}}
+\def\efoo{{\bar{\foo}}}
+\def\egamma{{\bar{\gamma}}}
+\def\eiota{{\bar{\iota}}}
+\def\ekappa{{\bar{\kappa}}}
+\def\elambda{{\bar{\lambda}}}
+\def\emu{{\bar{\mu}}}
+\def\enu{{\bar{\nu}}}
+\def\eomega{{\bar{\omega}}}
+\def\epi{{\bar{\pi}}}
+\def\erho{{\bar{\rho}}}
+\def\esigma{{\bar{\sigma}}}
+\def\etau{{\bar{\tau}}}
+\def\etheta{{\bar{\theta}}}
+\def\eupsilon{{\bar{\upsilon}}}
+\def\exi{{\bar{\xi}}}
+\def\ezeta{{\bar{\zeta}}}
+\def\ea{{\bar{a}}}
+\def\eb{{\bar{b}}}
+\def\ec{{\bar{c}}}
+\def\ed{{\bar{d}}}
+\def\ee{{\bar{e}}}
+\def\ef{{\bar{f}}}
+\def\eg{{\bar{g}}}
+\def\eh{{\bar{h}}}
+\def\ei{{\bar{i}}}
+\def\ej{{\bar{j}}}
+\def\ek{{\bar{k}}}
+\def\el{{\bar{l}}}
+% \def\em{{\bar{l}}}
+\def\en{{\bar{n}}}
+\def\eo{{\bar{o}}}
+\def\ep{{\bar{p}}}
+\def\eq{{\bar{q}}}
+\def\er{{\bar{r}}}
+\def\es{{\bar{s}}}
+\def\et{{\bar{t}}}
+\def\eu{{\bar{u}}}
+\def\ev{{\bar{v}}}
+\def\ew{{\bar{w}}}
+% \def\ex{{\bar{x}}}
+\def\ey{{\bar{y}}}
+\def\ez{{\bar{z}}}
 
 
 \newcommand{\emp}{\tilde{p}}
@@ -693,6 +742,8 @@
    {\xrightarrow[#2]{#1}}}%
 }
 
+\newcommand{\downto}{\downarrow}
+
 \NewDocumentCommand{\cause}{o o}{%
  \IfNoValueTF{#1}%
   {\rightsquigarrow}%
@@ -710,10 +761,23 @@
 
 \def\qed{\hfill $\Box$}
 
+\newcommand{\erf}{\function{erf}}
+\newcommand{\cerf}{\function{cerf}}
+\newcommand{\erfi}{\function{erfi}}
+\newcommand{\cerfi}{\function{cerfi}}
+\newcommand{\elbo}{\function{elbo}}
+
+% distributions
+
 \newcommand{\bern}{\text{\small Bernoulli}}
 \newcommand{\cat}{\mathbf{Cat}} %categorical
 \newcommand{\gsdist}{\mathbf{GS}}
-\newcommand{\erf}{\function{erf}}
-\newcommand{\elbo}{\function{elbo}}
 \newcommand{\dir}{\mathbf{Dir}} %dirichlet
 \newcommand{\bin}{\mathbf{Bin}} %binomial
+\newcommand{\invchi}{\mathrm{Inv}\chi^2} %scaled inverse chi^2
+\newcommand{\pareto}{\mathrm{Pa}} %pareto
+\newcommand{\gumbel}{\mathrm{Gumbel}} %pareto
+\newcommand{\gp}{\mathrm{GP}} %generalized pareto
+\newcommand{\lomax}{\mathrm{Lomax}}
+\newcommand{\ipareto}{\mathrm{iPa}}
+\newcommand{\power}{\mathrm{Power}}
