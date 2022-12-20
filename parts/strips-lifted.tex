@@ -1,11 +1,6 @@
 Planning Domain Description Language (PDDL) is a modeling language for
 a Lifted STRIPS planning formalism \citep{FikesHN72} and its extensions \citep{pddlbook}.
-Let $\mathcal{F}(T)$ be a formula consisting of
- logical operations $\braces{\land,\lnot}$
- % constants $\braces{\top,\bot}$, and
-and a set of terms $T$.
-For example, when $T=\{\textit{have}(\textit{I}, \textit{food}), \textit{full}(\textit{I})\}$,
- then $\textit{have}(\textit{I}, \textit{food})\land\lnot\textit{full}(\textit{I})\in \mathcal{F}(T)$.
+\input{parts/formula-fol-neg.tex}
  % 
 We denote a lifted STRIPS planning problem
 as a 5-tuple $\brackets{O,P,A,I,G}$.
