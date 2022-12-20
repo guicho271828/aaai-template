@@ -34,9 +34,9 @@ $a(X)$ is a 3-tuple $\brackets{\pre(a),\adde(a),\dele(a)}$, where
  preconditions, add-effects, and delete-effects:
 e.g., \textit{eat($x_1$, $x_2$)} = $\brackets{\braces{\textit{have}(x_1, x_2)}, \braces{\textit{full}(x_1)}, \braces{\textit{have}(x_1,x_2)}}$.
 The semantics of these three elements are as follows:
-A ground action $a^{\dagger}\in A(O)$ is \emph{applicable} when a state $s$ \emph{satisfies} $\pre{a^{\dagger}}$, i.e., $\pre{a^{\dagger}}\subseteq s$,
+A ground action $a^{\dagger}\in A(O)$ is \emph{applicable} when a state $s$ \emph{satisfies} $\pre(a^{\dagger})$, i.e., $\pre(a^{\dagger})\subseteq s$,
 and applying an action $a^{\dagger}$ to $s$ yields a new successor state
-$a^{\dagger}(s) = (s \setminus \dele{a^{\dagger}}) \cup \adde{a^{\dagger}}$,
+$a^{\dagger}(s) = (s \setminus \dele(a^{\dagger})) \cup \adde(a^{\dagger})$,
 e.g., $\textit{eat}(\textit{I},\textit{food})=$ ``\emph{I can eat a food when I have one, and if I eat one I am full but the food is gone.}''
 % By construction, the learned representation ensures $\adde(a) \cap \dele(a) = \emptyset$. % should discussed in the cube-space AE section
 % The \emph{STRIPS subclass} of the Classical Planning problems
