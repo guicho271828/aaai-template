@@ -45,15 +45,19 @@ AAA!
 % Practical limitations can be a weakness, but does not provide motivation as strong as theoretical one.
 
 \section{Classical Planning}
-This section showcases \verb`\strips[options]` macro, where \texttt{options} should be one of:
+This section showcases \verb`\strips[options]` macro, which produces a formal definition of classical planning.
+Available options are:
 \begin{itemize}
  \item \texttt{negative-preconditions},
  \item \texttt{disjunctive-preconditions},
  \item \texttt{conditional-effects},
  \item \texttt{action-costs},
- \item \texttt{derived-predicates}.
+ \item \texttt{derived-predicates},
+ \item \texttt{lifted},
+ \item \texttt{examples}.
 \end{itemize}
 Use it like \verb`\strips` \texttt{[derived-predicates,} \texttt{negative-preconditions]}.
+
 
 \subsection{Propositional}
 \strips[]
@@ -104,6 +108,10 @@ Use it like \verb`\strips` \texttt{[derived-predicates,} \texttt{negative-precon
 \subsection{Propositional, derived-predicates, action-costs, conditional-effects, disjunctive-preconditions}
 \strips[derived-predicates,action-costs,conditional-effects,disjunctive-preconditions]
 
+\subsection{Lifted}
+\strips[lifted]
+\subsection{Lifted, with examples}
+\strips[lifted,examples]
 
 \section{Rule of Intuitive Writing}
 
