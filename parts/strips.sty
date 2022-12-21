@@ -7,9 +7,8 @@
 \define@key{strips}{conditional-effects}[1]{\def\@usecondeffect{#1}}
 \define@key{strips}{action-costs}[1]{\def\@usecost{#1}}
 \define@key{strips}{derived-predicates}[1]{\def\@useaxiom{#1}}
-
 \define@key{strips}{lifted}[1]{\def\@lifted{#1}}
-\define@key{strips}{examples}[1]{\def\@example{#1}}
+\define@key{strips}{optimal}[1]{\def\@optimal{#1}}
 
 \def\conditionset{
 \if\@useaxiom0
@@ -55,25 +54,17 @@ a^{\dagger}
 \fi
 }
 
-\NewDocumentCommand{\ifexample}{m}{%
-\if\@example1%
-#1%
-\fi%
-}
-
-
-
 \NewDocumentCommand{\strips}{O{}}{
 \def\@useaxiom{0}
 \def\@conditiontype{0}
 \def\@usecondeffect{0}
 \def\@usecost{0}
-%
 \def\@lifted{0}
-\def\@example{0}
+\def\@optimal{0}
 %
 \setkeys{strips}{#1}%
 \if\@lifted1
+  \strips@propositional\par
   \strips@lifted
 \else
   \strips@propositional
@@ -180,6 +171,20 @@ Then we perform a fix-point calculation such that
 $s \gets s \cup \braces{p \in P_X \mid (f\Rightarrow p)\in X \land s \satisfies f}$
 where $s$ is initialized to $a'(s)$.
 \fi
+
+The task of classical planning is to find a sequence of actions called a \emph{plan} $(\ga_1,\cdots,\ga_n)$
+where, for $1\leq t\leq n$,
+ $s_0=I$, $s_t\satisfies a_{t+1}$, $s_{t+1}=a_{t+1}(s_t)$,
+ and $s_n\satisfies G$.
+\if\@optimal1
+ A plan is \emph{optimal} if
+ \if\@usecost0
+   there is no shorter plan.
+ \else
+   there is no plan with a smaller cost, where the cost of a plan is $\sum_t \cost(a_t)$.
+ \fi
+ A plan is otherwise called \emph{satisficing}.
+\fi
 }
 
 
@@ -187,131 +192,16 @@ where $s$ is initialized to $a'(s)$.
 
 
 \newcommand{\strips@lifted}{
-%
-%
-%
-%
-\if\@conditiontype1
-Given a set of propositional variables $V$,
-let $\mathcal{F}(V)$ be a propositional formula consisting of $V$ and
-logical operations $\braces{\land,\lnot}$.
-\fi
-\if\@conditiontype2
-Given a set of propositional variables $V$,
-let $\mathcal{F}(V)$ be a propositional formula consisting of $V$ and
-logical operations $\braces{\land,\lor,\lnot}$.
-\fi
-%
-%
-%
-%
-\if\@useaxiom0
-%
-We denote a lifted STRIPS planning problem
-as a 5-tuple $\brackets{O,P,A,I,G}$.
- $O$ is a set of objects\ifexample{ ($\ni\textit{food}$)},
- $P$ is a set of predicates\ifexample{ ($\ni\textit{full}(x)$)}, and
- $A$ is a set of lifted actions\ifexample{ ($\ni\textit{eat}$)}.
-%
-\else
-%
-We denote a lifted STRIPS planning problem
-as a 7-tuple $\brackets{O,P,P_X,X,A,I,G}$.
- $O$ is a set of objects\ifexample{ ($\ni\textit{food}$)},
- $P$ is a set of predicates\ifexample{ ($\ni\textit{full}(x)$)}, and
- $P_X$ is a set of derived predicates ($P\cap P_X=\emptyset$)\ifexample{, e.g., $\ni\textit{above}$},
- $X$ is a set of axioms\ifexample{ ($\ni\textit{above}(x,y)\land \textit{on}(y,z)\Rightarrow \textit{above}(x,z)$)},
- $A$ is a set of lifted actions\ifexample{ ($\ni\textit{eat}$)}.
-%
-\fi
-%
-%
-%
-%
-Each predicate $p\in P$ has an arity $\ar{p}\geq 0$.
-Predicates are instantiated/\emph{grounded} into
-propositions $P(O)=\bigcup_{p\in P} \parens{\braces{p}\times O\times\overset{\ar{p}}{\ldots}\times O}$
-\ifexample{, such as \textit{have(I, food)}},
-where $\times$ denotes a Cartesian product of sets.
-A state $s\subseteq P(O)$ represents truth assignments to the propositions%
-\ifexample{, e.g., $s=\braces{\textit{have(I, food)}}$ represents \textit{have(I, food)} = $\top$}.
-% and \textit{full(I)} = $\bot$.
-We can also represent it as a bitvector of size $\sum_p O^{\ar{p}}$.
-%
-%
-%
-Each lifted action $a(X)\in A$ has an arity $\ar{a}$
-and parameters $X=(x_1,\cdots,x_{\ar{a}})$\ifexample{, such as \textit{eat($x_1, x_2$)}}.
-%
-%
-%
-%
-\if\@usecost0
-$a(X)$ is a 3-tuple $\brackets{\pre(a),\adde(a),\dele(a)}$, where
-\else
-Each action $a\in A$ is a 4-tuple $\brackets{\pre(a),\adde(a),\dele(a),\cost(a)}$ where
-$\cost(a) \in \Z$ is a cost,
-\fi
-%
-%
-%
-%
-$\pre(a) \in \condition$ is a precondition and
-%
-%
-%
-%
-\if\@usecondeffect0
-$\adde(a), \dele(a)\in P$ are the add-effects and delete-effects%
-\else%
-$\adde(a), \dele(a)$ are the add-effects and delete-effects%
-\fi%
-\ifexample{, e.g., \textit{eat($x_1$, $x_2$)} = $\brackets{\braces{\textit{have}(x_1, x_2)}, \braces{\textit{full}(x_1)}, \braces{\textit{have}(x_1,x_2)}}$}.
-%
-%
-%
-%
-\if\@usecondeffect1
-Each effect is denoted as $c \triangleright e$ where
-$c \in \condition$ is an \emph{effect condition} and
-$e \in P$.
-\fi
-%
-%
-%
-%
-Lifted actions are instantiated into
-\emph{ground actions} $A(O)=\bigcup_{a\in A} \parens{\braces{a}\times O\times\overset{\ar{a}}{\ldots}\times O}$%
-\ifexample{, such as $\textit{eat}(\textit{I},\textit{food})$%
-%, substituting $x_1,x_2$ with \textit{I}, \textit{food}.
-}.
-% where $a(o_1,\cdots,o_{\ar{a}})$ substitutes the parameters $(x_1,\cdots,x_{\ar{a}})$ in $a(X)$ with the objects $(o_1,\cdots,o_{\ar{a}})$.
-%
-%
-%
-%
-\if\@useaxiom1
-The set of axioms $X$ consists of clauses $f \Rightarrow p$ where
-$f \in \condition$ is a body and $p \in P_X$ is a head.
-\fi
-%
-%
-%
-%
-A state $s\subseteq \conditionset$ is a set of true propositions,
-A ground action $\ga\in A(O)$ is \emph{applicable} when $s \satisfies \pre(a)$ (reads: $s$ \emph{satisfies} $\pre(a)$),
-and applying an action $\ga$ to $s$ yields a new successor state
-%
-%
-%
-%
-$\ga(s) = (s \setminus \dele(\ga)) \cup \adde(\ga)$%
-\ifexample{, e.g., $\textit{eat}(\textit{I},\textit{food})=$ ``\emph{I can eat a food when I have one, and if I eat one I am full but the food is gone}''}.
-Finally,
-$I,G\subseteq P(O)$ are the initial state and a goal condition, respectively.
-The task of classical planning is to find a \emph{plan} $(\ga_1,\cdots,\ga_n)$
-which satisfies $\ga_n \circ \cdots \circ \ga_1(I) \subseteq G$.
-%
+In \emph{Lifted STRIPS}, each propositional variable is an \emph{instantiation}/\emph{grounding} of
+a first-order logic predicate.
+Each predicate $p(x_1,\ldots,x_{\ar{p}})$ is parameterized by a list of parameters/variables/arguments $X=(x_1,\ldots,x_{\ar{p}})$,
+where $\ar{p}$ is an \emph{arity} of $p$.
+A proposition is obtained by substituting each $x_i$ with an \emph{object} in a set $O$.
+Each $p$ therefore has $O^{\ar{p}}$ instantiations.
+Similarly, each action $a\in A$ is now called a \emph{ground action},
+which is an instantiation of a \emph{lifted action} $a(x_1,\ldots,x_{\ar{p}})$ parameterized by $\ar{a}$ parameters.
+A ground action is obtained by substituting the arguments as well as
+the parameters used in the preconditions and the effects.
 }
 
 
