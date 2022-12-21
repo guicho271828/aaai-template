@@ -9,6 +9,7 @@
 \define@key{strips}{derived-predicates}[1]{\def\@useaxiom{#1}}
 \define@key{strips}{lifted}[1]{\def\@lifted{#1}}
 \define@key{strips}{optimal}[1]{\def\@optimal{#1}}
+\define@key{strips}{unitcost}[1]{\def\@unitcost{#1}}
 
 \def\conditionset{
 \if\@useaxiom0
@@ -61,6 +62,7 @@ a^{\dagger}
 \def\@usecost{0}
 \def\@lifted{0}
 \def\@optimal{0}
+\def\@unitcost{0}
 %
 \setkeys{strips}{#1}%
 \if\@lifted1
@@ -184,6 +186,11 @@ where, for $1\leq t\leq n$,
    there is no plan with a smaller cost, where the cost of a plan is $\sum_t \cost(a_t)$.
  \fi
  A plan is otherwise called \emph{satisficing}.
+ \if\@usecost1
+  \if\@unitcost1
+  In this paper, we assume unit-cost, i.e., $\forall a\in A; \cost(a)=1$.
+  \fi
+ \fi
 \fi
 }
 
