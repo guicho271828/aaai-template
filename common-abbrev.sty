@@ -43,7 +43,9 @@
 
 \newcommand{\newheuristic}[2]{%
  \def#1{%
-  \ifmmode%
+  % reason for \relax:
+  % https://tex.stackexchange.com/questions/650862/amsmaths-align-or-gather-followed-by-ifmmode#comment1622155_650862
+  \relax\ifmmode%
   h^\text{#2}\xspace%
   \else%
   \text{#2}\xspace%
@@ -64,7 +66,9 @@
 
 \newcommand{\newlearnedheuristic}[2]{%
  \def#1{%
-  \ifmmode%
+  % reason for \relax:
+  % https://tex.stackexchange.com/questions/650862/amsmaths-align-or-gather-followed-by-ifmmode#comment1622155_650862
+  \relax\ifmmode%
   H^\text{#2}\xspace%
   \else%
   \text{#2}\xspace%
@@ -85,7 +89,9 @@
 
 \newcommand{\newUnitCostHeuristic}[2]{%
  \def#1{%
-  \ifmmode%
+  % reason for \relax:
+  % https://tex.stackexchange.com/questions/650862/amsmaths-align-or-gather-followed-by-ifmmode#comment1622155_650862
+  \relax\ifmmode%
   \hat{h}^\text{#2}\xspace%
   \else%
   \text{#2}\xspace%
