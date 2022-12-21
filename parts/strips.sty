@@ -1,19 +1,12 @@
 
+\usepackage{xkeyval}
+\makeatletter
 
-\NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{strips}[2022/12/20 customizable STRIPS definitions]
-
-\def\@useaxiom{0}
-\def\@conditiontype{0}
-\def\@usecondeffect{0}
-\def\@usecost{0}
-
-\DeclareOption{derived-predicates}{\def\@useaxiom{1}}
-\DeclareOption{negative-preconditions}{\def\@conditiontype{1}}
-\DeclareOption{disjunctive-preconditions}{\def\@conditiontype{2}}
-\DeclareOption{conditional-effect}{\def\@usecondeffect{1}}
-\DeclareOption{action-costs}{\def\@usecost{1}}
-\ProcessOptions\relax
+\define@key{strips}{negative-preconditions}[1]{\def\@conditiontype{#1}}
+\define@key{strips}{disjunctive-preconditions}[2]{\def\@conditiontype{#1}}
+\define@key{strips}{conditional-effects}[1]{\def\@usecondeffect{#1}}
+\define@key{strips}{action-costs}[1]{\def\@usecost{#1}}
+\define@key{strips}{derived-predicates}[1]{\def\@useaxiom{#1}}
 
 \def\conditionset{
 \if\@useaxiom0
@@ -23,9 +16,15 @@ P\cup P_X
 \fi
 }
 
+\let\satisfies@orig\satisfies
+
+\def\satisfies{
 \if\@conditiontype0
-\def\satisfies{\supseteq}
+\supseteq
+\else
+\satisfies@orig
 \fi
+}
 
 \def\condition{
 \if\@conditiontype0
@@ -45,41 +44,56 @@ P\cup P_X
 \fi
 }
 
-\def\strips{
+\NewDocumentCommand{\strips}{O{}}{
+\def\@useaxiom{0}
+\def\@conditiontype{0}
+\def\@usecondeffect{0}
+\def\@usecost{0}
+\setkeys{strips}{#1}%
+%
+%
+%
 %
 \if\@conditiontype1
 Given a set of propositional variables $V$,
-let $\mathcal{F}(V)$ be a propositional formula consisting of $V$,
-logical operations $\braces{\land,\lnot}$ and constants $\braces{\top,\bot}$.
+let $\mathcal{F}(V)$ be a propositional formula consisting of $V$ and
+logical operations $\braces{\land,\lnot}$.
 \fi
 \if\@conditiontype2
 Given a set of propositional variables $V$,
-let $\mathcal{F}(V)$ be a propositional formula consisting of $V$,
-logical operations $\braces{\land,\lor,\lnot}$ and constants $\braces{\top,\bot}$.
+let $\mathcal{F}(V)$ be a propositional formula consisting of $V$ and
+logical operations $\braces{\land,\lor,\lnot}$.
 \fi
 %
 %
-\if\@useaxiom1
-We define a grounded (propositional) STRIPS Planning problem
-as a 6-tuple $\brackets{P,A,X,P_X,I,G}$
+%
+%
+\if\@useaxiom0
+%
+We define a propositional STRIPS Planning problem
+as a 4-tuple $\brackets{P,A,I,G}$
 where
-$P$ is a set of propositions,
-$A$ is a set of actions,
-$X$ is a set of axioms,
-$P_X$ is a set of derived propositions ($P\cap P_X=\emptyset$),
-$I\subset P$ is the initial state, and
-$G\subset \conditionset$ is a goal condition.
+ $P$ is a set of propositional variables,
+ $A$ is a set of actions,
+ $I\subseteq P$ is the initial state, and
+ $G\subseteq \conditionset$ is a goal condition.
 %
 \else
 %
-We define a grounded (propositional) STRIPS Planning problem
-as a 4-tuple $\brackets{P,A,I,G}$
+We define a propositional STRIPS Planning problem
+as a 6-tuple $\brackets{P,A,X,P_X,I,G}$
 where
-$P$ is a set of propositional variables,
-$A$ is a set of actions,
-$I\subseteq P$ is the initial state, and
-$G\subseteq \conditionset$ is a goal condition.
+ $P$ is a set of propositions,
+ $A$ is a set of actions,
+ $X$ is a set of axioms,
+ $P_X$ is a set of derived propositions ($P\cap P_X=\emptyset$),
+ $I\subset P$ is the initial state, and
+ $G\subset \conditionset$ is a goal condition.
+%
 \fi
+%
+%
+%
 %
 \if\@usecost0
 Each action $a\in A$ is a 3-tuple $\brackets{\pre(a),\adde(a),\dele(a)}$ where
@@ -88,7 +102,13 @@ Each action $a\in A$ is a 4-tuple $\brackets{\pre(a),\adde(a),\dele(a),\cost(a)}
 $\cost(a) \in \Z$ is a cost,
 \fi
 %
+%
+%
+%
 $\pre(a) \in \condition$ is a precondition and
+%
+%
+%
 %
 \if\@usecondeffect0
 $\adde(a), \dele(a)\in P$ are the add-effects and delete-effects.
@@ -99,14 +119,23 @@ $c \in \condition$ is an \emph{effect condition} and
 $e \in P$.
 \fi
 %
+%
+%
+%
 \if\@useaxiom1
 The set of axioms $X$ consists of clauses $f \Rightarrow p$ where
 $f \in \condition$ is a body and $p \in P_X$ is a head.
 \fi
 %
+%
+%
+%
 A state $s\subseteq \conditionset$ is a set of true propositions,
 an action $a$ is \emph{applicable} when $s \satisfies \pre(a)$ (reads: $s$ \emph{satisfies} $\pre(a)$),
 and applying an action $a$ to $s$ yields a new successor state
+%
+%
+%
 %
 \if\@useaxiom0
 $a(s) = \applyformula$.
@@ -120,3 +149,4 @@ where $s$ is initialized to $a'(s)$.
 \fi
 }
 
+\makeatother
