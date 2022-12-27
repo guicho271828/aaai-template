@@ -50,7 +50,7 @@
   % reason for \relax:
   % https://tex.stackexchange.com/questions/650862/amsmaths-align-or-gather-followed-by-ifmmode#comment1622155_650862
   \relax\ifmmode%
-  h^\text{#2}\xspace%
+  h^\mathrm{#2}\xspace%
   \else%
   \text{#2}\xspace%
   \fi%
@@ -73,7 +73,7 @@
   % reason for \relax:
   % https://tex.stackexchange.com/questions/650862/amsmaths-align-or-gather-followed-by-ifmmode#comment1622155_650862
   \relax\ifmmode%
-  H^\text{#2}\xspace%
+  H^\mathrm{#2}\xspace%
   \else%
   \text{#2}\xspace%
   \fi%
@@ -96,7 +96,7 @@
   % reason for \relax:
   % https://tex.stackexchange.com/questions/650862/amsmaths-align-or-gather-followed-by-ifmmode#comment1622155_650862
   \relax\ifmmode%
-  \hat{h}^\text{#2}\xspace%
+  \hat{h}^\mathrm{#2}\xspace%
   \else%
   \text{#2}\xspace%
   \fi%
@@ -115,7 +115,7 @@
 \newcommand{\newrandomheuristic}[2]{%
  \def#1{%
   \ifmmode%
-  \rh^\text{#2}\xspace%
+  \rh^\mathrm{#2}\xspace%
   \else%
   \text{#2}\xspace%
   \fi%
