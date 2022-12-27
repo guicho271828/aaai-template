@@ -108,5 +108,26 @@
 \newUnitCostHeuristic{\gco}{GoalCount}
 \newUnitCostHeuristic{\lco}{LC}
 
+\newcommand{\newrandomheuristic}[2]{%
+ \def#1{%
+  \ifmmode%
+  \rh^\text{#2}\xspace%
+  \else%
+  \text{#2}\xspace%
+  \fi%
+ }%
+}
+
+\newrandomheuristic{\rlmcut}{LMcut}
+\newrandomheuristic{\rmands}{M\&S}
+\newrandomheuristic{\rpdb}{PDB}
+\newrandomheuristic{\rff}{FF}
+\newrandomheuristic{\rce}{CEA}
+\newrandomheuristic{\rcg}{CG}
+\newrandomheuristic{\rad}{add}
+\newrandomheuristic{\rhmax}{max}
+\newrandomheuristic{\rlc}{LC}
+
+
 \makeatother
 
