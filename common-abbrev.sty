@@ -34,9 +34,13 @@
 \newcommand{\sota}{State-of-the-Art\xspace}
 \newcommand{\lsota}{state-of-the-art\xspace}  %lower-case version
 \newcommand{\domind}{domain-independent\xspace}
-\newcommand{\astar}{\xspace {$A^*$}\xspace}
-\newcommand{\gbfs}{\function{gbfs}}
+\newcommand{\astar}{\ifmmode{A^*}\else{A$^*$}\fi\xspace}
+\newcommand{\gbfs}{\ifmmode{\mathrm{GBFS}}\else{GBFS}\fi\xspace}
+\NewDocumentCommand{\uct}{s}{\ifmmode{\mathrm{UCT}{\IfBooleanT{#1}{^*}}}\else{UCT{\IfBooleanT{#1}{*}}}\fi\xspace}
+\NewDocumentCommand{\guct}{s}{\ifmmode{\mathrm{GUCT}{\IfBooleanT{#1}{^*}}}\else{GUCT{\IfBooleanT{#1}{*}}}\fi\xspace}
 \newcommand{\ipc}[1][2011]{IPC#1\xspace}
+
+\newcommand{\topen}{tree-based open list\xspace}
 
 \makeatletter
 
