@@ -46,7 +46,7 @@ open: $(name).pdf
 endif
 
 auto:
-	+bash ./make-periodically.sh
+	+bash scripts/make-periodically.sh
 
 imgs:
 	$(MAKE) -C img
@@ -59,6 +59,5 @@ clean: clean-submission
 
 allclean: clean
 	$(MAKE) -C img clean
-	rm target
 
-include submission.mk
+include scripts/submission.mk

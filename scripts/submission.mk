@@ -1,8 +1,10 @@
 
-%.subm: $(name).fls submission.mk
+# list files loaded by latex that are not part of texlive
+%.subm: $(name).fls scripts/submission.mk
 	awk '/INPUT .*\.$*/{print $$2}' $< | xargs readlink -ef | sort | uniq | grep -v "texlive" | sed -e "s~$$(pwd)/~~g" > $@
 
-xbb.subm:  png.subm submission.mk
+# list bounding box files
+xbb.subm:  png.subm scripts/submission.mk
 	sed -e 's/png/xbb/g' $< > $@
 
 # Now AAAI press requires all image files to be stored under the root directory.
@@ -24,29 +26,23 @@ submission: en all.subm_fromto
 	mkdir -p submission
 	while read from to ; do cp -v $$from submission/$$to ; done < all.subm_fromto
 
-# replace the image pathnames in the text
-	while read from to ; do echo "$$from -> $$to" ; replace "$$from" "$$to" -- submission/*.tex ; done < all.subm_fromto
-	cd submission ; bash ../inline-tex.sh $(name).tex
+# replace pathnames, inline \input, \bibliography, remove comments
+	bash scripts/inline.sh submission/$(name).tex all.subm_fromto
 
-# removing comments
-	sed -i '/^[ ]*%.*/d' submission/$(name).tex
 # "Your .tex source must be as simple as possible. Do not include unused style
 # files, and do not include large areas of commented out text, or conditional
 # statements for various versions. (You may be required to resubmit and pay the
 # resubmission fee if your source is cluttered with extraneous text or
 # scripted)." https://www.aaai.org/Publications/Author/icaps-submit.php
 
-	-find submission -name "*\.log" -delete
-	-find submission -name "*\.bbl" -delete
-	-find submission -type d -empty -exec rmdir {} \; # remove the empty directories
 	ls submission
 	cd submission ; pdflatex $(name).tex
 	cd submission ; pdflatex $(name).tex
 	cd submission ; pdflatex $(name).tex
 	-find submission -name "*\.log" -delete
-	-find submission -name "*\.bbl" -delete
 	-find submission -name "*\.aux" -delete
 	-find submission -name "*\.out" -delete
+	-find submission -type d -empty -exec rmdir {} \; # remove the empty directories
 
 	@echo "Make sure every \\input commands are in the beginning of line but space"
 
