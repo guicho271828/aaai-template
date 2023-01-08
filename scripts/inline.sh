@@ -18,7 +18,7 @@ trap "rm $tmp" EXIT
 cd $texdir
 
 echo "inline-tex: removing comments"
-$script_dir/remove-comment.sh $tex > $tmp
+awk -f $script_dir/remove-comment.awk $tex > $tmp
 cp $tmp $tex
 
 echo "inline-tex: Checking all \\input / \\bibliography commands are at the beginning/end of line"
@@ -39,7 +39,7 @@ do
     cp $tmp $tex
 
     echo "inline-tex: removing comments"
-    $script_dir/remove-comment.sh $tex > $tmp
+    awk -f $script_dir/remove-comment.awk $tex > $tmp
     cp $tmp $tex
 
     echo "inline-tex: Checking all \\input / \\bibliography commands are at the beginning/end of line"
@@ -54,5 +54,4 @@ done
 echo "inline-tex: inlining bibitems"
 gawk -f $script_dir/inline-bbl.awk -v filename=$bbl < $tex > $tmp
 cp $tmp $tex
-
 
