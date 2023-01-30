@@ -11,10 +11,12 @@ $(info $(sources))
 
 all: en
 
-en: $(name).pdf    supplemental.pdf
+en: combined.pdf
 
 ja: $(name).ja.pdf supplemental.pdf
 
+combined.pdf: $(name).pdf supplemental.pdf
+	pdfunite $(name).pdf supplemental.pdf combined.pdf
 
 $(name).tex:
 	echo "\input{main.tex}" > $@
