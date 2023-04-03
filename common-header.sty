@@ -1,6 +1,9 @@
 % Avoiding an option clash between xcolor and colortbl when xcolor is loaded by a documentclass (esp. iclr)
 % cf. https://texfaq.org/FAQ-optionclash
 \PassOptionsToPackage{svgnames}{xcolor}
+% also for algorithm/algorithmicx
+\PassOptionsToPackage{noend}{algorithmic}
+\PassOptionsToPackage{noend}{algpseudocode}
 % grammarly %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % --- use this to remove the page number, paste the result to grammarly for checking
 % \documentclass[11pt]{article}
