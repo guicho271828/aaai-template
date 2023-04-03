@@ -1,7 +1,6 @@
 %%%%% NEW MATH DEFINITIONS %%%%%
 
-\usepackage{mathtools}          % DeclarePairedDelimiter etc.
-\usepackage{bm}                 % \bm for bold symbols in math commands
+\usepackage{bm}
 \usepackage{alphabeta}          % make \text{\theta} upright
 \usepackage{stmaryrd}           % for double brackets
 
@@ -737,16 +736,15 @@
 \newcommand{\union}{\cup}
 \newcommand{\intersection}{\cap}
 
-\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
-\DeclarePairedDelimiter{\bars}{\lvert}{\rvert}
-\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
-\DeclarePairedDelimiter{\innerproduct}{\langle}{\rangle}
-\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
-\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
-\DeclarePairedDelimiter{\brackets}{\langle}{\rangle}
-\DeclarePairedDelimiter{\braces}{\{}{\}}
-\DeclarePairedDelimiter{\parens}{(}{)}
-\DeclarePairedDelimiter{\dbrackets}{\llbracket}{\rrbracket}
+\newcommand{\brackets}[1]{{\left<#1\right>}}
+\newcommand{\braces}[1]{{\left\{#1\right\}}}
+\newcommand{\parens}[1]{{\left(#1\right)}}
+\newcommand{\bars}[1]{{\left|#1\right|}}
+\newcommand{\abs}[1]{{\left|#1\right|}}
+\newcommand{\dbrackets}[1]{{\left\llbracket#1\right\rrbracket}}
+\newcommand{\ceil}[1]{{\left\lceil#1\right\rceil}}
+\newcommand{\floor}[1]{{\left\lfloor#1\right\rfloor}}
+
 
 \newcommand{\then}{\therefore \qquad}
 % \renewcommand{\iff}{\Leftrightarrow \qquad}
