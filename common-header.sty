@@ -1,3 +1,6 @@
+% Avoiding an option clash between xcolor and colortbl when xcolor is loaded by a documentclass (esp. iclr)
+% cf. https://texfaq.org/FAQ-optionclash
+\PassOptionsToPackage{svgnames}{xcolor}
 % grammarly %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % --- use this to remove the page number, paste the result to grammarly for checking
 % \documentclass[11pt]{article}
@@ -111,19 +114,25 @@
 %%%%%%%%%%%%
 \usepackage{tabularx}
 \usepackage{xparse}
+
+% AMS packages
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{amsfonts}
+
+% spacing, compression
 \usepackage{xspace}
 \usepackage{relsize}
+\usepackage{adjustbox}
+
+
 \usepackage{graphicx}
 \usepackage{multirow}
 \usepackage{url}
 \usepackage{comment}
 \usepackage[svgnames]{xcolor}
-\usepackage{colortbl}
-\usepackage{adjustbox}
+\usepackage[svgnames]{colortbl}
 
 %% may cause conflicts, enable them by your own needs
 % \usepackage{algorithm}
