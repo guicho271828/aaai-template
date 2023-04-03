@@ -115,7 +115,7 @@
 % \usepackage{jsai}
 % \bibliographystyle{jsai}
 %%%%%%%%%%%%
-\usepackage{tabularx}
+
 \usepackage{xparse}
 
 % AMS packages
@@ -123,6 +123,12 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{amsfonts}
+
+% Tables, Figures
+\usepackage{tabularx}
+\usepackage{booktabs}   % Recommended in nips/icml, ``for professional tables'', enables toprule/midrule/bottomrule.
+\usepackage{multirow}
+\usepackage{subfigure}
 
 % for \dbend
 \usepackage{manfnt}
@@ -132,23 +138,22 @@
 \usepackage{relsize}
 \usepackage{adjustbox}
 
+% Recommended in nips/icml.
+% ``Subliminal refinements towards typographical perfection''.
+% See http://www.khirevich.com/latex/microtype/ for more detailed explanations.
+% It may also help compressing the paper.
+\usepackage{microtype}
 
 \usepackage{graphicx}
-\usepackage{multirow}
 \usepackage{url}
 \usepackage{comment}
 \usepackage[svgnames]{xcolor}
 \usepackage[svgnames]{colortbl}
 
-%% may cause conflicts, enable them by your own needs
+%% Algorithms. These options may cause conflicts, enable them by your own needs
 % \usepackage{algorithm}
 % \usepackage[noend]{algorithmic} % uses \STATE, \COMMENT
 % \usepackage[noend]{algpseudocode} % uses \State, \Comment
-% \usepackage{subfigure}
-
-% recommended in nips/icml. never used myself
-% \usepackage{microtype}  % Subliminal refinements towards typographical perfection
-% \usepackage{booktabs}   % for professional tables
 
 % \usepackage{hyperref} % not allowed in aaai, but allowed in icml, nips
 
