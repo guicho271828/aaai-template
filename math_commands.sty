@@ -1,6 +1,7 @@
 %%%%% NEW MATH DEFINITIONS %%%%%
 
-\usepackage{bm}
+\usepackage{mathtools}          % DeclarePairedDelimiter etc.
+\usepackage{bm}                 % \bm for bold symbols in math commands
 \usepackage{alphabeta}          % make \text{\theta} upright
 \usepackage{stmaryrd}           % for double brackets
 
@@ -57,8 +58,6 @@
 \def\Partref#1{Part~\ref{#1}}
 \def\twopartref#1#2{parts \ref{#1} and \ref{#2}}
 
-\def\ceil#1{\lceil #1 \rceil}
-\def\floor#1{\lfloor #1 \rfloor}
 \def\1{\bm{1}}
 \def\0{\bm{0}}
 \newcommand{\train}{\mathcal{D}}
@@ -738,12 +737,15 @@
 \newcommand{\union}{\cup}
 \newcommand{\intersection}{\cap}
 
-\newcommand{\brackets}[1]{{\left<#1\right>}}
-\newcommand{\braces}[1]{{\left\{#1\right\}}}
-\newcommand{\parens}[1]{{\left(#1\right)}}
-\newcommand{\bars}[1]{{\left|#1\right|}}
-\newcommand{\dbrackets}[1]{{\left\llbracket#1\right\rrbracket}}
-
+\DeclarePairedDelimiter{\bars}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\innerproduct}{\langle}{\rangle}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\brackets}{\langle}{\rangle}
+\DeclarePairedDelimiter{\braces}{\{}{\}}
+\DeclarePairedDelimiter{\parens}{(}{)}
+\DeclarePairedDelimiter{\dbrackets}{\llbracket}{\rrbracket}
 
 \newcommand{\then}{\therefore \qquad}
 % \renewcommand{\iff}{\Leftrightarrow \qquad}
