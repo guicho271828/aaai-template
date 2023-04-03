@@ -55,7 +55,7 @@ imgs:
 
 clean: clean-submission
 	-rm -r *~ *.aux *.dvi *.log *.toc *.bbl \
-		*.blg *.utf8 *.elc $(name).pdf \
+		*.blg *.utf8 *.elc $(name).pdf supplemental.pdf \
 		*.fdb_latexmk __* *.fls *.subm* \
 		_minted*
 
