@@ -20,7 +20,7 @@ This repository includes templates and makefiles for:
 + *New* Grammarly style --- It typesets a paper with a single column, without hyphenations and page numbers.
   It is convenient for checking the grammar with [Grammarly grammar checking service](https://app.grammarly.com/).
 
-Requirements: GNU Make, TexLive, inkscape, perl (run =bash dependency.sh=), GNU awk (gawk) (instead of awk in BSD/OSX)
+Requirements: GNU Make, TexLive, inkscape, perl, GNU awk (gawk) (instead of awk in BSD/OSX)
 
 **Update:** AAAI Press recently made a significant change to the camera-ready requirements
 (such as https://www.aaai.org/Publications/Author/icaps-submit.php).
@@ -67,18 +67,16 @@ Also, due to incompatibility in BSD, some commands e.g. `find` may fail.
 * `make` will build the paper.
 
 * `make auto` watches the source files and builds the pdf when they are
-  updated. Poor-man's (or wise-man's) Overleaf.
-  * Requirements: `inotify-tools` package (available from `apt`, `yum`).
-    It uses `inotifywait` for watching files and also sends messages via inotify notification popup window.
-  * Only available on Linux.
+  updated. Poor-man's (or wise-man's) Overleaf. **Linux only**
+  It uses `inotifywait` for watching files and also sends messages via inotify notification popup window.
+  * Requirements: `inotify-tools` package (available from standard package managers)
 
 * We encourage the use of [Inkskape](https://inkscape.org/) to prepare svg
   images in `img` subdirectory, which are automatically compiled into pdf figures.
   Compilation into pdf is highly recommended because
   bitmap formats like png have the risk of resulting in blurry images.
   They also increase the file size significantly compared to the vector data in pdf-based figures.
-
-  On OSX, inkscape is available from `brew install inkscape`
+  * Requirements: `inkskape` package (available from standard package managers)
 
 * `make submission`, `make archive`, `make arxiv` :
   These `make` targets will create a `submission` directory and prepares the camera-ready
