@@ -7,20 +7,23 @@ For the frequent attendants of top-tier AI conferences!
 
 This repository includes templates and makefiles for:
 
-+ AAAI style
-+ ECAI style
-+ IJCAI style
-+ JAIR style
-+ NIPS style
-+ ICML style
-+ ICLR style
-+ NAACL style
-+ CVPR style
+| AAAI | ECAI    | IJCAI |
+| JAIR | Neurips | ICML  |
+| ICLR | NAACL   | CVPR  |
+
 + JSAI, a local Japanese non-refereed conference.
 + *New* Grammarly style --- It typesets a paper with a single column, without hyphenations and page numbers.
   It is convenient for checking the grammar with [Grammarly grammar checking service](https://app.grammarly.com/).
 
-Requirements: GNU Make, TexLive, inkscape, perl, GNU awk (gawk) (instead of awk in BSD/OSX)
+Requirements: GNU Make, TexLive, inkscape, perl, GNU awk (gawk) (instead of awk in BSD/OSX).
+Note that it is developed and tested on Fedora Linux.
+
+**Update (2023/06/14):**
+
++ We significantly refactored the directory structure.
+  This made the repository clean, but it required an even more complicated path rewriting rule for camera-ready submission.
++ The camera-ready script detects `minted` package and runs `make` multiple times
+  with finalizecache/frozencache options to avoid `--shell-escape` issue.
 
 **Update:** AAAI Press recently made a significant change to the camera-ready requirements
 (such as https://www.aaai.org/Publications/Author/icaps-submit.php).
