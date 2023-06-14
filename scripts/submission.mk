@@ -43,6 +43,7 @@
 # This is because stupid Overleaf always resets the executable flag.
 #
 
+.INTERMEDIATE: all.subm_from all.subm_to all.subm_fromto cls.subm sty.subm png.subm pdf.subm bb.subm tex.subm bbl.subm pygstyle.subm pygtex.subm
 
 %.subm: $(name).fls scripts/submission.mk
 	@echo "submission.mk: listing $* files loaded by latex that are not part of texlive"
