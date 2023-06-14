@@ -131,13 +131,13 @@ $\cost(a) \in \Z^{0+}$ is a cost,
 %
 %
 %
-$\pre(a) \in \condition$ is a precondition and
+$\pre(a) \subseteq \condition$ is a precondition and
 %
 %
 %
 %
 \if\@usecondeffect0
-$\adde(a), \dele(a)\in P$ are the add-effects and delete-effects.
+$\adde(a), \dele(a)\subseteq P$ are the add-effects and delete-effects.
 \else
 $\adde(a), \dele(a)$ are the add-effects and delete-effects.
 Each effect is denoted as $c \triangleright e$ where
@@ -156,9 +156,10 @@ $f \in \condition$ is a body and $p \in P_X$ is a head.
 %
 %
 %
-A state $s\subseteq \conditionset$ is a set of true propositions,
-an action $a$ is \emph{applicable} when $s \satisfies \pre(a)$ (reads: $s$ \emph{satisfies} $\pre(a)$),
-and applying an action $a$ to $s$ yields a new successor state
+A state $s\subseteq \conditionset$ is a set of true propositions
+(all of $P\setminus s$ is false),
+an action $a$ is \emph{applicable} when $s \satisfies \pre(a)$ (read: $s$ \emph{satisfies} $\pre(a)$),
+and applying action $a$ to $s$ yields a new successor state
 %
 %
 %
@@ -176,19 +177,19 @@ where $s$ is initialized to $a'(s)$.
 
 The task of classical planning is to find a sequence of actions called a \emph{plan} $(\ga_1,\cdots,\ga_n)$
 where, for $1\leq t\leq n$,
- $s_0=I$, $s_t\satisfies a_{t+1}$, $s_{t+1}=a_{t+1}(s_t)$,
+ $s_0=I$, $s_t\satisfies \pre(a_{t+1})$, $s_{t+1}=a_{t+1}(s_t)$,
  and $s_n\satisfies G$.
 \if\@optimal1
  A plan is \emph{optimal} if
  \if\@usecost0
    there is no shorter plan.
  \else
-   there is no plan with a smaller cost, where the cost of a plan is $\sum_t \cost(a_t)$.
+   there is no plan with lower cost $\sum_t \cost(a_t)$.
  \fi
  A plan is otherwise called \emph{satisficing}.
  \if\@usecost1
   \if\@unitcost1
-  In this paper, we assume unit-cost, i.e., $\forall a\in A; \cost(a)=1$.
+  In this paper, we assume unit-cost: $\forall a\in A; \cost(a)=1$.
   \fi
  \fi
 \fi
