@@ -66,7 +66,7 @@
 	paste $*.subm_from $*.subm_to > $@
 
 
-%.submission: en %.subm_fromto
+%.submission: %.pygstyle %.subm_fromto
 
 	@echo "submission.mk: preparing the main article"
 	mkdir -p $@

@@ -59,14 +59,6 @@
 
 % \usepackage{hyperref} % not allowed in aaai, but allowed in icml, nips
 
-% minted package configuration for arxiv submission / camera-ready script
-% 1. comment the line below
-% \usepackage{minted}
-% 2. uncomment the line below and run `make`
-% \usepackage[finalizecache,cachedir=.]{minted}
-% 3. comment the line above, uncomment the lines below, and run `make submission` / `make arxiv`
-% \usepackage[frozencache,cachedir=.]{minted}
-
 % for conference submission with supplements. AAAI camera-ready does not allow them
 \usepackage{xr}
 
@@ -78,7 +70,31 @@
 \input{styles/common-abbrev.sty}
 \input{parts/strips.sty}
 
+% Note: Minted package works by calling an external program called pygment,
+% which requires TeX to be invoked with --shell-escape flag.
+% Naturally, many services including Arxiv do not set the flag.
+% To make it work on Arxiv, usually you must manually follow:
+% 1. Typeset the document with finalizecache option, which saves the cached pygment output, then
+% \usepackage[finalizecache,cachedir=.]{minted}
+% 2. Re-typeset the document with frozencache option to read from the cache, which does not require --shell-escape.
+% \usepackage[frozencache,cachedir=.]{minted}
 %
+% Our camera-ready script automates this process.
+
+\iftoggle{dev}{%
+  \IfFileExists{\jobname.needpyg}{% how else to pass information to latex??
+    % finalizing build
+    \usepackage[finalizecache,cachedir=.]{minted}%
+  }{%
+    % standard build
+    \usepackage{minted}%
+  }%
+}{%
+  % submission build
+  \usepackage[frozencache,cachedir=.]{minted}%
+}
+
+
 
 \hyphenation{bar-man air-port cyber-sec driver-log floor-tile free-cell
 no-mystery open-stacks parc-printer path-ways peg-sol pipes-world

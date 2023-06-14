@@ -22,6 +22,7 @@ __*
 *.zip
 *.spl
 *.toc
+*.*pyg*
 /GPATH
 /GRTAGS
 /GSYMS
