@@ -1,0 +1,101 @@
+% Avoiding an option clash between xcolor and colortbl when xcolor is loaded by a documentclass (esp. iclr)
+% cf. https://texfaq.org/FAQ-optionclash
+\PassOptionsToPackage{svgnames}{xcolor}
+% also for algorithm/algorithmicx
+\PassOptionsToPackage{noend}{algorithmic}
+\PassOptionsToPackage{noend}{algpseudocode}
+
+% \input{styles/grammarly.sty} % grammarly style removes the page number and hyphenations, easy to paste the result to grammarly
+\input{styles/aaai.sty}
+% \input{styles/ijcai.sty}
+% \input{styles/ecai.sty}
+% \input{styles/jair.sty}
+% \input{styles/neurips.sty}
+% \input{styles/icml.sty}
+% \input{styles/iclr.sty}
+% \input{styles/naacl.sty}
+% \input{styles/cvpr.sty}
+% \input{styles/jsai.sty}
+
+\usepackage{xparse}
+
+% AMS packages
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+% Tables, Figures
+\usepackage{tabularx}
+\usepackage{booktabs}   % Recommended in nips/icml, ``for professional tables'', enables toprule/midrule/bottomrule.
+\usepackage{multirow}
+\usepackage{subfigure}
+
+% for \dbend
+\usepackage{manfnt}
+
+% spacing, compression
+\usepackage{xspace}
+\usepackage{relsize}
+\usepackage{adjustbox}
+
+% Recommended in nips/icml.
+% ``Subliminal refinements towards typographical perfection''.
+% See http://www.khirevich.com/latex/microtype/ for more detailed explanations.
+% It may also help compressing the paper.
+\usepackage{microtype}
+
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{comment}
+\usepackage[svgnames]{xcolor}
+\usepackage[svgnames]{colortbl}
+
+%% Algorithms. These options may cause conflicts, enable them by your own needs
+% \usepackage{algorithm}
+% \usepackage[noend]{algorithmic} % uses \STATE, \COMMENT
+% \usepackage[noend]{algpseudocode} % uses \State, \Comment
+
+% \usepackage{hyperref} % not allowed in aaai, but allowed in icml, nips
+
+% minted package configuration for arxiv submission / camera-ready script
+% 1. comment the line below
+% \usepackage{minted}
+% 2. uncomment the line below and run `make`
+% \usepackage[finalizecache,cachedir=.]{minted}
+% 3. comment the line above, uncomment the lines below, and run `make submission` / `make arxiv`
+% \usepackage[frozencache,cachedir=.]{minted}
+
+% for conference submission with supplements. AAAI camera-ready does not allow them
+\usepackage{xr}
+
+% custom commands. The use of \input is intentional ---
+% they will be inlined by the camera-ready script.
+
+\input{styles/common-math.sty}
+\input{styles/common-general.sty}
+\input{styles/common-abbrev.sty}
+\input{parts/strips.sty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN SUBMISSION
+% `make submission` command will automatically remove this region.
+%
+% forbid the direct use of \\ref --- it results in inconsistency in styles, e.g., Figure,Fig., etc.
+% Macros are for styles!
+% !!!WARN!!! this should be removed in the camera-ready version.
+\makeatletter
+\renewcommand{\ref}[1]{\@myref{#1}\todo{(Do not use ``ref'' directly!)}}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%% END SUBMISSION
+
+\hyphenation{bar-man air-port cyber-sec driver-log floor-tile free-cell
+no-mystery open-stacks parc-printer path-ways peg-sol pipes-world
+no-tankage scan-alyzer soko-ban tidy-bot visit-all zeno-travel tie-break-ing}
+
+\frenchspacing
+\setlength{\pdfpagewidth}{8.5in}
+\setlength{\pdfpageheight}{11in}
+\setcounter{secnumdepth}{2}
+
+\allowdisplaybreaks
+

@@ -1,0 +1,22 @@
+\documentclass[11pt]{article}
+\usepackage{styles/official/jair}
+\usepackage{styles/official/theapa}
+\bibliographystyle{styles/official/theapa}
+\usepackage{fancyhdr}
+\fancypagestyle{plain}{%
+\fancyhf{} % clear all header and footer fields
+\fancyfoot[C]{\iffloatpage{}{\thepage}} % except the center
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+\pagestyle{plain}
+\usepackage{longtable}
+\setlength{\LTcapwidth}{\textwidth}
+\setcounter{LTchunksize}{10}
+\makeatletter
+  \renewcommand{\thefigure}{%
+  \thesection.\arabic{figure}}
+  \@addtoreset{figure}{section}
+  \renewcommand{\thetable}{%
+  \thesection.\arabic{table}}
+ \@addtoreset{table}{section}
+\makeatother

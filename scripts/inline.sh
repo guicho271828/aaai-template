@@ -8,6 +8,19 @@ replace (){
 
         sed -i "s@$f@$t@g" $tmp
 
+        # \documentclass/\usepackage/\bibliographystyle uses only the file names without extensions
+        f_ext="${f##*.}"
+        t_ext="${t##*.}"
+        for ext in sty bst cls
+        do
+            if [ $f_ext == $ext ] && [ $t_ext == $ext ]
+            then
+                f_base=${f%.$ext}
+                t_base=${t%.$ext}
+                sed -i "s@$f_base@$t_base@g" $tmp
+            fi
+        done
+
     done < $subm_fromto
 }
 
@@ -22,6 +35,7 @@ texdir=$(dirname $(readlink -ef $1))
 subm_fromto=$(readlink -ef $2)
 
 tmp=$(mktemp)
+# echo "$(basename $0): temporary file : $tmp"
 trap "rm $tmp" EXIT
 
 ################################################################

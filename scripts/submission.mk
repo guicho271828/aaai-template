@@ -58,13 +58,16 @@ xbb.subm:  png.subm scripts/submission.mk
 # Thus we implemented a method that automatically flattens the directory structure.
 # Directory separaters "/" are replaced with "___".
 
-all.subm_from: sty.subm png.subm pdf.subm bb.subm tex.subm bbl.subm pygstyle.subm pygtex.subm
+all.subm_from: cls.subm sty.subm png.subm pdf.subm bb.subm tex.subm bbl.subm pygstyle.subm pygtex.subm
 	@echo "submission.mk: collecting all included files"
 	cat $^ > $@
 
 all.subm_to: all.subm_from
-	@echo "submission.mk: Emitting a new location at the root for each file (images, style files, etc.)"
-	sed "s@/@___@g" < $< > $@
+	cp $< $@
+	@echo "submission.mk: Emitting a new location at the root for each file (official sty/bst/cls files)"
+	sed -i "s@styles/official/@@g" $@
+	@echo "submission.mk: Emitting a new location at the root for each file (images, other style files)"
+	sed -i "s@/@___@g" $@
 
 all.subm_fromto: all.subm_from all.subm_to
 	paste all.subm_from all.subm_to > $@
