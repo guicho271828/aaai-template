@@ -1,7 +1,7 @@
 
 #
 # Remove latex comments from the input file.
-# It recognizes comments package, as well as a special keyword BEGIN/END SUBMISSION.
+# It recognizes "comments" environment from comments package
 #
 
 BEGIN {
@@ -20,16 +20,6 @@ BEGIN {
     in_comment-=1               # support nested comments
     sub(/.*\\end{comment}/,"")
     print
-    next
-}
-
-/.*BEGIN SUBMISSION.*/ {
-    in_comment+=1
-    next
-}
-
-/.*END SUBMISSION.*/ {
-    in_comment-=1
     next
 }
 

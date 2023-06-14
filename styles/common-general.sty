@@ -2,6 +2,25 @@
 % General commands more than simple abbreviations.
 
 
+% toggling submission/development %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{pdftexcmds}
+\usepackage{etoolbox}
+\newtoggle{dev}
+\togglefalse{dev}
+
+\makeatletter
+\ifcase\pdf@shellescape
+  \message{No shell escape}
+  \or
+  \message{Unrestricted shell escape}
+  \toggletrue{dev}
+  \or
+  \message{Restricted shell escape}
+\fi
+\makeatother
+
+
 
 
 % font commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
