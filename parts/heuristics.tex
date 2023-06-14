@@ -1,12 +1,19 @@
 % In this section, we discuss various approximations of delete-relaxed optimal cost $h^+(s)$.
-A heuristic function $h$ is a function of a state $s$ that is often implicitly conditioned by the goal condition $G$.
-We use the notation $h$, $h(s)$, or $h(s,G)$ interchangeably when it is clear from the context.
+
+A domain-independent heuristic function $h$ in classical planning is
+a function of a state $s$ and the problem $\brackets{P,A,I,G}$,
+but the notation $h(s)$ usually omits the latter.
+In addition to what we discussed in the main article, this section also uses a notation $h(s,G)$.
+It returns an estimate of the cumulative cost from $s$ to one of the goal states (states that satisfy $G$),
+typically through a symbolic, non-statistical means including problem relaxation and abstraction.
+Notable \lsota functions that appear in this paper includes
+$\ff, \hmax, \ad, \gc$ \cite{hoffmann01,bonet2001planning,FikesHN72}.
 
 A significant class of heuristics is called delete relaxation heuristics,
-which consist of heuristics that solve a relaxed problem which does not contain delete effects
-and returns the cost of the solution as the heuristic value.
+which solve a relaxed problem which does not contain delete effects,
+and then returns the cost of the solution of the relaxed problem as an output.
 The cost of the optimal solution of a delete relaxed planning problem from a state $s$ is
-denoted by $h^+(s)$, but this is too difficult (NP-complete) \cite{bylander1996}.
+denoted by $h^+(s)$, but this is too expensive to compute in practice (NP-complete) \cite{bylander1996}.
 Therefore, practical heuristics typically try to obtain its further relaxations
 that can be computed in polynomial time.
 
@@ -59,4 +66,11 @@ $\ff$ is defined as the sum of actions in a relaxed plan $\Pi^+$ constructed as 
   \end{array}
  \right.\\
  \text{bs}(p,s,h)&=\argmin_{\braces{a\in A\mid p\in \adde(a)}} \left[\cost(a)+h(s, \pre(a))\right].
+\end{align}
+
+Goal Count heuristics $\gc$ is a simple heuristic proposed in \cite{FikesHN72}
+that counts the number of propositions that are not satisfied yet.
+$\brackets{\text{condition}}$ is a cronecker's delta / indicator function that returns 1 when the condition is satisfied.
+\begin{align}
+ \gc(s,G) &= \sum_{p\in G} \dbrackets{p\not \in s}.
 \end{align}
