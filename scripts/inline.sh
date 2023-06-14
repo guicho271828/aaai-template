@@ -1,5 +1,16 @@
 #!/bin/bash -x
 
+replace (){
+    subm_fromto=$1
+    tmp=$2
+
+    while read f t ; do
+
+        sed -i "s@$f@$t@g" $tmp
+
+    done < $subm_fromto
+}
+
 script_dir=$(dirname $(readlink -ef $0))
 
 # $1 : input file
@@ -25,12 +36,9 @@ echo "inline-tex: Checking all \\input / \\bibliography commands are at the begi
 $script_dir/inline-check.sh $tex || exit 1
 
 echo "inline-tex: replacing pathnames:" $(cat $subm_fromto | while read f t ; do echo -n "$f $t " ; done)
-replace -s $(cat $subm_fromto | while read f t ; do echo -n "$f $t " ; done) < $tex > $tmp
+replace $subm_fromto $tmp
 diff $tex $tmp
 cp $tmp $tex
-
-# why replace, not sed? because the pathnames may contain a letter that conflicts with s///g or s@@@g rules
-
 
 while (echo "inline-tex: searching \\input" ; grep --color -n '\\input{' $tex)
 do
@@ -46,7 +54,7 @@ do
     $script_dir/inline-check.sh $tex || exit 1
 
     echo "inline-tex: replacing pathnames:" $(cat $subm_fromto | while read f t ; do echo -n "$f $t " ; done)
-    replace -s $(cat $subm_fromto | while read f t ; do echo -n "$f $t " ; done) < $tex > $tmp
+    replace $subm_fromto $tmp
     diff $tex $tmp
     cp $tmp $tex
 done
