@@ -43,13 +43,13 @@
 # This is because stupid Overleaf always resets the executable flag.
 #
 
-.INTERMEDIATE: all.subm_from all.subm_to all.subm_fromto cls.subm sty.subm png.subm pdf.subm bb.subm tex.subm bbl.subm pygstyle.subm pygtex.subm
+.INTERMEDIATE: $(name).subm_from $(name).subm_to $(name).subm_fromto cls.subm sty.subm png.subm pdf.subm bb.subm tex.subm bbl.subm pygstyle.subm pygtex.subm
 
-%.subm: $(name).fls scripts/submission.mk
+%.subm: $(name).fls
 	@echo "submission.mk: listing $* files loaded by latex that are not part of texlive"
 	awk '/INPUT .*\.$*/{print $$2}' $< | xargs --no-run-if-empty readlink -ef | sort | uniq | grep -v "texlive" | sed -e "s~$$(pwd)/~~g" > $@
 
-xbb.subm:  png.subm scripts/submission.mk
+xbb.subm:  png.subm
 	@echo "submission.mk: listing bounding box files"
 	sed -e 's/png/xbb/g' $< > $@
 
@@ -59,57 +59,60 @@ xbb.subm:  png.subm scripts/submission.mk
 # Thus we implemented a method that automatically flattens the directory structure.
 # Directory separaters "/" are replaced with "___".
 
-all.subm_from: cls.subm sty.subm png.subm pdf.subm bb.subm tex.subm bbl.subm pygstyle.subm pygtex.subm
+$(name).subm_from: cls.subm sty.subm png.subm pdf.subm bb.subm tex.subm bbl.subm pygstyle.subm pygtex.subm
 	@echo "submission.mk: collecting all included files"
 	cat $^ > $@
 
-all.subm_to: all.subm_from
+$(name).subm_to: $(name).subm_from
 	cp $< $@
 	@echo "submission.mk: Emitting a new location at the root for each file (official sty/bst/cls files)"
 	sed -i "s@styles/official/@@g" $@
 	@echo "submission.mk: Emitting a new location at the root for each file (images, other style files)"
 	sed -i "s@/@___@g" $@
 
-all.subm_fromto: all.subm_from all.subm_to
-	paste all.subm_from all.subm_to > $@
+$(name).subm_fromto: $(name).subm_from $(name).subm_to
+	paste $(name).subm_from $(name).subm_to > $@
 
 
-submission: en all.subm_fromto
+$(name).submission: en $(name).subm_fromto
+
+	@echo "submission.mk: preparing the main article"
+	mkdir -p $@
 
 	@echo "submission.mk: copying necessary files"
-	mkdir -p submission
-	while read from to ; do cp -v $$from submission/$$to ; done < all.subm_fromto
+	while read from to ; do cp -v $$from $@/$$to ; done < $(name).subm_fromto
 
 	@echo "submission.mk: replacing pathnames, inline \\input, \\bibliography, remove comments"
-	bash scripts/inline.sh submission/$(name).tex all.subm_fromto
+	bash scripts/inline.sh $@/$(name).tex $(name).subm_fromto
 
 	@echo "submission.mk: typesetting the pdf"
-	cd submission ; pdflatex $(name).tex
-	cd submission ; pdflatex $(name).tex
-	cd submission ; pdflatex $(name).tex
+	cd $@ ; pdflatex $(name).tex
+	cd $@ ; pdflatex $(name).tex
+	cd $@ ; pdflatex $(name).tex
 
 	@echo "submission.mk: cleaning up unnecessary log files"
-	-find submission -name "*\.log" -delete
-	-find submission -name "*\.aux" -delete
-	-find submission -name "*\.out" -delete
-	-find submission -type d -empty -exec rmdir {} \; # remove empty directories
+	-find $@ -name "*\.tex" -not -name $(name).tex -delete # remove other tex files included through xr package
+	-find $@ -name "*\.log" -delete
+	-find $@ -name "*\.aux" -delete
+	-find $@ -name "*\.out" -delete
+	-find $@ -type d -empty -exec rmdir {} \; # remove empty directories
 
 
 clean-submission:
-	-rm -rf *.subm submission *.tar.gz *.zip
+	-rm -rf *.subm *.submission *.tar.gz *.zip
 
 
-archive: submission
+archive: $(name).submission
 	@echo "submission.mk: creating a camera-ready submission archive (tar.gz, zip) WITHOUT style files (use 'make arxiv' instead to include them)"
-	-rm submission/*.sty submission/*.bst
+	-rm $</*.sty $</*.bst
 	-rm $(name).tar.gz
-	cd submission ; tar cvzf ../$(name).tar.gz *
+	cd $< ; tar cvzf ../$(name).tar.gz *
 	-rm $(name).zip
-	cd submission ; zip -r ../$(name).zip *
+	cd $< ; zip -r ../$(name).zip *
 
 
-arxiv: submission
+arxiv: $(name).submission
 	@echo "submission.mk: creating an Arxiv submission (tar.gz, zip) WITH style files (use 'make archive' instead to exclude them)"
 	-rm $(name).tar.gz $(name).zip
-	cd submission ; tar cvzf ../$(name).tar.gz *
-	cd submission ; zip -r ../$(name).zip *
+	cd $< ; tar cvzf ../$(name).tar.gz *
+	cd $< ; zip -r ../$(name).zip *
