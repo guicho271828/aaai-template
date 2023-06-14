@@ -44,53 +44,59 @@
 #
 
 
-# list files loaded by latex that are not part of texlive
 %.subm: $(name).fls scripts/submission.mk
-	awk '/INPUT .*\.$*/{print $$2}' $< | xargs readlink -ef | sort | uniq | grep -v "texlive" | sed -e "s~$$(pwd)/~~g" > $@
+	@echo "submission.mk: listing $* files loaded by latex that are not part of texlive"
+	awk '/INPUT .*\.$*/{print $$2}' $< | xargs --no-run-if-empty readlink -ef | sort | uniq | grep -v "texlive" | sed -e "s~$$(pwd)/~~g" > $@
 
-# list bounding box files
 xbb.subm:  png.subm scripts/submission.mk
+	@echo "submission.mk: listing bounding box files"
 	sed -e 's/png/xbb/g' $< > $@
 
-# Now AAAI press requires all image files to be stored under the root directory.
+
+# AAAI press also requires all image files to be stored under the root directory.
 # Putting the images in a nested directory is no longer allowed in the camera ready.
 # Thus we implemented a method that automatically flattens the directory structure.
 # Directory separaters "/" are replaced with "___".
 
 all.subm_from: sty.subm png.subm pdf.subm bb.subm tex.subm bbl.subm pygstyle.subm pygtex.subm
+	@echo "submission.mk: collecting all included files"
 	cat $^ > $@
 
 all.subm_to: all.subm_from
+	@echo "submission.mk: Emitting a new location at the root for each file (images, style files, etc.)"
 	sed "s@/@___@g" < $< > $@
 
 all.subm_fromto: all.subm_from all.subm_to
 	paste all.subm_from all.subm_to > $@
 
+
 submission: en all.subm_fromto
 
+	@echo "submission.mk: copying necessary files"
 	mkdir -p submission
 	while read from to ; do cp -v $$from submission/$$to ; done < all.subm_fromto
 
-# replace pathnames, inline \input, \bibliography, remove comments
+	@echo "submission.mk: replacing pathnames, inline \\input, \\bibliography, remove comments"
 	bash scripts/inline.sh submission/$(name).tex all.subm_fromto
 
-	ls submission
+	@echo "submission.mk: typesetting the pdf"
 	cd submission ; pdflatex $(name).tex
 	cd submission ; pdflatex $(name).tex
 	cd submission ; pdflatex $(name).tex
+
+	@echo "submission.mk: cleaning up unnecessary log files"
 	-find submission -name "*\.log" -delete
 	-find submission -name "*\.aux" -delete
 	-find submission -name "*\.out" -delete
-	-find submission -type d -empty -exec rmdir {} \; # remove the empty directories
+	-find submission -type d -empty -exec rmdir {} \; # remove empty directories
 
-	@echo "Make sure every \\input commands are in the beginning of line but space"
 
 clean-submission:
 	-rm -rf *.subm submission *.tar.gz *.zip
 
 
-# camera-ready submission requires removing style files from the archive
 archive: submission
+	@echo "submission.mk: creating a camera-ready submission archive (tar.gz, zip) WITHOUT style files (use 'make arxiv' instead to include them)"
 	-rm submission/*.sty submission/*.bst
 	-rm $(name).tar.gz
 	cd submission ; tar cvzf ../$(name).tar.gz *
@@ -98,8 +104,8 @@ archive: submission
 	cd submission ; zip -r ../$(name).zip *
 
 
-# unlike archive, include the style files
 arxiv: submission
+	@echo "submission.mk: creating an Arxiv submission (tar.gz, zip) WITH style files (use 'make archive' instead to exclude them)"
 	-rm $(name).tar.gz $(name).zip
 	cd submission ; tar cvzf ../$(name).tar.gz *
 	cd submission ; zip -r ../$(name).zip *
