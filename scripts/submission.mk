@@ -43,25 +43,17 @@
 # This is because stupid Overleaf always resets the executable flag.
 #
 
-.INTERMEDIATE: $(name).subm_from $(name).subm_to $(name).subm_fromto cls.subm sty.subm png.subm pdf.subm bb.subm tex.subm bbl.subm pygstyle.subm pygtex.subm
-
-%.subm: $(name).fls
-	@echo "submission.mk: listing $* files loaded by latex that are not part of texlive"
-	awk '/INPUT .*\.$*/{print $$2}' $< | xargs --no-run-if-empty readlink -ef | sort | uniq | grep -v "texlive" | sed -e "s~$$(pwd)/~~g" > $@
-
-xbb.subm:  png.subm
-	@echo "submission.mk: listing bounding box files"
-	sed -e 's/png/xbb/g' $< > $@
-
+.INTERMEDIATE: $(name).subm_from $(name).subm_to $(name).subm_fromto
 
 # AAAI press also requires all image files to be stored under the root directory.
 # Putting the images in a nested directory is no longer allowed in the camera ready.
 # Thus we implemented a method that automatically flattens the directory structure.
 # Directory separaters "/" are replaced with "___".
 
-$(name).subm_from: cls.subm sty.subm png.subm pdf.subm bb.subm tex.subm bbl.subm pygstyle.subm pygtex.subm
+$(name).subm_from: $(name).fls
 	@echo "submission.mk: collecting all included files"
-	cat $^ > $@
+	awk '/INPUT .*\.(cls|sty|png|pdf|bb|tex|bbl|pygstyle|pygtex)/{print $$2}' $< | xargs --no-run-if-empty readlink -ef | sort | uniq | grep -v "texlive" | sed -e "s~$$(pwd)/~~g" > $@
+	awk '/INPUT .*\.png/{print $$2}' $< | sed -e 's/png/xbb/g' | xargs --no-run-if-empty readlink -ef | sort | uniq | grep -v "texlive" | sed -e "s~$$(pwd)/~~g" >> $@
 
 $(name).subm_to: $(name).subm_from
 	cp $< $@
@@ -99,7 +91,7 @@ $(name).submission: en $(name).subm_fromto
 
 
 clean-submission:
-	-rm -rf *.subm *.submission *.tar.gz *.zip
+	-rm -rf *.submission *.tar.gz *.zip
 
 
 archive: $(name).submission
