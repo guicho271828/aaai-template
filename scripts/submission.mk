@@ -43,47 +43,47 @@
 # This is because stupid Overleaf always resets the executable flag.
 #
 
-.INTERMEDIATE: $(name).subm_from $(name).subm_to $(name).subm_fromto
+.INTERMEDIATE: $(wildcard *.subm_from *.subm_to *.subm_fromto)
 
 # AAAI press also requires all image files to be stored under the root directory.
 # Putting the images in a nested directory is no longer allowed in the camera ready.
 # Thus we implemented a method that automatically flattens the directory structure.
 # Directory separaters "/" are replaced with "___".
 
-$(name).subm_from: $(name).fls
+%.subm_from: %.fls
 	@echo "submission.mk: collecting all included files"
 	awk '/INPUT .*\.(cls|sty|png|pdf|bb|tex|bbl|pygstyle|pygtex)/{print $$2}' $< | xargs --no-run-if-empty readlink -ef | sort | uniq | grep -v "texlive" | sed -e "s~$$(pwd)/~~g" > $@
 	awk '/INPUT .*\.png/{print $$2}' $< | sed -e 's/png/xbb/g' | xargs --no-run-if-empty readlink -ef | sort | uniq | grep -v "texlive" | sed -e "s~$$(pwd)/~~g" >> $@
 
-$(name).subm_to: $(name).subm_from
+%.subm_to: %.subm_from
 	cp $< $@
 	@echo "submission.mk: Emitting a new location at the root for each file (official sty/bst/cls files)"
 	sed -i "s@styles/official/@@g" $@
 	@echo "submission.mk: Emitting a new location at the root for each file (images, other style files)"
 	sed -i "s@/@___@g" $@
 
-$(name).subm_fromto: $(name).subm_from $(name).subm_to
-	paste $(name).subm_from $(name).subm_to > $@
+%.subm_fromto: %.subm_from %.subm_to
+	paste $*.subm_from $*.subm_to > $@
 
 
-$(name).submission: en $(name).subm_fromto
+%.submission: en %.subm_fromto
 
 	@echo "submission.mk: preparing the main article"
 	mkdir -p $@
 
 	@echo "submission.mk: copying necessary files"
-	while read from to ; do cp -v $$from $@/$$to ; done < $(name).subm_fromto
+	while read from to ; do cp -v $$from $@/$$to ; done < $*.subm_fromto
 
 	@echo "submission.mk: replacing pathnames, inline \\input, \\bibliography, remove comments"
-	bash scripts/inline.sh $@/$(name).tex $(name).subm_fromto
+	bash scripts/inline.sh $@/$*.tex $*.subm_fromto
 
 	@echo "submission.mk: typesetting the pdf"
-	cd $@ ; pdflatex $(name).tex
-	cd $@ ; pdflatex $(name).tex
-	cd $@ ; pdflatex $(name).tex
+	cd $@ ; pdflatex $*.tex
+	cd $@ ; pdflatex $*.tex
+	cd $@ ; pdflatex $*.tex
 
 	@echo "submission.mk: cleaning up unnecessary log files"
-	-find $@ -name "*\.tex" -not -name $(name).tex -delete # remove other tex files included through xr package
+	-find $@ -name "*\.tex" -not -name $*.tex -delete # remove other tex files included through xr package
 	-find $@ -name "*\.log" -delete
 	-find $@ -name "*\.aux" -delete
 	-find $@ -name "*\.out" -delete
