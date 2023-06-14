@@ -152,6 +152,13 @@
 \makeatletter
 \let\@myref\ref
 
+% Camera-ready script automatically removes this definition.
+% It forbids the direct use of \ref --- it results in inconsistency in styles, e.g., Figure,Fig., etc.
+\renewcommand{\ref}[1]{\@myref{#1}\iftoggle{dev}{\todo{(Do not use ``ref'' directly!)}}{}}
+
+
+
+
 \newcommand{\refsec}[1]{Sec.\,\@myref{#1}}
 \newcommand{\refseq}[1]{Sec.\,\@myref{#1}}
 \newcommand{\refig}[1]{Fig.\,\@myref{#1}}

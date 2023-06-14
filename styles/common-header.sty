@@ -78,16 +78,7 @@
 \input{styles/common-abbrev.sty}
 \input{parts/strips.sty}
 
-%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN SUBMISSION
-% `make submission` command will automatically remove this region.
 %
-% forbid the direct use of \\ref --- it results in inconsistency in styles, e.g., Figure,Fig., etc.
-% Macros are for styles!
-% !!!WARN!!! this should be removed in the camera-ready version.
-\makeatletter
-\renewcommand{\ref}[1]{\@myref{#1}\todo{(Do not use ``ref'' directly!)}}
-\makeatother
-%%%%%%%%%%%%%%%%%%%%%%%%% END SUBMISSION
 
 \hyphenation{bar-man air-port cyber-sec driver-log floor-tile free-cell
 no-mystery open-stacks parc-printer path-ways peg-sol pipes-world
