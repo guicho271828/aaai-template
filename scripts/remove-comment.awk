@@ -1,4 +1,9 @@
 
+#
+# Remove latex comments from the input file.
+# It recognizes comments package, as well as a special keyword BEGIN/END SUBMISSION.
+#
+
 BEGIN {
     in_comment=0
     last_line_was_empty=0

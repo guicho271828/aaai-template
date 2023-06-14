@@ -1,4 +1,8 @@
 
+#
+# Find \input command and replace the file content in-place,
+# then remove the included file.
+#
 
 /.*\\input{.*/ {
     filename = gensub(/.*\\input{(.+)}.*/, "\\1", "g", $0)

@@ -1,4 +1,8 @@
 
+#
+# Replace \bibliography command with the content of .bbl files in place,
+# then remove the included .bbl file.
+#
 
 /.*\\bibliography{.*/ {
     # filename is given by the script that calls this script

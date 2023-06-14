@@ -1,4 +1,8 @@
 #!/bin/bash
+#
+# Checks all \\input / \\bibliography commands are at the beginning/end of line,
+# otherwise exits with status 1.
+#
 
 script_dir=$(dirname $(readlink -ef $0))
 
