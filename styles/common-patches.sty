@@ -1,0 +1,40 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This file contains a number of patches that addresses bugs in existing style files
+% (texlive or conference-provided ones).
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Patches for option clash on implicitly loaded packages
+%
+% Some conference style files load some packages without options.
+% This causes an error if you try to load the same package with different options.
+% PassOptionsToPackage fixed this.
+% cf. https://texfaq.org/FAQ-optionclash
+
+% Fix xcolor,colortbl
+% (iclr,cvpr -> eso-pic -> xcolor,color)
+% (icml -> color)
+% (naacl -> xcolor)
+\PassOptionsToPackage{svgnames}{xcolor}
+
+% Fix algorithm,algorithmicx (ICML -> algorithm,algorithmicx)
+\PassOptionsToPackage{noend}{algorithmic}
+\PassOptionsToPackage{noend}{algpseudocode}
+
+% Fix natbib options
+\PassOptionsToPackage{numbers}{natbib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Patches for option clash on implicitly loaded packages
+%
+% A recent version of lineno started patching some commands in amsmath,
+% which introduced a dependency that causes redefinition errors
+% when lineno is loaded before amsmath.
+% Some style files already have a workaround (e.g. Neurips), but I fix it by myself anyways.
+
+% naacl --- through RequirePackage
+% ijcai --- through tex template
+% neurips --- patches itself
+
+\AddToHook{package/lineno/before}{\RequirePackage{amsmath}}

@@ -1,9 +1,7 @@
-% Avoiding an option clash between xcolor and colortbl when xcolor is loaded by a documentclass (esp. iclr)
-% cf. https://texfaq.org/FAQ-optionclash
-\PassOptionsToPackage{svgnames}{xcolor}
-% also for algorithm/algorithmicx
-\PassOptionsToPackage{noend}{algorithmic}
-\PassOptionsToPackage{noend}{algpseudocode}
+% Note: We do not specify the package options at all in this file.
+% They are moved to common-patches.sty because conference style files may load them first without options,
+% causing option clashes.
+\input{styles/common-patches.sty}
 
 % \input{styles/grammarly.sty} % grammarly style removes the page number and hyphenations, easy to paste the result to grammarly
 \input{styles/aaai.sty}
@@ -16,6 +14,14 @@
 % \input{styles/naacl.sty}
 % \input{styles/cvpr.sty}
 % \input{styles/jsai.sty}
+
+\makeatletter
+\@ifpackageloaded{theapa}{%
+ % jair; do not load
+}{
+ \usepackage{natbib}
+}
+\makeatother
 
 \usepackage{xparse}
 
@@ -49,13 +55,13 @@
 \usepackage{graphicx}
 \usepackage{url}
 \usepackage{comment}
-\usepackage[svgnames]{xcolor}
-\usepackage[svgnames]{colortbl}
+\usepackage{xcolor}
+\usepackage{colortbl}
 
 %% Algorithms. These options may cause conflicts, enable them by your own needs
 % \usepackage{algorithm}
-% \usepackage[noend]{algorithmic} % uses \STATE, \COMMENT
-% \usepackage[noend]{algpseudocode} % uses \State, \Comment
+% \usepackage{algorithmic} % uses \STATE, \COMMENT
+% \usepackage{algpseudocode} % uses \State, \Comment
 
 % \usepackage{hyperref} % not allowed in aaai, but allowed in icml, nips
 
