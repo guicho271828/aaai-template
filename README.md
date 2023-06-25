@@ -84,6 +84,7 @@ Also, due to incompatibility in BSD, some commands e.g. `find` may fail.
   bitmap formats like png have the risk of resulting in blurry images.
   They also increase the file size significantly compared to the vector data in pdf-based figures.
   * Requirements: `inkskape` package (available from standard package managers)
+  * Resources that are not compiled from svg should be in `img/static` directory.
 
 * `make submission`, `make archive`, `make arxiv` :
   These `make` targets will create a `submission` directory and prepares the camera-ready
@@ -92,12 +93,12 @@ Also, due to incompatibility in BSD, some commands e.g. `find` may fail.
 
   * These camera-ready submissions do not allow the use of `\input{}` command.
     When you run `make submission`, the results generated in the `submission` directory will have
-    * a single, flattened tex file whose `\input` commands are inlined completely
+    * A single, flattened tex file whose `\input` commands are inlined completely
     * All image files referenced by the text are renamed and put in this root directory
       (AAAI Press does not allow putting images in the nested subdirectories)
     * Garbage files (log files etc.) are removed.
-  * **Usage note**: all `\input{}` commands must be at the beginning of line, nothing before or
-    after it. Otherwise it may remove some necessary text
+  * All `\input{}` commands must be at the beginning of line, nothing before or after it.
+    Otherwise it may remove some necessary text.
   * `make archive` compresses the `submission/` directory
     and create a zip file and a tar.gz file containing the same contents.
     Note that AAAI Press does not accept tar.gz files.
@@ -108,11 +109,13 @@ Also, due to incompatibility in BSD, some commands e.g. `find` may fail.
 * In `rebuttal/` directory, there are several templates useful for conference/journal rebuttals.
 
   * `make` will build `journal-rebuttal.pdf`. It has
-    `\begin{review}...\end{review}` and `\begin{reply}...\end{reply}` commands
+    `\begin{review}...\end{review}` and `\begin{reply}...\end{reply}` environments
     which supports cross-references through `\label`.
   * (Exclusive to emacs) `rebuttal.org` is an [org-mode](orgmode.org) text file which is useful for
-    organizing thoughts and exporting to an ASCII text file for conference rebuttals, e.g., http://easychair.org/ .
-    It is set up so that it will export the file to an ASCII file upon saving, and count the word after the export.
+    organizing thoughts and exporting it to an ASCII text file
+    for conference systems that accept only plaintext rebuttals, e.g., http://easychair.org/ .
+    It is set up so that it will automatically export the file to an ASCII file upon saving the buffer
+    and show the word count in the mode line.
 
 
 # If you have enough space in your paper, please cite me
