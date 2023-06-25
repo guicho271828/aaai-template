@@ -25,6 +25,7 @@ $(name).log $(name).fls: $(name).pdf
 
 $(name).pdf: supplemental.pdf
 
+# build pygstyle file through finalizecache option of minted package
 %.pygstyle: $(sources)
 	touch $*.needpyg
 	rm $*.pdf
