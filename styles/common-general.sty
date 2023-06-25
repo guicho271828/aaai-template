@@ -118,13 +118,18 @@
 
 % algorithms %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \newcommand{\var}[1]{\textsf{\relsize{-1}#1}}
-% \newcommand{\constant}[1]{\textsc{#1}}
-% \algblockdefx[method]{Method}{EndMethod}[2]{\textbf{method} \textsc{#1} (#2)}{}
-% \algblockdefx[function]{Method}{EndMethod}[2]{\textbf{method} \textsc{#1} (#2)}{}
+\newcommand{\variable}[1]{\textsf{\relsize{-1}#1}}
+\newcommand{\constant}[1]{\textsc{#1}}
 
-% when forced to use algorithmicx. not necessary in algpseudocode
-% \renewcommand{\algorithmiccomment}[1]{\hfill #1}
+\makeatletter
+\@ifpackageloaded{algpseudocode}{
+  \algblockdefx[method]{Method}{EndMethod}[2]{\textbf{method} \textsc{#1} (#2)}{}
+  \algblockdefx[function]{Method}{EndMethod}[2]{\textbf{method} \textsc{#1} (#2)}{}
+}{
+}
+\makeatother
+
+\renewcommand{\algorithmiccomment}[1]{\hfill #1}
 
 
 % SI unit %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
