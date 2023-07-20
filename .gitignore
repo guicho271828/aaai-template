@@ -28,6 +28,8 @@ __*
 /GSYMS
 /GTAGS
 !img/static/**/*
+img/static/**/*~
+img/static/**/#*
 img/static/**/*.bb
 img/static/**/*.?bb
 *.subm*
