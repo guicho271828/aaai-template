@@ -37,15 +37,15 @@
 \usepackage{multirow}
 \usepackage{subfigure}
 
-% for \dbend
-\usepackage{manfnt}
+% misc font / glyph
+\usepackage{manfnt}             % for \dbend
 
 % spacing, compression
-\usepackage{xspace}
-\usepackage{relsize}
-\usepackage{adjustbox}
-\usepackage{diagbox}
-\usepackage{pdflscape}
+\usepackage{xspace}             % \xspace becomes a space in word boundary
+\usepackage{relsize}            % scaling text size
+\usepackage{adjustbox}          % adjusting a box width/height
+\usepackage{diagbox}            % for diagonal crossing in tables
+\usepackage{pdflscape}          % for landscape pages in appendix
 
 % Recommended in nips/icml.
 % ``Subliminal refinements towards typographical perfection''.
@@ -55,12 +55,12 @@
 
 \usepackage{graphicx}
 \usepackage{url}
-\usepackage{comment}
+\usepackage{comment}            % for comment environment
 \usepackage{xcolor}             % see patch.sty for option quirks
 \usepackage{colortbl}
 
-%% Algorithms. These options may cause conflicts, enable them by your own needs.
-% algorithmic is safer, since it is required by icml.
+%% Algorithms. They may cause conflicts, enable them by your own needs.
+% icml requires algorithmic.
 \usepackage{algorithm}
 \usepackage{algorithmic} % uses \STATE, \COMMENT
 % \usepackage{algpseudocode} % uses \State, \Comment
@@ -80,12 +80,13 @@
 % which requires TeX to be invoked with --shell-escape flag.
 % Naturally, many services including Arxiv do not set the flag.
 % To make it work on Arxiv, usually you must manually follow:
-% 1. Typeset the document with finalizecache option, which saves the cached pygment output, then
+% 1. Typeset the document with finalizecache option, which saves the cached pygment output
 % \usepackage[finalizecache,cachedir=.]{minted}
 % 2. Re-typeset the document with frozencache option to read from the cache, which does not require --shell-escape.
 % \usepackage[frozencache,cachedir=.]{minted}
 %
-% Our camera-ready script automates this process.
+% However, our camera-ready script automates this process.
+% This is done by touching a file named \jobname.needpyg and check its existence, and switch the behavior.
 
 \iftoggle{dev}{%
   \IfFileExists{\jobname.needpyg}{% how else to pass information to latex??
