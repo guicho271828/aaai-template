@@ -1,3 +1,4 @@
+\makeatletter
 
 % General commands more than simple abbreviations.
 
@@ -9,7 +10,7 @@
 \newtoggle{dev}
 \togglefalse{dev}
 
-\makeatletter
+
 \ifcase\pdf@shellescape
   \message{No shell escape}
   \or
@@ -18,7 +19,6 @@
   \or
   \message{Restricted shell escape}
 \fi
-\makeatother
 
 
 \newcommand{\todo}[1]{\iftoggle{dev}{\red{\textbf{#1}}}{}}
@@ -121,13 +121,11 @@
 \newcommand{\variable}[1]{\textsf{\relsize{-1}#1}}
 \newcommand{\constant}[1]{\textsc{#1}}
 
-\makeatletter
 \@ifpackageloaded{algpseudocode}{
   \algblockdefx[method]{Method}{EndMethod}[2]{\textbf{method} \textsc{#1} (#2)}{}
   \algblockdefx[function]{Method}{EndMethod}[2]{\textbf{method} \textsc{#1} (#2)}{}
 }{
 }
-\makeatother
 
 \renewcommand{\algorithmiccomment}[1]{\hfill #1}
 
@@ -155,7 +153,6 @@
 
 % citation and reference %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\makeatletter
 \let\@myref\ref
 
 % Camera-ready script automatically removes this definition.
@@ -237,7 +234,6 @@
 % \newcommand{\refexs}[2]{Examples\,\@myref{#1}-\@myref{#2}}
 % \newcommand{\refconvs}[2]{Conventions\,\@myref{#1}-\@myref{#2}}
 
-\makeatother
 
 \newcounter{list}[section]
 \renewcommand{\thelist}{\thesection .\arabic{list}}
@@ -245,7 +241,6 @@
 % mimick natbib without natbib, if not loaded
 % useful for theapa.sty
 
-\makeatletter
 \@ifundefined{citet}{
   \NewDocumentCommand{\citet}{o m}{%
     \IfNoValueTF{#1}%
@@ -260,5 +255,8 @@
       {\cite[#1]{#2}}%
   }
 }{}
+
+
+
 \makeatother
 
