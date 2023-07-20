@@ -1,19 +1,19 @@
 % Note: We do not specify the package options at all in this file.
-% They are moved to common-patches.sty because conference style files may load them first without options,
+% They are moved to patches.sty because conference style files may load them first without options,
 % causing option clashes.
-\input{styles/common-patches.sty}
+\input{styles/patches.sty}
 
-% \input{styles/grammarly.sty} % grammarly style removes the page number and hyphenations, easy to paste the result to grammarly
-\input{styles/aaai.sty}
-% \input{styles/ijcai.sty}
-% \input{styles/ecai.sty}
-% \input{styles/jair.sty}
-% \input{styles/neurips.sty}
-% \input{styles/icml.sty}
-% \input{styles/iclr.sty}
-% \input{styles/naacl.sty}
-% \input{styles/cvpr.sty}
-% \input{styles/jsai.sty}
+% \input{styles/confs/grammarly.sty} % grammarly style removes the page number and hyphenations, easy to paste the result to grammarly
+\input{styles/confs/aaai.sty}
+% \input{styles/confs/ijcai.sty}
+% \input{styles/confs/ecai.sty}
+% \input{styles/confs/jair.sty}
+% \input{styles/confs/neurips.sty}
+% \input{styles/confs/icml.sty}
+% \input{styles/confs/iclr.sty}
+% \input{styles/confs/naacl.sty}
+% \input{styles/confs/cvpr.sty}
+% \input{styles/confs/jsai.sty}
 
 \makeatletter
 \@ifpackageloaded{theapa}{%
@@ -72,9 +72,9 @@
 % custom commands. The use of \input is intentional ---
 % they will be inlined by the camera-ready script.
 
-\input{styles/common-math.sty}
-\input{styles/common-general.sty}
-\input{styles/common-abbrev.sty}
+\input{styles/math.sty}
+\input{styles/general.sty}
+\input{styles/abbrev.sty}
 \input{parts/strips.sty}
 
 % Note: Minted package works by calling an external program called pygment,
