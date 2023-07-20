@@ -122,15 +122,6 @@
 \newcommand{\variable}[1]{\textsf{\relsize{-1}#1}}
 \newcommand{\constant}[1]{\textsc{#1}}
 
-\@ifpackageloaded{algpseudocode}{
-  \algblockdefx[method]{Method}{EndMethod}[2]{\textbf{method} \textsc{#1} (#2)}{}
-  \algblockdefx[function]{Method}{EndMethod}[2]{\textbf{method} \textsc{#1} (#2)}{}
-}{
-}
-
-\renewcommand{\algorithmiccomment}[1]{\hfill #1}
-
-
 % SI unit %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\si}[1]{\mathrm{[#1]}}

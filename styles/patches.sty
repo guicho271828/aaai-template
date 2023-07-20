@@ -63,4 +63,57 @@
   }
 }
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% algorithmic / algopseudocode difference + customization
+
+
+\@ifpackageloaded{algorithmic}{
+  \renewcommand{\algorithmiccomment}[1]{\hfill #1}
+  \def\State\STATE
+  \def\If\IF
+  \def\Then\THEN
+  \def\Elsif\ELSIF
+  \def\Else\ELSE
+  \def\Endif\ENDIF
+  \def\For\FOR
+  \def\Forall\FORALL
+  \def\Do\DO
+  \def\Endfor\ENDFOR
+  \def\While\WHILE
+  \def\Endwhile\ENDWHILE
+  \def\Repeat\REPEAT
+  \def\Until\UNTIL
+  \def\Return\RETURN
+  \def\Require\REQUIRE
+  \def\Ensure\ENSURE
+  \def\Comment\COMMENT
+}{}
+
+\@ifpackageloaded{algpseudocode}{
+  \algrenewcommand{\algorithmiccomment}[1]{\hfill #1}
+  \algblockdefx[method]{Method}{EndMethod}[2]{\textbf{method} \textsc{#1} (#2)}{}
+  \algblockdefx[function]{Method}{EndMethod}[2]{\textbf{method} \textsc{#1} (#2)}{}
+  \def\STATE\State
+  \def\IF\If
+  \def\THEN\Then
+  \def\ELSIF\ElsIf
+  \def\ELSE\Else
+  \def\ENDIF\EndIf
+  \def\FOR\For
+  \def\FORALL\ForAll
+  \def\DO\Do
+  \def\ENDFOR\EndFor
+  \def\WHILE\While
+  \def\ENDWHILE\EndWhile
+  \def\REPEAT\Repeat
+  \def\UNTIL\Until
+  \def\RETURN\Return
+  \def\REQUIRE\Require
+  \def\ENSURE\Ensure
+  \def\COMMENT\Comment
+}{}
+
+
+
 \makeatother
