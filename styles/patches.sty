@@ -1,3 +1,4 @@
+\makeatletter
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % This file contains a number of patches that addresses bugs in existing style files
@@ -38,3 +39,28 @@
 % neurips --- patches itself
 
 \AddToHook{package/lineno/before}{\RequirePackage{amsmath}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% mimick natbib without natbib, if not loaded.
+% This is useful for theapa.sty used by jair.
+
+\AtBeginDocument{
+  \@ifpackageloaded{theapa}{%
+    \NewDocumentCommand{\citet}{o m}{%
+      \IfNoValueTF{#1}%
+        {\citeauthor{#2} (\citeyear{#2})}
+        {\citeauthor{#2} (\citeyear[#1]{#2})}%
+    }
+    \NewDocumentCommand{\citep}{o m}{%
+      \IfNoValueTF{#1}%
+        {\cite{#2}}
+        {\cite[#1]{#2}}%
+    }
+  }{
+   % do nothing
+  }
+}
+
+\makeatother
