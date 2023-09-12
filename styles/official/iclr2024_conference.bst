@@ -1,8 +1,8 @@
-%% File: `iclr2017.bst'
+%% File: `iclr2024.bst'
 %% A copy of iclm2010.bst, which is a modification of `plainnl.bst' for use with natbib package 
 %%
 %% Copyright 2010 Hal Daum\'e III
-%% Modified by J. Fürnkranz
+%% Modified by J. FÃ¼rnkranz
 %% - Changed labels from (X and Y, 2000) to (X & Y, 2000)
 %%
 %% Copyright 1993-2007 Patrick W Daly
