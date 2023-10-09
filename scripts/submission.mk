@@ -93,6 +93,7 @@
 clean-submission:
 	-rm -rf *.submission *.tar.gz *.zip
 
+submission: $(name).submission supplemental.submission
 
 archive: $(name).submission supplemental.submission
 	@echo "submission.mk: creating a camera-ready submission archive (tar.gz, zip) WITHOUT style files (use 'make arxiv' instead to include them)"

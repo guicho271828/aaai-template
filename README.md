@@ -74,7 +74,7 @@ Also, due to incompatibility in BSD, some commands e.g. `find` may fail.
 * `make` will build the paper.
 
 * `make auto` watches the source files and builds the pdf when they are
-  updated. Poor-man's (or wise-man's) Overleaf. **Linux only**
+  updated. Poor-man's (or wise-man's) Overleaf. **Linux only.**
   It uses `inotifywait` for watching files and also sends messages via inotify notification popup window.
   * Requirements: `inotify-tools` package (available from standard package managers)
 
@@ -87,20 +87,20 @@ Also, due to incompatibility in BSD, some commands e.g. `find` may fail.
   * Resources that are not compiled from svg should be in `img/static` directory.
 
 * `make submission`, `make archive`, `make arxiv` :
-  These `make` targets will create a `submission` directory and prepares the camera-ready
-  tex files. There are sometimes extensive instruction for preparing the camera-ready submission,
+  These `make` targets will create a `<name>.submission` directory and prepare the camera-ready
+  tex files. There are sometimes extensive instruction for preparing them,
   such as https://www.aaai.org/Publications/Author/icaps-submit.php .
 
-  * These camera-ready submissions do not allow the use of `\input{}` command.
-    When you run `make submission`, the results generated in the `submission` directory will have
+  * These camera-ready submissions sometimes do not allow the use of `\input{}` command.
+    When you run `make submission`, the results generated in the `<name>.submission` directory will have
     * A single, flattened tex file whose `\input` commands are inlined completely
-    * All image files referenced by the text are renamed and put in this root directory
-      (AAAI Press does not allow putting images in the nested subdirectories)
+    * All image files referenced by the text are renamed and relocated to this root directory
+      (AAAI Press does not allow placing images in the nested subdirectories)
     * Garbage files (log files etc.) are removed.
   * All `\input{}` commands must be at the beginning of line, nothing before or after it.
     Otherwise it may remove some necessary text.
-  * `make archive` compresses the `submission/` directory
-    and create a zip file and a tar.gz file containing the same contents.
+  * `make archive` compresses the `<name>.submission/` directory
+    and creates a zip file and a tar.gz file containing the same contents.
     Note that AAAI Press does not accept tar.gz files.
     Additional style files are removed because they are not allowed.
   * `make arxiv` is same as `make archive`, but it does not remove the style files.
