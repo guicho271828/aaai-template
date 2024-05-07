@@ -1,47 +1,49 @@
 % documentclass ecai
 %
 % This is file `ecai.cls', the recommended style file for ECAI
-% submission and camera-ready copy, for use with latex2e 
-% in native mode. 
+% submission and camera-ready copy, for use with latex2e.
 
-% This file is an adaption of ecai98.cls. It provides the same style 
-% as ecai98.cls but removes any footer.
-% ecai98.cls was created by merging the ECAI-96 document style with the 
-% latex2e article class. It has inherited most of the features (and bugs) 
+% This file is distributed by EurAI, the European Association for
+% Artificial Intelligence in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+% This file is an adaption of ecai98.cls. It provides the same style
+% as ecai98.cls but removes any footers.
+% ecai98.cls was created by merging the ECAI-96 document style with the
+% latex2e article class. It has inherited most of the features (and bugs)
 % of the ECAI-96 document style, but only promises to approximate that style.
-
-% For users without access to latex2e, a style file for latex209
-% is also available. This works with latex209 (but not with latex2e).
 
 % Authorship and copyright:
 % latex2e article.cls - copyright, the LaTeX3 project
 % latex2e size10.clo  - copyright, the LaTeX3 project
-% ecai96.sty          - based on original 209 aritcle style by Leslie
+% ecai96.sty          - based on original 209 article style by Leslie
 %                       Lamport, successively modified by Oliver Ludwig,
-%                       Geeti Granger and Jenny Smith.
+%                       Geeti Granger and Jenny Smith
 % ecai98.cls          - copyright 1998, Roger Evans, University of
 %                       Brighton
 % ecai2000.cls        - copyright 2000, Werner Horn, Austrian Research
 %                       Institute for Artificial Intelligence
 % ecai2002.cls        - copyright 2002, Frank van Harmelen,
-%                       Vrije Universiteit Amsterdam, 
-% ecai.cls            - Generic (year-free). Renamed but essentially unmodified 
+%                       Vrije Universiteit Amsterdam,
+% ecai.cls            - Generic (year-free). Renamed but essentially unmodified
 %                       from the ecai2014.cls version.  I claim no copyright,
-%                       just cleaned up a bit.
-%                       Gal A. Kaminka, Bar Ilan University.
- 
-% This file is distributed in the hope that it will be useful,
-% but WITHOUT ANY WARRANTY; without even the implied warranty of
-% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-
-% This file is NOT SUPPORTED.
-% Comments or bugs may be reported to ecai2004@dsic.upv.es
-
+%                       just cleaned up a bit. Gal A. Kaminka, Bar Ilan University
+% January-August 2023 - adaptation to IOS Press book markup by vtex.lt
+% December 2023       - clean-up as well as minor corrections and simplifications
+%                       by Ulle Endriss, University of Amsterdam
+%
 % ----------------------------------------------------------------------
 
 \ProvidesClass{ecai}
-              [2015/09/29 v02 ECAI document class]
-%              [2002/03/06 v01 ECAI-2004 document class]
+              [2023/12/10 v04 ECAI document class]
+%             [2023/08/02 v03.009 ECAI document class]
+%             [2015/09/29 v02 ECAI document class]
+%             [2002/03/06 v01 ECAI-2004 document class]
+
+\usepackage{comment}
+\usepackage[switch]{lineno}
+
 \newcommand\@ptsize{}
 \newif\if@restonecol
 \newif\if@titlepage
@@ -106,6 +108,10 @@
 %      }%
 %   \renewcommand\newblock{\par}}%
 %}
+
+\newif\if@double@blind@
+\DeclareOption{doubleblind}{\@double@blind@true}
+
 \ExecuteOptions{a4paper,twoside,twocolumn,final}
 \ProcessOptions
 
@@ -149,6 +155,10 @@
 \newcommand\LARGE{\@setfontsize\LARGE\@xivpt{18}}
 \newcommand\huge{\@setfontsize\huge\@xviipt{22}}
 \newcommand\Huge{\@setfontsize\Huge\@xxpt{25}}
+
+\usepackage{times}
+\usepackage[T1]{fontenc}
+
 \if@twocolumn
   \setlength\parindent{1em}
 \else
@@ -378,95 +388,468 @@
 %    \let\sectionmark\@gobble
 %    \let\subsectionmark\@gobble
 %}
-%\if@titlepage
-%  \newcommand\maketitle{\begin{titlepage}%
-%  \let\footnotesize\small
-%  \let\footnoterule\relax
-%  \let \footnote \thanks
-%  \null\vfil
-%  \vskip 60\p@
-%  \begin{center}%
-%    {\LARGE \@title \par}%
-%    \vskip 3em%
-%    {\large
-%     \lineskip .75em%
-%      \begin{tabular}[t]{c}%
-%        \@author
-%      \end{tabular}\par}%
-%      \vskip 1.5em%
-%    {\large \@date \par}%       % Set date in \large size.
-%  \end{center}\par
-%  \@thanks
-%  \vfil\null
-%  \end{titlepage}%
-%  \setcounter{footnote}{0}%
-%  \global\let\thanks\relax
-%  \global\let\maketitle\relax
-%  \global\let\@thanks\@empty
-%  \global\let\@author\@empty
-%  \global\let\@date\@empty
-%  \global\let\@title\@empty
-%  \global\let\title\relax
-%  \global\let\author\relax
-%  \global\let\date\relax
-%  \global\let\and\relax
-%}
-%\else
-\newcommand\maketitle{\par
-  \begingroup
-%    \renewcommand\thefootnote{\@fnsymbol\c@footnote}%
-%    The following breaks 1994 latex2e, so we use an older variant
-%    \def\@makefnmark{\rlap{\@textsuperscript{\normalfont\@thefnmark}}}%
-    \def\@makefnmark{\hbox to\z@{$\m@th^{\@thefnmark}$\hss}}%
-%    \long\def\@makefntext##1{\parindent 1em\noindent
-%            \hbox to1.8em{%
-%                \hss\@textsuperscript{\normalfont\@thefnmark}}##1}%
-    \if@twocolumn
-%      \ifnum \col@number=\@ne
-%        \@maketitle
-%      \else
-        \twocolumn[\@maketitle]%
-%      \fi
-    \else
-      \newpage
-      \global\@topnum\z@   % Prevents figures from going at top of page.
-      \@maketitle
+
+%% >>> Frontmatter >>>
+\RequirePackage{etoolbox}
+\RequirePackage{forloop}
+\RequirePackage{url}
+\urlstyle{rm}
+
+\newcounter{author}%
+\edef\authors@ixs{}%
+\edef\footnote@ixs{}%
+\newcounter{foot@note}%
+\setcounter{foot@note}{0}%
+\setcounter{footnote}{0}%
+\edef\orcid@href{https://orcid.org/}%
+\renewcommand\author[2][]{%
+  \bgroup
+    \refstepcounter{author}%
+    \expandafter\gdef\csname author@\the\c@author\endcsname{#2}%
+    \expandafter\gdef\csname author@address@ref@\the\c@author\endcsname{\MakeLowercase{#1}}%
+    %
+    \let\fnms\@gobble
+    \let\snm\@gobble
+    \expandafter\gdef\csname thanks@text@\the\c@author\endcsname{}%
+    \def\thanks##1{\expandafter\gdef\csname thanks@text@\the\c@author\endcsname{##1}}%
+    \renewcommand\footnote[2][]{%
+      \refstepcounter{foot@note}%
+      \expandafter\gdef\csname footnote@text@\the\c@foot@note\endcsname{##2}%
+      \if.##1.\relax
+        \global\refstepcounter{footnote}%
+        \edef\@ix{\the\c@footnote}%
+      \else
+        \edef\@ix{##1}%
+      \fi
+      \expandafter\xdef\csname footnote@ix@\the\c@foot@note\endcsname{\@ix}%
+      \xdef\footnote@ixs{\footnote@ixs,\the\c@foot@note}%
+      }%
+    \renewcommand\footnotemark[1][]{}%
+    \expandafter\gdef\csname orcid@\the\c@author\endcsname{}%
+    \def\orcid##1{\expandafter\gdef\csname orcid@\the\c@author\endcsname{##1}}%
+    \setbox\@tempboxa=\vbox{#2}%
+    %
+    \xdef\authors@ixs{%
+      \if.\authors@ixs.\else
+        \authors@ixs ,%
+      \fi
+      \the\c@author
+      }%
+  \egroup
+  }
+\def\authors@fmt{%
+  \bgroup
+    \let\fnms\@firstofone
+    \let\snm\@firstofone
+    \let\orcid\@gobble
+    \def\thanks@mark{}%
+    \def\@thanks{}%
+    \renewcommand{\thefootnote}{\thanks@mark}%
+    \let\footnote@mark\footnotemark
+    \global\setcounter{footnote}{0}%
+    \@for\@tempa:=\authors@ixs\do{%
+      \ifnum\@tempa>1\relax
+        \ifnum\@tempa=\numexpr\value{author}\relax
+          \space and\space
+        \else
+          ,\space
+        \fi
+      \fi
+      \def\@thanks{}%
+      \def\thanks##1{%
+        \appto\@thanks{%
+          \textsuperscript{\normalfont ,}%
+          \appto\thanks@mark{*}%
+          \raise-2\p@\hbox{\footnote@mark}%
+          \global\addtocounter{footnote}{-1}%
+          }%
+        }%
+      \renewcommand\footnote[2][]{%
+        \appto\@thanks{%
+          \textsuperscript{%
+            \normalfont ,%
+            \if.##1.\relax
+              \global\refstepcounter{footnote}%
+              \the\c@footnote
+            \else
+              $##1$%
+            \fi
+            }%
+          }%
+        }%
+      \renewcommand\footnotemark[1][]{%
+        \appto\@thanks{%
+          \textsuperscript{%
+            \normalfont ,%
+            \if.##1.\relax
+              \the\c@footnote
+            \else
+              $##1$%
+            \fi
+            }%
+          }%
+        }%
+      \csname author@\@tempa\endcsname
+      \textsuperscript{\normalfont\csname author@address@ref@\@tempa\endcsname}%
+      \@thanks
+      }%
+  \egroup
+  }%
+\newcounter{orcids}%
+\def\orcids@fmt{%
+  \bgroup
+    \setcounter{orcids}{0}%
+    \@for\@tempa:=\authors@ixs\do{%
+      \edef\@orcid{\csname orcid@\@tempa\endcsname}%
+      \if*\@orcid*\else
+        \refstepcounter{orcids}%
+      \fi
+      }%
+    \ifnum\value{orcids}>0\relax
+      %ORCID:
+      \let\fnms\@firstofone
+      \let\snm\@firstofone
+      \let\orcid\@gobble
+      \let\thanks\@gobble
+      \renewcommand\footnote[2][]{}%
+      \renewcommand\footnotemark[1][]{}%
+      \edef\orcid@delim{}%
+      \@for\@tempa:=\authors@ixs\do{%
+        \edef\@orcid{\csname orcid@\@tempa\endcsname}%
+        \if*\@orcid*\else
+          \orcid@delim
+          ORCID
+          (\csname author@\@tempa\endcsname):
+          ~%
+          \edef\@full@orcid{\orcid@href\@orcid}%
+          \expandafter\url\expandafter{\@full@orcid}%
+          \edef\orcid@delim{, }%
+        \fi
+        }%
     \fi
-    \thispagestyle{empty}\@thanks
-  \endgroup
-%  \setcounter{footnote}{0}%
-  \global\let\thanks\relax
-  \global\let\maketitle\relax
-  \global\let\@maketitle\relax
-  \global\let\@thanks\@empty
-  \global\let\@author\@empty
-  \global\let\@date\@empty
-  \global\let\@title\@empty
-  \global\let\title\relax
-  \global\let\author\relax
-  \global\let\date\relax
-  \global\let\and\relax
-}
-\newcommand{\institute}[1]{\thanks{#1}}
-\def\@maketitle{%
-  \newpage
-  \null
-%  \vskip 2em%
-  \begin{center}%
-  \let \footnote \thanks
-    {\tit@mysize\bfseries \@title \par}%
-    \vskip 1.5em%
-    {\aut@mysize\bfseries
-%      \lineskip .5em%
-      \begin{tabular}[t]{c}%
-        \@author
-      \end{tabular}\par}%
-%    \vskip 1em%
-%    {\large \@date}%
-  \end{center}%
-  \par
-  \vskip 1.5em}
+  \egroup
+  }%
+
+\newcounter{address}%
+\edef\addresses@ixs{}%
+\newcommand\address[2][]{%
+  \refstepcounter{address}%
+  \expandafter\def\csname address@\the\c@address\endcsname{#2}%
+  \expandafter\def\csname address@ref@\the\c@address\endcsname{\MakeLowercase{#1}}%
+  %
+  \edef\addresses@ixs{%
+    \if.\addresses@ixs.\else
+      \addresses@ixs ,%
+    \fi
+    \the\c@address
+    }%
+  }
+\def\addresses@fmt{%
+  \bgroup
+    %\let\institution\@firstofone
+    %\let\cny\@firstofone
+    \@for\@tempa:=\addresses@ixs\do{%
+      \textsuperscript{\normalfont\csname address@ref@\@tempa\endcsname}%
+      \csname address@\@tempa\endcsname
+      \\
+      }%
+  \egroup
+  }%
+
+%\newcommand{\institute}[1]{\thanks{#1}}
+
+%\if@titlepage
+%  \newcommand\maketitle{%
+%    \begin{titlepage}%
+%    \let\footnotesize\small
+%    \let\footnoterule\relax
+%    \let \footnote \thanks
+%    \null\vfil
+%    \vskip 60\p@
+%    \begin{center}%
+%      {\LARGE \@title \par}%
+%    \end{center}%
+%    \vskip 3em%
+%    }%
+%  \newcommand\makeauthors{%
+%    \begin{center}%
+%      {\large
+%       \lineskip .75em%
+%        \begin{tabular}[t]{c}%
+%          \@author
+%        \end{tabular}\par}%
+%        \vskip 1.5em%
+%      {\large \@date \par}%       % Set date in \large size.
+%    \end{center}%
+%    \par
+%    \@thanks
+%    \vfil\null
+%    \end{titlepage}%
+%    \setcounter{footnote}{0}%
+%    \global\let\thanks\relax
+%    \global\let\maketitle\relax
+%    \global\let\@thanks\@empty
+%    \global\let\@author\@empty
+%    \global\let\@date\@empty
+%    \global\let\@title\@empty
+%    \global\let\title\relax
+%    \global\renewcommand\author[2][]{}%
+%    \global\let\date\relax
+%    \global\let\and\relax
+%    }
+%\else
+  \def\@maketitle{%
+    \newpage
+    \null
+%    \vskip 2em%
+    \begin{center}%
+      {%
+        \tit@mysize\bfseries
+        \@title
+        \par
+      }%
+    \end{center}%
+    }%
+  \newcommand\maketitle{%
+    \par
+    \begingroup
+%      \renewcommand\thefootnote{\@fnsymbol\c@footnote}%
+%      The following breaks 1994 latex2e, so we use an older variant
+%      \def\@makefnmark{\rlap{\@textsuperscript{\normalfont\@thefnmark}}}%
+      \def\@makefnmark{\hbox to\z@{$\m@th^{\@thefnmark}$\hss}}%
+%      \long\def\@makefntext##1{\parindent 1em\noindent
+%              \hbox to1.8em{%
+%                  \hss\@textsuperscript{\normalfont\@thefnmark}}##1}%
+%      \if@twocolumn
+%%        \ifnum \col@number=\@ne
+%%          \@maketitle
+%%        \else
+%          \twocolumn[\@maketitle]%
+%%        \fi
+%      \else
+%        \newpage
+%        \global\@topnum\z@   % Prevents figures from going at top of page.
+        \@maketitle
+%      \fi
+    \endgroup
+    \global\let\maketitle\relax
+    \global\let\@maketitle\relax
+    \global\let\@title\@empty
+    \global\let\title\relax
+    }%
+  %
+  \def\@makeauthors{%
+    %\vskip 1.5em%
+    %\let \footnote \thanks
+    \begin{center}%
+      {%
+        \aut@mysize\bfseries
+%        \lineskip .5em%
+        %\begin{tabular}[t]{c}%
+          \authors@fmt
+        %\end{tabular}
+        \par
+      }%
+    \end{center}%
+    %\par
+    %\vskip 1.5em%
+    }%
+  \newcommand\makeauthors{%
+    \begingroup
+      \@makeauthors
+      \thispagestyle{empty}%
+      \@thanks
+    \endgroup
+%    \setcounter{footnote}{0}%
+    \global\let\thanks\@gobble
+    \global\let\@thanks\@empty
+    \global\let\@author\@empty
+    \global\renewcommand\author[2][]{}%
+    \global\let\and\relax
+    }%
+  %
+  \def\makeaddresses{%
+    %\vskip 1.5em%
+    %\begin{center}%
+      \bgroup
+        \aut@mysize
+%        \lineskip .5em%
+        %\begin{tabular}[t]{c}%
+          \addresses@fmt
+        %\end{tabular}%
+        %\par
+      \egroup
+    %\end{center}%
+    %\par
+    %\vskip 1.5em%
+    }%
+  %
+  \def\makeorcids{%
+    %\begin{center}%
+      \bgroup
+        \aut@mysize
+        \orcids@fmt
+        \par
+      \egroup
+    %\end{center}%
+    %\par
+    \vskip 3em%\vskip 1.5em%
+    }%
+  %
+%  \def\@makedate{%
+%    \begin{center}%
+%      \vskip 1em%
+%      {\large \@date}%
+%      \par
+%    \end{center}%
+%    }%
+%  \newcommand\makedate{%
+%    \begingroup
+%      \@makedate
+%    \endgroup
+%    \global\let\@date\@empty
+%    \global\let\date\relax
+%    }%
 %\fi
+
+\def\paperid@fmt{%
+  \ifdefined\@paperid
+    Paper \#\@paperid
+  \else
+    [use \texttt{{\textbackslash}paperid\{...\}} to specify your paper submission number]
+  \fi
+  }
+\def\makepaperid{%
+  %\begin{center}%
+    \bgroup
+      \aut@mysize
+      \paperid@fmt
+    \egroup
+  %\end{center}%
+  \vskip 3em%\vskip 1.5em%
+  }
+
+%\if@titlepage
+%  \newenvironment{abstract}{%
+%      \titlepage
+%      \null\vfil
+%      \@beginparpenalty\@lowpenalty
+%      \begin{center}%
+%        \bfseries \abstractname
+%        \@endparpenalty\@M
+%        \par
+%      \end{center}%
+%    }{%
+%      \par\vfil\null\endtitlepage
+%    }
+%\else
+  \newenvironment{abstract@contents}{%
+      \if@twocolumn
+        {\parindent 0mm\bf \abstractname.\hspace{3pt}}
+%        \section*{\abstractname}%
+      \else
+        \small
+        \begin{center}%
+          {%
+            \bfseries
+            \abstractname
+            \vspace{-.5em}\vspace{\z@}%
+            \par
+          }%
+        \end{center}%
+        \quotation
+      \fi
+    }{%
+      \if@twocolumn\else\endquotation\fi
+    }
+%\fi
+\newbox\abstract@box
+\newenvironment{abstract}{%
+    \global\setbox\abstract@box=\vbox\bgroup
+      \begin{abstract@contents}%
+  }{%
+      \end{abstract@contents}%
+    \egroup
+  }%
+
+\RequirePackage{environ}
+\NewEnviron{frontmatter}{%
+  \let\document@frontmatter\BODY
+  %
+  \document@frontmatter
+  %
+  \if@twocolumn
+%    \ifnum \col@number=\@ne
+%      \maketitle
+%      \makeauthors
+%      \begin{center}%
+%        \makeaddresses
+%        \makeorcids
+%        %\makedate
+%      \end{center}%
+%    \else
+      \twocolumn[%
+        \maketitle
+        \if@double@blind@\else
+          \makeauthors
+        \fi
+        \begin{center}%
+          \if@double@blind@
+            \makepaperid
+          \else
+            \makeaddresses
+            \makeorcids
+            %\makedate
+          \fi
+        \end{center}%
+        ]%
+%    \fi
+  \else
+    \newpage
+    \global\@topnum\z@   % Prevents figures from going at top of page.
+    \maketitle
+    \makeauthors
+    \begin{center}%
+      \makeaddresses
+      \makeorcids
+      %\makedate
+    \end{center}%
+  \fi
+  %
+% \setcounter{footnote}{0}%
+  \bgroup
+    \def\thanks@mark{}%
+    \renewcommand{\thefootnote}{\thanks@mark}%
+    % \@makefntext #1->\ifnum \thefootnote <10\hangindent 7pt\else \hangindent 9pt\fi $^{\rm \@thefnmark }$ #1
+    \def\@makefntext##1{$^{\rm \@thefnmark }$ ##1}%
+    \if@double@blind@\else
+      \@for\@tempa:=\authors@ixs\do{%
+        \expandafter\if.\csname thanks@text@\@tempa\endcsname.\else
+          %\refstepcounter{footnote}%
+          \appto\thanks@mark{*}%
+          %\footnotetext[\thanks@mark]{\csname thanks@text@\@tempa\endcsname}%
+          \footnotetext{\csname thanks@text@\@tempa\endcsname}%
+        \fi
+        }%
+      \@for\@tempa:=\footnote@ixs\do{%
+        \expandafter\if.\csname footnote@text@\@tempa\endcsname.\else
+          \expandafter\ifx\csname footnote@text@\@tempa\endcsname\relax\else
+            %\refstepcounter{footnote}%
+            \def\thanks@mark{\csname footnote@ix@\@tempa\endcsname}%
+            %\footnotetext[\thanks@mark]{\csname footnote@text@\@tempa\endcsname}%
+            \footnotetext{\csname footnote@text@\@tempa\endcsname}%
+          \fi
+        \fi
+        }%
+    \fi
+  \egroup
+% \setcounter{footnote}{0}%
+
+  \hskip-10\p@
+  \usebox\abstract@box
+  }%
+%% <<< Frontmatter <<<
+
 \setcounter{secnumdepth}{3}
 \newcounter {part}
 \newcounter {section}
@@ -512,26 +895,27 @@
      \nobreak
      \vskip 3ex
      \@afterheading}
-\newcommand\section{\@startsection {section}{1}{\z@}%
+\newcommand\section{\@startsection{section}{1}{\z@}%
                                    {-16.5\p@ \@plus -5\p@ \@minus -3\p@}%
                                    {5.5\p@ \@plus5\p@}%
                                    {\normalfont\seca@mysize\bfseries\raggedright}}
 \newcommand\subsection{\@startsection{subsection}{2}{\z@}%
                                    {-16.5\p@ \@plus -5\p@ \@minus -3\p@}%
                                    {5.5\p@ \@plus5\p@}%
-                                   {\normalfont\secb@mysize\bfseries\raggedright}}
+                                   {\normalfont\secb@mysize\itshape\raggedright}}
 \newcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
                                    {-16.5\p@ \@plus -5\p@ \@minus -3\p@}%
                                    {5.5\p@ \@plus5\p@}%
                                    {\normalfont\secc@mysize\itshape\raggedright}}
-\newcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
-                                    {3.25ex \@plus1ex \@minus.2ex}%
+\newcommand\paragraph{\@startsection{paragraph}{4}{-0.52ex}% % hack to get indentation of paragraphs right
+                                   {1ex \@plus1ex \@minus .2ex}%
+                                   {-1em}%
+                                   {\normalfont\normalsize\bfseries}}
+\newcommand\subparagraph{\@startsection{subparagraph}{5}{\parindent}%
+                                    {1ex \@plus1ex \@minus .2ex}%
                                     {-1em}%
                                     {\normalfont\normalsize\bfseries}}
-\newcommand\subparagraph{\@startsection{subparagraph}{5}{\parindent}%
-                                       {3.25ex \@plus1ex \@minus .2ex}%
-                                       {-1em}%
-                                      {\normalfont\normalsize\bfseries}}
+
 \if@twocolumn
   \setlength\leftmargini  {10\p@}
 \else
@@ -575,30 +959,6 @@
                {\endlist}
 \newcommand*\descriptionlabel[1]{\hspace\labelsep
                                 \normalfont\bfseries #1}
-%\if@titlepage
-%  \newenvironment{abstract}{%
-%      \titlepage
-%      \null\vfil
-%      \@beginparpenalty\@lowpenalty
-%      \begin{center}%
-%        \bfseries \abstractname
-%        \@endparpenalty\@M
-%      \end{center}}%
-%     {\par\vfil\null\endtitlepage}
-%\else
-  \newenvironment{abstract}{%
-      \if@twocolumn
-        {\parindent 0mm\bf \abstractname.\hspace{3pt}}
-%        \section*{\abstractname}%
-      \else
-        \small
-        \begin{center}%
-          {\bfseries \abstractname\vspace{-.5em}\vspace{\z@}}%
-        \end{center}%
-        \quotation
-      \fi}
-      {\if@twocolumn\else\endquotation\fi}
-%\fi
 \newenvironment{verse}
                {\let\\\@centercr
                 \list{}{\itemsep      \z@
@@ -670,7 +1030,7 @@
 \def\fnum@figure{\figurename~\thefigure}
 \newenvironment{figure}
                {\@float{figure}}
-               {\end@float}
+               {\vspace*{-3ex}\end@float} % vertical space hack to get similar spacing as for tables, where captions are on top
 \newenvironment{figure*}
                {\@dblfloat{figure}}
                {\end@dblfloat}
@@ -680,16 +1040,22 @@
 \def\ftype@table{2}
 \def\ext@table{lot}
 \def\fnum@table{\tablename~\thetable}
-\newenvironment{table}
-               {\@float{table}\tabsize}
-               {\end@float}
-\newenvironment{table*}
-               {\@dblfloat{table}}
-               {\end@dblfloat}
+\newenvironment{table}[1][]{%
+    \@float{table}[#1]%
+    \tabsize
+  }{%
+    \end@float
+  }
+\newenvironment{table*}[1][]{%
+    \@dblfloat{table}[#1]%
+    \tabsize
+  }{%
+    \end@dblfloat
+  }
 \newlength\abovecaptionskip
 \newlength\belowcaptionskip
-\setlength\abovecaptionskip{6\p@}
-\setlength\belowcaptionskip{2\p@}
+\setlength\abovecaptionskip{0\p@} % was 6, producing too much space
+\setlength\belowcaptionskip{-8\p@} % was 2, producing too much space
 \long\def\@makecaption#1#2{%
   \vskip\abovecaptionskip
   \sbox\@tempboxa{{\captsize{\bfseries #1.}\quad #2\normalsize}}%
@@ -700,6 +1066,7 @@
     \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
   \fi
   \vskip\belowcaptionskip}
+
 \DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
 \DeclareOldFontCommand{\sf}{\normalfont\sffamily}{\mathsf}
 \DeclareOldFontCommand{\tt}{\normalfont\ttfamily}{\mathtt}
@@ -824,7 +1191,7 @@
 \newcommand\contentsname{Contents}
 \newcommand\listfigurename{List of Figures}
 \newcommand\listtablename{List of Tables}
-\newcommand\refname{REFERENCES}
+\newcommand\refname{References}
 \newcommand\indexname{Index}
 \newcommand\figurename{Figure}
 \newcommand\tablename{Table}
@@ -875,9 +1242,12 @@
     \@dblmaxsep 20pt
 \fi
 
-% for acknowledgements
-\def\acknowledgements{\section*{\bf ACKNOWLEDGEMENTS}}
-\def\ack{\acknowledgements}
+% acknowledgements: omit when doubleblind option is used
+\if@double@blind@
+  \excludecomment{ack}
+\else
+  \newenvironment{ack}{\section*{Acknowledgements}}{}
+\fi
 
 \def\lquotation{\list{}{\listparindent 1.5em
  \setlength{\rightmargin}{1true cm}
@@ -900,15 +1270,24 @@
     \@parboxrestore
     \captsize
     \begin{center}
-    \@makecaption{\csname fnum@#1\endcsname}{\ignorespaces #3}\par
+      \@makecaption{\csname fnum@#1\endcsname}{\ignorespaces #3}%
+      \par
     \end{center}
   \endgroup}
 
-% support page numbers during submission phase
+% show page numbers in doubleblind mode
 \gdef\@myfinalfoot{}
-\def\ecaisubmission{%
-\gdef\@myfinalfoot{\normalsize\hfill\thepage\hfill}
-}
+\if@double@blind@
+  \gdef\@myfinalfoot{\normalsize\hfill\thepage\hfill}%
+\fi
+
+% show line numbers in doublind mode
+\if@double@blind@
+  \linenumbers
+\fi
+
+% paper id
+\def\paperid#1{\def\@paperid{#1}}
 
 %section title
 \def\sectionfoot#1{\gdef\@sectionfoot{#1}}
@@ -916,20 +1295,13 @@
 % author name
 \def\authorfoot#1{\gdef\@authorfoot{#1}}
 
-% defaults to empty footer for ECAI2004
-% IOS will insert footers
+% IOS Press will insert footers
 \sectionfoot{}
 \authorfoot{}
 
 % Supply start page for each paper
-
 \def\ecai#1{
 \setcounter{page}{#1}
-\gdef\@myauth{\footsize\copyright\ 2004 \@authorfoot}
-\gdef\@myref{\footsize ECAI 2004. {\it 16th European Conference on
-  Artificial Intelligence\/}}
-\gdef\@myedit{\footsize Edited by Frank van Harmelen}
-\gdef\@mycopyright{\footsize Published in 2004 by IOS Press}
 }
 
 %Set page counter to one by default
@@ -948,6 +1320,12 @@
 \hbox to \textwidth{\noindent \@myref\hfill}
 \hbox to \textwidth{\noindent \@myedit\hfill}
 \hbox to \textwidth{\noindent \@mycopyright \hfill}}}
+
+% bibliography style
+\usepackage[numbers]{natbib}
+\renewcommand{\bibfont}{\footnotesize}
+\bibliographystyle{abbrvnat}
+%\bibliographystyle{ecai}
 
 %***************************************
 %Pagestyle to give correct page depth for second and subsequent pages
@@ -972,16 +1350,15 @@
 \thispagestyle{ecaifirst}
 \textheight\ftextheight
 
-\newtheorem{theorem}{Theorem}
-
+%\newtheorem{theorem}{Theorem}
 %List within theorem
-\newcounter{theoremlistno}
-\newenvironment{theoremlist}{%
-\begin{list}{\arabic{theoremlistno}.}{\usecounter{theoremlistno}
-  \setlength{\leftmargin}{10pt}
-  \setlength{\labelsep}{6pt}
-  \setlength{\labelwidth}{6pt}
-  \sl}}
-{\end{list}}
+%\newcounter{theoremlistno}
+%\newenvironment{theoremlist}{%
+%\begin{list}{\arabic{theoremlistno}.}{\usecounter{theoremlistno}
+%  \setlength{\leftmargin}{10pt}
+%  \setlength{\labelsep}{6pt}
+%  \setlength{\labelwidth}{6pt}
+%  \sl}}
+%{\end{list}}
 
 \endinput
