@@ -1,0 +1,198 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% LaTeX Template for ECAI Papers
+%%% Prepared by Ulle Endriss (version 1.0 of 2023-12-10)
+
+%%% To be used with the ECAI class file ecai.cls.
+%%% You also will need a bibliography file (such as mybibfile.bib).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Start your document with the \documentclass{} command.
+%%% Use the first variant for the camera-ready paper.
+%%% Use the second variant for submission (for double-blind reviewing).
+
+\documentclass{ecai}
+%\documentclass[doubleblind]{ecai}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Load any packages you require here.
+
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{color}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Define any theorem-like environments you require here.
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{definition}{Definition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Define any new commands you require here.
+
+\newcommand{\BibTeX}{B\kern-.05em{\sc i\kern-.025em b}\kern-.08em\TeX}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frontmatter}
+
+%%% Use this command to specify your submission number.
+%%% In doubleblind mode, it will be printed on the first page.
+
+\paperid{123}
+
+%%% Use this command to specify the title of your paper.
+
+\title{Guidelines for Preparing a Paper for the \\
+European Conference on Artificial Intelligence}
+
+%%% Use this combinations of commands to specify all authors of your
+%%% paper. Use \fnms{} and \snm{} to indicate everyone's first names
+%%% and surname. This will help the publisher with indexing the
+%%% proceedings. Please use a reasonable approximation in case your
+%%% name does not neatly split into "first names" and "surname".
+%%% Specifying your ORCID digital identifier is optional.
+%%% Use the \thanks{} command to indicate one or more corresponding
+%%% authors and their email address(es). If so desired, you can specify
+%%% author contributions using the \footnote{} command.
+
+\author[A]{\fnms{First}~\snm{Author}\orcid{....-....-....-....}\thanks{Corresponding Author. Email: somename@university.edu.}\footnote{Equal contribution.}}
+\author[B]{\fnms{Second}~\snm{Author}\orcid{....-....-....-....}\footnotemark}
+\author[B,C]{\fnms{Third}~\snm{Author}\orcid{....-....-....-....}}
+
+\address[A]{Short Affiliation of First Author}
+\address[B]{Short Affiliation of Second Author and Third Author}
+\address[C]{Short Alternate Affiliation of Third Author}
+
+%%% Use this environment to include an abstract of your paper.
+
+\begin{abstract}
+This document outlines the formatting instructions for submissions to
+the European Conference on Artificial Intelligence (ECAI).
+Use the source file as a template when writing your own paper.
+The abstract of your paper should be a short and accessible summary
+of your contribution, preferably no longer than 200 words.
+It should not include any references to the bibliography.
+\end{abstract}
+
+\end{frontmatter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+
+The European Conference of Artificial Intelligence (ECAI) is the leading
+discipline-wide conference on AI in Europe. Its history goes back all
+the way to the Summer Conference on Artificial Intelligence and
+Simulation of Behaviour held in July 1974 in Brighton. Nowadays, ECAI is
+organised annually under the auspices of the European Association for
+Artificial Intelligence (EurAI, see Figure~\ref{fig:eurai}).
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=2.5cm]{eurai}
+\caption{Logo of the European Association for Artificial Intelligence.}
+\label{fig:eurai}
+\end{figure}
+
+Your paper should be typeset in \LaTeX, using the ECAI class file
+provided (\texttt{ecai.cls}). Please do not modify the class file or
+any of the layout parameters.
+
+For instructions on how to submit your work to ECAI and on matters such
+as page limits or referring to supplementary material, please consult
+the Call for Papers of the next edition of the conference. Keep in mind
+that you must use the \texttt{doubleblind} option for submission.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Typeset section headers in sentence case}
+
+You presumably are already familiar with the use of \LaTeX. But let
+us still have a quick look at how to typeset a simple equation:
+%
+\begin{eqnarray}\label{eq:vcg}
+p_i(\boldsymbol{\hat{v}}) & = &
+\sum_{j \neq i} \hat{v}_j(f(\boldsymbol{\hat{v}}_{-i})) -
+\sum_{j \neq i} \hat{v}_j(f(\boldsymbol{\hat{v}}))
+\end{eqnarray}
+%
+Use the usual combination of \verb|\label{}| and \verb|\ref{}| to
+refer to numbered equations, such as Equation~(\ref{eq:vcg}).
+Next, a theorem:
+
+\begin{theorem}[Fermat, 1637]\label{thm:fermat}
+No triple $(a,b,c)$ of natural numbers satisfies the equation
+$a^n + b^n = c^n$ for any natural number $n > 2$.
+\end{theorem}
+
+\begin{proof}
+A full proof can be found in the supplementary material.
+\end{proof}
+
+Table captions should be centred \emph{above} the table, while figure
+captions should be centred \emph{below} the figure.\footnote{Footnotes
+should be placed \emph{after} punctuation marks (such as full stops).}
+
+\begin{table}[h]
+\caption{Locations of selected conference editions.}
+\centering
+\begin{tabular}{ll@{\hspace{8mm}}ll}
+\toprule
+AISB-1980 & Amsterdam & ECAI-1990 & Stockholm \\
+ECAI-2000 & Berlin & ECAI-2010 & Lisbon \\
+ECAI-2020 & \multicolumn{3}{l}{Santiago de Compostela (online)} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Citations and references}
+
+Include full bibliographic information for everything you cite,
+be it a book \citep{pearl2009causality}, a journal article
+\citep{grosz1996collaborative,rumelhart1986learning,turing1950computing},
+a conference paper \citep{kautz1992planning}, or a preprint
+\citep{perelman2002entropy}. The citations in the previous sentence are
+known as \emph{parenthetical} citations, while this reference to the
+work of \citet{turing1950computing} is an \emph{in-text} citation.
+The use of \BibTeX\ is highly recommended.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Use this environment to include acknowledgements (optional).
+%%% This will be omitted in doubleblind mode.
+
+\begin{ack}
+By using the \texttt{ack} environment to insert your (optional)
+acknowledgements, you can ensure that the text is suppressed whenever
+you use the \texttt{doubleblind} option. In the final version,
+acknowledgements may be included on the extra page intended for references.
+\end{ack}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Use this command to include your bibliography file.
+
+\bibliography{mybibfile}
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
