@@ -93,27 +93,19 @@
 clean-submission:
 	-rm -rf *.submission *.tar.gz *.zip
 
-submission: $(name).submission supplemental.submission
+submission: $(name).submission
 
-archive: $(name).submission supplemental.submission
+archive: $(name).submission
 	@echo "submission.mk: creating a camera-ready submission archive (tar.gz, zip) WITHOUT style files (use 'make arxiv' instead to include them)"
-	-rm *.submission/*.sty *.submission/*.bst
-	-rm $(name).tar.gz
-	cd $(name).submission ; tar cvf ../$(name).tar *
-	cd supplemental.submission ; tar rvf ../$(name).tar *
-	gzip $(name).tar
-	-rm $(name).zip
+	-rm $(name).submission/*.{sty,bst}
+	-rm $(name).{tar.gz,zip}
+	cd $(name).submission ; tar cvzf ../$(name).tar.gz *
 	cd $(name).submission ; zip -r ../$(name).zip *
-	cd supplemental.submission ; zip -r ../$(name).zip *
 
 
-arxiv: $(name).submission supplemental.submission
+arxiv: $(name).submission
 	@echo "submission.mk: creating an Arxiv submission (tar.gz, zip) WITH style files (use 'make archive' instead to exclude them)"
-	-rm $(name).tar.gz
-	cd $(name).submission ; tar cvf ../$(name).tar *
-	cd supplemental.submission ; tar rvf ../$(name).tar *
-	gzip $(name).tar
-	-rm $(name).zip
+	-rm $(name).{tar.gz,zip}
+	cd $(name).submission ; tar cvzf ../$(name).tar.gz *
 	cd $(name).submission ; zip -r ../$(name).zip *
-	cd supplemental.submission ; zip -r ../$(name).zip *
 

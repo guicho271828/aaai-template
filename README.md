@@ -23,6 +23,16 @@ Note that it is developed and tested on Fedora Linux.
 + The camera-ready script detects `minted` package and runs `make` multiple times
   with finalizecache/frozencache options to avoid `--shell-escape` issue.
 
+**Update (2024/05/07):**
+
++ We slightly altered how the appendix is generated.
+  Now, it builds two versions of appendix:
+  1. First, it is included in the main paper by default, following the convention in ICLR, ICML, etc.
+     Arxiv submission, which requires a single tex source file, also uses this version.
+  2. Second, it also generates `standalone-supplement.pdf` that has its own title,
+     following the convention in AAAI, IJCAI, etc.
+
+
 [![example](./example.png)](./example.pdf)
 
 # File structure
@@ -55,10 +65,12 @@ Note that it is developed and tested on Fedora Linux.
         * → `styles/official/*.sty`
           * Official style files provided by the conference/journals.
     * → `body.tex`
-      * The text inside `\begin{document}`--`\end{document}` for `main.tex`.
+      * The text between `\begin{document}`--`\appendix` for `main.tex`.
         This is the file you will spend most of the time editing.
-* `supplemental.tex`
-  * Toplevel file for the supplementary material. Unlike the main paper, there is no separation of preamble.
+    * → `supplemental.tex`
+      * The text between `\appendix`--`\end{document}` for `main.tex`.
+* `standalone-supplement.tex`
+  * Toplevel file for the stand-alone supplementary material for AAAI, IJCAI, etc. that has its own title and author.
   * `supplemental.tex` and `main.tex` can cross-reference
     the figures, tables and sections each other using `xr` package.
   * This file has a separate `\maketitle` for some conferences
