@@ -15,13 +15,6 @@ $(name).tex: Makefile
 
 $(name).log $(name).fls: $(name).pdf
 
-# build a pygstyle file through finalizecache option of minted package
-%.pygstyle: $(sources)
-	touch $*.needpyg
-	rm $*.pdf
-	$(MAKE) $*.pdf
-	rm $*.needpyg
-
 %.pdf: %.tex imgs $(sources)
 	-$(latexmk) -pdf \
 		   -latexoption="-halt-on-error -shell-escape" \
