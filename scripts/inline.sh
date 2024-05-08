@@ -47,7 +47,7 @@ awk -f $script_dir/remove-comment.awk $tex > $tmp
 cp $tmp $tex
 
 echo "$(basename $0): Checking all \\input / \\bibliography commands are at the beginning/end of line"
-$script_dir/inline-check.sh $tex || exit 1
+bash $script_dir/inline-check.sh $tex || exit 1
 
 echo "$(basename $0): replacing pathnames:" $(cat $subm_fromto | while read f t ; do echo -n "$f $t " ; done)
 replace $subm_fromto $tmp
@@ -65,7 +65,7 @@ do
     cp $tmp $tex
 
     echo "$(basename $0): Checking all \\input / \\bibliography commands are at the beginning/end of line"
-    $script_dir/inline-check.sh $tex || exit 1
+    bash $script_dir/inline-check.sh $tex || exit 1
 
     echo "$(basename $0): replacing pathnames:" $(cat $subm_fromto | while read f t ; do echo -n "$f $t " ; done)
     replace $subm_fromto $tmp
