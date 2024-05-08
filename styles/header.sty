@@ -95,7 +95,7 @@
     \usepackage[finalizecache,cachedir=.]{minted}%
   }{%
     % standard build
-    \usepackage{minted}%
+    \usepackage[cachedir=.]{minted}% note: the cachedir must be same as finalizecache / frozencache because we parse .fls file from the standard build to extract the path
   }%
 }{%
   % submission build
