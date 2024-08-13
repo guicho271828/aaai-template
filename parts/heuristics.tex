@@ -1,11 +1,10 @@
 % In this section, we discuss various approximations of delete-relaxed optimal cost $h^+(s)$.
 
-A domain-independent heuristic function $h$ in classical planning is
-a function of a state $s$ and the problem $\brackets{P,A,I,G}$,
-but the notation $h(s)$ usually omits the latter.
-In addition to what we discussed in the main article, this section also uses a notation $h(s,G)$.
-It returns an estimate of the cumulative cost from $s$ to one of the goal states (states that satisfy $G$),
+Given a problem $\brackets{P,A,I,G}$ and a state $s$,
+a domain-independent heuristic function $h(s, \brackets{P,A,I,G})$
+returns an estimate of the cumulative cost from $s$ to one of the goal states (states that satisfy $G$),
 typically through a symbolic, non-statistical means including problem relaxation and abstraction.
+It is often abbreviated as $h(s)$ or $h(s,G)$.
 Notable \lsota functions that appear in this paper includes
 $\ff, \hmax, \ad, \gc$ \cite{hoffmann01,bonet2001planning,FikesHN72}.
 
