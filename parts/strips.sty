@@ -169,10 +169,9 @@ $a(s) = \applyformula$.
 \else
 $a(s)$.
 To compute $a(s)$, we first obtain a non-derived state
-$a'(s) = \applyformula \setminus P_X $.
-Then we perform a fix-point calculation such that
-$s \gets s \cup \braces{p \in P_X \mid (f\Rightarrow p)\in X \land s \satisfies f}$
-where $s$ is initialized to $a'(s)$.
+$s' \gets \applyformula \setminus P_X $.
+Then we perform a fix-point calculation
+$s' \gets s' \cup \braces{p \in P_X \mid (f\Rightarrow p)\in X \land s \satisfies f}$.
 \fi
 
 The task of classical planning is to find a sequence of actions called a \emph{plan} $(\ga_1,\cdots,\ga_n)$
