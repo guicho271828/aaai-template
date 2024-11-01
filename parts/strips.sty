@@ -186,6 +186,14 @@ where, for $1\leq t\leq n$,
    there is no plan with lower cost $\sum_t \cost(a_t)$.
  \fi
  A plan is otherwise called \emph{satisficing}.
+ In particular, a problem setting that completely ignores the solution quality is called \emph{agile} setting,
+ while \emph{satisficing} setting implies that the solver still attempts to find a
+ \if\@usecost0
+   shorter
+ \else
+   cheaper
+ \fi
+ plan.
  \if\@usecost1
   \if\@unitcost1
   In this paper, we assume unit-cost: $\forall a\in A; \cost(a)=1$.
