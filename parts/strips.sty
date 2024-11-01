@@ -9,6 +9,8 @@
 \define@key{strips}{derived-predicates}[1]{\def\@useaxiom{#1}}
 \define@key{strips}{lifted}[1]{\def\@lifted{#1}}
 \define@key{strips}{optimal}[1]{\def\@optimal{#1}}
+\define@key{strips}{satisficing}[1]{\def\@satisficing{#1}}
+\define@key{strips}{agile}[1]{\def\@agile{#1}}
 \define@key{strips}{unitcost}[1]{\def\@unitcost{#1}}
 
 \def\conditionset{
@@ -185,15 +187,19 @@ where, for $1\leq t\leq n$,
  \else
    there is no plan with lower cost $\sum_t \cost(a_t)$.
  \fi
- A plan is otherwise called \emph{satisficing}.
- In particular, a problem setting that completely ignores the solution quality is called \emph{agile} setting,
- while \emph{satisficing} setting implies that the solver still attempts to find a
- \if\@usecost0
-   shorter
- \else
-   cheaper
+ \if\@satisficing1
+   A plan is otherwise called \emph{satisficing}.
+   \if\@agile1
+     In particular, a problem setting that completely ignores the solution quality is called \emph{agile} setting,
+     while \emph{satisficing} setting implies that the solver still attempts to find a
+     \if\@usecost0%
+       shorter
+     \else%
+       cheaper
+     \fi
+     plan.
+   \fi
  \fi
- plan.
  \if\@usecost1
   \if\@unitcost1
   In this paper, we assume unit-cost: $\forall a\in A; \cost(a)=1$.
