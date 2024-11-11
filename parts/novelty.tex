@@ -1,0 +1,44 @@
+
+Novelty metric can be seen as a soft approximation of the close list:
+It tries to rank states
+by checking how dissimilar a newly generated state is from the set of states that have been generated before.
+The metric is defined as the minimum size of the conjunctions of propositions that have never been true
+in a set of states generated before.
+%
+Since computing the novelty with large conjunctions requires an exponentially large storage,
+practical implementations restrict the size of conjunctions (thus the maximum value of the metric) to two,
+or tries to approximate the compuation through a bloom filter \cite{singh2021approximate}.
+We choose the first approach to reduce the implementation effort,
+where the novelty is limited to 1, 2, or \emph{larger than} 2.
+
+In practice,
+the novelty metric is not measured on the entire set of states generated before,
+but rather on its disjoint subsets called the \emph{plateaus} \citet{Asai2017b}
+defined by the \emph{type system} \citet{xie14type}.
+%
+A set of evaluators $\vf=[f_1, f_2, \ldots]$ of a state $s$,
+where each $f_i(s)$ evaluates to a number,
+is called a \emph{type}.
+% These evaluators may include $g$-values, etc, that may not be pure functions or heuristic functions.
+A \emph{plateau} is a set of states that evaluates to the same vector.
+Heuristic search often gets stuck in a large heuristic plateau without progress,
+thus escaping from plateaus via exploration mechanisms has been an important topic
+in the literature \cite{Coles07,benton2010g,imai2011novel,Asai2017b,kuroiwa2022biased}.
+%
+A novelty metric defined by the type $\vf$ is denoted as $w_\vf$.
+
+A best-first search strategy can be defined by a lexcographic ordering of evaluators.
+\citet{lipovetzky2017bfws} proposed several strategies,
+and claimed that the configuration named $\vf_5=[w_{\ar{g},\ar{r}},\#g]$ achieved the best result,
+where $\ar{g}$ denotes goal-count heuristics, and
+$\ar{r}$ is a ``relevant fluent count'' metric as called in their implementation (not named in the paper).
+Another configuration that is effective is $\vf_4=[w_{\ar{l}, \ff},\ar{l},\ff]$,
+where $\ar{l}$ is the landmark-count(sum) heuristic \cite{buchner2023landmark}.
+
+While the majority of research on novelty metric is implemented on Lapkt framework \cite{lapkt},
+we use a reimplementation in Fast Downward (FD) release-23.06 \cite{Helmert2006}
+in order to avoid the effect of low-level implementation details.
+Lapkt framework is optimized for agile search by skipping some optimization steps
+at the cost of suboptimal memory usage and other factors.
+The major difference between FD and Lapkt is its internal representation:
+FD code base uses SAS+ while Lapkt uses the propositional representation.
