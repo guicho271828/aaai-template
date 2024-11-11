@@ -1,17 +1,27 @@
 
+\usepackage{etoolbox}
 \usepackage{xkeyval}
 \makeatletter
 
-\define@key{strips}{negative-preconditions}[1]{\def\@conditiontype{#1}}
-\define@key{strips}{disjunctive-preconditions}[2]{\def\@conditiontype{#1}}
-\define@key{strips}{conditional-effects}[1]{\def\@usecondeffect{#1}}
-\define@key{strips}{action-costs}[1]{\def\@usecost{#1}}
-\define@key{strips}{derived-predicates}[1]{\def\@useaxiom{#1}}
-\define@key{strips}{lifted}[1]{\def\@lifted{#1}}
-\define@key{strips}{optimal}[1]{\def\@optimal{#1}}
-\define@key{strips}{satisficing}[1]{\def\@satisficing{#1}}
-\define@key{strips}{agile}[1]{\def\@agile{#1}}
-\define@key{strips}{unitcost}[1]{\def\@unitcost{#1}}
+\def\strips@initialize{%
+\def\@conditiontype{0}%
+\def\@usecondeffect{0}%
+\def\@cost{0}%
+\def\@useaxiom{0}%
+\def\@lifted{0}%
+\def\@track{0}%
+}
+
+\define@key{strips}{negative-preconditions}[]{\def\@conditiontype{1}}
+\define@key{strips}{disjunctive-preconditions}[]{\def\@conditiontype{2}}
+\define@key{strips}{conditional-effects}[]{\def\@usecondeffect{1}}
+\define@key{strips}{action-costs}[]{\ifnumcomp{\@cost}{<}{1}{\def\@cost{1}}{}}
+\define@key{strips}{unitcost}[]{\ifnumcomp{\@cost}{<}{2}{\def\@cost{2}}{}}
+\define@key{strips}{derived-predicates}[]{\def\@useaxiom{1}}
+\define@key{strips}{lifted}[]{\def\@lifted{1}}
+\define@key{strips}{optimal}[]{\ifnumcomp{\@track}{<}{1}{\def\@track{1}}{}}
+\define@key{strips}{satisficing}[]{\ifnumcomp{\@track}{<}{2}{\def\@track{2}}{}}
+\define@key{strips}{agile}[]{\ifnumcomp{\@track}{<}{3}{\def\@track{3}}{}}
 
 \def\conditionset{
 \if\@useaxiom0
@@ -58,14 +68,7 @@ a^{\dagger}
 }
 
 \NewDocumentCommand{\strips}{O{}}{
-\def\@useaxiom{0}
-\def\@conditiontype{0}
-\def\@usecondeffect{0}
-\def\@usecost{0}
-\def\@lifted{0}
-\def\@optimal{0}
-\def\@unitcost{0}
-%
+\strips@initialize
 \setkeys{strips}{#1}%
 \if\@lifted1
   \strips@propositional\par
@@ -123,12 +126,12 @@ where
 %
 %
 %
-\if\@usecost0
+\ifnumcomp{\@cost}{<}{1}{
 Each action $a\in A$ is a 3-tuple $\brackets{\pre(a),\adde(a),\dele(a)}$ where
-\else
+}{%
 Each action $a\in A$ is a 4-tuple $\brackets{\pre(a),\adde(a),\dele(a),\cost(a)}$ where
-$\cost(a) \in \Z^{0+}$ is a cost,
-\fi
+$\cost(a) \in \Z^{0+}$ is a cost\ifnumcomp{\@cost}{=}{2}{ (We assume unit-cost: $\forall a\in A; \cost(a)=1$)}{},
+}
 %
 %
 %
@@ -180,35 +183,26 @@ The task of classical planning is to find a sequence of actions called a \emph{p
 where, for $1\leq t\leq n$,
  $s_0=I$, $s_t\satisfies \pre(a_{t+1})$, $s_{t+1}=a_{t+1}(s_t)$,
  and $s_n\satisfies G$.
-\if\@optimal1
+\ifnumcomp{\@track}{>}{0}{%
  A plan is \emph{optimal} if
- \if\@usecost0%
+ \ifnumcomp{\@cost}{<}{1}{%
    there is no shorter plan.
- \else%
-   there is no plan with lower cost $\sum_t \cost(a_t)$.
- \fi
- \if\@satisficing1
+ }{%
+   there is no plan with a lower cost $\sum_t \cost(a_t)$.
+ }
+ \ifnumcomp{\@track}{>}{1}{%
    A plan is otherwise called \emph{satisficing}.
-   \if\@agile1
+   \ifnumcomp{\@track}{>}{2}{%
      In particular, a problem setting that completely ignores the solution quality is called \emph{agile} setting,
      while \emph{satisficing} setting implies that the solver still attempts to find a
-     \if\@usecost0%
-       shorter
-     \else%
-       cheaper
-     \fi
+     \ifnumcomp{\@cost}{<}{1}{shorter}{cheaper}
      plan.
      This paper focuses on the \emph{agile} setting.
-   \else
+   }{
      This paper focuses on the \emph{satisficing} setting.
-   \fi
- \fi
- \if\@usecost1
-  \if\@unitcost1
-  We assume unit-cost: $\forall a\in A; \cost(a)=1$.
-  \fi
- \fi
-\fi
+   }
+ }{}
+}{}
 }
 
 
