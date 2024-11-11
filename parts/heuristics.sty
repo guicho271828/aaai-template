@@ -1,13 +1,81 @@
-% In this section, we discuss various approximations of delete-relaxed optimal cost $h^+(s)$.
 
+\usepackage{etoolbox}
+\usepackage{xkeyval}
+\makeatletter
+
+% These options can take values between 0 and 2.
+% If 0, it is omitted.
+% If 1, it is added to the list of heuristics.
+% If 2, its definitions are also added.
+
+% appending a delimited string to a variable, while using etoolbox list to remove duplicates.
+% https://tex.stackexchange.com/questions/402173/append-strings-to-a-variable-and-display-them-at-the-front-of-the-document
+\long\def\addto#1#2#3{%
+  \ifinlist{#3}{#1}{%
+  }{%
+    \listadd{#1}{#3}%
+    \ifdefempty#2{% first time, do not add comma
+     \expandafter\def\expandafter#2\expandafter{#2#3}%
+    }{%
+     \expandafter\def\expandafter#2\expandafter{#2,#3}%
+    }%
+  }%
+}%
+
+\define@key{heuristics}{ff}[1]{%
+ \def\heuristics@ff{#1}
+ \ifnumcomp{\heuristics@ff}{>}{0}{%
+  \addto{\heuristiclist}{\heuristicstr}{\ff}%
+  \addto{\heuristiccitelist}{\heuristiccitestr}{hoffmann01}%
+ }{}%
+}
+\define@key{heuristics}{ad}[1]{%
+ \def\heuristics@ad{#1}
+ \ifnumcomp{\heuristics@ad}{>}{0}{%
+  \addto{\heuristiclist}{\heuristicstr}{\ad}%
+  \addto{\heuristiccitelist}{\heuristiccitestr}{bonet2001planning}%
+ }{}%
+}
+\define@key{heuristics}{hmax}[1]{%
+ \def\heuristics@hmax{#1}
+ \ifnumcomp{\heuristics@hmax}{>}{0}{%
+  \addto{\heuristiclist}{\heuristicstr}{\hmax}%
+  \addto{\heuristiccitelist}{\heuristiccitestr}{bonet2001planning}%
+ }{}%
+}
+\define@key{heuristics}{gc}[1]{%
+ \def\heuristics@gc{#1}
+ \ifnumcomp{\heuristics@gc}{>}{0}{%
+  \addto{\heuristiclist}{\heuristicstr}{\gc}%
+  \addto{\heuristiccitelist}{\heuristiccitestr}{FikesHN72}%
+ }{}%
+}
+
+\define@key{heuristics}{relaxation}[1]{\def\heuristics@relaxation{#1}}
+
+\NewDocumentCommand{\heuristics}{O{}}{
+\def\heuristics@ff{0}%
+\def\heuristics@ad{0}%
+\def\heuristics@hmax{0}%
+\def\heuristics@gc{0}%
+\def\heuristics@relaxation{0}%
+\def\heuristiclist{}
+\def\heuristiccitelist{}
+\def\heuristicstr{}
+\def\heuristiccitestr{}
+\setkeys{heuristics}{#1}%
+%
 Given a problem $\brackets{P,A,I,G}$ and a state $s$,
 a domain-independent heuristic function $h(s, \brackets{P,A,I,G})$
 returns an estimate of the cumulative cost from $s$ to one of the goal states (states that satisfy $G$),
 typically through a symbolic, non-statistical means including problem relaxation and abstraction.
 It is often abbreviated as $h(s)$ or $h(s,G)$.
+\ifdefempty\heuristiclist{}{%
 Notable \lsota functions that appear in this paper includes
-$\ff, \hmax, \ad, \gc$ \cite{hoffmann01,bonet2001planning,FikesHN72}.
+$\heuristicstr$ \cite{\heuristiccitestr}.
+}
 
+\if\heuristics@relaxation1
 A significant class of heuristics is called delete relaxation heuristics,
 which solve a relaxed problem which does not contain delete effects,
 and then returns the cost of the solution of the relaxed problem as an output.
@@ -15,10 +83,10 @@ The cost of the optimal solution of a delete relaxed planning problem from a sta
 denoted by $h^+(s)$, but this is too expensive to compute in practice (NP-complete) \cite{bylander1996}.
 Therefore, practical heuristics typically try to obtain its further relaxations
 that can be computed in polynomial time.
+\fi
 
-One such admissible heuristic based on delete-relaxation is called
-$\hmax$ \cite{bonet2001planning} that is recursively defined as follows:
-
+\ifnumcomp{\heuristics@hmax}{>}{1}{
+$\hmax$ \cite{bonet2001planning} is recursively defined as follows:
 \begin{align}
  \hmax(s,G) = \max_{p\in G}
  \left\{
@@ -29,10 +97,10 @@ $\hmax$ \cite{bonet2001planning} that is recursively defined as follows:
   \end{array}
  \right.
 \end{align}
+}{}
 
-Its inadmissible variant is called
-additive heuristics $\ad$ \cite{bonet2001planning} that is recursively defined as follows:
-
+\ifnumcomp{\heuristics@ad}{>}{1}{
+Additive heuristics $\ad$ \cite{bonet2001planning} is recursively defined as follows:
 \begin{align}
  \ad(s,G) = \sum_{p\in G}
  \left\{
@@ -43,8 +111,9 @@ additive heuristics $\ad$ \cite{bonet2001planning} that is recursively defined a
   \end{array}
  \right.
 \end{align}
+}{}
 
-Another inadmissible delete-relaxation heuristics called
+\ifnumcomp{\heuristics@ff}{>}{1}{
 $\ff$ \cite{hoffmann01} is defined based on another heuristics $h$, such as $h=\ad$, as a subprocedure.
 For each unachieved subgoal $p\in G\setminus s$,
 % the action $a=\argmin_{\braces{a\in A\mid p\in\adde(a)}} \left[\cost(a)+h(s, \pre(a))\right]$
@@ -66,10 +135,26 @@ $\ff$ is defined as the sum of actions in a relaxed plan $\Pi^+$ constructed as 
  \right.\\
  \text{bs}(p,s,h)&=\argmin_{\braces{a\in A\mid p\in \adde(a)}} \left[\cost(a)+h(s, \pre(a))\right].
 \end{align}
+}{}
 
+\ifnumcomp{\heuristics@gc}{>}{1}{
 Goal Count heuristics $\gc$ is a simple heuristic proposed in \cite{FikesHN72}
 that counts the number of propositions that are not satisfied yet.
 $\brackets{\text{condition}}$ is a cronecker's delta / indicator function that returns 1 when the condition is satisfied.
 \begin{align}
  \gc(s,G) &= \sum_{p\in G} \dbrackets{p\not \in s}.
 \end{align}
+}{}
+}
+
+
+\makeatother
+
+% In this section, we discuss various approximations of delete-relaxed optimal cost $h^+(s)$.
+
+
+
+
+
+
+
