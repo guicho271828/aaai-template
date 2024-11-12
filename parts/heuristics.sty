@@ -148,14 +148,13 @@ Additive heuristics $\ad$ \cite{bonet2001planning} is recursively defined as fol
 \end{align}
 }{}
 
-\ifnumcomp{\heuristics@ff}{>}{1}{
+\ifnumcomp{\heuristics@ff}{<}{1}{}{
 $\ff$ \cite{hoffmann01} is defined based on another heuristics $h$, such as $h=\ad$, as a subprocedure.
 For each proposition $p$,
 the action $a$ that adds $p$ with the minimal $\cost(a)+h(s, \pre(a))$
 is conceptually ``the cheapest action that achieves a subgoal $p$'',
 called the \emph{cheapest achiever} / \emph{best supporter} $\text{bs}(p,s,h)$ of $p$.
 Using this, $\ff$ is defined as the sum of actions in a relaxed plan $\Pi^+$ constructed as follows:
-
 \begin{align}
  \ff(s,G,h) &= \sum_{a\in \Pi^+(s,G,h)} \cost(a)\\
  \Pi^+(s,G,h) &= \bigcup_{p\in G}
@@ -168,7 +167,13 @@ Using this, $\ff$ is defined as the sum of actions in a relaxed plan $\Pi^+$ con
  \right.\\
  \text{bs}(p,s,h)&=\argmin_{\braces{a\in A\mid p\in \adde(a)}} \left[\cost(a)+h(s, \pre(a))\right].
 \end{align}
-}{}
+\ifnumcomp{\heuristics@ff}{<}{2}{}{
+  In practice, $\ff$ can be implemented in several ways, each producing different values
+  due to the tie-breaking difference in the $\argmin$ in $\text{bs}(p,s,h)$.
+  \citet{kuroiwa2019case} showed that Graphplan-based implementation yields the best planner performance
+  due to the combination of low-level efficiency and heuristic accuracy.
+}
+}
 
 \ifnumcomp{\heuristics@gc}{>}{1}{
 Goal Count heuristics $\gc$ is a simple heuristic proposed in \cite{FikesHN72}
