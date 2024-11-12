@@ -57,6 +57,7 @@
 \define@key{heuristics}{admissible}[2]{\ifnumcomp{\heuristics@properties}{<}{#1}{\def\heuristics@properties{#1}}{}}
 \define@key{heuristics}{inadmissible}[3]{\ifnumcomp{\heuristics@properties}{<}{#1}{\def\heuristics@properties{#1}}{}}
 \define@key{heuristics}{perfectsat}[4]{\ifnumcomp{\heuristics@properties}{<}{#1}{\def\heuristics@properties{#1}}{}}
+\define@key{heuristics}{tdom}[5]{\ifnumcomp{\heuristics@properties}{<}{#1}{\def\heuristics@properties{#1}}{}}
 
 \NewDocumentCommand{\heuristics}{O{}}{
 \def\heuristics@ff{0}%
@@ -95,6 +96,13 @@ $\heuristicstr$ \cite{\heuristiccitestr}.
         Furthermore, heuristics that preserve the same ordering as $h^*$ are called
         \emph{perfect satisficing heuristics} \cite{kuroiwa2022biased},
         i.e., $\forall s,t; h(s)\leq h(t)\then h^*(s)\leq h^*(t)$.
+        \ifnumcomp{\heuristics@properties}{<}{5}{}{
+          Given a monotonic \emph{inflation} function $t:\R^{0+}\to\R^{0+}$
+          s.t. $\forall x; t(x)\geq x$ and $\forall x,y; x\geq y \then t(x)\geq t(y)$,
+          heuristics that preserve the same ordering as $h^*$ when inflated are called
+          \emph{$t$-dominating heuristics},
+          i.e., $\forall s,t; t(h(s))\leq h(t)\then h^*(s)\leq h^*(t)$.
+        }
       }
     }
   }
