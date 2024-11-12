@@ -59,6 +59,8 @@
 \define@key{heuristics}{perfectsat}[4]{\ifnumcomp{\heuristics@properties}{<}{#1}{\def\heuristics@properties{#1}}{}}
 \define@key{heuristics}{tdom}[5]{\ifnumcomp{\heuristics@properties}{<}{#1}{\def\heuristics@properties{#1}}{}}
 
+\define@key{heuristics}{expansion}[1]{\def\heuristics@expansion{#1}}
+
 \NewDocumentCommand{\heuristics}{O{}}{
 \def\heuristics@ff{0}%
 \def\heuristics@ad{0}%
@@ -66,6 +68,7 @@
 \def\heuristics@gc{0}%
 \def\heuristics@relaxation{0}%
 \def\heuristics@properties{0}%
+\def\heuristics@expansion{0}%
 \def\heuristiclist{}
 \def\heuristiccitelist{}
 \def\heuristicstr{}
@@ -89,13 +92,20 @@ $\heuristicstr$ \cite{\heuristiccitestr}.
     i.e., $\forall s; h(s)\leq h^*(s)$.
     Optimizing algorithms like \astar \cite{hart1968formal} are
     guaranteed to find the optimal solutions with such heuristics.
+    \ifnumcomp{\heuristics@expansion}{<}{1}{}{
+      Moreover, \astar is the optimal expansion algorithm, i,e.,
+      expands the fewest nodes among all algorithms under the same admissible $h$.
+    }
     \ifnumcomp{\heuristics@properties}{<}{3}{}{
       Otherwise they are called \emph{inadmissible} heuristics,
       and are typically combined with satisficing/agile algorithms like GBFS \cite{doran1966experiments,bonet2001planning}.
       \ifnumcomp{\heuristics@properties}{<}{4}{}{
         Furthermore, heuristics that preserve the same ordering as $h^*$ are called
-        \emph{perfect satisficing heuristics} \cite{kuroiwa2022biased},
-        i.e., $\forall s,t; h(s)\leq h(t)\then h^*(s)\leq h^*(t)$.
+        \emph{perfect satisficing heuristics} $h^\leq$ \cite{kuroiwa2022biased},
+        i.e., $\forall s,t; h^\leq(s)\leq h^\leq(t)\then h^*(s)\leq h^*(t)$.
+        \ifnumcomp{\heuristics@expansion}{<}{1}{}{
+          GBFS is the optimal expansion algorithm under $h^\leq$.
+        }
         \ifnumcomp{\heuristics@properties}{<}{5}{}{
           Given a monotonic \emph{inflation} function $t:\R^{0+}\to\R^{0+}$
           s.t. $\forall x; t(x)\geq x$ and $\forall x,y; x\geq y \then t(x)\geq t(y)$,
