@@ -150,13 +150,11 @@ Additive heuristics $\ad$ \cite{bonet2001planning} is recursively defined as fol
 
 \ifnumcomp{\heuristics@ff}{>}{1}{
 $\ff$ \cite{hoffmann01} is defined based on another heuristics $h$, such as $h=\ad$, as a subprocedure.
-For each unachieved subgoal $p\in G\setminus s$,
-% the action $a=\argmin_{\braces{a\in A\mid p\in\adde(a)}} \left[\cost(a)+h(s, \pre(a))\right]$
-the action $a$ that adds $p$ with the minimal $\left[\cost(a)+h(s, \pre(a))\right]$
-% The action $a$ which minimizes the second case ($p\not\in S$) of the definition above
-is conceptually ``the cheapest action that achieves a subgoal $p$ for the first time under delete relaxation'',
+For each proposition $p$,
+the action $a$ that adds $p$ with the minimal $\cost(a)+h(s, \pre(a))$
+is conceptually ``the cheapest action that achieves a subgoal $p$'',
 called the \emph{cheapest achiever} / \emph{best supporter} $\text{bs}(p,s,h)$ of $p$.
-$\ff$ is defined as the sum of actions in a relaxed plan $\Pi^+$ constructed as follows:
+Using this, $\ff$ is defined as the sum of actions in a relaxed plan $\Pi^+$ constructed as follows:
 
 \begin{align}
  \ff(s,G,h) &= \sum_{a\in \Pi^+(s,G,h)} \cost(a)\\
