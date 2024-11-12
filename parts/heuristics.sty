@@ -53,12 +53,18 @@
 
 \define@key{heuristics}{relaxation}[1]{\def\heuristics@relaxation{#1}}
 
+\define@key{heuristics}{perfect}[1]{\ifnumcomp{\heuristics@properties}{<}{#1}{\def\heuristics@properties{#1}}{}}
+\define@key{heuristics}{admissible}[2]{\ifnumcomp{\heuristics@properties}{<}{#1}{\def\heuristics@properties{#1}}{}}
+\define@key{heuristics}{inadmissible}[3]{\ifnumcomp{\heuristics@properties}{<}{#1}{\def\heuristics@properties{#1}}{}}
+\define@key{heuristics}{perfectsat}[4]{\ifnumcomp{\heuristics@properties}{<}{#1}{\def\heuristics@properties{#1}}{}}
+
 \NewDocumentCommand{\heuristics}{O{}}{
 \def\heuristics@ff{0}%
 \def\heuristics@ad{0}%
 \def\heuristics@hmax{0}%
 \def\heuristics@gc{0}%
 \def\heuristics@relaxation{0}%
+\def\heuristics@properties{0}%
 \def\heuristiclist{}
 \def\heuristiccitelist{}
 \def\heuristicstr{}
@@ -74,6 +80,27 @@ It is often abbreviated as $h(s)$ or $h(s,G)$.
 Notable \lsota functions that appear in this paper includes
 $\heuristicstr$ \cite{\heuristiccitestr}.
 }
+\ifnumcomp{\heuristics@properties}{<}{1}{}{
+  Often, the true optimal cost from a state $s$ is called
+  the \emph{perfect heuristics} $h^*(s)$ \cite{helmert2008good}.
+  \ifnumcomp{\heuristics@properties}{<}{2}{}{
+    \emph{Admissible} heuristics are those which never overestimate $h^*$,
+    i.e., $\forall s; h(s)\leq h^*(s)$.
+    Optimizing algorithms like \astar \cite{hart1968formal} are
+    guaranteed to find the optimal solutions with such heuristics.
+    \ifnumcomp{\heuristics@properties}{<}{3}{}{
+      Otherwise they are called \emph{inadmissible} heuristics,
+      and are typically combined with satisficing/agile algorithms like GBFS \cite{doran1966experiments,bonet2001planning}.
+      \ifnumcomp{\heuristics@properties}{<}{4}{}{
+        Furthermore, heuristics that preserve the same ordering as $h^*$ are called
+        \emph{perfect satisficing heuristics} \cite{kuroiwa2022biased},
+        i.e., $\forall s,t; h(s)\leq h(t)\then h^*(s)\leq h^*(t)$.
+      }
+    }
+  }
+}
+
+
 
 \if\heuristics@relaxation1
 A significant class of heuristics is called delete relaxation heuristics,

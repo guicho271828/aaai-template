@@ -43,7 +43,9 @@
 
 \section{Available commands}
 
-\texttt{parts/strips.sty} has \verb`\strips[options]` macro, which produces a formal definition of classical planning.
+\paragraph{STRIPS}
+
+\verb`\strips[options]` macro produces various formal definitions of classical planning.
 Available options are:
 \begin{itemize}
  \item \texttt{negative-preconditions},
@@ -51,22 +53,36 @@ Available options are:
  \item \texttt{conditional-effects},
  \item \texttt{action-costs},
  \item \texttt{derived-predicates},
- \item \texttt{optimal} (adds a note about optimality),
- \item \texttt{satisficing} (adds a note about satisficing search. Implies \texttt{optimal}),
- \item \texttt{agile} (adds a note about agile search. Implies \texttt{satisficing})
- \item \texttt{lifted} (adds a note about grounding),
+ \item \texttt{optimal} (discuss optimality),
+ \item \texttt{satisficing} (discuss satisficing search. Implies \texttt{optimal}),
+ \item \texttt{agile} (discuss agile search. Implies \texttt{satisficing})
+ \item \texttt{lifted} (discuss grounding),
  \item \texttt{unitcost} (clarifies all costs are 1. Implies \texttt{action-costs}).
 \end{itemize}
 Use it like \verb`\strips` \texttt{[derived-predicates,} \texttt{negative-preconditions]}.
 
-\verb`\heuristics[options]` macro describes heuristic functions and introduce several heuristics
-specifies in the options.
-Available options are:
+\paragraph{Heuristics}
+
+\verb`\heuristics[options]` macro describes heuristic functions and
+introduces several heuristics specifies in the options.
+The options can be put in two categories.
+
+The first set of options add definitions for various classes of heuristics.
 \begin{itemize}
- \item \texttt{ad}, ($\ad$, additive heuristics)
- \item \texttt{hmax},
- \item \texttt{ff},
- \item \texttt{gc}.
+ \item \texttt{perfect}: perfect heuristic $h^*$,
+ \item \texttt{admissible} (implies \texttt{perfect}),
+ \item \texttt{inadmissible} (implies \texttt{admissible}),
+ \item \texttt{perfectsat}: perfect satisficing heuristics from \cite{kuroiwa2022biased} (implies \texttt{inadmissible}),
+ \item \texttt{relaxation}: $h^+$ and relaxation heuristics.
+\end{itemize}
+
+The second set of options introduce known heuristics and their definitions.
+Available heuristics are:
+\begin{itemize}
+ \item \texttt{ad} ($\ad$, additive heuristics)
+ \item \texttt{hmax} ($\hmax$)
+ \item \texttt{ff} ($\ff$)
+ \item \texttt{gc} ($\gc$)
 \end{itemize}
 
 These options can take values between 0 and 2:
@@ -75,8 +91,7 @@ These options can take values between 0 and 2:
  \item If 1, it is added to the list of heuristics.
  \item If 2, its definitions are also added.
 \end{enumerate}
-
-Use it like \verb`\heuristics` \texttt{[ad=2,ff]}.
+Use them like \verb`\heuristics` \texttt{[ad=2,ff,perfect]}.
 
 
 \def\stripsusage#1{
@@ -114,6 +129,8 @@ Use it like \verb`\heuristics` \texttt{[ad=2,ff]}.
 \heuristicusage{hmax,ad,ff,gc}
 
 \heuristicusage{ad=2,ff}
+
+\heuristicusage{perfectsat,relaxation}
 
 
 \section{Minted}
