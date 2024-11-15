@@ -68,8 +68,8 @@
 % algorithmic / algopseudocode difference + customization
 
 
-\@ifpackageloaded{algorithmic}{
-  \renewcommand{\algorithmiccomment}[1]{\hfill #1}
+\AddToHook{package/algorithmic/after}{
+  \renewcommand{\algorithmiccomment}[1]{\hfill \# #1}
   \def\State\STATE
   \def\If\IF
   \def\Then\THEN
@@ -88,12 +88,16 @@
   \def\Require\REQUIRE
   \def\Ensure\ENSURE
   \def\Comment\COMMENT
-}{}
+}
 
-\@ifpackageloaded{algpseudocode}{
-  \algrenewcommand{\algorithmiccomment}[1]{\hfill #1}
-  \algblockdefx[method]{Method}{EndMethod}[2]{\textbf{method} \textsc{#1} (#2)}{}
-  \algblockdefx[function]{Method}{EndMethod}[2]{\textbf{method} \textsc{#1} (#2)}{}
+\AddToHook{package/algpseudocode/after}{
+  \algrenewcommand\algorithmicindent{0.7em}
+  \algrenewcommand{\algorithmiccomment}[1]{\hfill \# #1}
+  \algblockdefx[method]{Method}{EndMethod}[2]{\textbf{method} \textsc{#1} (#2)}{\algorithmicend}
+  \ifthenelse{\equal{\ALG@noend}{t}}%
+   {%
+   \algtext*{EndMethod}% without this, noend will not affect EndMethod. Taken from algorithmicx
+   }{}%
   \def\STATE\State
   \def\IF\If
   \def\THEN\Then
@@ -112,7 +116,7 @@
   \def\REQUIRE\Require
   \def\ENSURE\Ensure
   \def\COMMENT\Comment
-}{}
+}
 
 
 
