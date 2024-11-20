@@ -1,0 +1,31 @@
+SAS+ formalism \cite{backstrom1995complexity} is an alternative formalism to propositional STRIPS planning.
+A SAS+ planning problem is a 4-tuple $\brackets{V,A,I,G}$
+where
+$V$ is a set of SAS+ state variables,
+$A$ is a set of ground actions,
+$I$ is the initial state,
+and
+$G$ is the goal condition.
+% 
+Each state variable $v$ has an integer value $i\in [0, M_v-1]=d(v)$,
+where $d(v)$ denotes the domain of $v$.
+% 
+Each action $a\in A$ is a tuple $\brackets{\pre(a), \eff(a)}$,
+where in SAS+
+both $\pre(a)$ and $\eff(a)$ are sets of key-value pairs
+in the form of $\{\ldots (v, i) \ldots\}$ of $v\in V$ and $i\in d(v)$.
+% 
+A state $s$ is a set of key-value pairs that specifies the values of all variables in $V$.
+$\pre(a)$ and $\eff(a)$ may lack some variables, thus are called \emph{partial states}.
+An action $a$ is applicable in a state $s$ when its variable assignments matches those in $\pre(a)$,
+i.e., $\pre(a)\subseteq s$.
+The successor state $s'=a(s)$ overwrites some variables in $s$ using the values specified in $\eff(a)$.
+% 
+% Extensions on axioms and conditional effects are straightforward.
+% 
+The goal condition $G$ is a partial state.
+
+Each integer $i$ of a variable $v$ corresponds to a propositional variable $p\in F$ in STRIPS.
+The propositional variables represented by a single SAS+ variable $v$
+are mutex to each other, i.e., no two propositional variables become true at the same time in any state.
+Such mutex contraints are discovered by the PDDL-to-SAS+ translator phase of Fast Downward \cite{}.
