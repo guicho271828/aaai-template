@@ -13,19 +13,32 @@ where $d(v)$ denotes the domain of $v$.
 Each action $a\in A$ is a tuple $\brackets{\pre(a), \eff(a)}$,
 where in SAS+
 both $\pre(a)$ and $\eff(a)$ are sets of key-value pairs
-in the form of $\{\ldots (v, i) \ldots\}$ of $v\in V$ and $i\in d(v)$.
+in the form of $\{\ldots, (v,i), \ldots\}$ with keys $v\in V$ and values $i\in d(v)$.
 % 
-A state $s$ is a set of key-value pairs that specifies the values of all variables in $V$.
-$\pre(a)$ and $\eff(a)$ may lack some variables, thus are called \emph{partial states}.
-An action $a$ is applicable in a state $s$ when its variable assignments matches those in $\pre(a)$,
-i.e., $\pre(a)\subseteq s$.
-The successor state $s'=a(s)$ overwrites some variables in $s$ using the values specified in $\eff(a)$.
+A state $s$ is a vector that specifies the values of all variables in $V$.
+$\pre(a)$ and $\eff(a)$ may not specify some variables, thus are called \emph{partial states}.
+An action $a$ is applicable in a state $s$ when its variable assignments match those in $\pre(a)$.
+% i.e., $\forall (v,i)\in\pre(a); \forall (v,j)\in s; i=j$.
+An action produces a successor state $s'=a(s)$
+by overwriting some variables in $s$ using the values specified in $\eff(a)$.
+For example,
+% if $s=\{(0,1),(1,1),(2,2)\}$, $\pre(a)=\{(1,1)\}$ and $\eff(a)=\{(0,0),(1,0)\}$, then
+% $a$ is applicable, and $a(s)=\{(0,0),(1,0),(2,2)\}$.
+if $s=[1,1,2]$, $\pre(a)=\{(1,1)\}$ and $\eff(a)=\{(0,0),(1,0)\}$, then
+$a$ is applicable because $s[1]=1$, and $a(s)=[0,0,2]$ because it updates $s$ as $s[0]\gets 0$ and $s[1]\gets 0$.
 % 
 % Extensions on axioms and conditional effects are straightforward.
 % 
 The goal condition $G$ is a partial state.
 
-Each integer $i$ of a variable $v$ corresponds to a propositional variable $p\in F$ in STRIPS.
+Each integer $i$ of a variable $v$ usually corresponds to a propositional variable $p\in F$ in STRIPS.
 The propositional variables represented by a single SAS+ variable $v$
 are mutex to each other, i.e., no two propositional variables become true at the same time in any state.
+When $i$ does not correspond to a proposition,
+it is usually $i=0$ that represents \emph{none-of-the-above}, i.e.,
+for a set of propositions $p_1, p_2, \ldots p_{M_v-1}$ represented by each $i\in [1, M_v-1]$,
+$i=0$ represents $\lnot p_1\land \ldots \land \lnot p_{M_v-1}$.
 Such mutex contraints are discovered by the PDDL-to-SAS+ translator phase of Fast Downward \cite{}.
+% 
+Since STRIPS and SAS+ are equally expressive formalism, mapping SAS+ back to STRIPS is straightforward:
+Each value $i$ of a SAS+ variable $v$ maps to an index $i+\sum_{j=0}^{v-1}M_j$.
