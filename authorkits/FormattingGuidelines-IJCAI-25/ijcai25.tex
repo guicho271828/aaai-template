@@ -1,16 +1,16 @@
-%%%% ijcai23.tex
+%%%% ijcai25.tex
 
-\typeout{IJCAI--23 Instructions for Authors}
+\typeout{IJCAI--25 Instructions for Authors}
 
-% These are the instructions for authors for IJCAI-23.
+% These are the instructions for authors for IJCAI-25.
 
 \documentclass{article}
 \pdfpagewidth=8.5in
 \pdfpageheight=11in
 
-% The file ijcai23.sty is a copy from ijcai22.sty
+% The file ijcai25.sty is a copy from ijcai22.sty
 % The file ijcai22.sty is NOT the same as previous years'
-\usepackage{ijcai23}
+\usepackage{ijcai25}
 
 % Use the postscript times font!
 \usepackage{times}
@@ -64,12 +64,14 @@
 
 
 % PDF Info Is REQUIRED.
-% Please **do not** include Title and Author information
+
+% Please leave this \pdfinfo block untouched both for the submission and
+% Camera Ready Copy. Do not include Title and Author information in the pdfinfo section
 \pdfinfo{
-/TemplateVersion (IJCAI.2023.0)
+/TemplateVersion (IJCAI.2025.0)
 }
 
-\title{IJCAI--23 Formatting Instructions}
+\title{IJCAI--25 Formatting Instructions}
 
 
 % Single author syntax
@@ -88,12 +90,12 @@ First Author$^1$
 \and
 Second Author$^2$\and
 Third Author$^{2,3}$\And
-Fourth Author$^4$
+Fourth Author$^4$\\
 \affiliations
 $^1$First Affiliation\\
 $^2$Second Affiliation\\
 $^3$Third Affiliation\\
-$^4$Fourth Affiliation
+$^4$Fourth Affiliation\\
 \emails
 \{first, second\}@example.com,
 third@other.example.com,
@@ -106,7 +108,7 @@ fourth@example.com
 \maketitle
 
 \begin{abstract}
-    The {\it IJCAI--23 Proceedings} will be printed from electronic
+    The {\it IJCAI--25 Proceedings} will be printed from electronic
     manuscripts submitted by the authors. The electronic manuscript will
     also be included in the online version of the proceedings. This paper
     provides the style instructions.
@@ -114,7 +116,7 @@ fourth@example.com
 
 \section{Introduction}
 
-The {\it IJCAI--23 Proceedings} will be printed from electronic
+The {\it IJCAI--25 Proceedings} will be printed from electronic
 manuscripts submitted by the authors. These must be PDF ({\em Portable
         Document Format}) files formatted for 8-1/2$''$ $\times$ 11$''$ paper.
 
@@ -194,7 +196,7 @@ The following instructions apply to submissions:
 
 \item If your track requires non-anonymous submissions, you should provide all author information at the time of submission, just as for camera-ready papers (see below); Acknowledgements and Contribution Statement sections are allowed, but optional.
 
-\item Submissions must include line numbers to facilitate feedback in the review process . Enable line numbers by uncommenting the command {\tt \textbackslash{}linenumbers} in the preamble \footnote{New in IJCAI--23}.
+\item Submissions must include line numbers to facilitate feedback in the review process . Enable line numbers by uncommenting the command {\tt \textbackslash{}linenumbers} in the preamble.
 
 \item The limit on the number of  content pages is \emph{strict}. All papers exceeding the limits will be desk rejected.
 \end{itemize}
@@ -353,7 +355,7 @@ to typeset the acknowledgements section in \LaTeX{}.
 
 \subsubsection{Contribution Statement}
 
-Contribution Statement is optional. In the camera-ready version you may include an unnumbered Contribution Statement section\footnote{New in IJCAI--23}, explicitly describing the contribution of each of the co-authors to the paper. This is not allowed in the anonymous submission. If present, Contribution Statement must be in a dedicated, unnumbered section appearing after all regular sections but before references.  This section may be placed on the References pages.
+Contribution Statement is optional. In the camera-ready version you may include an unnumbered Contribution Statement section, explicitly describing the contribution of each of the co-authors to the paper. This is not allowed in the anonymous submission. If present, Contribution Statement must be in a dedicated, unnumbered section appearing after all regular sections but before references.  This section may be placed on the References pages.
 
 Use
 \begin{quote}
@@ -586,27 +588,26 @@ In \LaTeX{} algorithms may be typeset using the {\tt algorithm} and {\tt algorit
 
 \section{\LaTeX{} and Word Style Files}\label{stylefiles}
 
-The \LaTeX{} and Word style files are available on the IJCAI--23
-website, \url{https://ijcai-23.org/}.
+The \LaTeX{} and Word style files are available on the IJCAI--25
+website, \url{https://2025.ijcai.org/}.
 These style files implement the formatting instructions in this
 document.
 
-The \LaTeX{} files are {\tt ijcai23.sty} and {\tt ijcai23.tex}, and
-the Bib\TeX{} files are {\tt named.bst} and {\tt ijcai23.bib}. The
+The \LaTeX{} files are {\tt ijcai25.sty} and {\tt ijcai25.tex}, and
+the Bib\TeX{} files are {\tt named.bst} and {\tt ijcai25.bib}. The
 \LaTeX{} style file is for version 2e of \LaTeX{}, and the Bib\TeX{}
 style file is for version 0.99c of Bib\TeX{} ({\em not} version
-0.98i). The {\tt ijcai23.sty} style differs from the {\tt
-        ijcai22.sty} file used for IJCAI--22.
+0.98i). .
 
 The Microsoft Word style file consists of a single file, {\tt
-        ijcai23.docx}. This template differs from the one used for
-IJCAI--22.
+        ijcai25.docx}.
+%This template differs from the one used for IJCAI--23.
 
 These Microsoft Word and \LaTeX{} files contain the source of the
 present document and may serve as a formatting sample.
 
 Further information on using these styles for the preparation of
-papers for IJCAI--23 can be obtained by contacting {\tt
+papers for IJCAI--25 can be obtained by contacting {\tt
         proceedings@ijcai.org}.
 
 \appendix
@@ -630,7 +631,7 @@ Francisco Cruz-Mencia and Edith Elkind.
 
 %% The file named.bst is a bibliography style file for BibTeX 0.99c
 \bibliographystyle{named}
-\bibliography{ijcai23}
+\bibliography{ijcai25}
 
 \end{document}
 
