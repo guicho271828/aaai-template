@@ -1,0 +1,53 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citeauthoryear{Abelson \bgroup \em et al.\egroup
+  }{1985}]{abelson-et-al:scheme}
+Harold Abelson, Gerald~Jay Sussman, and Julie Sussman.
+\newblock {\em Structure and Interpretation of Computer Programs}.
+\newblock MIT Press, Cambridge, Massachusetts, 1985.
+
+\bibitem[\protect\citeauthoryear{Baumgartner \bgroup \em et al.\egroup
+  }{2001}]{bgf:Lixto}
+Robert Baumgartner, Georg Gottlob, and Sergio Flesca.
+\newblock Visual information extraction with {Lixto}.
+\newblock In {\em Proceedings of the 27th International Conference on Very
+  Large Databases}, pages 119--128, Rome, Italy, September 2001. Morgan
+  Kaufmann.
+
+\bibitem[\protect\citeauthoryear{Brachman and
+  Schmolze}{1985}]{brachman-schmolze:kl-one}
+Ronald~J. Brachman and James~G. Schmolze.
+\newblock An overview of the {KL-ONE} knowledge representation system.
+\newblock {\em Cognitive Science}, 9(2):171--216, April--June 1985.
+
+\bibitem[\protect\citeauthoryear{Gottlob \bgroup \em et al.\egroup
+  }{2002}]{gls:hypertrees}
+Georg Gottlob, Nicola Leone, and Francesco Scarcello.
+\newblock Hypertree decompositions and tractable queries.
+\newblock {\em Journal of Computer and System Sciences}, 64(3):579--627, May
+  2002.
+
+\bibitem[\protect\citeauthoryear{Gottlob}{1992}]{gottlob:nonmon}
+Georg Gottlob.
+\newblock Complexity results for nonmonotonic logics.
+\newblock {\em Journal of Logic and Computation}, 2(3):397--425, June 1992.
+
+\bibitem[\protect\citeauthoryear{Levesque}{1984a}]{levesque:functional-foundations}
+Hector~J. Levesque.
+\newblock Foundations of a functional approach to knowledge representation.
+\newblock {\em Artificial Intelligence}, 23(2):155--212, July 1984.
+
+\bibitem[\protect\citeauthoryear{Levesque}{1984b}]{levesque:belief}
+Hector~J. Levesque.
+\newblock A logic of implicit and explicit belief.
+\newblock In {\em Proceedings of the Fourth National Conference on Artificial
+  Intelligence}, pages 198--202, Austin, Texas, August 1984. American
+  Association for Artificial Intelligence.
+
+\bibitem[\protect\citeauthoryear{Nebel}{2000}]{nebel:jair-2000}
+Bernhard Nebel.
+\newblock On the compilability and expressive power of propositional planning
+  formalisms.
+\newblock {\em Journal of Artificial Intelligence Research}, 12:271--315, 2000.
+
+\end{thebibliography}

@@ -38,4 +38,4 @@ rebuttal/*.txt
 _minted-*/
 default.tex
 abstract.txt
-
+!authorkits/**/*
