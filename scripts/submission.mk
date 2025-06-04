@@ -66,14 +66,15 @@
 %.subm_fromto: %.subm_from %.subm_to
 	paste $*.subm_from $*.subm_to > $@
 
-# build a pygstyle file through finalizecache option of minted package
-%.pygstyle: $(sources)
+
+%.submission:
+
+	@echo "build finalizecache option for minted package with --shell-escape. see style/header.sty, style/general.sty"
 	touch $*.needpyg
 	-rm $*.pdf
 	$(MAKE) $*.pdf
 	rm $*.needpyg
-
-%.submission: %.pygstyle %.subm_fromto
+	$(MAKE) $*.subm_fromto
 
 	@echo "submission.mk: preparing the main article"
 	mkdir -p $@
