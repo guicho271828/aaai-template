@@ -98,7 +98,8 @@
 
 
 clean-submission:
-	-rm -rf *.submission *.tar.gz *.zip
+	-rm -rf *.submission *.tar.gz *.zip \
+		*.subm_from *.subm_to *.subm_fromto
 
 submission: $(name).submission
 
