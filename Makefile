@@ -40,6 +40,9 @@ auto:
 imgs:
 	$(MAKE) -C img
 
+ascii:
+	parallel "iconv -f utf-8 -t ascii//TRANSLIT <{} >{}.ascii ; mv {}.ascii {}" ::: $(sources)
+
 clean: clean-submission
 	-rm -r *~ *.aux *.dvi *.log *.toc *.bbl *.*pyg* *.out \
 		*.blg *.utf8 *.elc $(name).pdf supplemental.pdf combined.pdf \
