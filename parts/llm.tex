@@ -1,0 +1,21 @@
+% LLM
+\emph{Auto-regressive generative model} is a probability distribution
+$p(\rvx)=p(\rx_1,\ldots,\rx_N)$ where the random variable $\rvx$ represents a vector of tokens,
+typically associated with a word or a sub-word token in natural language.
+Denoting its subsequence from index $i$ to $j$ as $\rvx_{i:j}$,
+Transformer-based language models (LMs) \cite{vaswani2017attention}
+decompose it into each conditional distribution modeled by a large set of parameters $\theta$:
+$p(\rvx)= p_\theta(\rvx_N|\rvx_{1:N-1})p(\rvx_{1:N-1}) = \ldots = \prod_{i=j}^{N-1} p_\theta(\rvx_i|\rvx_{1:i-1}) p(\rvx_{1:j})$,
+where the prefix $\rvx_{1:j}$ is typically called a \emph{prompt} and
+each conditional distribution $p_\theta(\rvx_i|\rvx_{1:i-1})$ performs a next-token prediction.
+
+% few-shot, one-shot, zero-shot
+Remarkably, models that were trained on a large corpus
+are known to demonstrate a certain level of instruction-following behavior
+when the prefix $\rvx_{1:j}$ contains an instruction.
+This is further encouraged by instruction-tuning \cite{ouyang2022training},
+an additional training step that trains the network to better follow the instructions.
+%
+When presenting an instruction, the input can further contain one or a few examples of question-answer pairs,
+and the task performance in those settings are typically called one-shot or few-shot performance.
+(Zero-shot performance refers to the version that does not use them.)
