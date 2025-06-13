@@ -98,6 +98,22 @@
    {%
    \algtext*{EndMethod}% without this, noend will not affect EndMethod. Taken from algorithmicx
    }{}%
+   %
+  \algblockdefx[try]{Try}{EndTry}[0]{\textbf{try}}{\algorithmicend}
+  \ifthenelse{\equal{\ALG@noend}{t}}%
+   {%
+   \algtext*{EndTry}% without this, noend will not affect EndTry. Taken from algorithmicx
+   }{}%
+  \algblockdefx[except]{Except}{EndExcept}[2]{\textbf{except} \textsc{#1} \textbf{as} #2}{\algorithmicend}
+  \ifthenelse{\equal{\ALG@noend}{t}}%
+   {%
+   \algtext*{EndExcept}% without this, noend will not affect EndExcept. Taken from algorithmicx
+   }{}%
+  \algblockdefx[finally]{Finally}{EndFinally}[0]{\textbf{finally}}{\algorithmicend}
+  \ifthenelse{\equal{\ALG@noend}{t}}%
+   {%
+   \algtext*{EndFinally}% without this, noend will not affect EndFinally. Taken from algorithmicx
+   }{}%
   \def\STATE\State
   \def\IF\If
   \def\THEN\Then
