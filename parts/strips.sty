@@ -4,6 +4,7 @@
 \makeatletter
 
 \def\strips@initialize{%
+\def\@transitiononly{0}%
 \def\@conditiontype{0}%
 \def\@usecondeffect{0}%
 \def\@cost{0}%
@@ -12,6 +13,7 @@
 \def\@track{0}%
 }
 
+\define@key{strips}{transition-only}[]{\def\@transitiononly{1}}
 \define@key{strips}{negative-preconditions}[]{\def\@conditiontype{1}}
 \define@key{strips}{disjunctive-preconditions}[]{\def\@conditiontype{2}}
 \define@key{strips}{conditional-effects}[]{\def\@usecondeffect{1}}
@@ -126,6 +128,10 @@ where
 %
 %
 %
+\ifnumcomp{\@transitiononly}{>}{0}{
+We omit the details of action applications as they are not important in this paper.
+It suffices to say an action $a\in A$ transitions from a state $s\subseteq P$ to a successor $s'=a(s)\subseteq P$.
+}{
 \ifnumcomp{\@cost}{<}{1}{
 Each action $a\in A$ is a 3-tuple $\brackets{\pre(a),\adde(a),\dele(a)}$ where
 }{%
@@ -178,10 +184,13 @@ $s' \gets \applyformula \setminus P_X $.
 Then we perform a fix-point calculation
 $s' \gets s' \cup \braces{p \in P_X \mid (f\Rightarrow p)\in X \land s \satisfies f}$.
 \fi
-
+\par
+}                               % end: \ifnumcomp{\@transitiononly}{>}{1}
 The task of classical planning is to find a sequence of actions called a \emph{plan} $(\ga_1,\cdots,\ga_n)$
 where, for $1\leq t\leq n$,
- $s_0=I$, $s_t\satisfies \pre(a_{t+1})$, $s_{t+1}=a_{t+1}(s_t)$,
+ $s_0=I$,
+ \ifnumcomp{\@transitiononly}{>}{0}{}{$s_t\satisfies \pre(a_{t+1})$,}% action application is not included if transitiononly=1
+ $s_{t+1}=a_{t+1}(s_t)$,
  and $s_n\satisfies G$.
 \ifnumcomp{\@track}{>}{0}{%
  A plan is \emph{optimal} if
