@@ -6,3 +6,6 @@
 \setlength{\parskip}{1em}
 \usepackage[none]{hyphenat}
 \usepackage[margin=1em,landscape,paperheight=30in,paperwidth=30in]{geometry}
+
+% disable figures
+\AddToHook{package/graphicx/after}{\renewcommand{\includegraphics}[2][]{}}
