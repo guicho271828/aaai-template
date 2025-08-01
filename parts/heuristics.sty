@@ -50,6 +50,20 @@
   \addto{\heuristiccitelist}{\heuristiccitestr}{FikesHN72}%
  }{}%
 }
+\define@key{heuristics}{cea}[1]{%
+ \def\heuristics@cea{#1}
+ \ifnumcomp{\heuristics@cea}{>}{0}{%
+  \addto{\heuristiclist}{\heuristicstr}{\ce}%
+  \addto{\heuristiccitelist}{\heuristiccitestr}{helmert2008unifying}%
+ }{}%
+}
+\define@key{heuristics}{cg}[1]{%
+ \def\heuristics@cg{#1}
+ \ifnumcomp{\heuristics@cg}{>}{0}{%
+  \addto{\heuristiclist}{\heuristicstr}{\cg}%
+  \addto{\heuristiccitelist}{\heuristiccitestr}{Helmert04}%
+ }{}%
+}
 
 \define@key{heuristics}{relaxation}[1]{\def\heuristics@relaxation{#1}}
 
@@ -66,6 +80,8 @@
 \def\heuristics@ad{0}%
 \def\heuristics@hmax{0}%
 \def\heuristics@gc{0}%
+\def\heuristics@cea{0}%
+\def\heuristics@cg{0}%
 \def\heuristics@relaxation{0}%
 \def\heuristics@properties{0}%
 \def\heuristics@expansion{0}%

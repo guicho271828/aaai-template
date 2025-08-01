@@ -82,9 +82,11 @@ The second set of options introduce known heuristics and their definitions.
 Available heuristics are:
 \begin{itemize}
  \item \texttt{ad} ($\ad$, additive heuristics)
- \item \texttt{hmax} ($\hmax$)
- \item \texttt{ff} ($\ff$)
- \item \texttt{gc} ($\gc$)
+ \item \texttt{hmax} ($\hmax$, max heuristics)
+ \item \texttt{ff} ($\ff$, FF heuristics)
+ \item \texttt{gc} ($\gc$, goal count heuristics)
+ \item \texttt{cg} ($\gc$, causal graph heuristics)
+ \item \texttt{cea} ($\ce$, context enhanced additive heuristics)
 \end{itemize}
 
 These options can take values between 0 and 2:
@@ -129,7 +131,7 @@ Use them like \verb`\heuristics` \texttt{[ad=2,ff,perfect]}.
 
 \heuristicusage{}
 
-\heuristicusage{hmax,ad,ff,gc}
+\heuristicusage{hmax,ad,ff,gc,cg,cea}
 
 \heuristicusage{ad=2,ff}
 
