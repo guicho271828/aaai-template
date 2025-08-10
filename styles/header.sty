@@ -90,7 +90,7 @@
 % However, our camera-ready script automates this process.
 % This is done by touching a file named \jobname.needpyg and check its existence, and switch the behavior.
 
-\iftoggle{dev}{%
+\iftoggle{dev}{% --- see general.sty
   \IfFileExists{\jobname.needpyg}{% how else to pass information to latex??
     % finalizing build
     \usepackage[finalizecache,cachedir=.]{minted}%
