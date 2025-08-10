@@ -57,11 +57,7 @@
 	awk '/The style file: .*\.bst/{print $$4}' $*.blg | xargs --no-run-if-empty readlink -ef | sort | uniq | grep -v "texlive" | sed -e "s~$$(pwd)/~~g" >> $@
 
 %.subm_to: %.subm_from
-	cp $< $@
-	@echo "submission.mk: Emitting a new location at the root for each file (official sty/bst/cls files)"
-	sed -i "s@styles/official/@@g" $@
-	@echo "submission.mk: Emitting a new location at the root for each file (images, other style files)"
-	sed -i "s@/@___@g" $@
+	python3 scripts/rename.py < $< > $@
 
 %.subm_fromto: %.subm_from %.subm_to
 	paste $*.subm_from $*.subm_to > $@
