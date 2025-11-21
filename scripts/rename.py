@@ -24,6 +24,6 @@ for line in sys.stdin:
 
     # move all files in the root, while keeping the original location interpretable
     if "/" in line:
-        line = line.replace("/","___")
+        line = line.replace("/","+")
 
     print(line)
