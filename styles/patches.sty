@@ -99,6 +99,12 @@
    \algtext*{EndMethod}% without this, noend will not affect EndMethod. Taken from algorithmicx
    }{}%
    %
+  \algblockdefx[flet]{Flet}{EndFlet}[2]{\textbf{function} \textsc{#1} (#2)}{\algorithmicend}
+  \ifthenelse{\equal{\ALG@noend}{t}}%
+   {%
+   \algtext*{EndFlet}% without this, noend will not affect EndMethod. Taken from algorithmicx
+   }{}%
+   %
   \algblockdefx[try]{Try}{EndTry}[0]{\textbf{try}}{\algorithmicend}
   \ifthenelse{\equal{\ALG@noend}{t}}%
    {%
