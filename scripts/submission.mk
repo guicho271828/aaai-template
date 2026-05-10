@@ -52,7 +52,7 @@
 
 %.subm_from: %.fls %.blg
 	@echo "submission.mk: collecting all included files"
-	awk '/INPUT .*\.(cls|sty|png|pdf|bb|tex|bbl|pygstyle|pygtex)/{print $$2}' $< | xargs --no-run-if-empty readlink -ef | sort | uniq | grep -v "texlive" | sed -e "s~$$(pwd)/~~g" > $@
+	awk '/INPUT .*\.(cls|sty|png|jpg|pdf|bb|tex|bbl|pygstyle|pygtex)/{print $$2}' $< | xargs --no-run-if-empty readlink -ef | sort | uniq | grep -v "texlive" | sed -e "s~$$(pwd)/~~g" > $@
 	awk '/INPUT .*\.png/{print $$2}' $< | sed -e 's/png/xbb/g' | xargs --no-run-if-empty readlink -ef | sort | uniq | grep -v "texlive" | sed -e "s~$$(pwd)/~~g" >> $@
 	awk '/The style file: .*\.bst/{print $$4}' $*.blg | while read file ; do [ -e $file ] && echo $file ; done | xargs --no-run-if-empty readlink -ef | sort | uniq | grep -v "texlive" | sed -e "s~$$(pwd)/~~g" >> $@
 
