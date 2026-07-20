@@ -1,3 +1,6 @@
 [submodule "org-mode"]
 	path = org-mode
 	url = git://orgmode.org/org-mode.git
+[submodule "authorkits/acl-style-files"]
+	path = authorkits/acl-style-files
+	url = https://github.com/acl-org/acl-style-files.git
