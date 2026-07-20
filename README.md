@@ -7,7 +7,7 @@ For the frequent attendants of top-tier AI conferences!
 
 This repository contains templates and makefiles for:
 
-+ Flagship conferences: AAAI,ECAI,IJCAI,JAIR,Neurips,ICML,ICLR,NAACL,CVPR
++ Flagship conferences: AAAI,ECAI,IJCAI,JAIR,Neurips,ICML,ICLR,ACL ARR (NAACL, ACL, EACL, etc.),CVPR,
 + JSAI, a local Japanese non-refereed conference.
 + *New* Grammarly style --- It typesets a paper with a single column, without hyphenations and page numbers.
   It is convenient for checking the grammar with [Grammarly grammar checking service](https://app.grammarly.com/).
