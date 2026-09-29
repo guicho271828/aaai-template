@@ -1,8 +1,23 @@
 %
 %
-% * Maintain 100 characters / line. But keep sentence structure intact ---
+% * Maintain 100 characters / line.
+%   But keep sentence structure intact --- do not break lines mechanically.
 %   Try not to break a line in the middle of a sentence.
-%   Even if you do, break lines at a major clause boundary like ``and'', ``or''.
+%   Even if you do, break lines after a major clause boundary like ``and'', ``or''.
+%
+%   Examples:
+%   X did Y. <break> Z did W.
+%   X did Y which <break> is a new version of Z
+%   X did Y and <break> Z did W.
+%   X did Y, however <break> Z is W.
+%
+%   Reason: ease of commenting out and selecting from several versions of the text,
+%   especially rationales, explanations, etc. For example:
+%
+%   X did Y, however
+%   Z is very flobby of W.
+%   % W is flob of Z.
+%   % W and Z are flobbering pair.
 %
 % * too much ``''s make the sentence look scattered and visually less recognizable. ``e.g.'' also.
 %
