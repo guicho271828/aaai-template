@@ -92,6 +92,8 @@
 
 @string{ECMLKDD = {{Proc. of Joint European Conference on Machine Learning and Knowledge Discovery in Databases}}}
 
+@string{EUROSYS = {{Proc. of the European Conference on Computer Systems}}}
+
 @article{folbre1997future,
 	author = {Folbre, Nancy},
 	journal = {Population and Development Review},
@@ -8614,3 +8616,235 @@
 	year = {2023}
 }
 
+@inproceedings{yao2025cacheblend,
+  title={{CacheBlend: Fast Large Language Model Serving for Rag with Cached Knowledge Fusion}},
+  author={Yao, Jiayi and Li, Hanchen and Liu, Yuhan and Ray, Siddhant and Cheng, Yihua and Zhang, Qizheng and Du, Kuntai and Lu, Shan and Jiang, Junchen},
+  booktitle=EUROSYS,
+  pages={94--109},
+  year={2025}
+}
+
+@InProceedings{hu2024epic,
+  title = 	 {{EPIC}: Efficient Position-Independent Caching for Serving Large Language Models},
+  author =       {Hu, Junhao and Huang, Wenrui and Wang, Weidong and Wang, Haoyi and Hu, Tiancheng and Qin, Zhang and Feng, Hao and Chen, Xusheng and Shan, Yizhou and Xie, Tao},
+  booktitle = 	 ICML,
+  pages = 	 {24391--24402},
+  year = 	 {2025},
+  editor = 	 {Singh, Aarti and Fazel, Maryam and Hsu, Daniel and Lacoste-Julien, Simon and Berkenkamp, Felix and Maharaj, Tegan and Wagstaff, Kiri and Zhu, Jerry},
+  volume = 	 {267},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {13--19 Jul},
+  publisher =    {PMLR},
+  pdf = 	 {https://raw.githubusercontent.com/mlresearch/v267/main/assets/hu25j/hu25j.pdf},
+  url = 	 {https://proceedings.mlr.press/v267/hu25j.html},
+  abstract = 	 {Large Language Models (LLMs) show great capabilities in a wide range of applications, but serving them efficiently becomes increasingly challenging as requests (prompts) become more complex. Context caching improves serving performance by reusing Key-Value (KV) vectors, the intermediate representations of tokens that are repeated across requests. However, existing context caching requires exact prefix matches across requests, limiting reuse cases in settings such as few-shot learning and retrieval-augmented generation, where immutable content (e.g., documents) remains unchanged across requests but is preceded by varying prefixes. Position-Independent Caching (PIC) addresses this issue by enabling modular reuse of the KV vectors regardless of prefixes. We formalize PIC and advance prior work by introducing EPIC, a serving system incorporating our new LegoLink algorithm, which mitigates the inappropriate “attention sink” effect at every document beginning, to maintain accuracy with minimal computation. Experiments show that EPIC achieves up to 8$\times$ improvements in Time-To-First-Token (TTFT) and 7$\times$ throughput gains over existing systems, with negligible or no accuracy loss.}
+}
+@article{yan2026qcfuse,
+  title={{QCFuse: Query-Aware Cache Fusion via Compressed View for Efficient RAG Serving}},
+  author={Yan, Jianxin and Ni, Wangze and Li, Zhenxin and Jin, Jiabao and Shen, Zhitao and Li, Haoyang and Zhu, Jia and Cheng, Peng and Lin, Xuemin and Chen, Lei and others},
+  journal={arXiv preprint arXiv:2606.05875},
+  year={2026}
+}
+@inproceedings{wang2026prophetkv,
+  title={{ProphetKV: User-Query-Driven Selective Recomputation for Efficient KV Cache Reuse in Retrieval-Augmented Generation}},
+  author={Shihao Wang and Jiahao Chen and Yanqi Pan and Hao Huang and Yichen Hao and Xiangyu Zou and Wen Xia and Chongyang Qiu and Wentao Zhang and PengFei Wang},
+  booktitle=ICML,
+  year={2026},
+  url={https://openreview.net/forum?id=SwGwmKIgUb}
+}
+@article{wang2026prefix,
+  title={{From Prefix Cache to Fusion Rag Cache: Accelerating LLM Inference in Retrieval-Augmented Generation}},
+  author={Wang, Jiahao and Xie, Weiyu and Zhang, Mingxing and Zhang, Boxin and Dong, Jianwei and Zhu, Yuening and Lin, Chen and Tang, Jingqi and Han, Yaochen and Ai, Zhiyuan and others},
+  journal=SIGMOD,
+  volume={4},
+  number=1,
+  pages={1--28},
+  year={2026},
+  publisher={ACM New York, NY, USA}
+}
+@inproceedings{cao2026sparse,
+  title={{Sparse Attention across Multiple-Context KV Cache}},
+  author={Cao, Ziyi and Si, Qingyi and Zhang, Jingbin and Liu, Bingquan},
+  booktitle=AAAI,
+  volume={40},
+  number={36},
+  pages={30165--30173},
+  year={2026}
+}
+
+@article{yang2026kvlink,
+  title={{KVlink: Accelerating Large Language Models via Efficient KV Cache Reuse}},
+  author={Yang, Jingbo and Hou, Bairu and Wei, Wei and Bao, Yujia and Chang, Shiyu},
+  journal=NIPS,
+  volume={38},
+  pages={133797--133824},
+  year={2026}
+}
+@article{chen2026kvpacket,
+  title={{KV Packet: Recomputation-Free Context-Independent KV Caching for LLMs}},
+  author={Chen, Chuangtao and Zhang, Grace Li and Yin, Xunzhao and Zhuo, Cheng and Li, Bing and Schlichtmann, Ulf},
+  journal={arXiv preprint arXiv:2604.13226},
+  year={2026}
+}
+@article{su2024rope,
+  title={{Roformer: Enhanced Transformer with Rotary Position Embedding}},
+  author={Su, Jianlin and Ahmed, Murtadha and Lu, Yu and Pan, Shengfeng and Bo, Wen and Liu, Yunfeng},
+  journal={Neurocomputing},
+  volume={568},
+  pages={127063},
+  year={2024},
+  publisher={Elsevier}
+}
+@inproceedings{ma2025block,
+  title={{Block-Attention for Efficient Prefilling}},
+  author={Ma, Dongyang and Wang, Yan and Lan, Tian},
+  booktitle=ICLR,
+  volume={2025},
+  pages={63774--63788},
+  year={2025}
+}
+@article{liu2024positional,
+  title={{Lost in the Middle: How Language Models use Long Contexts}},
+  author={Liu, Nelson F and Lin, Kevin and Hewitt, John and Paranjape, Ashwin and Bevilacqua, Michele and Petroni, Fabio and Liang, Percy},
+  journal=ACL,
+  volume={12},
+  pages={157--173},
+  year={2024}
+}
+@inproceedings{glater2023answer,
+  title={{On Answer Position Bias in Transformers for Question Answering}},
+  author={Glater, Rafael and Santos, Rodrygo LT},
+  booktitle=SIGIR,
+  pages={2215--2219},
+  year={2023}
+}
+@article{biography,
+ title={{alex-karev/biographies}},
+ author={Karev, Alex},
+ journal={{huggingface dataset}},
+ year=2025,
+}
+@article{ruler,
+ title={{simonjegou/ruler}},
+ author={Jegou, Simon},
+ journal={{huggingface dataset}},
+ year=2024,
+}
+@inproceedings{yang2018hotpotqa,
+  title={{HotpotQA: A Dataset for Diverse, Explainable Multi-Hop Question Answering}},
+  author={Yang, Zhilin and Qi, Peng and Zhang, Saizheng and Bengio, Yoshua and Cohen, William and Salakhutdinov, Ruslan and Manning, Christopher D},
+  booktitle=EMNLP,
+  pages={2369--2380},
+  year={2018}
+}
+@article{trivedi2022musique,
+  title={{Musique: Multihop Questions via Single-Hop Question Composition}},
+  author={Trivedi, Harsh and Balasubramanian, Niranjan and Khot, Tushar and Sabharwal, Ashish},
+  journal=ACL,
+  volume={10},
+  pages={539--554},
+  year={2022},
+  publisher={MIT Press One Broadway, 12th Floor, Cambridge, Massachusetts 02142, USA~…}
+}
+@inproceedings{ho2020twowikiqa,
+  title={{Constructing a Multi-Hop QA Dataset for Comprehensive Evaluation of Reasoning Steps}},
+  author={Ho, Xanh and Nguyen, Anh-Khoa Duong and Sugawara, Saku and Aizawa, Akiko},
+  booktitle=COLING,
+  pages={6609--6625},
+  year={2020}
+}
+@article{grattafiori2024llama,
+  title={{The Llama 3 Herd of Models}},
+  author={Grattafiori, Aaron and Dubey, Abhimanyu and Jauhri, Abhinav and Pandey, Abhinav and Kadian, Abhishek and Al-Dahle, Ahmad and Letman, Aiesha and Mathur, Akhil and Schelten, Alan and Vaughan, Alex and others},
+  journal={arXiv preprint arXiv:2407.21783},
+  year={2024}
+}
+@article{yang2025qwen3,
+  title={{Qwen3 Technical Report}},
+  author={Yang, An and Li, Anfeng and Yang, Baosong and Zhang, Beichen and Hui, Binyuan and Zheng, Bo and Yu, Bowen and Gao, Chang and Huang, Chengen and Lv, Chenxu and others},
+  journal={arXiv preprint arXiv:2505.09388},
+  year={2025}
+}
+@misc{granite-4.1,
+  title={{Granite 4.1 LLMs: How They're Built}},
+  author={Yousaf Shah},
+  url={https://huggingface.co/blog/ibm-granite/granite-4-1},
+  year={2026},
+}
+@misc{mellea,
+  title={{Mellea}},
+  url={https://mellea.ai/},
+  year={2025},
+}
+@misc{langchain,
+  title={LangChain},
+  url={https://www.langchain.com/},
+  year={2022},
+}
+@article{hind2026llmon,
+  title={{LLMON: An LLM-native Markup Language to Leverage Structure and Semantics at the LLM Interface}},
+  author={Hind, Michael and Shbita, Basel and Wu, Bo and Ahmed, Farhan and DeLuca, Chad and Fulton, Nathan and Cox, David and Gutfreund, Dan},
+  journal={arXiv preprint arXiv:2603.22519},
+  year={2026}
+}
+@misc{lall2026va,
+      title={{Verbalized Algorithms: Classical Algorithms are All You Need (Mostly)}},
+      author={Supriya Lall and Christian Farrell and Hari Pathanjaly and Marko Pavic and Sarvesh Chezhian and Masataro Asai},
+      year={2026},
+      eprint={2509.08150},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2509.08150},
+}
+@article{kazemnejad2023impact,
+  title={{The Impact of Positional Encoding on Length Generalization in Transformers}},
+  author={Kazemnejad, Amirhossein and Padhi, Inkit and Natesan Ramamurthy, Karthikeyan and Das, Payel and Reddy, Siva},
+  journal=NIPS,
+  volume={36},
+  pages={24892--24928},
+  year={2023}
+}
+@inproceedings{gelberg2026extending,
+  title={{Extending the Context of Pretrained LLMs by Dropping Their Positional Embedding}},
+  author={Gelberg, Yoav and Eguchi, Koshi and Akiba, Takuya and Cetin, Edoardo},
+  booktitle=ICLR,
+  volume={2026},
+  pages={60170--60197},
+  year={2026}
+}
+@inproceedings{kayhan2020translation,
+  title={{On Translation Invariance in CNNs: Convolutional Layers can Exploit Absolute Spatial Location}},
+  author={Kayhan, Osman Semih and Gemert, Jan C van},
+  booktitle=CVPR,
+  pages={14274--14285},
+  year={2020}
+}
+@article{gao2017properties,
+  title={{On the Properties of the Softmax Function with Application in Game Theory and Reinforcement Learning}},
+  author={Gao, Bolin and Pavel, Lacra},
+  journal={arXiv preprint arXiv:1704.00805},
+  year={2017}
+}
+@incollection{witkin1987scale,
+  title={{Scale-space filtering}},
+  author={Witkin, Andrew P},
+  booktitle={Readings in computer vision},
+  pages={329--332},
+  year={1987},
+  publisher={Elsevier}
+}
+@inproceedings{xiao2024efficient,
+  title={{Efficient Streaming Language Models with Attention Sinks}},
+  author={Xiao, Guangxuan and Tian, Yuandong and Chen, Beidi and Han, Song and Lewis, Mike},
+  booktitle=ICLR,
+  volume={2024},
+  pages={21875--21895},
+  year={2024}
+}
+@inproceedings{hu2022lora,
+title={{LoRA: Low-Rank Adaptation of Large Language Models}},
+author={Edward J Hu and yelong shen and Phillip Wallis and Zeyuan Allen-Zhu and Yuanzhi Li and Shean Wang and Lu Wang and Weizhu Chen},
+booktitle=ICLR,
+year={2022},
+url={https://openreview.net/forum?id=nZeVKeeFYf9}
+}
