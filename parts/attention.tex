@@ -1,0 +1,20 @@
+
+Transformer \citep{vaswani2017attention} architecture performs autoregressive generation
+using layers of multi-head self-attention mechanism.
+Given a hidden state vector $\vh[l]$ at layer $l$,
+a single self-attention with Rotary Positional Embedding \cite[RoPE]{su2024rope} is as follows:
+% fits in one line in ICLR style
+\begin{align}
+ \vx &= \text{Norm}(\vh[l]),\
+ \begin{array}{cc}
+ K =& R_\vt(W^K \vx),\\
+ Q =& R_\vt(W^Q \vx),\\
+ V =& W^V \vx,
+ \end{array}
+ O = V\odot\softmax\parens{\frac{Q^\top K}{\sqrt{2d}}}.
+\end{align}
+$\vt=1..N$ is a position and
+$R_\vt$ is a RoPE operator.
+For $H$ self-attentions,
+the outputs $O_1, \cdots, O_H$ are concatenated and fed to an MLP
+to produce $\vh[l+1] = \text{MLP}(O_1; \cdots; O_H)$.

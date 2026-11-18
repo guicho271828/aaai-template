@@ -1,0 +1,29 @@
+Given a $2d$-dimensional embedding $\vx$,
+RoPE rotates $\vx$ to position $t$ as follows.
+It maintains the following invariance that makes resetting the positions from $t$ to $s$ possible:
+\[
+ R_t\vx =
+ \left[
+ \begin{array}{cc}
+  \cos t & -\sin t \\
+  \sin t & \cos t
+ \end{array}
+ \right]
+ \left[
+ \begin{array}{c}
+  \vx_{0:d} \\
+  \vx_{d:2d}
+ \end{array}
+ \right].
+ \quad
+ \begin{array}{c}
+  R_{t+s}  = R_t R_s. \\
+  \therefore R_s\vx = R_{s-t}(R_t\vx). \\
+ \end{array}
+\]
+This maintains the following invariance that makes resetting the positions from $t$ to $s$ possible:
+\[
+ R_tR_s=R_{t+s}, \quad
+ \vx = R_tR_{-t}\vx, \quad
+ R_s\vx = R_{s-t}(R_t\vx).
+\]
