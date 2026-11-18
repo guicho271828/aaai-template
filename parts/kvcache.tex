@@ -1,0 +1,42 @@
+
+Modern inference engines avoid the $O(N^2)$ complexity in computing $Q^\top K$
+by caching the submatrix of $K$.
+Given
+$\vh[l]$ and $K$,
+the submatrix $K_{1..N-1}$ is identical to
+the output of the previous iteration,
+thus the $N-1$ token prefix can be cached.
+The same applies to $V$.
+\[
+ \vh[l] =
+ \left[
+ \begin{array}{c}
+  \vh[l]_{1..N-1} \\
+  \vh[l]_{N-1..N}
+ \end{array}
+ \right].
+ \quad
+ K= R(\vt)W^Kh[l]
+ % =
+ % R(\vt)W^K
+ % \left[
+ % \begin{array}{c}
+ %  \vh[l]_{1..N-1} \\
+ %  \vh[l]_{N-1..N}
+ % \end{array}
+ % \right]
+ =
+ \left[
+ \begin{array}{c}
+  R(\vt)W^K\vh[l]_{1..N-1} \\
+  R(\vt)W^K\vh[l]_{N-1..N}
+ \end{array}
+ \right]
+ =
+ \left[
+ \begin{array}{c}
+  K_{1..N-1} \\
+  K_{N-1..N}
+ \end{array}
+ \right].
+\]

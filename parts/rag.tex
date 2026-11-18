@@ -1,0 +1,20 @@
+% Retrieval Augmented Generation (RAG)
+A RAG task
+is a set of 3-tuples $\Pi=(Q,A,D)$ where
+% $S$ is a set of documents,
+$Q$ is the question, $A$ is the ground-truth answer, and $D=(D_1,\cdots D_K)$ is
+a sequence of $K$ documents
+some of which contain information relevant to $Q$ and $A$.
+We assume $D$ is given and focus on generating $A$,
+while retrieving $D$ from a larger corpus is outside the scope of this paper.
+Using a language model $p_\theta(A|Q,D)$,
+the goal of the task is to sample an answer $\tilde{A}$ that is as close to $A$ as possible.
+% The performance is measured by two metrics:
+% the \emph{F1 metric}, which is the token-level Jaccard distance between $A$ and $\tilde{A}$,
+% and \emph{TTFT} (Time to First Token), which is the sum of the runtime for
+% any additional processing for KV caches and
+% the runtime for prefilling the query $Q$.
+% TTFT does not include the runtime for prefilling the system prompt.
+% Due to the different runtime-accuracy trade-offs,
+% proper evaluation requires comparing its Pareto front.
+

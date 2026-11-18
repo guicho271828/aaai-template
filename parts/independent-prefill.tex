@@ -1,0 +1,87 @@
+% Sec 3 bobby revised
+Computing $K$ and $V$ is often called \emph{prefilling}.
+% Prefilling computes an input sequence's key and value representations ($K$ and $V$).
+We denote the standard prefilling with prefix caching by \fullrec.
+% , reuses the system prompt's KV cache and recomputes the document and query representations.
+% When computing Time To First Token (TTFT), we exclude system prompt prefilling.
+Prefix caching reuses the cache only for the common prefix, thus
+a sequence with a different prefix requires computing the cache from the scratch.
+This restriction motivates reusing independently prefilled caches at non-prefix positions,
+known as \emph{position-independent caching}, \emph{non-prefix KV cache reuse}, \emph{individual prefill} and so on.
+%
+The naive baseline, \norec, prefills each document $D_k$ independently to obtain $C_k=(K_k,V_k)$,
+then rerotates and concatenates them:
+\[
+\tilde{C}^{\mathrm{NR}} = C'_1;\cdots;C'_K,
+\qquad
+C'_k = R_{-\Delta_k}(C_k),
+\qquad
+\Delta_k = \sum_{i=1}^{k-1}|D_i|.
+\]
+Here, $;$ denotes token-wise concatenation, and $R_{-\Delta_k}$ shifts the keys' RoPE positions backward by $\Delta_k$ at every layer, leaving the values unchanged.
+This aligns positional encoding but cannot recover the cross-document context captured by joint prefilling, potentially degrading answer quality.
+
+Existing methods address this degradation through online recomputation or additional training.
+\emph{Selective Recomputation} recomputes KV representations for a subset of tokens.
+Since this requires the retrieved documents $D$,
+the recomputation happens during the inference, which causes a random overhead.
+The number of recomputed tokens controls the runtime-accuracy trade-off;
+recomputing all tokens recovers \fullrec while 0\% recomputation corresponds to \norec.
+EPIC \citep{hu2024epic} recomputes the tokens at the beginning of each document,
+while CacheBlend \citep{yao2025cacheblend}
+first recomputes the first layer for all tokens and then selects the tokens with the largest first layer cache difference.
+As a baseline, \randrec recomputes the caches for randomly selected token positions.
+\emph{Training-based methods} adapt the model and/or insert auxiliary tokens with learned embeddings.
+BlockAttention \citep{ma2025block} fine-tunes the model to accommodate independently prefilled caches.
+KVLink \citep{yang2026kvlink} combines fine-tuning with additional \emph{link tokens} between documents.
+Link tokens are prefilled online and therefore have a runtime penalty,
+while full-model fine-tuning incurs training and memory costs.
+KVPacket \citep{chen2026kvpacket} reduces KVLink's training/inference costs
+by optimizing only the embeddings and
+prefilling them with the document offline.
+% avoiding the online link-token prefilling required by KVLink.
+% Thus, these approaches differ in both their offline preparation costs and the additional computation required during inference.
+
+% Sec 3 original version
+% Computing $K$ and $V$ is often called \emph{prefilling}.
+% We refer to the standard autoregressive prefilling with prefix caching as \fullrec.
+% Prompts that differ in non-prefix positions invalidate the cache,
+% forcing recomputation of K and V after the first token that differs from
+% the cached tokens.
+% To address this, existing work attempts to discover a way to reuse KV caches in
+% non-prefix positions, which is refered to as various names
+% (e.g., position-independent caching, non-prefix KV cache reuse, individual prefill).
+% The naive baseline method, \norec, for RAG works as follows.
+% For each $D_k$,
+% let $C_k$ be the corresponding individually-prefilled KV cache produced by
+% feeding the tokens in $D_k$ by itself.
+% Since $C_k$ has RoPE for positions $1..|D_k|$,
+% it must be re-rotated to the correct position before concatenation during the inference.
+% Let $C'_k$ be the rerotated cache.
+% % Let $\tilde{C}^{\function{norec}}$ be
+% Then the entire concatenated cache $\tilde{C}^{\text{NR}}$ is as follows.
+% % $\tilde{C}^{\text{NR}}$ is then used to prefill $Q$ and generate an answer $\tilde{A}$.
+% \[
+%  \textstyle \tilde{C}^{\text{NR}} = C'_1; \cdots; C'_K, \quad C'_k = R(\1 \cdot \sum_{i=1}^{k-1} |D_i|)(C_k), \quad \1 = (1,1,\cdots,1).
+% \]
+
+% \norec causes serious accuracy degradations and a number of methods have been addressed.
+% Majority of methods belong to a category called \emph{selective recomputation},
+% which selects several token positions according to some criteria and recomputes $K$ and $V$ for those positions.
+% However, recomputation must happen after the combination of documents $D$ is revealed, which affects the inference speed.
+% Recomputation methods often allows scaling the number of tokens to recompute, and
+% can theoretically match the \fullrec accuracy when all tokens are recomputed.
+% In practice, the user finds a trade-off between the latency and the accuracy.
+
+% Another group of methods that address the degradation are based on fine-tuning and link tokens.
+% BlockAttention \citep{ma2025block} showed that fine-tuning works.
+% KVLink \citep{yang2026kvlink} combines it with link tokens, which inserts additional tokens between documents
+% and trains the embeddings to match the original generation.
+% Similar to recomputation-based methods,
+% KVLink also has a runtime penalty because the link tokens must be prefilled online.
+% It also requires a costly infrastructure for a full finetuning when applied to a large model.
+% KVPacket \citep{chen2026kvpacket} removes these weaknesses by
+% training only the link tokens to reduce the resoure requirement,
+% and prefill link tokens together with each document offline,
+% which completely eliminates the runtime cost.
+
